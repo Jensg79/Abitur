@@ -4,7 +4,7 @@
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum}
 \usepackage{hyperref}
 \usepackage{xcolor}
-
+\usepackage{dsfont}
 \colorlet{shadecolor}{yellow!15}
 
 \usepackage{thmtools}
@@ -22,7 +22,10 @@
 \usepackage{afterpage}
 \usepackage{tikz} 
 \usepackage[most]{tcolorbox}
-
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
 
 \newtcbtheorem[number within=section]{defi}
     {Definition}{colback=red!5,colframe=red!35!black,fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
@@ -74,7 +77,7 @@ Wir betrachten die Normalparabel $$ y=x^2 $$ und darauf den Punkt $P(1,5|2,25)$.
 
 \end{bsp*}
 Nähert sich der Punkt Q beliebig nahe an P an, so unterscheidet sich die Steigung der Sekante immer weniger von 3. Man spricht in diesem Fall auch von einem Grenzwert.\
-\begin{merke*}{Wichtige Informationen zur Definition  der Ableitung}\ref{defabl}
+\begin{merke*}{Wichtige Informationen zur Definition  der Ableitung}
 \index{Ableitung!Definition}
 \begin{itemize}
  \item Nähern sich die Funktionswerte $f(x)$ einer Funktion $f$ einer Zahl $a$ beliebig genau an, das ist der Fall wenn sich die Werte für $x$ von links und von rechts an $x_0$ beliebig genau annnähern, so heißt $a$ Grenzwert der Funktion $f(x)$. $\lim_{x \rightarrow x_0}$ 
@@ -154,9 +157,43 @@ Wir erhalten aus dem Graphen $G_f$ der Funktion f den Graphen der Funktion g mit
     \index{Ableitung!Ableitungsfunktion}
     Zu einer Funktion $f$ heißt die Funktion $f': x \mapsto f'(x)$ die Ableitungsfunktion oder kurz die Ableitung von $f$. Die Ableitung einer Funktion $f$ ist diejenige Funktion, die jeder Stelle $x$, an der $f$ differenzierbar ist, die Ableitung $f'(x)$ zuordnet:
 $$f'(x)=\lim_{h\rightarrow 0} \dfrac{f(x + h) - f(x)}{h}.$$ 
-
 \end{defi}
+\begin{bem}{Bedeutung der Ableitungsfunktion}{bedeutungAblf}
+   Die Ableitungsfunktion $f'$ beschreibt die Steigung der Funktion $f$ an jeder Stelle $x\in \mathds{R}$. \\
+   Bei der Ableitung von Polynomen verringert sich der Grad der Funktion bei jeder Ableitung um 1.\\
+   
+\end{bem}
+\begin{bsp}{Beispielfunktion}{}\index{Ableitung!Ableitungsfunktion!Beispiel}
+Die Funktion $f(x) = x^3 + x^2 -2x+1$ mit $x\in\mathds{R}$ ist ein Polynom vom Grad 3, die Funktion $f'(x) = 3x^2+2x-2$ ist die erste Ableitung der Funktion $f(x)$. Die Graphen der beiden Funktionen ist unten gegeben. 
 
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\begin{axis}[
+x=1cm,y=1cm,
+axis lines=middle,
+ymajorgrids=true,
+xmajorgrids=true,
+xmin=-4.6725325047810795,
+xmax=3.4865844816315783,
+ymin=-3.970650919871985,
+ymax=4.84273488148887,
+xtick={-4,-3,...,3},
+ytick={-3,-2,...,4},]
+\clip(-4.6725325047810795,-3.970650919871985) rectangle (3.4865844816315783,4.84273488148887);
+\draw[line width=1.2pt,smooth,samples=100,domain=-4.6725325047810795:3.4865844816315783] plot(\x,{(\x)^(3)+(\x)^(2)-2*(\x)+1});
+\draw[line width=1.2pt,color=ccqqqq,smooth,samples=100,domain=-4.6725325047810795:3.4865844816315783] plot(\x,{3*(\x)^(2)+2*(\x)-2});
+\begin{scriptsize}
+\draw[color=black] (-2,-2.7) node {$f(x)$};
+\draw[color=ccqqqq] (-2.2,3.5) node {$f'(x)$};
+\end{scriptsize}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bsp}
+\end{section}
+\begin{section}{Ableitung ganzrationaler Funktionen}
+Die Ableitung von Funktionen mit der h-Methode ist für jede Funktion möglich. Allerdings wird das Ableiten damit schnell mühsam. Das Problem lässt sich durch die Anwendung bestimmter Ableitungsregeln umgehen.
 \end{section}
 \chapter{Analytische Geometrie}
 \section{Das 3-dim Koordinatensystem}
