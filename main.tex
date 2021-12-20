@@ -1,0 +1,166 @@
+\documentclass[a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\colorlet{shadecolor}{yellow!15}
+
+\usepackage{thmtools}
+\hypersetup{colorlinks =true, linkcolor = blue, urlcolor =red, pdftitle={Mathematik in Q11}}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancy}
+\usepackage{xcolor}
+\lhead{J. Gundelwein}
+\rhead{Gymnasium Gröbenzell}
+\cfoot{Seite \thepage \ von \pageref{LastPage}}
+\usepackage[Glenn]{fncychap}
+%Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage{tikz} 
+\usepackage[most]{tcolorbox}
+
+
+\newtcbtheorem[number within=section]{defi}
+    {Definition}{colback=red!5,colframe=red!35!black,fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
+\newtcbtheorem[number within=section]{bsp}
+    {Beispiel}{colback=white,colframe=blue!70!green,fonttitle=\bfseries, breakable,title after break={Beispiel (Fortsetzung)}}{theorem}
+\newtcbtheorem[number within=section]{merke}{Merke} {colback=green!5,colframe=green!35!black,fonttitle=\bfseries, breakable,title after break={Merke (Fortsetzung)}}{th}
+\newtcbtheorem[number within=section]{bem}
+    {Bemerkung}{colback=red!5,colframe=red!35!black,breakable, fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
+\usepackage{setspace}
+
+\usepackage{makeidx}
+\renewcommand{\indexname}{Sachregister}
+\makeindex
+\begin{document}
+
+\onehalfspacing
+\begin{titlepage}
+
+\begin{center}
+%\renewcommand{\baselinestretch}{1}  % Zeilenabstand einfach
+\huge \textbf{Gymnasium Gröbenzell}
+\vspace{0.2cm}\\
+\Large \textbf{ Mathematik Q11}
+\vspace{1cm}\\
+\LARGE \textbf{Abiturvorbereitung Mathematik}
+\vspace{1cm}\\
+\end{center}
+\end{titlepage}
+\tableofcontents
+\newpage
+\chapter{Analysis}
+\begin{section}{Lokales Differenzieren}\index{Differenzieren!lokal}
+\begin{subsection}{Die mittlere Änderungsrate}
+\begin{defi}{Die mittlere Änderungsrate}{maer}\index{Änderungsrate!mittlere}
+Der Quotient $$\dfrac{\Delta y}{\Delta x} = \dfrac{f(b) - f(a)}{b - a}$$ heißt mittler Änderungsrate oder Differenzenquotient der Funktion f im Intervall $\left[a;b\right]$.\\
+Geometrisch gedeutet ist der Differenzenquotient \index{Änderungsrate!Differenzenquotient} die Steigung der Sekante durch die Punkte $P(a|f(a))$ und $Q(b|f(b))$.
+\end{defi}
+\begin{bsp}{Ein Beispiel für die mittlere Änderungsrate}{bspmaer}
+Gegeben sind die Punkte $P(3|4)$ und $Q(6|1)$ und damit die mittlere Änderungsrate: $$ \dfrac{\Delta y}{\Delta x} = \dfrac{4-1}{3-6} = \dfrac{3}{-3} = -1$$
+\end{bsp}
+\end{subsection}
+
+\subsection{Definition der Ableitung}{abl}
+Übergang von der Sekante zur Tangente:\\
+Wir betrachten die Normalparabel $$ y=x^2 $$ und darauf den Punkt $P(1,5|2,25)$. Zur Bestimmung des Anstiegs bildet man den Differenzenquotienten zwischen P und einen beliebigem Punkt $Q(x|x^2)$. Bildet man für die beliebigen Werte von Q den Differenzenquotienten, so ergibt sich folgende Gleichung: 
+\begin{bsp*}{Differenzenquotient für $f(x) =x^2 $}\index{Änderungsrate!Differenzenquotient!Beispiel}
+  
+  $$ m_s(x)= \dfrac{\Delta y}{\Delta x} = \dfrac{f(x) - 2,25}{x - 1,5} = \dfrac{x^2 - 2,25}{x- 1,5} = \dfrac{(x-1,5)(x+1,5)}{x-1,5} =x+1,5 $$
+
+\end{bsp*}
+Nähert sich der Punkt Q beliebig nahe an P an, so unterscheidet sich die Steigung der Sekante immer weniger von 3. Man spricht in diesem Fall auch von einem Grenzwert.\
+\begin{merke*}{Wichtige Informationen zur Definition  der Ableitung}\ref{defabl}
+\index{Ableitung!Definition}
+\begin{itemize}
+ \item Nähern sich die Funktionswerte $f(x)$ einer Funktion $f$ einer Zahl $a$ beliebig genau an, das ist der Fall wenn sich die Werte für $x$ von links und von rechts an $x_0$ beliebig genau annnähern, so heißt $a$ Grenzwert der Funktion $f(x)$. $\lim_{x \rightarrow x_0}$ 
+ \item Der Punkt Q laufe auf einer Kurve von links und rechts auf den Punkt P zu. Ergibt sich dabei ein gemeinsamer Grenzwert der Sekante, heißt die Grenzgerade Tangente an die Kurve im Punkt P.
+ \item Die Steigung eines Graphen im Punkt P ist gleich der Steigung der Tangente in diesem Punkt.
+\end{itemize}
+\end{merke*}
+\begin{merke*}{Die h-Methode zur Berechnung der Steigung der Tangente}{hmethode}\index{Ableitung!h-Methode}
+Wir führen eine Hilfsvariable h ein, diese gibt die Abweichung der Koordinate $x$ von der Koordinate $x_0$ angibt. Damit ist $x=x_0 + h$. Mit dieser Überlegung ist es jetzt möglich den Grenzwert zu bestimmen: $$m_t =\lim_{h\rightarrow 0} m_t(x_0 +h) =\lim_{h\rightarrow 0} \dfrac{f(x_0 + h) - f(x_0)}{h}.$$
+\end{merke*}
+\subsection{Differenzierbarkeit und Lineare Transformation}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
+\begin{defi}{Die Differenzierbarkeit einer Funktion}
+ Eine Funktion f heißt an der Stelle $x_0$ im Inneren des Definitionsbereichs $D_f$ differenzierbar, wenn der Grenzwert $f'(x) =lim_{h\rightarrow 0}\dfrac{(f(x_0 +h) -f(x_0)}{h}$ existiert, sich also bei links- und rechtsseitiger Annäherung der gleiche Wert ergibt. Der Grenzwert des Differenzenquotient heißt Differentialquotient.
+\end{defi}
+\begin{bsp*}{Die Überprüfung der Differenzierbarkeit mit der h-Methode}\index{Differenzieren!Differenzierbarkeit!Beispiel}
+    Gegeben ist die Funktion $f(x)= x^2 + |x|$, wir überprüfen die Ableitung an der Stelle $P(0|f(0))$.
+
+$$f(x)= \begin{cases}
+              x^2 + x & \text{für}\hspace{0.5cm} x\geq 0\\
+              x^2 - x & \text{für}\hspace{0.5cm}  x< 0 
+         \end{cases}$$
+Für die Untersuchung der Differenzierbarkeit sind folgende Grenzwerte zu überprüfen::
+\begin{equation*}
+\begin{split}
+f'(0) &= \lim_{h\rightarrow0^-} \dfrac{f(0+h)-f(0)}{h}\\ &=\lim_{h\rightarrow 0^-} \dfrac{(0+h)^2 - (0+h) -0}{h}\\ &= \lim_{h\rightarrow 0^-} \dfrac{h^2-h}{h} = \lim_{h\rightarrow 0^-} h-1=-1 
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+f'(0)&=\lim_{h\rightarrow 0^+}\dfrac{f(0+h)-f(0)}{h}\\
+&=\lim_{h\rightarrow 0^+} \dfrac{(0+h)^2 + (0+h) -0}{h}\\ 
+&=\lim_{h\rightarrow 0^+} \dfrac{h^2 + h}{h} = \lim_{h\rightarrow 0^+} h+1 =1
+\end{split}
+\end{equation*}
+Der Differenzenquotient hat daher für $x\rightarrow 0$ keinen Grenzwert, die Funktion $f$ ist damit an der Stelle $x_0 = 0$ nicht differenzierbar. Der Graph $G_f$ hat an dieser Stelle einen "`Knick"'.
+\end{bsp*}
+
+\begin{bem*}{}\index{Differenzieren!Differenzierbarkeit!Lineare Transformationen}\index{Lineare Transformation}
+Die Lineare Transformation der Betragsfunktion ändert nichts an der Nicht-Differenzierbarkeit der Funktion.
+\end{bem*}
+Während der letzten Schulajahre wurden verschiedene Funktionsarten einer linearen Transformation unterzogen. Als Beispiel wird hier auf die Funktionen: 
+ \begin{equation*}
+    \begin{split}
+        f(x) &= x^2\\
+        g(x) &= \sin{(x)}\\
+        h(x) &= \cos{(x)}
+    \end{split}
+\end{equation*}
+verwiesen.\\ 
+In Jahrgangsstufe 9 wurde die Normalparabel auf unterschiedlichste Arten transformiert. In der 10. Jahrgangsstufe wurden Trigonometrischen Funktionen transformiert.
+\begin{bsp*}{Transformationen am Bespiel der Normalparabel}\index{Lineare Transformation!Beispiel}
+Der Graph der Funktion $f(x) = x^2$ läßt sich wie folgt transformieren:
+\begin{itemize}
+\item $g_1(x) = -x^2$ $\Longrightarrow$ Normalparabel an der $x-$Achse gespiegelt
+\item $g_2(x) =   x^2 +a$ $\Longrightarrow$ $G_f$  Richtung der y--Achse um a verschoben
+\item $g_3(x) =(x-a)^2$ $\Longrightarrow$ $G_f$ in Richtung der x--Achse um a verschoben
+\item $g_4(x) =a\cdot x^2$ und $a>0$, $\Longrightarrow$ $G_f$ in Richtung der y--Achse mit dem Faktor a gestreckt bzw. gestaucht
+\end{itemize}
+\end{bsp*}
+\begin{merke}{Allgemeine Darstellung der Linearen Transformationen} 
+Die lineare Transformation lässt sich allgemein wie folgt schreiben:\index{Lineare Transformation!allgemein}\\
+Wir erhalten aus dem Graphen $G_f$ der Funktion f den Graphen der Funktion g mit:
+\begin{itemize}
+\item $g(x) = - f(x)$, indem man $G_f$ an der x--Achse spiegelt
+\item $g(x) =f(-x)$, indem man $G_f$ an der y--Achse spiegelt
+\item $g(x) = f(x) +a$ indem man $G_f$ in Richtung der y--Achse um a verschiebt
+\item $g(x) =f(x-a)$ indem man $G_f$ in Richtung der x--Achse um a verschiebt
+\item $g(x) =a\cdot f(x)$ und $a>0$, indem man $G_f$ in Richtung der y--Achse mit dem Faktor a streckt bzw. staucht
+\item $g(x) =f(a\cdot x)$ und  $a>0$, indem man $G_f$ in Richtung der x--Achse mit dem Faktor $\dfrac{1}{a}$ staucht bzw. streckt 
+\end{itemize}
+\end{merke}
+\end{section}
+
+\begin{section}{Globales Differenzieren}
+\subsection{Die Ableitungsfunktion}
+\begin{defi}{Die Ableitungsfunktion}{ablf}
+    \index{Ableitung!Ableitungsfunktion}
+    Zu einer Funktion $f$ heißt die Funktion $f': x \mapsto f'(x)$ die Ableitungsfunktion oder kurz die Ableitung von $f$. Die Ableitung einer Funktion $f$ ist diejenige Funktion, die jeder Stelle $x$, an der $f$ differenzierbar ist, die Ableitung $f'(x)$ zuordnet:
+$$f'(x)=\lim_{h\rightarrow 0} \dfrac{f(x + h) - f(x)}{h}.$$ 
+
+\end{defi}
+
+\end{section}
+\chapter{Analytische Geometrie}
+\section{Das 3-dim Koordinatensystem}
+\chapter{Stochastik}
+\printindex
+
+\end{document}
