@@ -5,6 +5,11 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{polynom}
+\polyset{%
+    vars=x,
+    style=C,
+    div=:,
+    delims={(}{)}}
 \usepackage{dsfont}
 \colorlet{shadecolor}{yellow!15}
 
@@ -21,10 +26,11 @@
 %Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
 \usepackage{xcolor}
 \usepackage{afterpage}
-\usepackage{tikz} 
+%\usepackage{tikz}
+
 \usepackage[most]{tcolorbox}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
+\pgfplotsset{compat=1.15, width =10cm}
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 
@@ -36,7 +42,6 @@
 \newtcbtheorem[number within=section]{bem}
     {Bemerkung}{colback=red!5,colframe=red!35!black,breakable, fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
 \usepackage{setspace}
-
 \usepackage{makeidx}
 \renewcommand{\indexname}{Sachregister}
 \makeindex
@@ -209,26 +214,33 @@ Innerhalb der Analysis ist die Bestimmung der Nullstellen eine der zentralen Auf
 \end{section}
 
 \chapter{Analytische Geometrie}
-\begin{section}{Das 3-dim Koordinatensystem}
+\section{Das 3-dim Koordinatensystem}
 blahblah
 
-
-
-
-\end{section}
 \chapter{Stochastik}
 \chapter{Anhang}
-\section{Polynomdivision}
-Die Polynomdivision wird eingesetzt um entweder den Grad eines polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln.
-\begin{bsp}
-\polyset{
-  style=C,
-  vars = x,
-  delims={\big(}{\big)},
-  div=:
-}
-\polylongdiv{x^3-2x^2+4x+7}{x+1}
+\section{Polynomdivision}\index{Polynomdivision}
+Die Polynomdivision wird eingesetzt um entweder den Grad eines Polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln.
+\subsection{Polynomdivision bei Polynomen}\index{Polynomdivision!Polynome}
+\begin{bsp}{Die Polynomdivision}
+    Bei einem Polynom wird die Polynomdivision angewendet um den Grad des Polynoms zu verringern und die Faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt der Nullstellen darstellen kann.
+    \begin{tikzpicture}
+        \begin{axis}[xmin= -3.5, xmax = 8.5, ymin= -35, ymax= 12,
+        axis lines = middle, 
+        xtick={-2, -1, 0, ..., 8},
+        xlabel = $x$,
+        ylabel=$y$]
+            \addplot[color= red, samples = 300, domain= -2.5:6.5]{x^3-6*x^2-x+6};
+        \end{axis}
+    \end{tikzpicture}
 \end{bsp}
+\begin{center}
+  \polylongdiv{x^3- 6x^2 - x +6}{x-1}
+\end{center}  
+\begin{center}
+  \polyfactorize{x^3-6x^2-x+6}
+\end{center} 
+
 \printindex
 
 \end{document}
