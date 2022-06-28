@@ -4,6 +4,7 @@
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{polynom}
 \usepackage{dsfont}
 \colorlet{shadecolor}{yellow!15}
 
@@ -128,7 +129,7 @@ Während der letzten Schulajahre wurden verschiedene Funktionsarten einer linear
 \end{equation*}
 verwiesen.\\ 
 In Jahrgangsstufe 9 wurde die Normalparabel auf unterschiedlichste Arten transformiert. In der 10. Jahrgangsstufe wurden Trigonometrischen Funktionen transformiert.
-\begin{bsp*}{Transformationen am Bespiel der Normalparabel}\index{Lineare Transformation!Beispiel}
+\begin{bsp*}{Transformationen am Bespiel der Normalparabel}{}\index{Lineare Transformation!Beispiel}
 Der Graph der Funktion $f(x) = x^2$ läßt sich wie folgt transformieren:
 \begin{itemize}
 \item $g_1(x) = -x^2$ $\Longrightarrow$ Normalparabel an der $x-$Achse gespiegelt
@@ -151,7 +152,7 @@ Wir erhalten aus dem Graphen $G_f$ der Funktion f den Graphen der Funktion g mit
 \end{merke}
 \end{section}
 
-\begin{section}{Globales Differenzieren}
+\begin{section}{Globales Differenzieren}\index{Differenzieren!global}
 \subsection{Die Ableitungsfunktion}
 \begin{defi}{Die Ableitungsfunktion}{ablf}
     \index{Ableitung!Ableitungsfunktion}
@@ -165,7 +166,6 @@ $$f'(x)=\lim_{h\rightarrow 0} \dfrac{f(x + h) - f(x)}{h}.$$
 \end{bem}
 \begin{bsp}{Beispielfunktion}{}\index{Ableitung!Ableitungsfunktion!Beispiel}
 Die Funktion $f(x) = x^3 + x^2 -2x+1$ mit $x\in\mathds{R}$ ist ein Polynom vom Grad 3, die Funktion $f'(x) = 3x^2+2x-2$ ist die erste Ableitung der Funktion $f(x)$. Die Graphen der beiden Funktionen ist unten gegeben. 
-
 \definecolor{ccqqqq}{rgb}{0.8,0,0}
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
@@ -191,8 +191,7 @@ ytick={-3,-2,...,4},]
 \end{tikzpicture}
 \end{center}
 \end{bsp}
-\end{section}
-\begin{section}{Ableitung ganzrationaler Funktionen}
+\subsection{Ableitung ganzrationaler Funktionen}
 Die Ableitung von Funktionen mit der h-Methode ist für jede Funktion möglich. Allerdings wird das Ableiten damit schnell mühsam. Durch die Anwendung von Regeln zur Ableitung ganzrationaler Funktionen wird das Bilden der ersten Ableitung um einiges einfacher.\\
 \begin{merke*}{Ableitungsregel Potenzfunktionen}{}\index{Ableitung!Regel!Potenzfunktion}
 Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist differenzierbar und es gilt: $$f'(x) = n\cdot x^{n-1}$$
@@ -200,13 +199,36 @@ Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist diff
 \end{merke*}
 \begin{bsp}{Beispiele für das Ableiten von Potenzfunktionen}{}
 \begin{itemize}
-    \item 
+    \item $f(x)= x^3\ \longrightarrow f'(x) = 3x^2$
+    \item $g(x) = \dfrac{3}{4} x^5 \ \longrightarrow g'(x)=  5\cdot \dfrac{3}{4} x^4 = \dfrac{15}{4}x^4$ 
+    \item $h(x) = x^{\pi} \ \longrightarrow h'(x) = \pi \cdot x^{\pi -1}$
 \end{itemize}
 \end{bsp}
+\subsection{Anwendung der Ableitungsfunktion - Newton-Verfahren}\index{Newton-Verfahren}
+Innerhalb der Analysis ist die Bestimmung der Nullstellen eine der zentralen Aufgaben. Diese Berechnung erfolgt allerdings nur bei einer begrenzten Anzahl von Funktionsklassen problemlos. So gibt es bei Polynomen vom Grad $n\geq 4$ keine Lösungsformel\footnote{Für den Grad $n=2$ ist die Lösungsformel die bereits bekannte Mitternachtsformel: $x_{1,2} = \dfrac{-b\pm \sqrt{b^2 -4ac}}{2\cdot a}$} mehr. Für den Grad $n\geq 4$ gibt es bei Polynomen dann verschiedene Wege die Nullstellen zu bestimmen. Eine dieser Möglichkeiten ist die Polynomdivision\footnote{Die Polynomdivision ist nicht Teil des Lehrplans der Klasse 11, allerdings aus der 10. Klasse bekannt.}
 \end{section}
+
 \chapter{Analytische Geometrie}
-\section{Das 3-dim Koordinatensystem}
+\begin{section}{Das 3-dim Koordinatensystem}
+blahblah
+
+
+
+
+\end{section}
 \chapter{Stochastik}
+\chapter{Anhang}
+\section{Polynomdivision}
+Die Polynomdivision wird eingesetzt um entweder den Grad eines polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln.
+\begin{bsp}
+\polyset{
+  style=C,
+  vars = x,
+  delims={\big(}{\big)},
+  div=:
+}
+\polylongdiv{x^3-2x^2+4x+7}{x+1}
+\end{bsp}
 \printindex
 
 \end{document}
