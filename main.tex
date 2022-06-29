@@ -18,6 +18,7 @@
 \usepackage{fancyhdr, lastpage}
 \pagestyle{fancy}
 \usepackage{xcolor}
+
 \lhead{J. Gundelwein}
 \rhead{Gymnasium Gröbenzell}
 \cfoot{Seite \thepage \ von \pageref{LastPage}}
@@ -259,6 +260,10 @@ Um die erste Näherung zu bekommen, wird die Nullstelle der Tangentengleichung b
         xlabel = $x$,
         ylabel=$y$]
             \addplot[color= black, samples = 300, domain= -2:3]{x^3-2*x^2-x^1 +1};
+            \addplot[color= black, samples = 300, domain= -1:3]{-1.35*x^1 +0.27};
+            \draw[dashed,-latex] (1.24,-1.41)  -- (1.24,0) node(xline)[above] {$x_0$};
+            \draw (1.24,-1.41)   node[left] {$A(x_0|f(x_0))$};
+            \draw (1.2390888331407657,-1.4073470487766349)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,-0.5pt) -- ++(5pt,-5pt);
         \end{axis}
     \end{tikzpicture}     
 \end{center}
