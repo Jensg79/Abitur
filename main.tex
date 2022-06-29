@@ -261,9 +261,13 @@ Um die erste Näherung zu bekommen, wird die Nullstelle der Tangentengleichung b
         ylabel=$y$]
             \addplot[color= black, samples = 300, domain= -2:3]{x^3-2*x^2-x^1 +1};
             \addplot[color= black, samples = 300, domain= -1:3]{-1.35*x^1 +0.27};
-            \draw[dashed,-latex] (1.24,-1.41)  -- (1.24,0) node(xline)[above] {$x_0$};
-            \draw (1.24,-1.41)   node[left] {$A(x_0|f(x_0))$};
-            \draw (1.2390888331407657,-1.4073470487766349)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,-0.5pt) -- ++(5pt,-5pt);
+            \draw[dashed] (1.24,-1.41)  -- (1.24,0) node(xline)[above] {$x_0$};
+            \draw (1,-1.5)   node[left] {$A$};
+            \draw (1.2390888331407657,-1.4073470487766349)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+            \draw[dashed] (0.2,0.2) node(xline)[above] {};
+            \draw (0.1,-0.6)   node [right] {$x_1$};
+            \draw[dashed] (0.2,0)  -- (0.2,0.73) node(xline)[right] {$f(x_1)$};
+            \draw (0.2,0.73)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
         \end{axis}
     \end{tikzpicture}     
 \end{center}
