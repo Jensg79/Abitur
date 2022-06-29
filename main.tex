@@ -206,9 +206,61 @@ Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist diff
     \item $g(x) = \dfrac{3}{4} x^5 \ \longrightarrow g'(x)=  5\cdot \dfrac{3}{4} x^4 = \dfrac{15}{4}x^4$ 
     \item $h(x) = x^{\pi} \ \longrightarrow h'(x) = \pi \cdot x^{\pi -1}$
 \end{itemize}
+\end{bsp} 
+\begin{defi}{Die Normale}{}\index{Normale}
+    Die Gerade, die im Berührpunkt auf der Tangente senkrecht steht, heißt Normale. Hierbei hängen die Steigung der Normalen und die Steigung der Tangente wie folgt zusammen $$m_{Normale} = -\dfrac{1}{m_{Tangente}}$$
+\end{defi}
+
+\subsection{Anwendung der Ableitungsfunktion-Newton-Verfahren}\index{Newton-Verfahren}
+
+Innerhalb der Analysis ist die Bestimmung der Nullstellen eine der zentralen Aufgaben. Diese Berechnung erfolgt allerdings nur bei einer begrenzten Anzahl von Funktionsklassen problemlos. So gibt es bei Polynomen vom Grad $n\geq 4$ keine Lösungsformel\footnote{Für den Grad $n=2$ ist die Lösungsformel die bereits bekannte Mitternachtsformel: $x_{1,2} = \dfrac{-b\pm \sqrt{b^2 -4ac}}{2\cdot a}$} mehr. Für den Grad $n\geq 4$ gibt es bei Polynomen dann verschiedene Wege die Nullstellen zu bestimmen. Eine dieser Möglichkeiten ist die Polynomdivision\footnote{Die Polynomdivision ist nicht Teil des Lehrplans der Klasse 11, allerdings aus der 10. Klasse bekannt.}, siehe hierzu auch \ref{polynomdivision}. Eine weitere Möglichkeit die Nullstellen zu bestimmen liefert das Newton-Verfahren. Hierbei ist es möglich, die Nullstellen beliebig genau näherungsweise zu bestimmen. \\
+Funktionsweise des Newton-Verfahren:
+\begin{merke*}{Iterationsverfahren}\index{Iterationsverfahren}
+  Für die Durchführung des Newton-Verfahrens werden bestimmte Rechenschritte beliebig oft wiederholt. Da sich dabei die Rechenschritte nur mit sich ändernden Zahlen wiederholen, handelt es sich um ein iteratives Verfahren.
+\end{merke*}
+Um das Newton-Verfahren zu verstehen, betrachtet man die allgemeine Herleitung. Ziel des Verfahren ist es, eine Nullstelle einer beliebigen Funktion $f$ zu finden. Setzt man einen Anfangswert $x_0$ in die Funktionsgleichung ein, erhält man im Allgemeinen einen von Null verschiedenen Funktionswert $f(x_0)$. Bildet man jetzt die Tangente durch den Punkt $A(x_0|f(x_0))$ am Graphen $G_f$ der Funktion $f$ und bestimmt davon die Nullstelle erhält man im Allgemeinen eine bessere Näherung für die Nullstelle des Graphen $G_f$. 
+\begin{bsp*}{Herleitung des Newton-Verfahren}\index{Newton-Verfahren!Herleitung}
+    Gegeben ist eine beliebige Funktion $f$ und ein Startwert $x_0 \in \mathds{D}_f$ und $A(x_0|f(x_0))$ mit $f'(x_0)\neq 0$. Für die Tangente durch $x_0$ an $G_f$ gilt allgemein folgende Geradengleichung $y_T= m\cdot x + t$. Am Punkt $A(x_0|f(x_0))$ ergibt sich damit folgende Gleichung:$$y_T = f'(x_0) \cdot x + t.$$ Um die Nullstelle dieser bestimmten Tangente bestimmen zu können, ist es notwendig, dass man den y-Achsenabschnitt bestimmt. Hierfür werden die Werte $x_0$ und $f(x_0)$ in die Geradengleichung eingesetzt und nach $t$ aufgelöst. 
+    \begin{equation*}
+	\left.\begin{aligned}
+	f(x_0) &= f'(x_0) \cdot x_0 + t \\
+	t &= f(x_0) - f'(x_0) \cdot x_0 
+	\end{aligned}
+	\right\}
+\quad \text{Tangentengleichung:}\hspace{0.1cm } y_T = f'(x_0) \cdot x + (f(x_0) - f'(x_0) \cdot x_0 )
+\end{equation*}
+Um die erste Näherung zu bekommen, wird die Nullstelle der Tangentengleichung berechnet.
+    \begin{equation*}
+	\left.\begin{aligned}
+	0 &=  f'(x_0) \cdot x + (f(x_0) - f'(x_0) \cdot x_0 ) \\
+	f'(x_0) \cdot x &= f'(x_0)\cdot x_0  - f(x_0)\\
+    x &=\dfrac{f'(x_0)\cdot x_0  - f(x_0)}{f'(x_0)}
+	\end{aligned}
+	\right\}
+\quad \text{Näherungswert:}\hspace{0.1cm } x = x_0 -\dfrac{f(x_0)}{f'(x_0)}
+\end{equation*}
+\end{bsp*}
+\begin{defi}{Das Newton-Verfahren}{}\index{Newton-Verfahren!Definition}
+    Ist $x_n$ ein Näherungswert einer Nullstelle der Funktion $f$ und $f'(x_n)\neq 0$, dann ist $$x_{n+1} = x_n -\dfrac{f(x_n)}{f'(x_n)}$$ im Allgemeinen ein besserer Näherungswert.
+\end{defi}
+\begin{bem}{Konvergenz des Newton-Verfahren}{}\index{Newton-Verfahren!Konvergenz}
+    Das Newton-Verfahren konvergiert nicht immer. Die Konvergenz der Iteration hängt vom Startwert $x_0$ ab. Hierbei bedeutet der Begriff Konvergenz, dass sich die Näherungswerte der eigentlichen Nullstelle immer genauer annähern.
+\end{bem}
+\begin{bsp}{Die Funktion $f(x)= x^3 -2x^2-x+1$}{}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
+        axis lines = middle, 
+        xtick={-3, -2, -1, 0, ..., 4},
+        ytick={-4, -3, -2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+            \addplot[color= black, samples = 300, domain= -2:3]{x^3-2*x^2-x^1 +1};
+        \end{axis}
+    \end{tikzpicture}     
+\end{center}
 \end{bsp}
-\subsection{Anwendung der Ableitungsfunktion - Newton-Verfahren}\index{Newton-Verfahren}
-Innerhalb der Analysis ist die Bestimmung der Nullstellen eine der zentralen Aufgaben. Diese Berechnung erfolgt allerdings nur bei einer begrenzten Anzahl von Funktionsklassen problemlos. So gibt es bei Polynomen vom Grad $n\geq 4$ keine Lösungsformel\footnote{Für den Grad $n=2$ ist die Lösungsformel die bereits bekannte Mitternachtsformel: $x_{1,2} = \dfrac{-b\pm \sqrt{b^2 -4ac}}{2\cdot a}$} mehr. Für den Grad $n\geq 4$ gibt es bei Polynomen dann verschiedene Wege die Nullstellen zu bestimmen. Eine dieser Möglichkeiten ist die Polynomdivision\footnote{Die Polynomdivision ist nicht Teil des Lehrplans der Klasse 11, allerdings aus der 10. Klasse bekannt.}
 \end{section}
 
 \chapter{Analytische Geometrie}
@@ -219,10 +271,10 @@ blahblah
 \chapter{Anhang}
 \section{Polynomdivision}\index{Polynomdivision}
 Die Polynomdivision wird eingesetzt um entweder den Grad eines Polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln.
-\subsection{Polynomdivision bei Polynomen}\index{Polynomdivision!Polynome}
+\subsection{Polynomdivision bei Polynomen}\index{Polynomdivision!Polynome}\label{polynomdivision}
 
     Bei einem Polynom wird die Polynomdivision angewendet um den Grad des Polynoms zu verringern und die Faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt der Nullstellen darstellen kann.\\
-    Es gilt folgender Zusammenhang: $$f(x) = x^3-6x^2-x+6 =  \polyfactorize{x^3-6x^2-x+6}$$. Aus dieser Darstellung folgt, dass die Funktion $f$ die Nullstellen $x_1 = -1, x_2 = 1$ und $x_3= 6$ hat. Um die Polynomdivision durchführen zu können, muss man als erstes eine Nullstelle kennen und dann das Polynom durch diese Nullstelle teilen. Nach der Division erhält man jeweils eine neues Polynom geringeren Grades. Dieses Polynom muss dann wieder mit der Polynomdivision vom Grad reduziert werden.
+    Es gilt folgender Zusammenhang: $$f(x) = x^3-6x^2-x+6 =  \polyfactorize{x^3-6x^2-x+6}.$$ Aus dieser Darstellung folgt, dass die Funktion $f$ die Nullstellen $x_1 = -1, x_2 = 1$ und $x_3= 6$ hat. Um die Polynomdivision durchführen zu können, muss man als erstes eine Nullstelle kennen und dann das Polynom durch diese Nullstelle teilen. Nach der Division erhält man jeweils eine neues Polynom geringeren Grades. Dieses Polynom muss dann wieder mit der Polynomdivision vom Grad reduziert werden.
     \begin{bsp}{Die Polynomdivision}{}
 Man rät die Nullstelle $x=1$ und führt jetzt die Polynomdivision durch:\\
  \polylongdiv{x^3- 6x^2 - x +6}{x-1}\\
