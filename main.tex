@@ -354,7 +354,7 @@ Die einzelnen Iterationsschritte sind hierbei nicht immer von einzeln durchzufü
 \end{enumerate}
  \end{itemize}
  \end{b8d}
- \begin{bsp}{Bestimmung der Monotonie und der Extrema}{}
+ \begin{bsp}{Bestimmung der Monotonie und der Extrema I}{}
  Gegeben ist die Funktion $f(x) = 2x^3 +6x^2 -2x + 1$ mit $\mathds{D}_f = \mathds{R}$ und der ersten Ableitung $f'(x) = 6x^2+12x-2$.\\
  Vorgehen:
  \begin{enumerate}
@@ -404,6 +404,54 @@ Monotonietabelle:\\
             \draw (0.15,0.5)   node [left] {$x_1$};
              \draw (-2.15,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
               \draw (0.15,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+        \end{axis}
+    \end{tikzpicture}  
+\end{center}
+\end{bsp}
+\begin{bsp}{Bestimmung der Monotonie und der Extrema II}{}
+Betrachtet wird die Funktion $f(x)= x^3-6x^2 +9x-2$ mit $\mathds{D}_f =\mathds{R}$ und der ersten Ableitung $f'(x)= 3x^2 -12x +9$
+\begin{center}$\begin{aligned}
+	f'(x)&= 3x^2 -12x +9\\
+    0 &= 3x^2 -12x +9\\
+    x_{1,2} &= \dfrac{12 \pm \sqrt{144 -8} }{6} = \dfrac{12\pm \sqrt{36}}{6} = \dfrac{12 \pm 6}{6} = 2\pm 1\\
+    x_1&= 3\\
+    x_2&= 1
+	\end{aligned}$\end{center}
+ Mit diesen beiden Nullstellen ist es möglich eine faktorisierte Form des Funktionsterms aufzuschreiben. $$f'(x)= 3x^2-12x+9 = 3\cdot \left(x-3 \right)\cdot \left(x-1 \right)$$
+
+Monotonietabelle:\\
+\begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ -\infty <x<1 $ & $ x_2 =1$ &$ 1<x<3 $ & $x_1 3 $& $ 3<x<\infty $\\
+    \hline \hline
+    $3\cdot (x-1)$ & - &  0 & - &  & +  \\
+    \hline
+    $(x -3)$ & - & & + & 0 & + \\
+    \hline
+    $f'(x)$ & + & 0 & - & 0 & +\\ 
+    \hline
+    $G_f$ & smw & $HoP(1|2)$ & smf & $TiP(3|-2) $& smw\\
+    \hline
+\end{tabular}
+\end{center}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[xmin= -1.1, xmax = 5.5, ymin= -4.1, ymax=3.5,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-4, -3, -2,  ..., 5},
+        ytick={-4, -3, -2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+            \addplot[color= red, samples = 300, domain= -0.2:4.2]{x^3-6*x^2+9*x-2};
+     \addplot[color= black, samples = 300, domain= -0.2:4.2]{3*x^2-12*x+9};
+            \draw (4.2,2)   node [right] {$f(x)$}; 
+            \draw (1,3)   node [right] {$f'(x)$}; 
+            \draw (1.2,0)   node [above] {$x_2$};
+            \draw (2.8,0)   node [above] {$x_1$};
+             \draw (1,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+              \draw (3,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
         \end{axis}
     \end{tikzpicture}  
 \end{center}
