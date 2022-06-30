@@ -91,14 +91,18 @@ Nähert sich der Punkt Q beliebig nahe an P an, so unterscheidet sich die Steigu
 \begin{merke*}{Wichtige Informationen zur Definition  der Ableitung}
 \index{Ableitung!Definition}
 \begin{itemize}
- \item Nähern sich die Funktionswerte $f(x)$ einer Funktion $f$ einer Zahl $a$ beliebig genau an, das ist der Fall wenn sich die Werte für $x$ von links und von rechts an $x_0$ beliebig genau annnähern, so heißt $a$ Grenzwert der Funktion $f(x)$. $\lim_{x \rightarrow x_0}$ 
+ \item Nähern sich die Funktionswerte $f(x)$ einer Funktion $f$ einer Zahl $a$ beliebig genau an, das ist der Fall wenn sich die Werte für $x$ von links und von rechts an $x_0$ beliebig genau annnähern, so heißt $a$ Grenzwert der Funktion $f(x)$. Kurzschreibweise: $\lim_{x \rightarrow x_0} f(x)= a$ 
  \item Der Punkt Q laufe auf einer Kurve von links und rechts auf den Punkt P zu. Ergibt sich dabei ein gemeinsamer Grenzwert der Sekante, heißt die Grenzgerade Tangente an die Kurve im Punkt P.
  \item Die Steigung eines Graphen im Punkt P ist gleich der Steigung der Tangente in diesem Punkt.
 \end{itemize}
 \end{merke*}
-\begin{merke*}{Die h-Methode zur Berechnung der Steigung der Tangente}{hmethode}\index{Ableitung!h-Methode}
+\label{hmethode}
+\begin{merke*}{Die h-Methode zur Berechnung der Steigung }{hmethode}\index{Ableitung!h-Methode}
 Wir führen eine Hilfsvariable h ein, diese gibt die Abweichung der Koordinate $x$ von der Koordinate $x_0$ angibt. Damit ist $x=x_0 + h$. Mit dieser Überlegung ist es jetzt möglich den Grenzwert zu bestimmen: $$m_t =\lim_{h\rightarrow 0} m_t(x_0 +h) =\lim_{h\rightarrow 0} \dfrac{f(x_0 + h) - f(x_0)}{h}.$$
 \end{merke*}
+\subsection{Lokale Änderungsrate}\index{Änderungsrate!lokale}
+Die lokale Änderungsrate ist ein mathematischer Ausdruck für die Steigung einer Funktion in einem bestimmten Punkt. Handelt es sich bei dem Graphen um die Abbildung einer zeitabhängigen Funktion, so wird die lokale Änderungsrate auch momentane Änderungsrate genannt.\\
+Siehe hierfür auch die Erläuterungen der h-Methode \ref{hmethode} oder die einzelnen Ableitungsregeln.
 \subsection{Differenzierbarkeit und Lineare Transformation}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
 \begin{defi}{Die Differenzierbarkeit einer Funktion}
  Eine Funktion f heißt an der Stelle $x_0$ im Inneren des Definitionsbereichs $D_f$ differenzierbar, wenn der Grenzwert $f'(x) =lim_{h\rightarrow 0}\dfrac{(f(x_0 +h) -f(x_0)}{h}$ existiert, sich also bei links- und rechtsseitiger Annäherung der gleiche Wert ergibt. Der Grenzwert des Differenzenquotient heißt Differentialquotient.
@@ -225,7 +229,7 @@ Funktionsweise des Newton-Verfahren:
 \begin{merke*}{Iterationsverfahren}\index{Iterationsverfahren}
   Für die Durchführung des Newton-Verfahrens werden bestimmte Rechenschritte beliebig oft wiederholt. Da sich dabei die Rechenschritte nur mit sich ändernden Zahlen wiederholen, handelt es sich um ein iteratives Verfahren.
 \end{merke*}
-Um das Newton-Verfahren zu verstehen, betrachtet man die allgemeine Herleitung. Ziel des Verfahren ist es, eine Nullstelle einer beliebigen Funktion $f$ zu finden. Setzt man einen Anfangswert $x_0$ in die Funktionsgleichung ein, erhält man im Allgemeinen einen von Null verschiedenen Funktionswert $f(x_0)$. Bildet man jetzt die Tangente durch den Punkt $A(x_0|f(x_0))$ am Graphen $G_f$ der Funktion $f$ und bestimmt davon die Nullstelle erhält man im Allgemeinen eine bessere Näherung für die Nullstelle des Graphen $G_f$. 
+Um das Newton-Verfahren zu verstehen, betrachtet man die allgemeine Herleitung. Ziel des Verfahren ist es, eine Nullstelle einer beliebigen Funktion $f$ zu finden. Setzt man einen Anfangswert $x_0$ in die Funktionsgleichung ein, erhält man im Allgemeinen einen von Null verschiedenen Funktionswert $f(x_0)$. Bildet man jetzt die Tangente durch den Punkt $A(x_0|f(x_0))$ am Graphen $G_f$ der Funktion $f$ und bestimmt davon die Nullstelle erhält man im Allgemeinen eine bessere Näherung für die Nullstelle des Graphen $G_f$\footnote{Ein Besipiel für das Bestimmen einer Tangentengleichung findet man im Beispiel \ref{Tangentengleichung}}. 
 \begin{bsp*}{Herleitung des Newton-Verfahren}\index{Newton-Verfahren!Herleitung}
     Gegeben ist eine beliebige Funktion $f$ und ein Startwert $x_0 \in \mathds{D}_f$ und $A(x_0|f(x_0))$ mit $f'(x_0)\neq 0$. Für die Tangente durch $x_0$ an $G_f$ gilt allgemein folgende Geradengleichung $y_T= m\cdot x + t$. Am Punkt $A(x_0|f(x_0))$ ergibt sich damit folgende Gleichung:$$y_T = f'(x_0) \cdot x + t.$$ Um die Nullstelle dieser bestimmten Tangente bestimmen zu können, ist es notwendig, dass man den y-Achsenabschnitt bestimmt. Hierfür werden die Werte $x_0$ und $f(x_0)$ in die Geradengleichung eingesetzt und nach $t$ aufgelöst. 
     \begin{equation*}
@@ -403,6 +407,10 @@ Monotonietabelle:\\
             \draw (-2.1,0)   node [above] {$x_2$};
             \draw (0.15,0.5)   node [left] {$x_1$};
              \draw (-2.15,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+             \draw (-2.1,14)   node [above] {HoP};
+              \draw (-2.15,13.15)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+               \draw (0.15,0.84)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+               \draw (0.15,4.5)   node [above] {TiP};
               \draw (0.15,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
         \end{axis}
     \end{tikzpicture}  
@@ -452,9 +460,41 @@ Monotonietabelle:\\
             \draw (2.8,0)   node [above] {$x_1$};
              \draw (1,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
               \draw (3,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+               \draw (1,2.2)   node [above] {HoP};
+                \draw (1,2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+                 \draw (3,-2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+               \draw (3,-2.8)   node [above] {TiP};
         \end{axis}
     \end{tikzpicture}  
 \end{center}
+\end{bsp}
+\begin{bem}{Tangtengleichungen}{}
+Eine klassische Aufgabe innerhalb der Kurvendiskussion bildet die Bestimmung einer Tangente an einen beliebigen Punkt des Graphen. Hierfür ist es notwendig folgende Informationen zu bestimmen:
+\begin{enumerate}
+    \item Bildung er ersten Ableitung
+    \item Berechnung der Koordinaten des Punktes auf dem Graphen
+    \item Bestimmung der Steigung des Graphen in diesem Punkt
+    \item Aufstellen der Geradengleichung der Tangente
+\end{enumerate}
+\end{bem}
+\label{Tangentengleichung}
+\begin{bsp}{Bestimmung der Tangentengleichung}{}\index{Kurvendiskussion!Tangentengleichung}
+  Betrachtet wird die Funktion $f(x)= x^3 -6x^2 +9x -2$ mit $\mathds{D}_f = \mathds{R}$ und der Punkt $P(2|0)$.
+ \begin{center}$\begin{aligned}
+	f'(x)&= 3x^2 -12x +9\\
+    f'(2) &= 3\cdot 2^2 -12 \cdot 2 +9 = -3
+	\end{aligned}$\end{center} 
+ Aufstellen der Tangentengleichung aus den berechneten Werten $P(2|0)$ und $m= f'(2) = -3$: 
+
+\begin{equation*}
+	\left.\begin{aligned}
+	0 &=  f'(2) \cdot 2 + t \\
+	0 &= -3 \cdot 2 +t\\
+    t &=6
+	\end{aligned}
+	\right\}
+\quad \text{damit folgt für die Tangentengleichung:}\hspace{0.1cm } y_T = -3\cdot x +6 
+\end{equation*}
 \end{bsp}
 \end{section}
 \chapter{Analytische Geometrie}
@@ -490,6 +530,11 @@ Man rät die Nullstelle $x=1$ und führt jetzt die Polynomdivision durch:\\
     \end{tikzpicture}     
 \end{center}
 \end{bsp}
+\begin{b8d}{Rest der Polynomdivision}{rest}
+  Bei der Polynomdivision zur Bestimmung der Nullstellen eines Polynoms treten \textcolor{red}{keine Rest} auf.   
+\end{b8d}
+\subsection{Polynomdivision bei ganzrationalen Funktionen}\index{Polynomdivision!ganzrationale Funktionen}\label{polynomdivisionBruch}
+Die zweite Anwendung der Polynomdivision besteht in der Umwandlung der Bruchform in die Summenform der ganzrationalen Funktionen. Hioerbei wird die Polynomdivision durchgeführt indem man den Zähler der Funktion durch seinen Nenner dividiert.
 \printindex
 
 \end{document}
