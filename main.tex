@@ -2,7 +2,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum}
-\usepackage{geometry}
 \geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage{xcolor}
@@ -77,17 +76,34 @@ Geometrisch gedeutet ist der Differenzenquotient \index{Änderungsrate!Differenz
 \begin{bsp}{Ein Beispiel für die mittlere Änderungsrate}{bspmaer}
 Gegeben sind die Punkte $P(3|4)$ und $Q(6|1)$ und damit die mittlere Änderungsrate: $$ \dfrac{\Delta y}{\Delta x} = \dfrac{4-1}{3-6} = \dfrac{3}{-3} = -1$$
 \end{bsp}
+\begin{bsp}{Graphische Darstellung der Sekantensteigung}{}
+Gegeben ist die Funktion $f(x) =\dfrac{1}{2}x^3-x^2-2*x^1 +1$ mit $\mathds{D}_f =\mathds{R}$ und die Punkte $P(1|-1,51)$ und $Q(3,3|1,48)$. Um die mittlere Änderungsrate zu bestimmen muss jetzt die Steigung der Sekante berechnet werden.
+$$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,51)}{3,3 -1} = \dfrac{2,99}{2,3} = \dfrac{13}{10} = 1,3 $$
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-3, -2, -1, 0, ..., 4},
+        ytick={-4, -3, -2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+            \addplot[color= black, samples = 300, domain= -2:3.5]{0.5*x^3-x^2-2*x^1 +1};
+           \draw[color = red] (1,-1.51)--(3.3,1.48);
+           \draw[color = red] (3.3,-1.51)--(3.3,1.48);
+           \draw[color = red] (1,-1.51)--(3.3,-1.51);
+           \draw (1,-1.51)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt) node[left] {P};
+           \draw (3.3,1.48)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt) node[right] {Q};
+           \draw (3.3,-1.51)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+            \draw[color = red] (2.2,0.5) node[left] {$\dfrac{\Delta y}{\Delta x} = 1,3$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bsp}
 \end{subsection}
-
-\subsection{Definition der Ableitung}{abl}
-Übergang von der Sekante zur Tangente:\\
-Wir betrachten die Normalparabel $$ y=x^2 $$ und darauf den Punkt $P(1,5|2,25)$. Zur Bestimmung des Anstiegs bildet man den Differenzenquotienten zwischen P und einen beliebigem Punkt $Q(x|x^2)$. Bildet man für die beliebigen Werte von Q den Differenzenquotienten, so ergibt sich folgende Gleichung: 
-\begin{bsp*}{Differenzenquotient für $f(x) =x^2 $}\index{Änderungsrate!Differenzenquotient!Beispiel}
-  
-  $$ m_s(x)= \dfrac{\Delta y}{\Delta x} = \dfrac{f(x) - 2,25}{x - 1,5} = \dfrac{x^2 - 2,25}{x- 1,5} = \dfrac{(x-1,5)(x+1,5)}{x-1,5} =x+1,5 $$
-
-\end{bsp*}
-Nähert sich der Punkt Q beliebig nahe an P an, so unterscheidet sich die Steigung der Sekante immer weniger von 3. Man spricht in diesem Fall auch von einem Grenzwert.\
+\subsection{Definition der Ableitung}
+Die mittlere Änderungsrate beschreibt die durchschnittliche Steigung des Graphen einer Funktion zwischen zwei bestimmten Punkten. Die Ableitung realisiert den Übergang von der Sekante zur Tangente.
 \begin{merke*}{Wichtige Informationen zur Definition  der Ableitung}
 \index{Ableitung!Definition}
 \begin{itemize}
@@ -96,15 +112,90 @@ Nähert sich der Punkt Q beliebig nahe an P an, so unterscheidet sich die Steigu
  \item Die Steigung eines Graphen im Punkt P ist gleich der Steigung der Tangente in diesem Punkt.
 \end{itemize}
 \end{merke*}
+Um die Ableitung zu definieren, betrachten wir die Normalparabel mit der Gleichung $$ y=x^2 $$ und darauf einen Punkt $P(1,5|2,25)$. Zur Bestimmung deSekantensteigung bildet man den Differenzenquotienten zwischen dem Punkt $P$ und einem weiteren beliebigen Punkt $Q(x|x^2)$. 
+\begin{bem*}{Differenzenquotient für $f(x) =x^2 $}\index{Änderungsrate!Differenzenquotient}
+  
+  $$ m_s(x)= \dfrac{\Delta y}{\Delta x} = \dfrac{f(x) - 2,25}{x - 1,5} = \dfrac{x^2 - 2,25}{x- 1,5} = \dfrac{(x-1,5)(x+1,5)}{x-1,5} =x+1,5 $$
+Nähert sich der Punkt $Q$ beliebig nahe an den Punkt $P$ an, so unterscheidet sich die Steigung der Sekante immer weniger von 3. Man spricht in diesem Fall auch von einem Grenzwert.
+$$\lim_{x\rightarrow 1,5} m_s(x) = 3$$
+\end{bem*}
+
 \label{hmethode}
-\begin{merke*}{Die h-Methode zur Berechnung der Steigung }{hmethode}\index{Ableitung!h-Methode}
+\begin{merke*}{Die h-Methode zur Berechnung der Steigung }{}\index{Ableitung!h-Methode}
 Wir führen eine Hilfsvariable h ein, diese gibt die Abweichung der Koordinate $x$ von der Koordinate $x_0$ angibt. Damit ist $x=x_0 + h$. Mit dieser Überlegung ist es jetzt möglich den Grenzwert zu bestimmen: $$m_t =\lim_{h\rightarrow 0} m_t(x_0 +h) =\lim_{h\rightarrow 0} \dfrac{f(x_0 + h) - f(x_0)}{h}.$$
 \end{merke*}
-\subsection{Lokale Änderungsrate}\index{Änderungsrate!lokale}
-Die lokale Änderungsrate ist ein mathematischer Ausdruck für die Steigung einer Funktion in einem bestimmten Punkt. Handelt es sich bei dem Graphen um die Abbildung einer zeitabhängigen Funktion, so wird die lokale Änderungsrate auch momentane Änderungsrate genannt.\\
-Siehe hierfür auch die Erläuterungen der h-Methode \ref{hmethode} oder die einzelnen Ableitungsregeln.
+\begin{defi}{}{} \index{Ableitung!Definition}
+    Der Grenzwert des Differenzenquotienten $\dfrac{\Delta y}{\Delta x}$ für $x\rightarrow x_0$ heißt Differentialquotient oder Ableitung der Funktion $f$ an der Stelle $x_0$ und wird mit $f'(x_0)$ bezeichnet. Es gilt der Zusammenhang:$$f'(x_0) = \lim_{x\rightarrow x_0} \dfrac{f(x) - f(x_0)}{x - x_0} = \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}$$
+\end{defi}
+\begin{bem*}{}{}
+Mit Hilfe der h-Methode ist es damit möglich jede beliebige Funktion abzuleiten. Man spricht in dem Fall von der Ableitung an einer bestimmten Stelle $x_0$. 
+\end{bem*}
+\begin{bsp}{Graphische Interpretation der h-Methode}{}
+  \begin{center}
+\begin{tikzpicture}
+\begin{axis}[xmin= -0.2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xticklabels=\empty,
+        yticklabels=\empty,
+        xlabel = $x$,
+        ylabel=$y$]  
+        \addplot[color= black, samples = 300, domain= -2:2.5]{x^2};
+        \draw[color= red] (1,-0.2) node[right] {$x_0$};
+        \draw (1,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+        \draw[color= red] (2,-0.2) node[right] {$x_0 +h$};
+        \draw (2,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+        \draw[color= red] (0,1.3) node[right] {$f(x_0)$};
+        \draw (0,1)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+        \draw[color= red] (0,4.3) node[right] {$f(x_0 + h)$};
+        \draw (0,4)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw[color= red] (2,4) node[right] {$Q$};
+        \draw (2,4)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw[color= red] (1,1) node[right] {$P$};
+        \draw (1,1)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+            \draw[red, dashed] (0,1 )-- (2,1);
+            \draw[red, dashed] (2,0) -- (2,4);
+            \draw[red, dashed] (0,4) -- (2,4);
+            \draw[red, dashed] (1,0) -- (1,1);
+         \draw[color= red] (1.5,0.7) node[right] {$h$};
+         \addplot[color= red,dashed, samples = 300, domain= 0.5:2.5]{3*x - 2};
+         \draw (1.4,-0.5) node[right] {$\Longleftarrow$};
+         \draw[red] (1.3,-0.8) node[right] {$h\longrightarrow 0$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+ Das bedeutet, dass sich die beiden Punkten der Sekante beliebig genau annähern, ihr Abstand geht damit gegen Null ($h\rightarrow 0$). Somit wird aus der Sekannte eine Tangente.
+\end{bsp}
+\index{Änderungsrate!lokale}
+\begin{bem*}{Tangentensteigung}{}
+   Die Ableitung $f'(x_0)$ ist die Steigung der Tangente an den Graphen von $f$ an der Stelle $x_0$. Die Ableitung ist hierbei ein Maß dafür, wie stark sich die Funktionswerte in einer Umgebung um die Stelle $x_0$ ändern. Bei zeitlichen  Vorgängen spricht man von einer \textcolor{red}{momentanen Änderungsrate}, bei anderen Vorgängen von einer \textcolor{red}{lokalen Änderungsrate}.
+\end{bem*}
+\index{Änderungsrate!Steigungswinkel}
+\index{Steigungswinkel}
+\begin{bem*}{Der Steigungswinkel}{}
+Der \textcolor{red}{Steigungswinkel} $\alpha$ einer Tangente ist der \textcolor{red}{spitze} Winkel zur x-Achse. Der Tangens des Steigungswinkels $\alpha$ ist gleich der Steigung $m$:$$\tan{(\alpha)} = m$$ \begin{center}
+    bzw.
+\end{center} $$\alpha = \arctan{(m)} = \tan^{-1}{(m)}$$
+ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ. 
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[xmin= -2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
+        axis lines = middle, 
+        xticklabels=\empty,
+        yticklabels=\empty,
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[red, samples = 100]{x^3+1};
+        \addplot[blue, samples = 100]{3*x-1};
+        \draw[color= red] (0.8,2.5) node[right] {$P$};
+          \draw (1,2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bem*}
 \subsection{Differenzierbarkeit und Lineare Transformation}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
-\begin{defi}{Die Differenzierbarkeit einer Funktion}
+\begin{defi}{Die Differenzierbarkeit einer Funktion}{}
  Eine Funktion f heißt an der Stelle $x_0$ im Inneren des Definitionsbereichs $D_f$ differenzierbar, wenn der Grenzwert $f'(x) =lim_{h\rightarrow 0}\dfrac{(f(x_0 +h) -f(x_0)}{h}$ existiert, sich also bei links- und rechtsseitiger Annäherung der gleiche Wert ergibt. Der Grenzwert des Differenzenquotient heißt Differentialquotient.
 \end{defi}
 \begin{bsp*}{Die Überprüfung der Differenzierbarkeit mit der h-Methode}\index{Differenzieren!Differenzierbarkeit!Beispiel}
@@ -496,6 +587,18 @@ Eine klassische Aufgabe innerhalb der Kurvendiskussion bildet die Bestimmung ein
 \quad \text{damit folgt für die Tangentengleichung:}\hspace{0.1cm } y_T = -3\cdot x +6 
 \end{equation*}
 \end{bsp}
+\subsection{Die Extremstellen der lokalen Änderungsrate - Wendestellen}
+\begin{defi}{Der Wendepunkt}{}\index{Wendepunkt}\index{Kurvendiskussion!Wendepunkt}
+Der Punkt, an dem sich die Krümmung des Graphen der Funktion $f$ ändert, heißt Wendepunkt. Am Wendepunkt des Graphen liegt ein Extremwert der lokalen Änderungsrate vor. Ein Terrassenpunkt ist ein Wendepunkt mit einer waagerechten Tangente.
+\end{defi}
+\begin{satz}{Zusammenhang der lokalen Änderungsrate und der Krümmung}{krümmung}
+  Wenn die lokale Änderungsrate $f'$ einer differenzierbaren Funktion $f$ im Intervall $I$ \textcolor{red}{streng monoton zunimmt}, dann ist der Graph $G_f$ \textcolor{red}{linksgekrümmt}.  \\
+  Wenn die lokale Änderungsrate $f'$ einer differenzierbaren Funktion $f$ im Intervall $I$ \textcolor{red}{streng monoton abnimmt}, dann ist der Graph $G_f$ \textcolor{red}{rechtsgekrümmt}. 
+\end{satz}
+\begin{satz}{Kriterium der Krümmung}{}
+Ist die Funktion $f$ im Intervall $I$ zweimal stetig differenzierbar und ist für alle $a\in I$ der Funktionswert $f''(x)$ \textcolor{red}{positiv}, dann ist der Graph der Funktion $f$ \textcolor{red}{linksgekrümmt}.\\
+Ist die Funktion $f$ im Intervall $I$ zweimal stetig differenzierbar und ist für alle $a\in I$ der Funktionswert $f''(x)$ \textcolor{red}{negativ}, dann ist der Graph der Funktion $f$ \textcolor{red}{rechtsgekrümmt}.
+\end{satz}
 \end{section}
 \chapter{Analytische Geometrie}
 \section{Das 3-dim Koordinatensystem}
