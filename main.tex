@@ -27,8 +27,8 @@
 %Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
 \usepackage{xcolor}
 \usepackage{afterpage}
-%\usepackage{tikz}
-
+\usepackage{tikz}
+\usetikzlibrary{quotes, angles}
 \usepackage[most]{tcolorbox}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15, width =10cm}
@@ -180,7 +180,7 @@ Der \textcolor{red}{Steigungswinkel} $\alpha$ einer Tangente ist der \textcolor{
 ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ. 
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[xmin= -2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
+\begin{axis}[xmin= -2, xmax = 3.5, ymin= -1.5, ymax= 3.5,
         axis lines = middle, 
         xticklabels=\empty,
         yticklabels=\empty,
@@ -190,10 +190,32 @@ ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ.
         \addplot[blue, samples = 100]{3*x-1};
         \draw[color= red] (0.8,2.5) node[right] {$P$};
           \draw (1,2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+
+          \draw (1,0) coordinate (a) -- (0.33,0) coordinate (b) -- (1,2) coordinate (c)  pic[ draw = blue, fill = red!15!white, ->, angle eccentricity =1.2, angle radius = 1cm] {angle = a--b--c};
+                  \draw[color= black] (1,0.8) node[right] {$\alpha$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \end{bem*}
+Mit Hilfe dieser Definitionen und Überlegungen ist es nun möglich die Steigung einer Funktion an einer bestimmten Stelle zu berechnen und den dazugehörigen Steigungswinkel der Tangente zu bestimmen. Anhand eines Beispiels wird dieses jetzt exempkarisch durchgeführt.
+\begin{bsp*}{Berechnung der Steigung und Steigungswinkel}{}
+Gegeben ist die Funktion $f(x)= 2x^2 - 3x +2 $ und dem Definitionsbereich $\mathds{D}_f = \mathds{R}$. Wir betrachten die Stelle $x_0 = \dfrac{3}{2}$.
+\begin{enumerate}
+    \item Bestimmung der ersten Ableitung mit Hilfe der h-Methode
+    \item Berechnung der Steigung an einer bestimmten Stell $x_0$
+    \item Berehnung des Steigungswinkels der Tangente an dieser Stelle am Graphen
+\end{enumerate}
+\begin{equation*}
+\begin{split}
+f'(x_0) &= \lim_{h\rightarrow 0} \dfrac{f(x_0+h)-f(x_0)}{h}\\ f'(1,5)&=\lim_{h\rightarrow 0} \dfrac{f(1,5 +h) - f(1,5)}{h}\\ &= \lim_{h\rightarrow 0} \dfrac{2\cdot (1,5 +h)^2 -3\cdot(1,5+h) + 2-(2\cdot (1,5)^2 - 3\cdot (1,5) + 2)}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{2\cdot (2,25 +3h + h^2) -3\cdot(1,5+h) + 2 - (4,5 -2,25 +2)}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{4,5+6h+2h^2-2,25-3h+2-(4,5 -2,25 +2)}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{2h^2+3h}{h}= \lim_{h\rightarrow 0} \dfrac{h\cdot( 2h+3)}{h} = \lim_{h\rightarrow 0} 2h+3\\
+&= \textcolor{red}{3 = m_T} \hspace{0.3cm} \longrightarrow \hspace{0.3cm} \textbf{Steigung der Tangente}
+\end{split}
+\end{equation*}
+Berechnung des Steigungswinkels der Tangente:
+\end{bsp*}
 \subsection{Differenzierbarkeit und Lineare Transformation}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
 \begin{defi}{Die Differenzierbarkeit einer Funktion}{}
  Eine Funktion f heißt an der Stelle $x_0$ im Inneren des Definitionsbereichs $D_f$ differenzierbar, wenn der Grenzwert $f'(x) =lim_{h\rightarrow 0}\dfrac{(f(x_0 +h) -f(x_0)}{h}$ existiert, sich also bei links- und rechtsseitiger Annäherung der gleiche Wert ergibt. Der Grenzwert des Differenzenquotient heißt Differentialquotient.
@@ -559,7 +581,7 @@ Monotonietabelle:\\
     \end{tikzpicture}  
 \end{center}
 \end{bsp}
-\begin{bem}{Tangtengleichungen}{}
+\begin{bem}{Tangentengleichungen}{}
 Eine klassische Aufgabe innerhalb der Kurvendiskussion bildet die Bestimmung einer Tangente an einen beliebigen Punkt des Graphen. Hierfür ist es notwendig folgende Informationen zu bestimmen:
 \begin{enumerate}
     \item Bildung er ersten Ableitung
