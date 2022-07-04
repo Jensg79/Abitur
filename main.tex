@@ -417,7 +417,7 @@ Die einzelnen Iterationsschritte sind hierbei nicht immer von einzeln durchzufü
 \end{section}
 \begin{section}{Kurvendiskussion}
  \subsection{Monotonie und Extrema}   
- \begin{defi}{Monotonie}{}\index{Kurvendiskussion !Monotonie}\index{Monotonie}
+ \begin{defi}{Monotonie}{}\index{Kurvendiskussion!Monotonie}\index{Monotonie}
  Es sei $f$ eine Funktion auf einem Intervall $I$ definiert. Gilt für alle $x_1, x_2 \in I$ mit $x_1<x_1:$
  \begin{equation*}
 	\left.\begin{aligned}
@@ -618,10 +618,11 @@ Eine klassische Aufgabe innerhalb der Kurvendiskussion bildet die Bestimmung ein
 \quad \text{damit folgt für die Tangentengleichung:}\hspace{0.1cm } y_T = -3\cdot x +6 
 \end{equation*}
 \end{bsp}
-\subsection{Die Extremstellen der lokalen Änderungsrate - Wendestellen}
-\begin{defi}{Der Wendepunkt}{}\index{Wendepunkt}\index{Kurvendiskussion!Wendepunkt}
+\subsection{Die Extremstellen der lokalen Änderungsrate - Wendestellen} \index{Krümmungsverhalten} \index{Kurvendiskussion!Krümmungsverhalten}
+\begin{defi}{Der Wendepunkt}{}\index{Krümmungsverhalten!Wendepunkt}\index{Kurvendiskussion!Wendepunkt}
 Der Punkt, an dem sich die Krümmung des Graphen der Funktion $f$ ändert, heißt Wendepunkt. Am Wendepunkt des Graphen liegt ein Extremwert der lokalen Änderungsrate vor. Ein Terrassenpunkt ist ein Wendepunkt mit einer waagerechten Tangente.
 \end{defi}
+
 \begin{satz}{Zusammenhang der lokalen Änderungsrate und der Krümmung}{krümmung}
   Wenn die lokale Änderungsrate $f'$ einer differenzierbaren Funktion $f$ im Intervall $I$ \textcolor{red}{streng monoton zunimmt}, dann ist der Graph $G_f$ \textcolor{red}{linksgekrümmt}.  \\
   Wenn die lokale Änderungsrate $f'$ einer differenzierbaren Funktion $f$ im Intervall $I$ \textcolor{red}{streng monoton abnimmt}, dann ist der Graph $G_f$ \textcolor{red}{rechtsgekrümmt}. 
@@ -629,7 +630,93 @@ Der Punkt, an dem sich die Krümmung des Graphen der Funktion $f$ ändert, heiß
 \begin{satz}{Kriterium der Krümmung}{}
 Ist die Funktion $f$ im Intervall $I$ zweimal stetig differenzierbar und ist für alle $a\in I$ der Funktionswert $f''(x)$ \textcolor{red}{positiv}, dann ist der Graph der Funktion $f$ \textcolor{red}{linksgekrümmt}.\\
 Ist die Funktion $f$ im Intervall $I$ zweimal stetig differenzierbar und ist für alle $a\in I$ der Funktionswert $f''(x)$ \textcolor{red}{negativ}, dann ist der Graph der Funktion $f$ \textcolor{red}{rechtsgekrümmt}.
-\end{satz}
+
+\index{Krümmungsverhalten!Kriterium}\end{satz}
+\begin{bem}{Extremwert der Änderungsrate}{}
+Der Punkt, an dem sich die Krümmung des Graphen ändert, heißt \textcolor{red}{Wendepunkt}. Beim \textcolor{red}{Wendepunkt} liegt ein \textcolor{red}{Extremwert} der lokalen Änderungsrate vor. Ein \textcolor{red}{Terrassenpunkt} ist ein \textcolor{red}{Wendepunkt mit einer waagerechten Tangente}.
+\end{bem}
+Die Krümmung wird, genau wie Monotonieuntersuchung, durch eine Vorzeichentabelle untersucht.  
+\begin{bsp}{Untersuchung der Krümmung}{}
+Untersucht wird die Krümmung des Graphen der Funktion $f(x) = x^3 -3x^2$ mit $\mathds{D}_f = \mathds{R}$. Bestimmung der ersten und zweiten Ableitung der Funktion f.
+\begin{equation*}
+    \begin{split}
+        f(x) &= x^3 -3x^2\\
+        f'(x) &= 3x^2 -6x\\
+        f''(x) &= 6x -6 = 6\cdot(x-1)
+    \end{split}
+\end{equation*}
+Berechnung der Nullstelle der zweiten Ableitung:
+\begin{equation*}
+    \begin{split}
+        0 &= 6\cdot(x-1) \hspace{0.2cm} | : 6\\
+        0 &= x-1\hspace{0.9cm} | + 1\\
+        x &= 1 
+    \end{split}
+\end{equation*}
+\begin{center}\begin{tabular}{||c|c|c|c||}
+    \hline
+    $x$& $ -\infty <x<1$ & $x = 1$ & $ 1<x<\infty$ \\
+    \hline \hline
+    $f''(x)=6(x-1)$ & - & 0 & +\\
+    \hline
+    $G_f$ & rechtsgekrümmt & Wendepunkt $WP(1|-2)$ & linksgekrümmt\\
+    \hline
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Koordinaten des Wendepunktes:
+\begin{equation*}
+    \begin{split}
+        f(1) &= (1)^3 -3\cdot (1)^2\\
+         &= 1 - 3 \\
+         &= -2 
+    \end{split}
+\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -6.1, ymax=6.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2, -1, -0,  ..., 4},
+        ytick={-6, -5, -4, ..., 6},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= black, samples = 300, domain= -1.8:3.8]{x^3 -3*x^2};
+        \addplot[color= red, samples = 300, domain= -1.8:3.8]{6*x -6};
+        \draw (1,-2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+        \draw (1.2,-2.2)   node [above] {WP};
+        \draw[red] (1.5,5)   node [above] {$f''(x)$};
+        \draw (3.7,3)   node [above] {$f(x)$};
+
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bsp}
+\subsection{Ausführliche Untersuchung ganzrationaler Funktionen} \index{Kurvendiskussion!Vollständige Untersuchung }
+Die ausführliche Kurvendiskussion besteht aus einer Reihe von analytischen Untersuchungen des Terms der Funktion um damit auf das Verhalten des Graphen der Funktion zu schließen. Hierbei ist es allerdings nicht notwendig alle Schritte auswendig zu lernen.
+\begin{merke}{Schritte der ausführlichen Kurvendiskussion}{}
+\begin{enumerate}
+    \item Untersuchungen am ursprünglichen Term
+    \begin{itemize}
+        \item Bestimmung des maximalen Definitionsbereichs
+        \item Untersuchungen der Symmetrie
+        \item Verhalten an den Rändern des Definitionsbereichs 
+        \item Gemeinsame Punkte mit den koordinatenachsen
+    \end{itemize}
+    \item Untersuchungen des Terms der ersten Ableitung
+        \begin{itemize}
+            \item Monotonie
+            \item Tangentensteigungen von speziellen Punkten
+        \end{itemize}
+    \item Untersuchungen des Terms der zweiten Ableitung
+        \begin{itemize}
+            \item Krümmungsverhalten
+        \end{itemize}
+    \item Graph der Funktion mit allen berechneten Werten
+    \item Wertemenge der Funktion
+\end{enumerate}
+\end{merke}
 \end{section}
 \chapter{Analytische Geometrie}
 \section{Das 3-dim Koordinatensystem}
@@ -667,7 +754,7 @@ Man rät die Nullstelle $x=1$ und führt jetzt die Polynomdivision durch:\\
 \begin{b8d}{Rest der Polynomdivision}{rest}
   Bei der Polynomdivision zur Bestimmung der Nullstellen eines Polynoms treten \textcolor{red}{keine Restterme} auf.   
 \end{b8d}
-\subsection{Polynomdivision bei ganzrationalen Funktionen}\index{Polynomdivision!ganzrationale Funktionen}\label{polynomdivisionBruch}
+\subsection{Polynomdivision bei gebrochenrationalen Funktionen}\index{Polynomdivision!gebrochenrationale Funktionen}\label{polynomdivisionBruch}
 Die zweite Anwendung der Polynomdivision besteht in der Umwandlung der Bruchform in die Summenform der ganzrationalen Funktionen. Hierbei wird die Polynomdivision durchgeführt indem man den Zähler der Funktion durch seinen Nenner dividiert.
 \begin{bsp}{Polynomdivision ganzrationaler Funktionen}{}
 Gegeben ist die Funktion $$f(x)=\dfrac{x^2+x-2}{2x-4}$$ mit $\mathds{D}_f=\mathds{R}\setminus \left\{ 2 \right\}$. Durch die Polynomdivision soll die Bruchform in die Summenform überführt werden.\\
@@ -676,7 +763,7 @@ Damit lautet die Summenform wie folgt:
 $$f(x)=\dfrac{x^2+x-2}{2x-4} = \dfrac{1}{2} x +\dfrac{3}{2} +\dfrac{4}{2x-4} $$
 
 \end{bsp}
-
+\subsection{Übersicht von Ableitungsregeln} \index{Ableitung! Übersicht}
 
 \printindex
 
