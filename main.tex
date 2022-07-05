@@ -25,6 +25,7 @@
 \cfoot{Seite \thepage \ von \pageref{LastPage}}
 \usepackage[Sonny]{fncychap}
 %Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
+
 \usepackage{xcolor}
 \usepackage{afterpage}
 \usepackage{tikz}
@@ -112,7 +113,7 @@ Die mittlere Änderungsrate beschreibt die durchschnittliche Steigung des Graphe
  \item Die Steigung eines Graphen im Punkt P ist gleich der Steigung der Tangente in diesem Punkt.
 \end{itemize}
 \end{merke*}
-Um die Ableitung zu definieren, betrachten wir die Normalparabel mit der Gleichung $$ y=x^2 $$ und darauf einen Punkt $P(1,5|2,25)$. Zur Bestimmung deSekantensteigung bildet man den Differenzenquotienten zwischen dem Punkt $P$ und einem weiteren beliebigen Punkt $Q(x|x^2)$. 
+Um die Ableitung zu definieren, betrachten wir die Normalparabel mit der Gleichung $$ y=x^2 $$ und darauf einen Punkt $P(1,5|2,25)$. Zur Bestimmung der Sekantensteigung bildet man den Differenzenquotienten zwischen dem Punkt $P$ und einem weiteren beliebigen Punkt $Q(x|x^2)$. 
 \begin{bem*}{Differenzenquotient für $f(x) =x^2 $}\index{Änderungsrate!Differenzenquotient}
   
   $$ m_s(x)= \dfrac{\Delta y}{\Delta x} = \dfrac{f(x) - 2,25}{x - 1,5} = \dfrac{x^2 - 2,25}{x- 1,5} = \dfrac{(x-1,5)(x+1,5)}{x-1,5} =x+1,5 $$
@@ -191,8 +192,8 @@ ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ.
         \draw[color= red] (0.8,2.5) node[right] {$P$};
           \draw (1,2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
 
-          \draw (1,0) coordinate (a) -- (0.33,0) coordinate (b) -- (1,2) coordinate (c)  pic[ draw = blue, fill = red!15!white, ->, angle eccentricity =1.2, angle radius = 1cm] {angle = a--b--c};
-                  \draw[color= black] (1,0.6) node[right] {$\alpha$};
+          \draw (1,0) coordinate (a) -- (0.33,0) coordinate (b) -- (1,2) coordinate (c)  pic[ draw = blue, fill = red!25!white, ->, angle eccentricity =1.2, angle radius = 1cm] {angle = a--b--c};
+        \draw[color= black] (1,0.6) node[right] {$\alpha$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -203,7 +204,7 @@ Gegeben ist die Funktion $f(x)= 2x^2 - 3x +2 $ und dem Definitionsbereich $\math
 \begin{enumerate}
     \item Bestimmung der ersten Ableitung mit Hilfe der h-Methode
     \item Berechnung der Steigung an einer bestimmten Stell $x_0$
-    \item Berehnung des Steigungswinkels der Tangente an dieser Stelle am Graphen
+    \item Berechnung des Steigungswinkels der Tangente an dieser Stelle am Graphen
 \end{enumerate}
 \begin{equation*}
 \begin{split}
