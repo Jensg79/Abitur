@@ -553,7 +553,7 @@ Betrachtet wird die Funktion $f(x)= x^3-6x^2 +9x-2$ mit $\mathds{D}_f =\mathds{R
 Monotonietabelle:\\
 \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
     \hline
-    $x$& $ -\infty <x<1 $ & $ x_2 =1$ &$ 1<x<3 $ & $x_1 3 $& $ 3<x<\infty $\\
+    $x$& $ -\infty <x<1 $ & $ x_2 =1$ &$ 1<x<3 $ & $x_1 = 3 $& $ 3<x<\infty $\\
     \hline \hline
     $3\cdot (x-1)$ & - &  0 & - &  & +  \\
     \hline
@@ -703,31 +703,99 @@ Die ausführliche Kurvendiskussion besteht aus einer Reihe von analytischen Unte
         \item Bestimmung des maximalen Definitionsbereichs
         \item Untersuchungen der Symmetrie
         \item Verhalten an den Rändern des Definitionsbereichs 
-        \item Gemeinsame Punkte mit den koordinatenachsen
+        \item Gemeinsame Punkte mit den Koordinatenachsen
     \end{itemize}
     \item Untersuchungen des Terms der ersten Ableitung
         \begin{itemize}
             \item Monotonie
-            \item Tangentensteigungen von speziellen Punkten
+            \item Extrempunkte
+
         \end{itemize}
     \item Untersuchungen des Terms der zweiten Ableitung
         \begin{itemize}
             \item Krümmungsverhalten
+            \item Tangentensteigungen von speziellen Punkten
         \end{itemize}
     \item Graph der Funktion mit allen berechneten Werten
     \item Wertemenge der Funktion
 \end{enumerate}
 \end{merke}
+
 \begin{bsp}{}{}
 Betrachtet wird die Funktion $f(x)= \dfrac{1}{16} x^4 +\dfrac{1}{4} x^3$ mit $\mathds{D}_f =\mathds{D}_{max}$ dem maximalen Definitionsbereich. Es soll für die Funktion eine vollständige Kurvendiskussion durchgeführt werden.
 \begin{enumerate}
     \item Bestimmung des maximalen Definitionsbereichs. $\mathds{D}_f = \mathds{R}$
     \item Untersuchungen der Symmetrie
-    $$f(-x) = \dfrac{1}{16} \cdot (-x)^4 + \dfrac{1}{4} \cdot (-x)^3 = \dfrac{1}{16} \cdot x^4 - \dfrac{1}{4} \cdot x^3 \neq \pm f(x)$$ Damit ist der Graph $G_f$ weder punktsymmetrisch zum Ursprung noch achsensymmetrisch zur y-Achse.
+    $$f(-x) = \frac{1}{16} \cdot (-x)^4 + \frac{1}{4} \cdot (-x)^3 = \frac{1}{16} \cdot x^4 - \frac{1}{4} \cdot x^3 \neq \pm f(x)$$ Damit ist der Graph $G_f$ weder punktsymmetrisch zum Ursprung noch achsensymmetrisch zur y-Achse.
     \item Verhalten an den Rändern des Definitionsbereichs
     $$\lim_{x\rightarrow \infty} f(x) = \lim_{x\rightarrow \infty} \dfrac{1}{16}x^4 +\dfrac{1}{4}x^3 = \infty$$
         $$\lim_{x\rightarrow -\infty} f(x) = \lim_{x\rightarrow -\infty} \dfrac{1}{16}x^4 +\dfrac{1}{4}x^3 = \infty$$
-        Das Verhalten von Polynomen an den Rändern des Definitionsbereichs wird durch den Summanden mit der höchsten Potenz (Grad des Polynoms) festgelegt\footnote{Siehe Jahrgangsstufe 10 und die Grenzwertbetrachtungen}. In diesem Beispiel ist der Grad $n=4$ und damit streben die Funktionswerte an den Rändern des Definitionsbereichs gegen Unendlich.
+        Das Verhalten von Polynomen an den Rändern des Definitionsbereichs wird durch den Summanden mit der höchsten Potenz (Grad des Polynoms) festgelegt. In diesem Beispiel ist der Grad $n=4$ und damit streben die Funktionswerte an den Rändern des Definitionsbereichs gegen Unendlich.
+    \item Gemeinsame Punkte mit den Koordinatenachsen
+    \begin{itemize}
+        \item Schnittpunkt mit der y-Achse
+    
+    \begin{equation*}
+        f(0) = \dfrac{1}{16}0^4 +\dfrac{1}{4}0^3 = 0
+    \end{equation*}
+    Damit liegt der Schnittpunkt mit der y-Achse bei $SP_y(0|0)$.
+    \item Schnittpunkte mit der x-Achse
+    \begin{equation*}
+        \begin{split}
+         0 &= \dfrac{1}{16} x^3 (x+4)\\
+             x_1 =x_2=x_3&= 0 \longrightarrow SP_{x_1} = SP_{x_2} = SP_{x_3}(0|0) \\
+             x_4&= -4 \longrightarrow SP_{x_4}(-4|0)
+        \end{split}
+\end{equation*}
+    \end{itemize}
+  \item Monotonie des Graphen $G_f$ der Funktion $f$  
+    \begin{itemize}
+        \item Bildung der Ableitungen
+    \begin{equation*}
+        \begin{split}
+        f(x) &= \dfrac{1}{16} x^4 +\dfrac{1}{4} x^3\\
+            f'(x)&= \dfrac{1}{4} x^3 +\dfrac{3}{4} x^2\\
+            f''(x) &= \dfrac{3}{4} x^2 + \dfrac{3}{2} x
+        \end{split}
+\end{equation*}
+       \item Berechnung der Nullstellen der ersten Ableitung 
+           \begin{equation*}
+        \begin{split}
+         0 &= \dfrac{1}{4} x^3 +\dfrac{3}{4} x^2\\
+         0 &= \dfrac{1}{4} x^2 (x+3)\\
+         x_1 =x_2 &= 0\\
+         x_3&= -3
+        \end{split}
+\end{equation*}
+
+Monotonietabelle:
+\begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ -\infty <x<-3 $ & $ x = -3$ &$ -3<x<0 $ & $x=0 $& $ 0<x<\infty $\\
+    \hline \hline
+    $\frac{1}{4} x^2$ & + &  0 & + &  & +  \\
+    \hline
+    $(x +3)$ & - & 0 & + &  & + \\
+    \hline
+
+    $f'(x)$ & - & 0 & + & 0 & +\\ 
+    \hline
+    \hline
+    $G_f$ & smf & $TiP(-3|-\frac{27}{16})$ & smw  & $TP(0|0) $& smw\\
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Koordinaten:
+           \begin{equation*}
+        \begin{split}
+         f(-3)&= \dfrac{1}{16} (-3)^4 +\dfrac{1}{4} (-3)^3\\
+         &= -\dfrac{27}{16}\approx -1,69\\
+         f(0) &= \dfrac{1}{16} 0^4 +\dfrac{1}{4} 0^3 = 0
+        \end{split}
+\end{equation*}
+Durch die Monotonietabelle ist es möglich, dass gleichzeitig die Art der Extrempunkte bestimmt werden kann.
+    \end{itemize}
+    \item Bestimmung des Krümmungsverhalten
 \end{enumerate} 
 
 \end{bsp}
@@ -782,29 +850,22 @@ Die Untersuchung der Symmetrie erfolgt für Funktionen immer nach dem selben Mus
 \end{equation} oder 
 \begin{equation} \label{-f(x)}
 f(-x) = -f(x) 
-\end{equation} gilt. Für die Gleichung \ref{f(x)} ist der Graph der Funktion $f$ achsensymmetrisch zur y-Achse. Für die Gleichung \ref{-f(x)} ist der Graph der Funktion $f$ punktsymmetrisch zum Ursprung. Gilt keine der beiden Gleichungen kann keine Aussage zur Symmetrie getroffen werden. 
+\end{equation} gilt. Für die Gleichung \ref{f(x)} ist der Graph der Funktion $f$ achsensymmetrisch zur y-Achse. Für die Gleichung \ref{-f(x)} ist der Graph der Funktion $f$ punktsymmetrisch zum Ursprung. Gilt keine der beiden Gleichungen kann keine Aussage zur Symmetrie zur y-Achse bzw. zum Ursprung getroffen werden. 
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[xmin= -4.1, xmax = 4, ymin= -15.1, ymax= 20.5,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
-        xtick={-4, -3.5, -3,  ..., 2},
+        xtick={-4, -3,  ..., 2, 3, 4},
         ytick={-15, -10, -5, ..., 20},
         xlabel = $x$,
         ylabel=$y$]
-            \addplot[color= red, samples = 300, domain= -3.7:1.7]{x^2};
-         \draw (1.5,15)   node [right] {\textcolor{red}{$f(x)$}};  
-            \addplot[color= black, samples = 300, domain= -3.7:1.7]{x^3};
-            \draw (-3.5,12)   node [right] {$f'(x)$}; 
-            \draw (-2.1,0)   node [above] {$x_2$};
-            \draw (0.15,0.5)   node [left] {$x_1$};
-             \draw (-2.15,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
-             \draw (-2.1,14)   node [above] {HoP};
-              \draw (-2.15,13.15)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
-               \draw (0.15,0.84)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
-               \draw (0.15,4.5)   node [above] {TiP};
-              \draw (0.15,0)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+            \addplot[color = red, samples = 300, domain= -3.7:3.7]{x^2};
+         \draw (1.5,15)   node [right] {$f(x) = x^3$};  
+            \addplot[color= black, samples = 300, domain= -3.7:3.7]{x^3};
+            \draw (-3,12)   node [right] {\textcolor{red}{$g(x) = x^2$}}; 
+            
         \end{axis}
     \end{tikzpicture}  
 \end{center}
