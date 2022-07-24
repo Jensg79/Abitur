@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum}
-\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=20mm }%,rmargin=20mm}
+\geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{polynom}
@@ -796,8 +796,105 @@ Berechnung der Koordinaten:
 Durch die Monotonietabelle ist es möglich, dass gleichzeitig die Art der Extrempunkte bestimmt werden kann.
     \end{itemize}
     \item Bestimmung des Krümmungsverhalten
-\end{enumerate} 
+ \begin{equation*}
+        \begin{split}
+         0 &= \dfrac{3}{4} x^2 +\dfrac{3}{2} x\\
+         0 &= \dfrac{3}{2} x \cdot (\dfrac{1}{2}x + 1)\\
+         x_1 &= 0\\
+         x_2&= -2
+        \end{split}
+\end{equation*}
+Krümmungstabelle:
+\begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$ & $ -\infty <x<-2 $ & $ x = -2$ &$ -2<x<0 $ & $x=0 $& $ 0<x<\infty $\\
+    \hline \hline
+    $\frac{3}{2} x$ & - &  -3 & - & 0 & +  \\
+    \hline
+    $(\frac{1}{2} x +1)$ & - & 0 & + & 1 & + \\
+    \hline
 
+    $f''(x)$ & + & 0 & - & 0 & +\\ 
+    \hline
+    \hline
+    $G_f$ & linksgekrümmt & $TP(-2|-1)$ & rechtsgekrümmt  & $TP(0|0) $& linksgekrümmt\\
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Koordinaten:
+           \begin{equation*}
+        \begin{split}
+         f(-2)&= \dfrac{1}{16} (-2)^4 +\dfrac{1}{4} (-2)^3\\
+         &= 1-2 \\
+         &= -1\\
+         f(0) &= \dfrac{1}{16} 0^4 +\dfrac{1}{4} 0^3 = 0
+        \end{split}
+\end{equation*}
+\item Berechnung der Wendetangente am Terrassenpunkt $TP(-2|-1)$
+\begin{itemize}
+    \item Berechnung der Steigung des Graphen im Punkt $TP(-2|-1)$ 
+    \begin{equation*}
+        \begin{split}
+         f'(-2)&= \dfrac{1}{4} (-2)^3 +\dfrac{3}{4} (-2)^2\\
+         &= -2+3\\
+         &= 1
+        \end{split}
+\end{equation*}
+\item Berechnung des y-Achsenabschnitts
+\begin{equation*}
+        \begin{split}
+        y &= m \cdot x +t \\
+         -1 &= 1\cdot -2 +t \\
+        -1 &= -2 +t \\
+        t &= 1\\
+         y&= 1\cdot x +1
+        \end{split}
+\end{equation*}
+\end{itemize}
+\item Wertemenge: $WP= [-\dfrac{27}{16} \hspace{0.1cm}|\hspace{0.1cm} \infty[$
+\item Graph der Funktion
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -5.1, xmax = 3.1, ymin= -3.1, ymax=7.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-5, -4, -3,  ..., 3},
+        ytick={-3, -2, ..., 7},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= black, samples = 300, domain= -4.8:2.8]{1/16 * x^4 + 1/4*x^3};
+        \addplot[color= red, samples = 300, domain= -4.8:2.8]{x +1};
+        \draw (-3,-27/16) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+        \draw (-3,-1.3)   node [above] {TiP};
+        \draw (0,0) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (0.3,0.2)   node [above] {TP};
+        \draw (-2,-1) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (-1.8,-2)   node [above] {WP};
+        \draw (1.5,5)   node [above] {$f(x)$};
+        \draw[red] (2.5,2.2)   node [above] {$y$};
+
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate} 
+\end{bsp}
+\subsection{Die Stammfunktion}\index{Stammfunktion}
+\begin{defi}{Die Stammfunktion}{}
+    Unter einer Stammfunktion einer Funktion $f$ versteht man die differenzierbare Funktion $F$, deren Ableitungsfunktion $F'$ mit $f$ übereinstimmt. Ist also $f$ auf einem Intervall $I$ definiert, so muss auch $F$ auf $I$ definiert und differenzierbar sein. Damit muss für alle $x\in I$ gelten: $$F'(x)= f(x).$$
+\end{defi}
+\begin{satz}{Stammfunktion der Potenzfunktion}{}\index{Stammfunktion!Potenzfunktion}
+    Die Potenzfunktion $f: x \longrightarrow x^n$  mit $\mathds{D}_f = \mathds{R}$ ist auf ganz $\mathds{R}$ stetig. Die Menge aller Stammfunktion der Potenzfunktion lautet damit: $$F(x)= \dfrac{1}{n+1} \cdot x^{n+1} + c .$$
+    Die additive Konstante c mit $c\in\mathds{R}$ steht hierbei die absoluten Anteil der Potenzfunktion.
+\end{satz}
+\begin{b8d}{Die Menge der Stammfunktionen}{}\index{Stammfunktion!Menge aller Stammfunktionen}
+Durch die additive Konstante $c$ wird die Menge dr Stammfunktionen beschrieben. Sollen also {\bfseries\textcolor{red}{alle}} Stammfunktionen angegeben werden, muss die Konstante $c$ stehts mit angegeben werden. Wird nur eine Stammfunktion verlangt, reicht es, dass nur ein Wert für $c$ eingesetzt wird.
+\end{b8d}
+\begin{bsp}{Beispiele der Stammfunktion}{}
+\begin{itemize}
+    \item $f(x) = x^4 \hspace{0.2cm} \longrightarrow \hspace{0.2cm} F(x) = \dfrac{1}{5} x^5 + c $
+    \item $f(x) = -\dfrac{3}{4} x^7 \hspace{0.2cm} \longrightarrow \hspace{0.2cm} F(x)= -\dfrac{3}{4} \cdot \dfrac{1}{8} x^8 + c$
+\end{itemize}
 \end{bsp}
 \end{section}
 \chapter{Analytische Geometrie}
