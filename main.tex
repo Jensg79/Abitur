@@ -1,6 +1,7 @@
 \documentclass[a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage{animate}
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum}
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
@@ -25,7 +26,6 @@
 \cfoot{Seite \thepage \ von \pageref{LastPage}}
 \usepackage[Sonny]{fncychap}
 %Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
-
 \usepackage{xcolor}
 \usepackage{afterpage}
 \usepackage{tikz}
@@ -47,9 +47,32 @@
 \newtcbtheorem[number within=section]{bem}
     {Bemerkung}{colback=red!2,colframe=red!35!black,breakable, fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
 \usepackage{setspace}
+\usepackage{multicol}
 \usepackage{makeidx}
 \renewcommand{\indexname}{Sachregister}
 \makeindex
+\usepgfplotslibrary{fillbetween}
+
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+              axis x line=middle,    % put the x axis in the middle
+              axis y line=middle,    % put the y axis in the middle
+              axis line style={<->}, % arrows on the axis
+              xlabel={$x$},          % default put x on x-axis
+              ylabel={$y$},          % default put y on y-axis
+            %  axis equal,            % 1:1 ratio
+              grid=both,             % coordinate grid
+              grid style={line width=.1pt, draw=gray!10},
+              major grid style={line width=.2pt,draw=gray!50},
+              ticks=both,            % ticks for integers
+              minor tick num=5,      % number of subticks
+              ticklabel style={font=\small,fill=white},
+              xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+              ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+            }
+}
+\tikzset{>=stealth}
+
 \begin{document}
 
 \onehalfspacing
@@ -68,13 +91,39 @@
 \tableofcontents
 \newpage
 \chapter{Analysis}
-\todo{mittlere Änderungsrate}
+\begin{center}
+\scalebox{2}{\begin{tikzpicture}
+\begin{axis}[xmin= -2.5, xmax = 3.5, ymin= -4, ymax= 4,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2, -1, 0, ..., 4},
+        ytick={-4, -3, -2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+      \addplot[name path = f,red,thick,samples=200] {-1*(x-1)^2 +2};
+      \addplot[name path = l1,thick, samples = 200] {1/3*x^3-1.5};
+      \addplot [
+        thick,
+        color=lightgray,
+        fill=none, 
+        fill opacity=0.5
+      ]
+      fill between[
+        of=l1 and f,
+        split,
+        every segment no 2/.style={
+            fill=lightgray,
+        },
+      ];
+\end{axis}
+\end{tikzpicture}}
+\end{center}
 \include{Analysis.tex}
+
+
 \chapter{Analytische Geometrie}
-
-
 \chapter{Stochastik}
-
 \chapter{Anhang}
 \include{Anhang.tex}
 \printindex
