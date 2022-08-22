@@ -950,7 +950,20 @@ Im folgenden ist der Graph $G_{f_1}$ der Funktion $f_1(x) = \dfrac{1}{8}\cdot(x^
  \begin{defi}{Gebrochenrationale Funktion}{}
 Eine Funktion $f$ mit $x\longrightarrow \dfrac{z(x)}{n(x)}$ nennt man gebrochenrationale Funktion genau dann, wenn die Funktionen $z(x)$ und $n(x)$ Polynome sind. Die Funktion $f$ lässt sich damit durch folgenden Term beschreiben:$$f(x) = \dfrac{a_mx^m + a_{m-1}x^{m-1} + \ldots + a_1 x +a_0}{b_n x^n + b_{n-1}x^{n-1} + \ldots + b_1 x + b_0}$$ mit $m,n \in \mathds{R}$ und $a_m , b_n \neq 0$.
  \end{defi}
+ \begin{bsp}{Beispiel für eine gebrochenrationale Funktion}{}
+ 
+Der Graph der gebrochenrationale Funktion  $$f(x)= \dfrac{x^2+4x+3}{x^2+x-2}$$
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[domain=-6:5, restrict y to domain=-5:5,axis x line=center, axis y line=center,%
+xtick={-6,...,5}, ytick={-5,...,5}]
+        \addplot[mark=none, color=red]  plot[samples=300,smooth]{((x+1)*(x+3)) / (x^2 +x - 2)};
+        \draw[red] (3.4,1)   node [above] {$G_{f}$};
 
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bsp}
  \begin{merke}{Eigenschaften gebrochenrationaler Funktionen}{}
      \begin{enumerate}
          \item Die Nullstellen einer gebrochenrationalen Funktion ergeben sich aus den Nullstellen des Zählerpolynoms.
@@ -963,7 +976,7 @@ Eine Funktion $f$ mit $x\longrightarrow \dfrac{z(x)}{n(x)}$ nennt man gebrochenr
  \end{bsp}
  
  \subsection{Trigonometrische Funktionen}\index{Kurvendiskussion!Trigonometrische Funktionen}
- 
+
  \subsection{Wurzelfunktionen}\index{Kurvendiskussion!Wurzelfunktionen}
  
  \subsection{Exponentialfunktionen}\index{Kurvendiskussion!Exponentialfunktionen}
