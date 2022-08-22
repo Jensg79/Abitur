@@ -62,3 +62,108 @@ f(-x) = -f(x)
     \end{tikzpicture}  
 \end{center}
 \section{Übersicht von Ableitungsregeln} \index{Ableitung! Übersicht}
+\subsection{Allgemeine Ableitungsregeln}\index{Ableitungsregeln! Allgemeine Ableitungsregln}
+\begin{merke}{Allgemeine Ableitungsregeln}{}
+
+\begin{multicols}{2}
+\begin{itemize}
+    \item Ableitung einer Konstanten:
+    \begin{gather*} 
+	f(x) = c \hspace{0.2cm}\text{mit} \hspace{0.2cm} c \in \mathds{R}\\ 
+	f'(x) = 0
+	\end{gather*}
+    \item Ableitung der Ursprungsgeraden:
+    \begin{gather*} 
+	f(x) = x \\ 
+	f'(x) = 1
+	\end{gather*} 
+     \item Ableitung einer allgemeinen Geraden:
+    \begin{gather*} 
+	f(x) = m\cdot x + t  \hspace{0.2cm}\text{mit} \hspace{0.2cm} m,t \in \mathds{R}\\ 
+	f'(x) = m
+	\end{gather*}
+ \item Ableitung einer allgemeinen Potenzfunktion:
+    \begin{gather*} 
+	f(x) = x^n  \hspace{0.2cm}\text{mit} \hspace{0.2cm} n \in \mathds{N}\\ 
+	f'(x) =n \cdot x^{n-1}
+	\end{gather*}
+\end{itemize}    
+\end{multicols}
+\end{merke}
+\subsection{Ableitungsregeln von Funktionen}\index{Ableitungsregeln! Funktionen}
+\begin{defi}{Ableitungsfunktionen}{}
+\begin{multicols}{2}
+\begin{itemize}
+    \item Ableitung der Summe von Funktionen:
+    \begin{gather*} 
+	f(x) = u(x) + v(x) \\
+	f'(x) = u'(x)+ v'(x)
+	\end{gather*}
+     \item Ableitung einer Funktion mit Vorfaktor:
+    \begin{gather*} 
+	f(x) = a\cdot u(x)  \\
+	f'(x) = a\cdot u'(x) 
+	\end{gather*}
+       \item Ableitung des Produktes von zwei Funktionen:
+    \begin{gather*} 
+	f(x) = u(x) \cdot v(x)  \\
+	f'(x) = u'(x) \cdot v(x) + u(x) \cdot v'(x)
+	\end{gather*}     
+        \item Ableitung des Quotienten von zwei Funktionen:
+    \begin{gather*} 
+	f(x) = \dfrac{u(x)}{v(x)}  \\
+	f'(x) = \dfrac{u'(x)\cdot v(x) - u(x) \cdot v'(x)}{(v(x)^2)}
+	\end{gather*} 
+         \item Ableitung einer verketteten Funktion:
+
+   \begin{gather*} 
+	f(x) = u(v(x))  \\
+	f'(x) = u'(v(x)) \cdot v'(x)
+	\end{gather*} 
+
+\end{itemize}   
+\end{multicols}
+\end{defi}
+\subsection{Ableitung von Grundfunktionen}\index{Ableitungsregeln! Grundfunktionen}
+\begin{merke}{Ableitungen von Grundfunktionen}{}
+\begin{itemize}
+ \item Trigonometrische Funktionen:
+    \begin{gather*} 
+	f(x) = \sin({x})  \\
+	f'(x) = \cos({x})\\
+ g(x) = \cos{(x)}\\
+ g'(x) = -\sin{(x)}	\end{gather*}
+\item e-Funktion
+\begin{gather*} 
+	f(x) = e^x  \\
+	f'(x) = e^x
+	\end{gather*}
+ \item Logarithmusfunktion
+ \begin{gather*} 
+	f(x) = \ln{(x)}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}\setminus \{0\}\\
+	f'(x) = \dfrac{1}{x}
+	\end{gather*}
+ \item Quadratwurzel
+ \begin{gather*} 
+	f(x) = \sqrt{x} = x^{\frac{1}{2}}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}\setminus \{0\} \\
+ f'(x) = \dfrac{1}{2} \cdot x^{-\frac{1}{2} }= \dfrac{1}{2\cdot \sqrt{x}} 
+ \end{gather*}
+  \item allgemeine Wurzel
+ \begin{gather*} 
+	f(x) = \sqrt[n]{x} = x^{\frac{1}{n}}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}\setminus \{0\}  \hspace{0.2cm} \text{und} \hspace{0.2cm} n\in \mathds{N} \\
+ f'(x) = \dfrac{1}{n} \cdot x^{ \frac{1}{n} - 1}= \dfrac{1}{n\cdot \sqrt[n-1]{x}} 
+ \end{gather*}
+\end{itemize}
+\end{merke}
+\subsection{Beispiele der Ableitungsregeln}\index{Ableitungsregeln! Beispiele}
+\begin{bsp}{Beispiele für die Ableitungsregln}{}
+    
+
+\begin{enumerate}
+    \item $f(x) = 5 \longrightarrow f'(x) = 0$
+    \item $f(x) = -3x +7 \longleftarrow f'(x) = -3 $
+    \item $f(x) = x^6 \longrightarrow f'(x) = 6\cdot x^5$
+    \item $f(x) = -2x^4+2x-1 \longrightarrow f'(x) = -2\cdot 4\cdot x^3 + 2 = -8\cdot x^3 +2$
+    \item $f(x) = e^x \cdot (4x^3 -3) \longrightarrow f(x) = e^x \cdot (4x^3-3) + e^x \cdot (12x^2)$
+\end{enumerate}
+\end{bsp}
