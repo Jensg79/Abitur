@@ -205,6 +205,7 @@ Der Graph der Funktion $f(x) = x^2$ läßt sich wie folgt transformieren:
 \item $g_4(x) =a\cdot x^2$ und $a>0$, $\Longrightarrow$ $G_f$ in Richtung der y--Achse mit dem Faktor a gestreckt bzw. gestaucht
 \end{itemize}
 \end{bsp*}
+
 \begin{merke}{Allgemeine Darstellung der Linearen Transformationen} 
 Die lineare Transformation lässt sich allgemein wie folgt schreiben:\index{Lineare Transformation!allgemein}\\
 Wir erhalten aus dem Graphen $G_f$ der Funktion f den Graphen der Funktion g mit:
@@ -214,9 +215,11 @@ Wir erhalten aus dem Graphen $G_f$ der Funktion f den Graphen der Funktion g mit
 \item $g(x) = f(x) +a$ indem man $G_f$ in Richtung der y--Achse um a verschiebt
 \item $g(x) =f(x-a)$ indem man $G_f$ in Richtung der x--Achse um a verschiebt
 \item $g(x) =a\cdot f(x)$ und $a>0$, indem man $G_f$ in Richtung der y--Achse mit dem Faktor a streckt bzw. staucht
-\item $g(x) =f(a\cdot x)$ und  $a>0$, indem man $G_f$ in Richtung der x--Achse mit dem Faktor $\dfrac{1}{a}$ staucht bzw. streckt 
+\item $g(x) =f(a\cdot x)$ und  $a>0$, indem man $G_f$ in Richtung der x--Achse mit dem Faktor $\dfrac{1}{a}$ staucht bzw. streckt.
+
 \end{itemize}
 \end{merke}
+\label{lintrans}
 \end{section}
 
 \begin{section}{Globales Differenzieren}\index{Differenzieren!global}
@@ -229,7 +232,6 @@ $$f'(x)=\lim_{h\rightarrow 0} \dfrac{f(x + h) - f(x)}{h}.$$
 \begin{bem}{Bedeutung der Ableitungsfunktion}{bedeutungAblf}
    Die Ableitungsfunktion $f'$ beschreibt die Steigung der Funktion $f$ an jeder Stelle $x\in \mathds{R}$. \\
    Bei der Ableitung von Polynomen verringert sich der Grad der Funktion bei jeder Ableitung um 1.\\
-   
 \end{bem}
 \begin{bsp}{Beispielfunktion}{}\index{Ableitung!Ableitungsfunktion!Beispiel}
 Die Funktion $f(x) = x^3 + x^2 -2x+1$ mit $x\in\mathds{R}$ ist ein Polynom vom Grad 3, die Funktion $f'(x) = 3x^2+2x-2$ ist die erste Ableitung der Funktion $f(x)$. Die Graphen der beiden Funktionen ist unten gegeben. 
@@ -832,7 +834,7 @@ Für alle Konstanten $c$ gilt $c\in \mathds{R}$.
     \item $f(x) = x^2 +a^2 \hspace{0.2cm} \longrightarrow \hspace{0.2cm} F(x)= \dfrac{1}{3} \cdot x^3 + a^2 \cdot x + c$
 \end{itemize}
 \end{bsp}
-\section{Funktionenscharen}\index{Funktionenscharen}
+\section{Funktionenscharen}\index{Funktionen!Funktionenscharen}
 Unter Funktionsscharen versteht man Funktion, die neben der \glqq normalen\grqq{} Variablen $x$ noch einen oder mehrere Parameter besitzen. Diese Parameter werden in der Kurvendiskussion als Zahlen interpretiert. 
 \begin{defi}{Definition von Funktionenscharen}{}
 Bei einer Funktionenschar gibt es neben der Variable $x$ auch noch einen Parameter (häufig a oderk), welchen man frei auf eine Zahl festlegen kann. Für jede Besetzung des Parameters bekommt man einen anderen Funktionsterm und somit auch einen anderen Funktionsgraphen.
@@ -946,13 +948,13 @@ Im folgenden ist der Graph $G_{f_1}$ der Funktion $f_1(x) = \dfrac{1}{8}\cdot(x^
 \end{center}
 \end{bsp}
 \section{Untersuchung von Funktionen}
-    \subsection{Gebrochenrationale Funktion}
- \begin{defi}{Gebrochenrationale Funktion}{}
-Eine Funktion $f$ mit $x\longrightarrow \dfrac{z(x)}{n(x)}$ nennt man gebrochenrationale Funktion genau dann, wenn die Funktionen $z(x)$ und $n(x)$ Polynome sind. Die Funktion $f$ lässt sich damit durch folgenden Term beschreiben:$$f(x) = \dfrac{a_mx^m + a_{m-1}x^{m-1} + \ldots + a_1 x +a_0}{b_n x^n + b_{n-1}x^{n-1} + \ldots + b_1 x + b_0}$$ mit $m,n \in \mathds{R}$ und $a_m , b_n \neq 0$.
+    \subsection{gebrochen-rationale Funktion}
+In der Jahrgangsstufe 8 erfolgten die einführenden Betrachtungen zu Elementaren gebrochen-rationalen Funktionen. Siehe hierzu im Anhang \ref{elemgebrat}.
+ \begin{defi}{Gebrochen-rationale Funktion}{}
+Eine Funktion $f$ mit $x\longrightarrow \dfrac{z(x)}{n(x)}$ nennt man gebrochen-rationale Funktion genau dann, wenn die Funktionen $z(x)$ und $n(x)$ Polynome sind. Die Funktion $f$ lässt sich damit durch folgenden Term beschreiben:$$f(x) = \dfrac{a_mx^m + a_{m-1}x^{m-1} + \ldots + a_1 x +a_0}{b_n x^n + b_{n-1}x^{n-1} + \ldots + b_1 x + b_0}$$ mit $m,n \in \mathds{R}$ und $a_m , b_n \neq 0$.
  \end{defi}
- \begin{bsp}{Beispiel für eine gebrochenrationale Funktion}{}
- 
-Der Graph der gebrochenrationale Funktion  $$f(x)= \dfrac{x^2+4x+3}{x^2+x-2}$$
+ \begin{bsp}{Beispiel für eine gebrochen-rationale Funktion}{} 
+Der Graph der gebrochen-rationale Funktion  $$f(x)= \dfrac{x^2+4x+3}{x^2+x-2}$$ mit $\mathds{D}_f = \mathds{R}\setminus \{-2;1\}$. Aus der Hyperbel und den Definitionslücken kann man die beiden senkrechten Asymptoten bei $x=-2$ und bei $x=1$ ablesen.  
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[domain=-6:5, restrict y to domain=-5:5,axis x line=center, axis y line=center,%
@@ -964,11 +966,11 @@ xtick={-6,...,5}, ytick={-5,...,5}]
 \end{tikzpicture}
 \end{center}
 \end{bsp}
- \begin{merke}{Eigenschaften gebrochenrationaler Funktionen}{}
+ \begin{merke}{Eigenschaften gebrochen-rationaler Funktionen}{}
      \begin{enumerate}
-         \item Die Nullstellen einer gebrochenrationalen Funktion ergeben sich aus den Nullstellen des Zählerpolynoms.
+         \item Die Nullstellen einer gebrochen-rationalen Funktion ergeben sich aus den Nullstellen des Zählerpolynoms.
          \item Die Stellen an den die Funktion nicht definiert ist ergeben sich aus den Nullstellen des Nennerpolynoms. Diese Nullstellen bilden die Definitionslücken. Damit ändert sich der Definitionsbereich der Funktion $f(x)= \dfrac{z(x)}{n(x)}$  für alle $x_i$ mit $n(x_i) = 0$ und $x_i \in \mathds{R}$ zu $\mathds{D}_f = \mathds{R}\setminus \left\{x_i\right\}$. 
-     \item Eine gebrochenrationale Funktion hat mehrere Darstellungsformen. Die oben bereits kennengelernte Bruchform und die sogenannte Summenform. Die Summenform setzt sich dabei aus einem Polynom und einem gebrochenrationalen Term zusammen.
+     \item Eine gebrochen-rationale Funktion hat mehrere Darstellungsformen. Die oben bereits kennengelernte Bruchform und die sogenannte Summenform. Die Summenform setzt sich dabei aus einem Polynom und einem gebrochen-rationalen Term zusammen.
      \end{enumerate}
  \end{merke}
  \begin{bsp}{}{}

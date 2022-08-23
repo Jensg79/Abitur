@@ -64,7 +64,6 @@ f(-x) = -f(x)
 \section{Übersicht von Ableitungsregeln mit Beispielen} \index{Ableitung! Übersicht}
 \subsection{Allgemeine Ableitungsregeln}\index{Ableitungsregeln! Allgemeine Ableitungsregln}
 \begin{merke}{Allgemeine Ableitungsregeln}{}
-
 \begin{multicols}{2}
 \begin{itemize}
     \item Ableitung einer Konstanten:
@@ -157,8 +156,6 @@ f(-x) = -f(x)
 \end{merke}
 \subsection{Beispiele der Ableitungsregeln}\index{Ableitungsregeln! Beispiele}
 \begin{bsp}{Beispiele für die Ableitungsregln}{}
-    
-
 \begin{enumerate}
     \item $f(x) = 5 \longrightarrow f'(x) = 0$
     \item $f(x) = -3x +7 \longrightarrow f'(x) = -3 $
@@ -170,4 +167,29 @@ f(-x) = -f(x)
     $f(x) = \dfrac{N}{Z} \longrightarrow f'(x) = \dfrac{{N}{\cdot {AZ} -{}Z}\cdot {AN}}{{N}^2}$ oder\\[0.2cm]  {\bfseries\color{red}N}enner mal {\bfseries\color{red}A}bleitung {\bfseries\color{red}Z}ähler - {\bfseries\color{red}Z}ähler mal {\bfseries\color{red}A}bleitung {\bfseries\color{red}N}enner geteilt durch {\bfseries\color{red}N}enner im Quadrat
     \item $f(x)= e^{2x^5-x^3+2 }\longrightarrow f'(x) = e^{2x^5-x^3 + 2} \cdot (10x^4 -3x^2)$
 \end{enumerate}
+\end{bsp}
+\section{Elementare gebrochen-rationale Funktionen} \index{Funktionen!Elementare gebrochen-rationale Funktionen}
+\label{elemgebrat}In der Jahrgangsstufe 8 wurden bereits einfache gebrochen-rationale Funktionen betrachtet. Diese Funktionen gehorchten dem Term der Form $$f: x\longrightarrow \dfrac{a}{x+b} +c$$ mit $a \in \mathds{R}\setminus\{0\}$ und $b,c\in\mathds{R}$. Hierbei wird durch die Untersuchung von Graphen klar, dass die Parameter $b,c$ eine Verschiebung des Graphen der Funktion $g$ mit $g:x\longrightarrow \dfrac{a}{x}$ in x- bzw. in y-Richtung realisieren. Die Einführung der Parameter $b,c$ als Asymptoten des Graphen $G_f$ erfolgt daran anschließend. 
+\begin{bsp}{Elementare Gebrochen-rationale Funktionen}{}
+Am Beispiel der Funktion $f(x) = \dfrac{-2}{x+4} - 2$ mit $\mathds{D}_f = \mathds{R}\setminus\{-4\}$ sollen beispielhaft diese Überlegungen durchgeführt werden. Die Definitionslücke ergibt sich aus der Nullstelle des Nennerpolynoms $n(x) = x+4$. 
+ \begin{equation*}
+    \begin{split}
+        0 &= x+4 \hspace{0.5 cm} | -4\\
+        x&=-4 
+       \end{split}
+\end{equation*}
+Hierbei ergibt sich aus der Definitionslücke die senkrechte Asymptote. Die waagerechte Asymptote ergibt sich aus dem additiven Parameter $-2$ da die Funktionswerte sich beliebig genau diesem Wert annähern ihn aber nie annehmen. Allgemeinere Betrachtungen des Graphen sind durch die linearen Transformationen \ref{lintrans} erklärbar
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[domain=-9.1:4.1, restrict y to domain=-5:5, axis x line=center, axis y line=center,%
+xtick={-9,...,4}, ytick={-5,...,5}]
+        \addplot[mark=none  plot[samples=300,smooth]{-2/(x+4) -2};
+        \addplot[line width=1pt,mark=none, color=red]  plot[samples=300,smooth]{-2-0*x};
+        \draw [line width=1pt, color = blue] (-4,-5) -- (-4,5);
+        \draw (-7,-1)   node [above] {$G_{f}$};
+        \draw[red] (2,-1.8)   node [above] {$y=-2$};
+        \draw[blue] (-3,-1.5)   node [above] {$x=-4$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 \end{bsp}
