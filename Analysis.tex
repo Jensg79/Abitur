@@ -948,7 +948,7 @@ Im folgenden ist der Graph $G_{f_1}$ der Funktion $f_1(x) = \dfrac{1}{8}\cdot(x^
 \end{center}
 \end{bsp}
 \section{Untersuchung von Funktionen}
-    \subsection{gebrochen-rationale Funktion}
+    \subsection{Gebrochen-rationale Funktion}
 In der Jahrgangsstufe 8 erfolgten die einführenden Betrachtungen zu Elementaren gebrochen-rationalen Funktionen. Siehe hierzu im Anhang \ref{elemgebrat}.
  \begin{defi}{Gebrochen-rationale Funktion}{}
 Eine Funktion $f$ mit $x\longrightarrow \dfrac{z(x)}{n(x)}$ nennt man gebrochen-rationale Funktion genau dann, wenn die Funktionen $z(x)$ und $n(x)$ Polynome sind. Die Funktion $f$ lässt sich damit durch folgenden Term beschreiben:$$f(x) = \dfrac{a_mx^m + a_{m-1}x^{m-1} + \ldots + a_1 x +a_0}{b_n x^n + b_{n-1}x^{n-1} + \ldots + b_1 x + b_0}$$ mit $m,n \in \mathds{R}$ und $a_m , b_n \neq 0$.
@@ -1126,23 +1126,42 @@ Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das 
         ytick={-4, ..., 4},
         xlabel = $x$,
         ylabel=$y$]
-        \addplot[color= black, samples = 300, domain= -0.9:6.5]{((x^3-6*x^2+9*x) / (x^2 -2*x +1)};
+        \addplot[color= black, samples = 300, domain= -0.9:6.5,line width=1.5pt]{((x^3-6*x^2+9*x) / (x^2 -2*x +1)};
         \addplot[color= red, dashed, samples = 300, domain= -0.1:7]{x - 4};
-
+        \draw [ red,dashed,line width=1pt] (1,-4) -- (1,4);
         \draw (-3,-1.3)   node [above] {NS};
         \draw (3,0) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
          \draw (3.3,0.2)   node [above] {TP};
         \draw (6,2.5)   node [above] {$f(x)$};
         \draw[red] (3,-2.2)   node [above] {$y = x-4$};
+        \draw[red] (1.7,-1)   node [above] {$x=1$};
+        
     \end{axis}
 \end{tikzpicture}
 \end{center}
  \end{enumerate}
- 
  \end{bsp}
+ \begin{b8d}{Definitionslücken}{}
+Während der Kurvendiskussion müssen die Definitionslücken immer beachtet werden. Das bedeutet, dass sowohl bei der Monotonietabelle als auch bei der Krümmungstabelle die Definitionslücke berücksichtigt werden müssen. An der Definitionslücke kann sich sowohl die Monotonie als auch die Krümmung ändern.
+ \end{b8d}
+ Die Grenzwertbetrachtungen können nach der Fallunterscheidung \ref{Fallgebrochenrational} bestimmt werden.
+  \subsection{Wurzelfunktionen}\index{Kurvendiskussion!Wurzelfunktionen}
+  \subsubsection{Die Umkehrfunktion}
+  Einfache Wurzelfunktionen können als Umkehrfunktion der quadratischen Funktion betrachtet werden. Hierbei ist es notwendig, dass die Umkehrfunktion und die notwendigen Bedingungen der Umkehrbarkeit definiert werden. \index{Funktionen!Wurzelfunktion!Umkehrfunktion}
+  \begin{defi}{Umkehrbarkeit eine Funktion}{}
+Eine Funktion $f$ heißt umkehrbar, wenn verschiedene x-Werte des Definitionsbereichs $\mathds{D}_f$ stets verschiedene Funktionswerte $f(x)$ der Wertemenge $ \mathds{W}_f$ haben. Hierbei wird diese eindeutig umgekehrte Zuordnung Umkehrfunktion $f^{-1}$ genannt.
+  \end{defi}
+\begin{merke}{Kriterium für die Umkehrbarkeit}{}
+Eine Funktion $f$ ist in einem Intervall $I\in \mathds{D}_f$ umkehrbar, genau dann wenn die Funktion im Intervall $I$ streng monoton ist. 
+\end{merke}
+\begin{b8d}{Eigenschaften von Umkehrfunktionen}{}
+Bildet man die Umkehrfunktion einer umkehrbaren Funktion $f$ vertauschen sich der Definitionsbereich und der Wertebereich. Es gilt damit der folgende Zusammenhang: $$\mathds{D}_f = \mathds{W}_{f^{-1}}$$ und $$\mathds{W}_{f} = \mathds{D}_{f^{-1}}$$
+Die Umkehrfunktion $f^{-1}$ kann durch eine Spiegelung des Graphen $G_f$ der Funktion $f$ an der Winkelhalbierenden $y= x$ gebildet werden.
+\end{b8d}
+  \subsubsection{Die allgemeine Wurzelfunktion}\index{Funktionen!Wurzelfunktion!allgemeine Wurzelfunktion}
  \subsection{Trigonometrische Funktionen}\index{Kurvendiskussion!Trigonometrische Funktionen}
 
- \subsection{Wurzelfunktionen}\index{Kurvendiskussion!Wurzelfunktionen}
+
  
  \subsection{Exponentialfunktionen}\index{Kurvendiskussion!Exponentialfunktionen}
  
