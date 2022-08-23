@@ -1158,7 +1158,48 @@ Eine Funktion $f$ ist in einem Intervall $I\in \mathds{D}_f$ umkehrbar, genau da
 Bildet man die Umkehrfunktion einer umkehrbaren Funktion $f$ vertauschen sich der Definitionsbereich und der Wertebereich. Es gilt damit der folgende Zusammenhang: $$\mathds{D}_f = \mathds{W}_{f^{-1}}$$ und $$\mathds{W}_{f} = \mathds{D}_{f^{-1}}$$
 Die Umkehrfunktion $f^{-1}$ kann durch eine Spiegelung des Graphen $G_f$ der Funktion $f$ an der Winkelhalbierenden $y= x$ gebildet werden.
 \end{b8d}
-  \subsubsection{Die allgemeine Wurzelfunktion}\index{Funktionen!Wurzelfunktion!allgemeine Wurzelfunktion}
+\begin{b8d}{Bestimmung der Umkehrfunktion}{}
+Die Bestimmung der Umkehrfunktion erfolgt in zwei Schritten. Als erstes muss man ein Intervall finden in der die gegebene Funktion umkehrbar ist und dann vertauscht man die x- und y- Koordinate und stellt nach y - Koordinate um. Als Beispiel wird die Umkehrfunktion $f^{-1}$ der Funktion $f(x) = x^2+4x+6$ gebildet.
+\begin{enumerate}
+    \item Finden eines Intervalls, in dem die Funktion umkehrbar ist. Damit die Funktion umkehrbar ist muss ein Intervall $I \ in \mathds{D}_f$ gefunden werden, indem die Funktion streng monoton ist.
+    \begin{equation*}
+        \begin{split}
+            f(x)&= x^2+4x+6 \\
+            f'(x)&= 2x+4\\
+            0&= 2x+4 \hspace{0.5cm} | -4\\
+            2x&= -4 \hspace{0.5cm} | :2\\
+            x&= -2
+        \end{split}
+    \end{equation*}
+    Für das Intervall $I$ folgt damit $I_1=]-\infty; -2[ $ bzw. $I_2 = ]-2;\infty[$. Damit ist $f$ im Intervall $I_1$ bzw. $I_2$ umkehrbar.
+    \item Für die Umkehrfunktion $f^{-1}$ wird das Intervall $I_1 = ]-\infty; -2[$ gewählt.
+    \begin{equation*}
+        \begin{split}
+            y &= x^2+4x+6\\
+            y &= (x+2)^2 +2 \hspace{0.5cm}| \hspace{0.25cm} \text{Vertauschung von x und y} \\
+            x &= (y+2)^2+2 \hspace{0.5cm}| -2 \\
+            x-2 &= (y+2)^2 \hspace{0.5cm}| \hspace{0.15cm}\sqrt{\hspace{0.15cm}} \hspace{0.15cm}\text{(Vorzeichen der Wurzel ist negativ aufgrund des Intervalls}\hspace{0.15cm} I_1)\\
+            -\sqrt{x-2} &=y+2 \hspace{0.5cm}| -2\\
+            y=f^{-1}(x) &= -2-\sqrt{x-2}
+        \end{split}
+    \end{equation*}
+\end{enumerate}
+\end{b8d}
+ \subsubsection{Die allgemeine Wurzelfunktion}\index{Funktionen!Wurzelfunktion!allgemeine Wurzelfunktion}
+ Der Graph der einfachen Wurzelfunktion $f(x) = \sqrt{x}$ geht durch die Spiegelung der Normalparabel an der Winkelhalbierenden $y=x$ hervor. Die allgemein Wurzelfunktion $f(x) = a\cdot \sqrt{x-b} +c$ ergibt sich dann durch lineare Transformationen der einfachen Wurzelfunktion.
+ \begin{satz}{Die allgemeine Wurzelfunktion}{}
+Der Graph der Funktion $f(x) = a\cdot \sqrt{x-b}+c$ und $x\geq b$ ist eine Halbparabel und ergibt sich durch folgende lineare Transformationen aus der allgemeinen Wurzelfunktion $g(x)= \sqrt{x}$ wie folgt:
+\begin{itemize}
+    \item Verschiebung um b in x-Richtung
+    \item Strecken bzw. Stauchen mit dem Faktor a in y-Richtung
+    \item Verschiebung um c in y-Richtung
+\end{itemize}
+ \end{satz}
+ Eine besondere Art von Wurzelfunktionen bilden die Halbkreise als Graphen von Wurzelfunktionen.
+ \begin{merke}{Halbkreise als Graphen der Wurzelfunktion}{}
+Alle Punkte $P(x|y)$ die auf einem Kreis mit Radius $r$ um den Ursprung des Koordinatensystems liegen, erfüllen die Gleichung $$x^2+y^2 = r^2.$$ Bei der Bildung der Umkehrfunktion $f^{-1}$ folgt für die den Graphen der Umkehrfunktion $G_{f^{-1}}$ der Term $f^{-1}(x) = \sqrt{r^2-x^2}$. Für die Werte $-r\leq x\leq r$ ergibt sich als Graph ein Halbkreis mit Radius $r$ um den Ursprung.
+ \end{merke}
+ 
  \subsection{Trigonometrische Funktionen}\index{Kurvendiskussion!Trigonometrische Funktionen}
 
 
