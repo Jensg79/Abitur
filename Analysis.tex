@@ -973,10 +973,173 @@ xtick={-6,...,5}, ytick={-5,...,5}]
      \item Eine gebrochen-rationale Funktion hat mehrere Darstellungsformen. Die oben bereits kennengelernte Bruchform und die sogenannte Summenform. Die Summenform setzt sich dabei aus einem Polynom und einem gebrochen-rationalen Term zusammen.
      \end{enumerate}
  \end{merke}
- \begin{bsp}{}{}
+ In der Oberstufe werden gebrochen-rationale Funktionen meistens sowohl in der Bruch- als auch in der Summenform gegeben. Eine der typischen Aufgaben besteht dann darin, dass man die Äquivalenz der beiden Formen nachweist. Für die Polynomdivision siehe Anhang \ref{polynomdivision}  
+ \begin{bsp}{Umwandlung der Formen einer gebrochen-rationalen Funktion}{}
+Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1}$ und $\mathds{D}_f = \mathds{R}\setminus\{-1; 1\}$. Im folgenden soll die Äquivalenz der beiden Formen gezeigt werden.
+\begin{enumerate}
+    \item Von der Bruchform in die Summenform durch eine Polynomdivision:\\ \polylongdiv{x^3}{x^2-1}
+    \item Durch erweitern der Summenform in die Bruchform: 
+\begin{equation*}
+    \begin{split}
+        f(x) &= x+\dfrac{x}{x^2-1} \hspace{0.5cm} |\hspace{0.25cm} \text{erweitern mit } \hspace{0.25cm} (x^2-1)\\
+        &= \dfrac{x\cdot (x^2-1)}{x^2-1} + \dfrac{x}{x^2-1}\\
+        &= \dfrac{x^3-x}{x^2-1} + \dfrac{x}{x^2-1}\\
+        &= \dfrac{x^3-x+x}{x^2-1} \\
+        &= \dfrac{x^3}{x^2-1} = f(x)
+    \end{split}
+\end{equation*}
+\end{enumerate}
+\end{bsp}
+ Beispielhaft soll im folgenden die Kurvendiskussion einer gebrochen-rationalen Funktion durchgeführt werden. 
+ \begin{bsp}{Kurvendiskussion}{}
+Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3-6x^2+9x}{(x-1)^2} = x-4+\dfrac{4}{(x-1)^2}$ mit $\mathds{D}_f = \mathds{D}_{\text{max}}$ dem maximalen Definitionsbereich. 
+ \begin{enumerate}
+     \item Der maximaler Definitionsbereich ergibt sich aus den Nullstellen des Nennerpolynoms\\ $(x-1)^2$
+     \begin{equation*}
+    \begin{split}
+        n(x) &= (x-1)^2 \\
+        0&= (x-1)^2\\
+        x_{1} &= 1    
+    \end{split}
+\end{equation*}
+Damit folgt für $\mathds{D}_{\text{max}}$ folgender Zusammenhang $\mathds{D}_{\text{max}} = \mathds{R}\setminus\{1\}$.
+\item Symmetrie
+\begin{equation*}
+    \begin{split}
+        f(-x) &= \dfrac{(-x)^3-6(-x)^2+9(-x)}{((-x)-1)^2} \\
+        &= \dfrac{-x^3-6x^2-9x}{-x-1)^2}\\
+         &\neq  f(x)\\
+         &\neq -f(x)
+    \end{split}
+\end{equation*}
+Damit folgt für den Graphen $G_f$ der Funktion $f$, dass keine Symmetrie für die y-Achse bzw. für den Ursprung vorliegt.
+ \item Verhalten an den Rändern des Definitionsbereichs. Hierzu zählt auch das Verhalten an der Definitionslücke.
 
- \end{bsp}
+ \begin{enumerate}
+     \item Verhalten für $x\longrightarrow \infty$
+      \begin{equation*}
+    \begin{split}
+        \lim_{x\longrightarrow \infty} f(x) &= \lim_{x\longrightarrow \infty} \dfrac{x^3-6x^2+9x}{(x-1)^2} \\
+         &= \lim_{x\longrightarrow \infty}  x-4+\dfrac{4}{(x-1)^2}\\
+         &= \infty
+    \end{split}
+\end{equation*}
+ \item Verhalten für $x\longrightarrow -\infty$
+      \begin{equation*}
+    \begin{split}
+        \lim_{x\longrightarrow -\infty} f(x) &= \lim_{x\longrightarrow -\infty} \dfrac{x^3-6x^2+9x}{(x-1)^2} \\
+         &= \lim_{x\longrightarrow -\infty}  x-4+\dfrac{4}{(x-1)^2}\\
+         &= -\infty
+    \end{split}
+\end{equation*}
+\item Verhalten an der Definitionslücke
+      \begin{equation*}
+    \begin{split}
+        \lim_{x\longrightarrow 1^-} f(x) &= \lim_{x\longrightarrow 1^-} \dfrac{x^3-6x^2+9x}{(x-1)^2} \\
+         &= \infty\\
+         \lim_{x\longrightarrow 1^+} f(x) &= \lim_{x\longrightarrow 1^+} \dfrac{x^3-6x^2+9x}{(x-1)^2} \\
+         &= \infty
+    \end{split}
+\end{equation*}
+Daraus folgt, dass an der Stelle $x=1$ eine Polstelle (Unendlichkeitsstelle) ohne Vorzeichenwechsel (VZW) vorliegt.
+ \end{enumerate}
+ \item Asymptoten
+ \begin{itemize}
+     \item schräge Asymptote $y= x-4$ folgt aus der Summenform
+     \item senkrechte Asymptote $x=1$ folgt aus der Polstelle
+ \end{itemize}
+ \item Gemeinsame Punkte mit den Koordinatenachsen
+ \begin{equation*}
+    \begin{split}
+        0 &= f(x)\\
+         0 &= \dfrac{x^3-6x^2+9x}{(x-1)^2} \hspace{0.5cm} | \cdot (x-1)^2\\
+         0&= x^3-6x^2+9x\\
+         &= x\cdot(x^2-6x+9)\\
+         x_1 &= 0\\
+         x_{2/3} &= \dfrac{6\pm \sqrt{36 -4\cdot 1 \cdot 9}}{2 \cdot 1}\\
+         &= \dfrac{6\pm \sqrt{36-36}}{2}\\
+         &= \dfrac{6}{2} = 3
+    \end{split}
+\end{equation*}
+Damit ergibt sich eine einfache Nullstelle bei $x_1= 0$ und eine doppelte Nullstelle bei $x_{2/3} = 3$
+\begin{equation*}
+    \begin{split}
+        f(0) &= \dfrac{0^3-6\cdot0^2+9\cdot 0}{(0-1)^2}\\
+         &= \dfrac{0}{1} = 0
+    \end{split}
+\end{equation*}
+Der Schnittpunkt mit der y-Achse ergibt sich damit bei $SP_{\text{y}}(0|0)$.
+ \item Monotonieverhalten des Graphen $G_f$
+ \begin{equation*}
+    \begin{split}
+        f(x) &= \dfrac{x^3-6x^2+9x}{(x-1)^2}\\
+         f'(x) &= \dfrac{x^3-3x^2+3x-9}{(x-1)^3} = \dfrac{(x-3)\cdot (x^2+3)}{(x-1)^3}\\
+         0 &= \dfrac{(x-3)\cdot (x^2+3)}{(x-1)^3} \hspace{0.5cm} | \cdot (x-1)^3\\
+         0&=( x_{E_1}-3)\cdot (x_{E_2}^2+3)\\
+         0 &= ( x_{E_1}-3)\\
+         x_{E_1} &= 3\\
+         f(x_{E_1}) &= 0 \hspace{0.5cm} | \hspace{0.5cm}\text{siehe Nullstelle}\\
+         0&= x_{E_2}^2+3 \hspace{0.5cm} | -3 \\
+         x_{E_2}^2&\neq -3
+    \end{split}
+\end{equation*}
+
+Monotonietabelle:
+\begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ -\infty <x<1 $ & $ x =1$ &$ 1<x<3 $ & $x=3 $& $ 3<x<\infty $\\
+    \hline \hline
+    $(x-3)\cdot (x^2+3)$ & - & -  & - & 0 & +  \\
+    \hline
+    $(x-1)^3$ & - & 0 & + & + & + \\
+    \hline
+    $f'(x)$ & + & \Lightning & - & 0 & +\\ 
+    \hline
+    \hline
+    $G_f$ & smw &  & smf  & $TP(3|0) $& smw\\
+    \hline
+\end{tabular}
+\end{center}
+\item Krümmungsverhalten
+\begin{equation*}
+    \begin{split}
+        f(x) &= \dfrac{x^3-6x^2+9x}{(x-1)^2}\\
+         f'(x) &= \dfrac{x^3-3x^2+3x-9}{(x-1)^3} = \dfrac{(x-3)\cdot (x^2+3)}{(x-1)^3}\\
+         f''(x) &= \dfrac{24}{(x-1)^4}\\
+         0&= \dfrac{24}{(x-1)^4}\\
+         0&= 24  \hspace{0.5cm} | \hspace{0.5cm}\text{\Lightning}\\
+    \end{split}
+\end{equation*}
+Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das Krümmungsverhalten des Graphen $G_f$ nicht. Da für die Funktion $f''(x)$ im gesamten Definitionsbereich $f''(x) >0$ gilt, ist der Graph auf ganz $\mathds{D}$ linksgekrümmt.
  
+ \item Graph $G_f$ der Funktion $f(x)$
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}
+[restrict y to domain=-4:4, axis x line=center, axis y line=center,%
+    xmin= -2.1, xmax = 7.1,
+    ymin= -4.1, ymax=4.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2,  ..., 7},
+        ytick={-4, ..., 4},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= black, samples = 300, domain= -0.9:6.5]{((x^3-6*x^2+9*x) / (x^2 -2*x +1)};
+        \addplot[color= red, dashed, samples = 300, domain= -0.1:7]{x - 4};
+
+        \draw (-3,-1.3)   node [above] {NS};
+        \draw (3,0) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (3.3,0.2)   node [above] {TP};
+        \draw (6,2.5)   node [above] {$f(x)$};
+        \draw[red] (3,-2.2)   node [above] {$y = x-4$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+ \end{enumerate}
+ 
+ \end{bsp}
  \subsection{Trigonometrische Funktionen}\index{Kurvendiskussion!Trigonometrische Funktionen}
 
  \subsection{Wurzelfunktionen}\index{Kurvendiskussion!Wurzelfunktionen}
