@@ -14,6 +14,7 @@ $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,5
 \begin{tikzpicture}
 \begin{axis}[xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
         axis lines = middle, 
+         x=1cm,y=1cm,
         ymajorgrids=true,
         xmajorgrids=true,
         xtick={-3, -2, -1, 0, ..., 4},
@@ -65,6 +66,7 @@ Mit Hilfe der h-Methode ist es damit möglich jede beliebige Funktion abzuleiten
   \begin{center}
 \begin{tikzpicture}
 \begin{axis}[xmin= -0.2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
+ x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -112,6 +114,7 @@ ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[xmin= -2, xmax = 3.5, ymin= -1.5, ymax= 3.5,
+ x=1cm,y=1cm,
         axis lines = middle, 
         xticklabels=\empty,
         yticklabels=\empty,
@@ -326,6 +329,7 @@ Am Beispiel der Funktion $f(x)=x^3-2x^2-x+1$ soll das Newton-Verfahren exemplari
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
+         x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -451,7 +455,7 @@ Monotonietabelle:\\
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
-        xtick={-4, -3.5, -3,  ..., 2},
+        xtick={-4, -3,  ..., 2},
         ytick={-15, -10, -5, ..., 20},
         xlabel = $x$,
         ylabel=$y$]
@@ -500,6 +504,7 @@ Monotonietabelle:\\
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[xmin= -1.1, xmax = 5.5, ymin= -4.1, ymax=3.5,
+         x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -608,6 +613,7 @@ Berechnung der Koordinaten des Wendepunktes:
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -6.1, ymax=6.1,
+     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -791,6 +797,7 @@ Berechnung der Koordinaten:
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[xmin= -5.1, xmax = 3.1, ymin= -3.1, ymax=7.1,
+     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -844,6 +851,7 @@ Betrachtet wird die Funktionenschar $f_a(x) = x^2 +a$ mit $\mathds{D}_{f_a} = \m
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[xmin= -3.1, xmax = 3.1, ymin= -4.1, ymax=4.1,
+     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -932,6 +940,7 @@ Im folgenden ist der Graph $G_{f_1}$ der Funktion $f_1(x) = \dfrac{1}{8}\cdot(x^
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[xmin= -4.1, xmax = 4.1, ymin= -2.1, ymax=2.1,
+     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -958,6 +967,7 @@ Der Graph der gebrochen-rationale Funktion  $$f(x)= \dfrac{x^2+4x+3}{x^2+x-2}$$ 
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[domain=-6:5, restrict y to domain=-5:5,axis x line=center, axis y line=center,%
+     x=1cm,y=1cm,
 xtick={-6,...,5}, ytick={-5,...,5}]
         \addplot[mark=none, color=red]  plot[samples=300,smooth]{((x+1)*(x+3)) / (x^2 +x - 2)};
         \draw[red] (3.4,1)   node [above] {$G_{f}$};
@@ -1117,6 +1127,7 @@ Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das 
 \begin{tikzpicture}
     \begin{axis}
 [restrict y to domain=-4:4, axis x line=center, axis y line=center,%
+ x=1cm,y=1cm,
     xmin= -2.1, xmax = 7.1,
     ymin= -4.1, ymax=4.1,
         axis lines = middle, 
@@ -1172,7 +1183,7 @@ Die Bestimmung der Umkehrfunktion erfolgt in zwei Schritten. Als erstes muss man
         \end{split}
     \end{equation*}
     Für das Intervall $I$ folgt damit $I_1=]-\infty; -2[ $ bzw. $I_2 = ]-2;\infty[$. Damit ist $f$ im Intervall $I_1$ bzw. $I_2$ umkehrbar.
-    \item Für die Umkehrfunktion $f^{-1}$ wird das Intervall $I_1 = ]-\infty; -2[$ gewählt.
+    \item Für die Umkehrfunktion $f^{-1}$ wird das Intervall $I_1 = ]-\infty; -2[$ gewählt. Das bedeutet, dass die Funktion $f(x) = x^2+4x+6$ mit $\mathds{D}_f = ]-\infty; -2[$ und $\mathds{W}_f = [2, \infty[$ betrachtet wird.
     \begin{equation*}
         \begin{split}
             y &= x^2+4x+6\\
@@ -1183,7 +1194,28 @@ Die Bestimmung der Umkehrfunktion erfolgt in zwei Schritten. Als erstes muss man
             y=f^{-1}(x) &= -2-\sqrt{x-2}
         \end{split}
     \end{equation*}
+    Damit ergibt sich für die Umkehrfunktion $f^{-1}(x) = -2-\sqrt{x-2}$ und $\mathds{D}_{f^{-1}} =  \mathds{W}_f = [2, \infty[$ und $\mathds{W}_{f^{-1}}=\mathds{D}_f = ]-\infty; -2[ $
 \end{enumerate}
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -4.1, xmax = 4.1, ymin= -4.1, ymax=6.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-4, -3, -2,  ..., 4},
+        ytick={ -4, ..., 6},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= red, samples = 500, domain= -4:4]{x^2 +4*x+6};
+        \draw[red] (-2,1)   node [above] {$f(x) = x^2+4x+6$};
+       \addplot[color= blue, samples = 500, domain= 2:4]{-2-(x-2)^(0.5)};
+      
+        \draw[blue] (2,-2)   node [above] {$f^{-1}(x)= -2-\sqrt{x-2}$};
+
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 \end{b8d}
  \subsubsection{Die allgemeine Wurzelfunktion}\index{Funktionen!Wurzelfunktion!allgemeine Wurzelfunktion}
  Der Graph der einfachen Wurzelfunktion $f(x) = \sqrt{x}$ geht durch die Spiegelung der Normalparabel an der Winkelhalbierenden $y=x$ hervor. Die allgemein Wurzelfunktion $f(x) = a\cdot \sqrt{x-b} +c$ ergibt sich dann durch lineare Transformationen der einfachen Wurzelfunktion.
@@ -1195,9 +1227,46 @@ Der Graph der Funktion $f(x) = a\cdot \sqrt{x-b}+c$ und $x\geq b$ ist eine Halbp
     \item Verschiebung um c in y-Richtung
 \end{itemize}
  \end{satz}
+ \begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -1.1, xmax = 6.1, ymin= -1.1, ymax=4.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-1,  ..., 6},
+        ytick={ -1, ..., 4},
+        xlabel = $x$,
+        ylabel=$y$]      
+
+        \addplot[red, samples = 500, domain= 2:6]{2 + 0.5*(x-2)^(0.5)};
+        \draw[red] (3,3)   node [above] {$f(x)=\dfrac{1}{2} \cdot \sqrt{x-2} + 2$};
+        \addplot[ samples = 500, domain= 0:6]{(x)^(0.5)};
+         \draw (2,0.5)   node [above] {$f(x)= \sqrt{x}$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
  Eine besondere Art von Wurzelfunktionen bilden die Halbkreise als Graphen von Wurzelfunktionen.
  \begin{merke}{Halbkreise als Graphen der Wurzelfunktion}{}
 Alle Punkte $P(x|y)$ die auf einem Kreis mit Radius $r$ um den Ursprung des Koordinatensystems liegen, erfüllen die Gleichung $$x^2+y^2 = r^2.$$ Bei der Bildung der Umkehrfunktion $f^{-1}$ folgt für die den Graphen der Umkehrfunktion $G_{f^{-1}}$ der Term $f^{-1}(x) = \sqrt{r^2-x^2}$. Für die Werte $-r\leq x\leq r$ ergibt sich als Graph ein Halbkreis mit Radius $r$ um den Ursprung.
+ \begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -2.5, xmax = 2.5, ymin= -1.1, ymax=2.5,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2,  ..., 2},
+        ytick={ -1, ..., 2},
+        xlabel = $x$,
+        ylabel=$y$]      
+
+        \addplot[samples = 500, domain= -2:2]{(4-x^2)^(0.5)};
+        \draw (-0.45,-1)   node [above] {$f(x)= \sqrt{4-x^2}$};
+        
+    \end{axis}
+\end{tikzpicture}
+\end{center}
  \end{merke}
  
  \subsection{Trigonometrische Funktionen}\index{Kurvendiskussion!Trigonometrische Funktionen}
