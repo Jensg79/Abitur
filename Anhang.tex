@@ -36,7 +36,7 @@ Gegeben ist die Funktion $$f(x)=\dfrac{x^2+x-2}{2x-4}$$ mit $\mathds{D}_f=\mathd
 Damit lautet die Summenform wie folgt:
 $$f(x)=\dfrac{x^2+x-2}{2x-4} = \dfrac{1}{2} x +\dfrac{3}{2} +\dfrac{4}{2x-4} $$
 \end{bsp}
-\subsection{Symmetrie} \index{Symmetrie}
+\section{Symmetrie} \index{Symmetrie}
 Die Untersuchung der Symmetrie erfolgt für Funktionen immer nach dem selben Muster. Es wird im allgemeinen Untersucht, ob entweder \begin{equation}\label{f(x)}
     f(-x) = f(x)
 \end{equation} oder 
@@ -208,8 +208,8 @@ In diesem Fall existiert eine schräge Asymptote. Diese ist direkt aus der Summe
 Für diesen Fall ergibt sich eine Näherungskurve vom Grad $n\geq 2$. Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
 \end{enumerate}
 \end{merke}
-\section{Allgemeine Betrachtung Trigonometrischer Funktionen} \index{Funktionen!Trigonometrische! allgemeine Betrachtungen}
-Die trigonometrischen Funktionen ergeben sich aus Betrachtungen am Einheitskreis mit darin einbeschriebenen rechtwinkligen Dreiecken. 
+\section{Allgemeine Betrachtung Trigonometrischer Zusammenhänge} \index{Funktionen!Trigonometrische! allgemeine Betrachtungen}
+Die trigonometrischenZusammenhänge ergeben sich aus Betrachtungen am Einheitskreis mit darin einbeschriebenen rechtwinkligen Dreiecken. 
 
 \begin{center}
 
@@ -271,7 +271,7 @@ Die trigonometrischen Funktionen ergeben sich aus Betrachtungen am Einheitskreis
       \[
       {\color{sincolor} \sin \alpha} = 1/2.
       \]
-      Durch den Satz des Pythagoras erhählt man ${\color{coscolor}\cos^2 \alpha} +
+      Durch den Satz des Pythagoras erhält man ${\color{coscolor}\cos^2 \alpha} +
       {\color{sincolor}\sin^2\alpha} =1$. Dadurch ergibt sich für die Länge der blauen Linie, welcher dem {\color{coscolor}Kosinus von $\alpha$} entspricht, 
       \[
       {\color{coscolor}\cos\alpha} = \sqrt{1 - 1/4} = \textstyle
@@ -284,5 +284,69 @@ Die trigonometrischen Funktionen ergeben sich aus Betrachtungen am Einheitskreis
       \]%
     };
 \end{tikzpicture}
-
 \end{center}
+\subsection{Sinus und Kosinus als Funktionen}
+Erfolgt der Übergang vom Gradmaß (Winkel in $^{\circ}$) in das Bogenmaß (entsprechnende Länge des Kreisbogens) ist es möglich eine Funktion mit reellen Definitionsbereich zu definieren.
+Beim Übergang von Sinus und Kosinus auf das Bogenmaß und beliebige Winkel ergibt sich die entsprechende Funktion.
+\begin{b8d}{Die Sinus- und Kosinusfunktion}{}
+ Die Funktion $f$ mit  $f(x) = \sin{(x)}$ mit $\mathds{D}_f = \mathds{R}$ und $\mathds{W}_f = [-1;1]$ nennt man Sinusfunktion.\\
+ Die Funktion $g$ mit  $g(x) = \cos{(x)}$ mit $\mathds{D}_g = \mathds{R}$ und $\mathds{W}_g = [-1;1]$ nennt man Kosinusfunktion. 
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines = middle, 
+      xlabel=$x$, 
+      xlabel style={at=(current axis.right of origin), anchor=south},
+      ylabel=$y$, 
+      ylabel style={at=(current axis.above origin), anchor=base east},
+      xmin=-180,xmax=360,ymin=-1,ymax=1,
+      xtick = {-180,-90,...,360},
+      xticklabels = {$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$},
+      ytick ={-1,0,1},
+      yticklabels ={$-1$,$0$,$1$},
+      enlarge x limits=.05,
+      enlarge y limits=.2,
+      y=1cm,% <- ergänzt
+      x=0.017444cm% <- ergänzt
+      ]
+
+\addplot[blue,thick,samples=300,domain=-180:360]{sin(x)};
+\addplot[red,thick,samples=300,domain=-180:360]{cos(x)};
+
+\draw[blue] (200,0.5)   node [above] {$f(x)= \sin{(x)}$};
+\draw[red] (65,-1)   node [above] {$g(x)= \cos{(x)}$};
+\end{axis}
+\end{tikzpicture} 
+\end{center}
+Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich ein einzelner Abschnitt wieder und wieder wiederholt. Man kann auch sagen, dass sich die Funktionswerte ($y$) im selben Abstand wiederholen. Die kleinste Periode der Kurven entspricht einer Wellenbewegung oberhalb und unterhalb der x-Achse. In der oberen Abbildung erkennt man, dass die kleinste Periode über die Länge von $2\pi$ geht.
+\end{b8d}
+\begin{merke}{Eigenschaften der Sinus- und Kosinuskurve}{}
+    Durch die Periodizität der Kurven ergeben sich für besondere Punkte Regelmäßigkeiten.
+    \begin{enumerate}
+        \item Sinusfunktion
+    \begin{itemize}
+        \item Die Nullstellen der Sinuskurve liegen bei allen ganzzahligen Vielfachen von $\pi$. $$x_{0} = k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+        \item Die relativen Maxima liegen bei $$x_{Max} = \dfrac{\pi}{2} + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+        \item Die relativen Minima liegen bei $$x_{Min} = \dfrac{3}{2}\cdot \pi + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+    \end{itemize}
+    \item Kosinuskurve
+    \begin{itemize}
+        \item Die Nullstellen der Kosinuskurve liegen bei allen ganzzahligen Vielfachen von $\dfrac{\pi}{2}$. $$x_{0} = \dfrac{\pi}{2}+ k \cdot \pi\hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+        \item Die relativen Maxima liegen bei $$x_{Max} = k\cdot 2\cdot\pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+        \item Die relativen Minima liegen bei $$x_{Min} =  \pi + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+    \end{itemize}
+        \end{enumerate}
+Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve eine um $\dfrac{\pi}{2}$ verschobene Sinuskurve.
+\end{merke}
+\subsection{Die allgemeine Sinusfunktion}
+\begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus}
+    Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x + c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} b,c,d \in \mathds{R}$$
+    Die vier Parameter verändern die Sinuskurve wie folgt:
+    \begin{itemize}
+        \item Der Parameter a ändert die Amplitute, also die maximale Auslenkung der Kurve
+        \item Der Parameter b streckt bzw. staucht die Kurve in Richtung der x-Achse. Durch den Faktor b wird damit die Periode $p$ verändert $p = \dfrac{2\cdot \pi}{b}$
+        \item Der Parameter c verschiebt die Kurve in Richtung der x-Achse.
+        \item Der Parameter d verschiebt die Kurve in Richtung der x-Achse.
+    \end{itemize}
+\end{b8d}
