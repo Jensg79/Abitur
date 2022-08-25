@@ -7,6 +7,7 @@
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage{xcolor}
+
 \usepackage{polynom}
 \polyset{%
     vars=x,
@@ -73,7 +74,16 @@
             }
 }
 \tikzset{>=stealth}
-
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{Bilder/Anhang.pdf}%
+\vfill
+}}}
 \begin{document}
 
 \onehalfspacing
@@ -124,8 +134,8 @@
 \chapter{Analytische Geometrie}
 \chapter{Stochastik}
 \chapter{Anhang}
+\AddToShipoutPicture*{\BackgroundPic}
 
-\includegraphics[width = \textwidth]{Bilder/Anhang.pdf}
 \include{Anhang.tex}
 \printindex
 
