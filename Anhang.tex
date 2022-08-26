@@ -208,7 +208,7 @@ In diesem Fall existiert eine schräge Asymptote. Diese ist direkt aus der Summe
 Für diesen Fall ergibt sich eine Näherungskurve vom Grad $n\geq 2$. Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
 \end{enumerate}
 \end{merke}
-\section{Allgemeine Betrachtung Trigonometrischer Zusammenhänge} \index{Funktionen!Trigonometrische! allgemeine Betrachtungen}
+\section{Allgemeine Betrachtung Trigonometrischer Zusammenhänge} \index{Funktionen!Trigonometrische! allgemeine Betrachtungen} \label{SinCos}
 Die trigonometrischenZusammenhänge ergeben sich aus Betrachtungen am Einheitskreis mit darin einbeschriebenen rechtwinkligen Dreiecken. 
 
 \begin{center}
@@ -341,7 +341,7 @@ Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve e
 \end{merke}
 \subsection{Die allgemeine Sinusfunktion}
 \begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus}
-    Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x + c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} b,c,d \in \mathds{R}$$
+    Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x - c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} b,c,d \in \mathds{R}$$
     Die vier Parameter verändern die Sinuskurve wie folgt:
     \begin{itemize}
         \item Der Parameter a ändert die Amplitute, also die maximale Auslenkung der Kurve
@@ -350,3 +350,26 @@ Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve e
         \item Der Parameter d verschiebt die Kurve in Richtung der x-Achse.
     \end{itemize}
 \end{b8d}
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  \begin{axis}[
+      axis lines = middle, 
+      xlabel=$x$, 
+      ylabel=$y$, 
+      xmin=-180,xmax=360,ymin=-2,ymax=1,
+      xtick = {-180,-90,...,360},     
+      xticklabels = {$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$},
+      ytick ={-2,-1,0,1},
+      yticklabels ={$-2$,$-1$,$0$,$1$},
+      enlarge x limits=.05,
+      enlarge y limits=.2,
+      y=1cm,% <- ergänzt
+      x=0.017444cm,% <- ergänzt
+      ]
+\addplot[samples=300,domain=-180:360]{1.5*sin(2*x)-0.5};
+%\addplot[red,thick,samples=300,domain=-180:360]{cos(x)};
+
+\draw (240,-2.5)   node [above] {$f(x)= 1.5\cdot \sin{(2\cdot x) -0,5}$};
+\end{axis}
+\end{tikzpicture} 
+\end{center}
