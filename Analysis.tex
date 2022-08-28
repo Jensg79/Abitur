@@ -1413,8 +1413,13 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
 \addplot[red,thick,samples=300,domain=91 : 269]{tan(x)};
 \addplot[red,thick,samples=300,domain=271 : 360]{tan(x)};
 \addplot[blue,thick,samples=300,domain=-70 : 70]{1/((cos(x))^2)};
-\draw[blue] (120,0.5)   node [above] {$f'(x)= \dfrac{1}{\cos^2{(x)}}$};
-\draw[red] (-55,-1)   node [above] {$f(x)= - \tan{(x)}$};
+\addplot[blue,thick,samples=300,domain=110 : 250]{1/((cos(x))^2)};
+\addplot[blue,thick,samples=300,domain=290 : 350]{1/((cos(x))^2)};
+\addplot[blue,thick,samples=300,domain=-179 : -100]{1/((cos(x))^2)};
+\draw [red,dashed,line width=0.5pt] (-90,-4) -- (-90,4);
+\draw[blue] (120,0.15)   node [above] {$f'(x)= \dfrac{1}{\cos^2{(x)}}$};
+\draw[red] (65,-1)   node [above] {$f(x)= - \tan{(x)}$};
+\legend{$f(x)$, $f'(x)$}
 \end{axis}
 \end{tikzpicture} 
 \end{center}
