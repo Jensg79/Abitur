@@ -1376,10 +1376,48 @@ Die Ableitungen der trigonometrischen Funktionen Sinus und Kosinus lauten wie fo
 \addplot[red,thick,samples=300,domain=-180:360]{-sin(x)};
 \addplot[blue,thick,samples=300,domain=-180:360]{cos(x)};
 \draw[blue] (120,0.5)   node [above] {$g(x)= \cos{(x)}$};
-\draw[red] (-60,-1)   node [above] {$g'(x)= - \sin{(x)}$};
+\draw[red] (-55,-1)   node [above] {$g'(x)= - \sin{(x)}$};
 \end{axis}
 \end{tikzpicture} 
 \end{center}
-
+Wie in \ref{SinCos} dargestellt wurde ergibt sich der Tangens als Quotient von $\sin$ und $\cos$ und damit lautet die Ableitung des Tangens wie folgt.
+\begin{satz}{Ableitung des Tangens}{} \index{Ableitungsregln!Tangensfunktion}
+Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\mathds{D}_f = \mathds{R}\setminus\{\dfrac{\pi}{2} + k\cdot \pi\}$ und $ k \in \mathds{N} $ wird mit Hilfe der Quotientenregel abgeleitet. Es ergibt sich damit folgende Ableitungsfunktion: 
+\begin{equation*}
+    \begin{split}
+    f'(x) &= \dfrac{\cos{(x)} \cdot \cos{(x)} - \sin{(x)} \cdot (-\sin{(x)})}{(\cos{(x)})^2}\\
+    &= \dfrac{(\cos{(x)})^2+ (\sin{(x)})^2 }{(\cos{(x)})^2} \hspace{0.5cm}| \hspace{0.15cm}\text{Trigonometrischen Pythagoras}\\
+    &= \dfrac{\cos^2{(x)} + \sin^2{(x)}}{\cos^2{(x)}}\\
+    &= \dfrac{1}{\cos^2{(x)}}
+    \end{split}
+\end{equation*}
+\begin{center}
+    
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines = middle, 
+      xlabel=$x$, 
+      ylabel=$y$, 
+      xmin=-180,xmax=360,ymin=-4.1,ymax=4.1,
+      xtick = {-180,-90,...,360},     
+      xticklabels = {$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$},
+      ytick ={-4,-3,-2,-1,0,1,2,3,4},
+      yticklabels ={$-4$,$-3$,$-2$,$-1$,$0$,$1$,$2$,$3$,$4$},
+      %enlarge x limits=.05,
+      %enlarge y limits=.2,
+      y=1cm,% <- ergänzt
+      x=0.017444cm,% <- ergänzt
+      ticklabel style={font=\small,fill=green!5}]
+      \addplot[red,thick,samples=300,domain=-180 : -91]{tan(x)};
+\addplot[red,thick,samples=300,domain=-90 : 89]{tan(x)};
+\addplot[red,thick,samples=300,domain=91 : 269]{tan(x)};
+\addplot[red,thick,samples=300,domain=271 : 360]{tan(x)};
+\addplot[blue,thick,samples=300,domain=-70 : 70]{1/((cos(x))^2)};
+\draw[blue] (120,0.5)   node [above] {$f'(x)= \dfrac{1}{\cos^2{(x)}}$};
+\draw[red] (-55,-1)   node [above] {$f(x)= - \tan{(x)}$};
+\end{axis}
+\end{tikzpicture} 
+\end{center}
+\end{satz}
  \subsection{Exponentialfunktionen}\index{Kurvendiskussion!Exponentialfunktionen}
  \subsection{Logarithmusfunktionen}\index{Kurvendiskussion!Logarithmusfunktionen}
