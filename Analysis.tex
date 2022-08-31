@@ -1419,10 +1419,37 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
 \draw [red,dashed,line width=0.5pt] (-90,-4) -- (-90,4);
 \draw[blue] (120,0.15)   node [above] {$f'(x)= \dfrac{1}{\cos^2{(x)}}$};
 \draw[red] (65,-1)   node [above] {$f(x)= - \tan{(x)}$};
-\legend{$f(x)$, $f'(x)$}
+
 \end{axis}
 \end{tikzpicture} 
 \end{center}
 \end{satz}
+\begin{bsp}{Kurvendiskussion einer trigonometrischen Funktion}{}
+Es soll am Beispiel der Funktion $f$ mit $f(x) = -2\sin{(2(x-\frac{\pi}{3}))} +2$  mit $\mathds{D}_f = \mathds{R}$ eine Kurvendiskussion durchgeführt werden.
+\begin{enumerate}
+    \item Symmetrie der Funktion
+    \begin{equation*}
+        \begin{split}
+            f(-x) &=  -2\sin{(2((-x)-\frac{\pi}{3}))} +2\\
+            &=  -2\sin{(-2x-2\cdot \frac{\pi}{3})} +2\\
+            &\neq f(x)\\
+            &\neq -f(x)
+        \end{split}
+    \end{equation*}
+    Damit ist die Funktion $f(x)$ weder achsensymmetriach zu y-Achse noch punktsymmetrisch zum Ursprung.
+    \item Nullstellen
+    \begin{equation*}
+        \begin{split}
+            f(x) &= 0\\
+            0 &=  -2\sin{(2(x-\frac{\pi}{3}))} +2 \hspace{0.5cm} | -2\\
+            -2 &=  -2\sin{(2(x-\frac{\pi}{3}))}\hspace{0.5cm} | :(-2)\\
+            1 &= \sin{(2(x-\frac{\pi}{3}))} \hspace{0.5cm} | \arcsin{ ()} \hspace{0.2cm} \text{siehe hierfür \ref{EigenschaftSinCos}}\\ 
+            \dfrac{1}{2}\pi +2\cdot k \pi &= 2(x-\frac{\pi}{3}) \hspace{0.5cm} | : 2\\
+            \dfrac{1}{4}\pi +k\pi &= x-\frac{\pi}{3}\hspace{0.5cm}| + \frac{\pi}{3}\\
+            \dfrac{7}{12} \pi +k\pi &= x \hspace{0.5cm}|\text{ mit } k\in \mathds{Z}
+            \end{split}
+            \end{equation*}
+\end{enumerate}
+    \end{bsp}
  \subsection{Exponentialfunktionen}\index{Kurvendiskussion!Exponentialfunktionen}
  \subsection{Logarithmusfunktionen}\index{Kurvendiskussion!Logarithmusfunktionen}
