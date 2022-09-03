@@ -321,7 +321,7 @@ Beim Übergang von Sinus und Kosinus auf das Bogenmaß und beliebige Winkel ergi
 \end{center}
 Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich ein einzelner Abschnitt wieder und wieder wiederholt. Man kann auch sagen, dass sich die Funktionswerte ($y$) im selben Abstand wiederholen. Die kleinste Periode der Kurven entspricht einer Wellenbewegung oberhalb und unterhalb der x-Achse. In der oberen Abbildung erkennt man, dass die kleinste Periode über die Länge von $2\pi$ geht.
 \end{b8d}
-\label{EigenschaftSinCos}
+\label{GraphSinCos}
 \begin{merke}{Eigenschaften der Sinus- und Kosinuskurve}{} 
     Durch die Periodizität der Kurven ergeben sich für besondere Punkte Regelmäßigkeiten.
     \begin{enumerate}
@@ -341,7 +341,7 @@ Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich 
 Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve eine um $\dfrac{\pi}{2}$ verschobene Sinuskurve.
 \end{merke}
 \subsection{Die allgemeine Sinusfunktion}
-\begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus}
+\begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus} \label{SinCosEigenschaften}
     Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x - c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} b,c,d \in \mathds{R}$$
     Die vier Parameter verändern die Sinuskurve wie folgt:
     \begin{itemize}
@@ -370,7 +370,12 @@ Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve e
 \addplot[samples=300,domain=-180:360]{1.5*sin(2*x)-0.5};
 %\addplot[red,thick,samples=300,domain=-180:360]{cos(x)};
 
-\draw (240,-2.5)   node [above] {$f(x)= 1.5\cdot \sin{(2\cdot x) -0,5}$};
+\draw (240,-2.6)   node [above] {$f(x)= 1.5\cdot \sin{(2\cdot x) -0,5}$};
 \end{axis}
 \end{tikzpicture} 
 \end{center}
+\section{Potenz- und Logarithmengesetze}
+Um mit den $e$- und  $\ln$-Funktionen arbeiten zu können müssen die Potenz- und Logarithmengesetze beherrscht werden.
+\subsection{Potenzgesetze}
+
+\subsection{Logarithmengesetze}

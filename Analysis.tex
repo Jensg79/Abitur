@@ -1424,10 +1424,21 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
 \end{tikzpicture} 
 \end{center}
 \end{satz}
+\begin{b8d}{Eigenschaften der Sinus- und Kosinuskurve}{}
+Für die Kurvendiskussion trigonometrischer Funktionen und der darin vorkommenden Lösung von trigonometrischer Gleichungen ist es wichtig, dass die allgemeinen Eigenschaften der Sinus- und Kosinuskurve bekannt sind. Insbesondere ist der Merksatz \ref{SinCosEigenschaften} zu beachten.
+\end{b8d}
 \begin{bsp}{Kurvendiskussion einer trigonometrischen Funktion}{}
 Es soll am Beispiel der Funktion $f$ mit $f(x) = -2\sin{(2(x-\frac{\pi}{3}))} +2$  mit $\mathds{D}_f = \mathds{R}$ eine Kurvendiskussion durchgeführt werden.
 \begin{enumerate}
-    \item Symmetrie der Funktion
+\item Eigenschaften des Graphen anhand des Funktionsterms:
+\begin{itemize}
+    \item $b=\dfrac{\pi}{3} \longrightarrow$ Verschiebung um $\dfrac{\pi}{3}$  entlang der x-Achse
+    \item $b=2 \longrightarrow$ Änderung der Periode zu $p= \dfrac{2\pi}{2} = \pi$ (Stauchung)
+    \item $a = 2 \longrightarrow$ Streckung entlang der y-Achse mit Faktor 2 (Änderung der Amplitude)
+    \item Vorfaktor $-1 \longrightarrow$ Spiegelung an der x-Achse
+    \item $d= 2 \longrightarrow $ Verschiebung um 2 entlang der y-Achse
+\end{itemize}
+    \item Symmetrie der Funktion:
     \begin{equation*}
         \begin{split}
             f(-x) &=  -2\sin{(2((-x)-\frac{\pi}{3}))} +2\\
@@ -1437,19 +1448,87 @@ Es soll am Beispiel der Funktion $f$ mit $f(x) = -2\sin{(2(x-\frac{\pi}{3}))} +2
         \end{split}
     \end{equation*}
     Damit ist die Funktion $f(x)$ weder achsensymmetriach zu y-Achse noch punktsymmetrisch zum Ursprung.
-    \item Nullstellen
+    \item Nullstellen:\begin{itemize}
+        \item Schnittpunkte mit der x-Achse
     \begin{equation*}
         \begin{split}
             f(x) &= 0\\
             0 &=  -2\sin{(2(x-\frac{\pi}{3}))} +2 \hspace{0.5cm} | -2\\
             -2 &=  -2\sin{(2(x-\frac{\pi}{3}))}\hspace{0.5cm} | :(-2)\\
-            1 &= \sin{(2(x-\frac{\pi}{3}))} \hspace{0.5cm} | \arcsin{ ()} \hspace{0.2cm} \text{siehe hierfür \ref{EigenschaftSinCos}}\\ 
+            1 &= \sin{(2(x-\frac{\pi}{3}))} \hspace{0.5cm} | \arcsin{ ()} \hspace{0.2cm} \text{siehe hierfür Merksatz im Anhang} \\ 
             \dfrac{1}{2}\pi +2\cdot k \pi &= 2(x-\frac{\pi}{3}) \hspace{0.5cm} | : 2\\
             \dfrac{1}{4}\pi +k\pi &= x-\frac{\pi}{3}\hspace{0.5cm}| + \frac{\pi}{3}\\
             \dfrac{7}{12} \pi +k\pi &= x \hspace{0.5cm}|\text{ mit } k\in \mathds{Z}
             \end{split}
             \end{equation*}
+            Es folgt damit für die Nullstellen, dass alle $x_k=\dfrac{7}{12} \pi +k\pi$ mit $k\in \mathds{Z}$ die Nullstellengleichung erfüllen.
+            \item Schnittpunkt mit der y-Achse
+            \begin{equation*}
+                \begin{split}
+                    f(0) &= -2\sin{(2(0-\frac{\pi}{3}))} +2\\
+                    &= -2\sin{(-2\frac{\pi}{3})} +2\\
+                    &= -2\cdot( -\dfrac{\sqrt{3}}{2} )+2\\
+                    &= \sqrt{3} +2 \approx 3,73
+                \end{split}
+            \end{equation*}
+            \end{itemize}
+            \item Ableitungen: \begin{equation*}
+                \begin{split}
+                    f(x) &= -2\sin{(2(x-\frac{\pi}{3}))} +2\\
+                    f'(x) &= -2\cos{(2(x-\frac{\pi}{3}))} \cdot 2\\
+                    &= -4\cos{(2(x-\frac{\pi}{3}))}\\
+                    f''(x) &= 4\sin{(2(x-\frac{\pi}{3}))}\cdot 2\\
+                    &= 8\sin{(2(x-\frac{\pi}{3}))} 
+                \end{split}
+            \end{equation*}
+            \item Berechnung der Extrema:
+            \begin{equation*}
+                \begin{split}
+                    0&= -4\cos{(2(x-\frac{\pi}{3}))} \hspace{0.5cm} | :(-4)\\
+                    0&= \cos{(2(x-\frac{\pi}{3}))}\hspace{0.5cm} | \arccos{()}\\
+                    \dfrac{\pi}{2} + k\pi &= 2(x-\frac{\pi}{3}) \hspace{0.5cm} |:2\\
+                    \dfrac{\pi}{4} +\dfrac{k\pi}{2} &=x-\frac{\pi}{3} \hspace{0.5cm}| +\frac{\pi}{3}\\
+                    \dfrac{7}{12}\pi + \dfrac{k\pi}{2} &= x
+                \end{split}
+            \end{equation*}
+             Es folgt damit für die Nullstellen von $f'(x)$, dass alle $x_k=\dfrac{7}{12} \pi +\dfrac{k\pi}{2}$ mit $k\in \mathds{Z}$ die Nullstellengleichung erfüllen.
+Die Art der Extremstellen muss dann für spezielle Werte von $k$ geprüft werden.
+\item Nullstellen der zweiten Ableitung:
+\begin{equation*}
+    \begin{split}
+        0&= 8\sin{(2(x-\frac{\pi}{3}))}\hspace{0.5cm} | :8\\
+        0&= \sin{(2(x-\frac{\pi}{3}))}\hspace{0.5cm} | \arcsin{()}\\
+        k\pi&= 2(x-\frac{\pi}{3}) \hspace{0.5cm} | :2\\
+        \dfrac{k\pi}{2} &= x-\frac{\pi}{3} \hspace{0.5cm} |+\frac{\pi}{3}\\
+        \dfrac{k\pi}{2} +\frac{\pi}{3} &= x
+    \end{split}
+\end{equation*}
+             Es folgt damit für die Nullstellen von $f''(x)= \dfrac{k\pi}{2} +\dfrac{\pi}{3}$, dass alle $x_k=$ mit $k\in \mathds{Z}$ die Nullstellengleichung erfüllen.
+Das eigentliche Krümmungsverhalten muss dann für spezielle Werte von $k$ ermittelt werden.
+
+\item Graph der Funktion $f(x) = -2\cdot \sin{(2\cdot (x-\frac{\pi}{3}))} +2$ im Intervall $I=[-\pi; \frac{3}{2}\pi]$:
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines = middle, 
+      xlabel=$x$, 
+      ylabel=$y$, 
+      xmin=-180,xmax=270,ymin=-1,ymax=4.5,
+      xtick = {-180,-90,...,270},     
+      xticklabels = {$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$},
+      ytick ={-1,0,1,2,3,4},
+      yticklabels ={$-1$,$0$,$1$,$2$, $3$, $4$},
+      enlarge x limits=.05,
+      %enlarge y limits=.2,
+      y=1cm,% <- ergänzt
+      x=0.017444cm,% <- ergänzt
+      ]
+\addplot[red,thick,smooth,samples = 500,domain=-180:275]{-2*sin(2*(x-60))+2};
+\end{axis}
+\end{tikzpicture} 
+\end{center}
 \end{enumerate}
     \end{bsp}
  \subsection{Exponentialfunktionen}\index{Kurvendiskussion!Exponentialfunktionen}
+ 
  \subsection{Logarithmusfunktionen}\index{Kurvendiskussion!Logarithmusfunktionen}
