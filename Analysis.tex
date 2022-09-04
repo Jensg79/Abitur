@@ -1447,7 +1447,7 @@ Es soll am Beispiel der Funktion $f$ mit $f(x) = -2\sin{(2(x-\frac{\pi}{3}))} +2
             &\neq -f(x)
         \end{split}
     \end{equation*}
-    Damit ist die Funktion $f(x)$ weder achsensymmetriach zu y-Achse noch punktsymmetrisch zum Ursprung.
+    Damit ist die Funktion $f(x)$ weder achsensymmetrisch zu y-Achse noch punktsymmetrisch zum Ursprung.
     \item Nullstellen:\begin{itemize}
         \item Schnittpunkte mit der x-Achse
     \begin{equation*}
@@ -1455,7 +1455,7 @@ Es soll am Beispiel der Funktion $f$ mit $f(x) = -2\sin{(2(x-\frac{\pi}{3}))} +2
             f(x) &= 0\\
             0 &=  -2\sin{(2(x-\frac{\pi}{3}))} +2 \hspace{0.5cm} | -2\\
             -2 &=  -2\sin{(2(x-\frac{\pi}{3}))}\hspace{0.5cm} | :(-2)\\
-            1 &= \sin{(2(x-\frac{\pi}{3}))} \hspace{0.5cm} | \arcsin{ ()} \hspace{0.2cm} \text{siehe hierfür Merksatz im Anhang} \\ 
+            1 &= \sin{(2(x-\frac{\pi}{3}))} \hspace{0.5cm} | \arcsin{ ()} \hspace{0.2cm} \text{siehe hierfür Merksatz \ref{SinCosEigenschaften}} \\ 
             \dfrac{1}{2}\pi +2\cdot k \pi &= 2(x-\frac{\pi}{3}) \hspace{0.5cm} | : 2\\
             \dfrac{1}{4}\pi +k\pi &= x-\frac{\pi}{3}\hspace{0.5cm}| + \frac{\pi}{3}\\
             \dfrac{7}{12} \pi +k\pi &= x \hspace{0.5cm}|\text{ mit } k\in \mathds{Z}
@@ -1529,6 +1529,55 @@ Das eigentliche Krümmungsverhalten muss dann für spezielle Werte von $k$ ermit
 \end{center}
 \end{enumerate}
     \end{bsp}
- \subsection{Exponentialfunktionen}\index{Kurvendiskussion!Exponentialfunktionen}
+ \subsection{Exponentialfunktionen}\index{e-Funktion}
+ In der Mathematik wird unter dem Begriff der natürlichen Exponentialfunktion bzw. der $e$-Funktion folgende Funktion verstanden $$f(x) = e^x$$ mit $\mathds{D}_f = \mathds{R}$ und $\mathds{W}_f =\mathds{R}^{+}$.
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -4.1, xmax = 2.6, ymin= -0.1, ymax=6.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-4, -3, -2,  ..., 2},
+        ytick={ 0, ..., 6},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= red, samples = 500, domain= -4:4]{e^x};
+    \draw[red] (-2,1)   node [above] {$f(x) = e^x$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\subsubsection{Allgemeines zur $e$-Funktion}
+\begin{satz}{Die Euler'sche Zahl e}{}
+Die Zahl $e=2,71828...$ ist eine irrationale Zahl und ergibt sich durch folgenden Grenzwert: $$e= \lim_{n\longrightarrow \infty} \left(1+ \dfrac{1}{n}\right)^n.$$ Der Grenzwert konvergiert damit gegen den Wert von $e$.   
+\end{satz}
+
+Die $e$-Funktion ist eine Exponentialfunktion mit spezieller Basis und wird häufig verwendet, um natürliche Prozesse zu beschreiben. Die Umkehrfunktion der $e$-Funktion bildet die natürliche Logarithmusfunktion $g(x) = \ln{(x)}$. Siehe hierfür \ref{ln}
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -4.1, xmax = 4.6, ymin= -4.1, ymax=4.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-4, -3, -2,  ..., 4},
+        ytick={ -4, ..., 4},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= red, samples = 500, domain= -4:2]{e^x};
+    \draw[red] (-2,1)   node [above] {$f(x) = e^x$};
+    \addplot[color= blue, samples = 500, domain= 0:4]{ln(x)};
+    \draw[blue] (2,-1.2)   node [above] {$f(x) = e^x$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{satz}{Ableitung der $e$-Funktion}{}\index{e-Funktion!Ableitung}
+Die natürliche Exponentialfunktion besitzt die Eigenschaft, dass die Funktion mit ihrer Ableitung übereinstimmt. Es gilt also folgendes $$f(x) = e^x = f'(x).$$
+\end{satz}
+\begin{satz}{Ableitungen spezieller $e$-Funktion}{}
+Die $e$-Funktion tritt häufig mit anderen Funktionen verknüpft auf. So ist $f(x) = e^{g(x)}$ eine der häufigsten auftretenden Funktionen. Hierbei ist zu beachten, dass die Kettenregel für die Ableitung angewendet werden muss. Damit ergibt sich für die Ableitung $$f'(x) = e^{g(x)} \cdot g'(x).$$  Bei der Klasse von Funktionen $f(x) = e^x \cdot g(x)$ muss die Produktregel verwendet werden. Es folgt damit, dass $$f'(x) = e^x \cdot g(x) + e^x \cdot g'(x) = e^x\cdot (g(x)+ g'(x))$$ ist. Siehe hierfür im Anhang \ref{AbleitungEFunktion}
+\end{satz}
+ \subsubsection{Kurvendiskussion einer e-Funktion}\index{Kurvendiskussion!Exponentialfunktionen}
  
  \subsection{Logarithmusfunktionen}\index{Kurvendiskussion!Logarithmusfunktionen}
+ 

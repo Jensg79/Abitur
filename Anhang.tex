@@ -90,7 +90,7 @@ f(-x) = -f(x)
 \end{multicols}
 \end{merke}
 \subsection{Ableitungsregeln von Funktionen}\index{Ableitungsregeln! Funktionen}
-\begin{defi}{Ableitungsfunktionen}{}
+\begin{defi}{Ableitungsfunktionen}{}\phantomsection\label{AbleitungEFunktion}
 \begin{multicols}{2}
 \begin{itemize}
     \item Ableitung der Summe von Funktionen:
@@ -322,7 +322,7 @@ Beim Übergang von Sinus und Kosinus auf das Bogenmaß und beliebige Winkel ergi
 Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich ein einzelner Abschnitt wieder und wieder wiederholt. Man kann auch sagen, dass sich die Funktionswerte ($y$) im selben Abstand wiederholen. Die kleinste Periode der Kurven entspricht einer Wellenbewegung oberhalb und unterhalb der x-Achse. In der oberen Abbildung erkennt man, dass die kleinste Periode über die Länge von $2\pi$ geht.
 \end{b8d}
 \label{GraphSinCos}
-\begin{merke}{Eigenschaften der Sinus- und Kosinuskurve}{} 
+\begin{merke}{Eigenschaften der Sinus- und Kosinuskurve}{} \phantomsection\label{SinCosEigenschaften}
     Durch die Periodizität der Kurven ergeben sich für besondere Punkte Regelmäßigkeiten.
     \begin{enumerate}
         \item Sinusfunktion
@@ -341,7 +341,7 @@ Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich 
 Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve eine um $\dfrac{\pi}{2}$ verschobene Sinuskurve.
 \end{merke}
 \subsection{Die allgemeine Sinusfunktion}
-\begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus} \label{SinCosEigenschaften}
+\begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus} \label{SinCosAllgFunkt}
     Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x - c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} b,c,d \in \mathds{R}$$
     Die vier Parameter verändern die Sinuskurve wie folgt:
     \begin{itemize}
@@ -377,5 +377,112 @@ Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve e
 \section{Potenz- und Logarithmengesetze}
 Um mit den $e$- und  $\ln$-Funktionen arbeiten zu können müssen die Potenz- und Logarithmengesetze beherrscht werden.
 \subsection{Potenzgesetze}
-
-\subsection{Logarithmengesetze}
+Um mit Potenzen zu rechnen gibt es einige wichtige Gesetzmäßigkeiten.
+\begin{merke}{Die Potenzgesetze}{} \index{Potenzgesetze}
+\begin{itemize}
+    \item $a^0 = 1$ für alle $a\in \mathds{R}\setminus\{0\}$
+    \item $a^1 =a$ für alle $a\in \mathds{R}\setminus\{0\}$
+    \item $a^{-n} = \dfrac{1}{a^n}$ für alle $a>0$ und $n \in \mathds{R}$
+    \item $a^n \cdot a^m = a^{n+m}$ für alle $a>0$ und $n,m \in \mathds{R}$
+    \item $a^n : a^m = \dfrac{a^n}{a^m} = a^{n-m}$ für alle $a>0$ und $n,m \in \mathds{R}$
+    \item $(a\cdot b)^n = a^n \cdot b^n$ für alle $a,b>0$ und $n,m \in \mathds{R}$
+    \item $\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$ für alle $a,b>0$ und $n,m \in \mathds{R}$
+    \item $ \left( a^n \right)^m = a^{n\cdot m}$ für alle $a>0$ und $n,m \in \mathds{R}$
+    \item $a^{\frac{n}{m}} = \sqrt[m]{a^m} = \left( \sqrt[n]{a}\right)^m$ für alle $a>0$ und $n,m \in \mathds{N}$
+\end{itemize}
+\end{merke}
+\subsection{Logarithmengesetze}\index{Logarithmus}
+In der Mathematik bezeichnte der Logarithmus den Exponenten mit dem die Basis potenziert werden muss um eine bestimmte Zahl zu erhalten. Es gilt damit also folgender Zusammenhang $$a^n = b \Leftrightarrow n = \log_a (b)$$
+Der Logarithmus ist nur für Zahlen $a,b>0$ mit $a,b\in\mathds{R}$ definiert. Um Logarithmen vereinfachen zu können gelten einige grundlegende Regeln. 
+\begin{merke}{Logarithmenregeln}{}\index{Logarithmus!Rechenregeln}
+Für folgende Umformungen gilt $a,b,x,y > 0$ für die Basen $a,b$ gilt zusätzlich $a,b \neq 1$.
+\begin{itemize}
+    \item Produktregel: $\log_a{(x\cdot y)} = \log_a{(x)} + \log_a{(y)}$
+    \item Quotientenregel: $\log_a{\left(\dfrac{x}{y}\right)}= \log_a{(x)} -\log_a{(y)}$
+    \item Exponetenregel: $\log_a{(x^r)} = r\cdot \log_a{(x)}$ mit $r\in \mathds{R}$
+    \item Kettenregel: $\log_a{\left(\dfrac{1}{x}\right)} = -1\cdot\log_a{(x)}$
+    \item Basisumrechnung: $\log_a{(x)} = \dfrac{\log_b{(x)}}{\log_b{(a)}}$
+\end{itemize}
+\end{merke}
+Zur Vereinfachung werden bei speziellen Logarithmen Abkürzungen in der Schreibweise verwendet.
+\begin{bem}{Abkürzungen}{}\index{Logarithmus!Abkürzungen}\phantomsection\label{ln}
+    \begin{itemize}
+        \item $\log_{10}{(n)} = \lg{(n)}$ 
+        \item $\log_{2}{(n)} = \text{ld}{(n)}$
+        \item $\log_{e}{(n)} = \ln{(n)}$
+    \end{itemize}
+\end{bem}
+\subsection{Exponentialgleichungen}\index{Logarithmus!Exponentialgleichungen}
+In der Mathematik ist es häufig notwendig, dass man Exponentialgleichungen löst. Diese Gleichungen lassen sich auf 3 Fälle zurückführen. 
+\begin{enumerate}
+    \item $c\cdot a^n = b $ 
+    \item $c\cdot a^n = b\cdot d^m$
+    \item $a^n=a^m$
+\end{enumerate}
+Anhand von Beispiele sollen die drei Fälle besprochen werden.
+\begin{bsp}{Exponentialgleichung 1}{}
+Gegeben ist die Gleichung $6\cdot 1,4^x = 9$.
+\begin{equation*}
+    \begin{split}
+        6\cdot 1,4^x &= 9 \hspace{0.5cm} | : 6\\
+        1,4^x&= \dfrac{3}{2} \hspace{0.5cm} | \log_{1,4}{()}\\
+        x&= \log_{1,4}{(\frac{3}{2})} \approx 1,21
+    \end{split}
+\end{equation*}
+\end{bsp}
+\begin{bsp}{Exponentialgleichung 2}{}
+Gegeben ist die Gleichung $2\cdot 1,2^{2x} = 5\cdot 2^{-x}$.
+\begin{equation*}
+    \begin{split}
+        2\cdot 1,2^{2x} &= 5\cdot 2^{-x} \hspace{0.5cm} | \ln{()}\\
+        \ln{(2\cdot 1,2^{2x})} &= \ln{(5\cdot 2^{-x})} \hspace{0.5cm}| \text{ Anwendung der Logarithmengesetze}\\
+        \ln{(2)} + \ln{(1,2^{2x})} &= \ln{(5)} + \ln{(2^{-x})}\\
+        \ln{(2)} + 2x\cdot \ln{(1,2)} &= \ln{(5)} +(-x) \cdot \ln{(2)} \hspace{0.5cm} | + x \cdot \ln{(2)}; -\ln{(2)}\\
+          2x\cdot \ln{(1,2)} + x \cdot \ln{(2)} &= \ln{(5)} -\ln{(2)}\\
+          x\cdot \left(2\cdot \ln{(1,2)} + \ln{(2)} \right) &= \ln{(\frac{5}{2})}\\
+          x\cdot \ln{(1,2^2 \cdot 2)}&= \ln{(\frac{5}{2})}\\
+           x\cdot \ln{(2,88)}&= \ln{(\frac{5}{2})}\hspace{0.5cm}| :\ln{(2,88)}\\
+           x&= \dfrac{\ln{(\frac{5}{2})}}{\ln{(2,88)}} \approx 0.87
+    \end{split}
+\end{equation*}
+\end{bsp}
+\begin{bsp}{Exponentialgleichung 3}{}
+Gegeben ist die Gleichung $2^{3x} =2^{\frac{1}{2}x-3}$.
+\begin{equation*}
+    \begin{split}
+    2^{3x} &=2^{\frac{1}{2}x-3} \hspace{0.5cm}| \text{ Gleichung ist durch Exponentenvergleich lösbar}\\
+    3x&= \frac{1}{2}x-3  \hspace{0.5cm}| - \frac{1}{2}x\\
+    2,5x &=-3 \hspace{0.5cm}|:2,5\\
+    x&= -\dfrac{6}{5}
+    \end{split}
+\end{equation*}
+\end{bsp}
+Bei einigen Gleichungen lohnt sich die Substitution zum lösen. hierbei wird die Gleichung auf eine Gleichung zurückgeführt, die einfacher zu lösen ist.
+\begin{bsp}{Substitution bei Logarithmen}{}\index{Logarithmus!Substitution}
+Gegeben ist die Gleichung $5^{2x} -2\cdot 5^x -8 =0$. Diese Gleichung kann vereinfacht werden, indem man $5^x$ mit dem Parameter $u$ substituiert.
+\begin{equation*}
+    \begin{split}
+     5^{2x} -2\cdot 5^x -8 &=0\\
+     5^x\cdot 5^x -2\cdot 5^x -8 &=0\hspace{0.5cm} | \text{ Substitution von } 5^x=u\\
+        u^2 -2\cdot u -8 &=0\\
+        u_{1/2} &= \dfrac{2\pm \sqrt{(-2)^2 -4\cdot 1\cdot (-8)}}{2\cdot 1}\\
+        &=\dfrac{2\pm \sqrt{4+32}}{2}\\
+        &=\dfrac{2\pm \sqrt{36}}{2}\\
+        &= \dfrac{2\pm 6}{2}\\
+        u_1 &= 4\\
+        u_2 &= -2 
+    \end{split}
+\end{equation*}
+Durch die Substitution wurden die beiden rechnerischen Lösungen $u_1$ und $u_2$ gefunden. Diese Müssen jetzt rücksubstituiert werden. Für $u_1$ ergibt sich damit folgendes
+\begin{equation*}
+    \begin{split}
+u_1&=4\\
+5^x&=4\hspace{0.5cm} | \ln{()}\\
+\ln{(5^x)}&= \ln{(4)}\\
+x\cdot\ln{(5)} &= \ln{(4)}\hspace{0.5cm }| : \ln{(5)}\\
+x&= \dfrac{\ln{(4)} }{\ln{(5)} } \approx 0,86
+    \end{split}
+\end{equation*}
+Für den Wert $u_2 = -2$ kann keine Lösung gefunden werden, da $5^x > 0$ für alle Werte von $x$ ist. Damit ist $5^x= -2$ nicht lösbar.\\
+Aus diesen Rechnungen folgt damit, dass nur $x=\dfrac{\ln{(4)} }{\ln{(5)} } $ die Gleichung $5^{2x} -2\cdot 5^x -8 =0$ löst.
+\end{bsp}
