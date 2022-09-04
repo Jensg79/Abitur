@@ -186,7 +186,7 @@ f'(0)&=\lim_{h\rightarrow 0^+}\dfrac{f(0+h)-f(0)}{h}\\
 Der Differenzenquotient hat daher für $x\rightarrow 0$ keinen Grenzwert, die Funktion $f$ ist damit an der Stelle $x_0 = 0$ nicht differenzierbar. Der Graph $G_f$ hat an dieser Stelle einen "`Knick"'.
 \end{bsp*}
 
-\begin{bem*}{}\index{Differenzieren!Differenzierbarkeit!Lineare Transformationen}\index{Lineare Transformation}
+\begin{bem*}{}\index{Lineare Transformation}
 Die Lineare Transformation der Betragsfunktion ändert nichts an der Nicht-Differenzierbarkeit der Funktion.
 \end{bem*}
 Während der letzten Schuljahre wurden verschiedene Funktionsarten einer linearen Transformation unterzogen. Als Beispiel wird hier auf die Funktionen: 
@@ -265,7 +265,7 @@ ytick={-3,-2,...,4},]
 \end{bsp}
 \subsection{Ableitung ganzrationaler Funktionen}
 Die Ableitung von Funktionen mit der h-Methode ist für jede Funktion möglich. Allerdings wird das Ableiten damit schnell mühsam. Durch die Anwendung von Regeln zur Ableitung ganzrationaler Funktionen wird das Bilden der ersten Ableitung um einiges einfacher.\\
-\begin{merke*}{Ableitungsregel Potenzfunktionen}{}\index{Ableitung!Regel!Potenzfunktion}
+\begin{merke*}{Ableitungsregel Potenzfunktionen}{}\index{Ableitungsregeln!Potenzfunktion}
 Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist differenzierbar und es gilt: $$f'(x) = n\cdot x^{n-1}$$
 \underline{Merkregel:} Der Term $x^n$ wird differenziert, indem man den Exponenten $n$ als Faktor voranstellt und den Exponenten um 1 verringert.
 \end{merke*}
@@ -956,7 +956,7 @@ Im folgenden ist der Graph $G_{f_1}$ der Funktion $f_1(x) = \dfrac{1}{8}\cdot(x^
 \end{tikzpicture}
 \end{center}
 \end{bsp}
-\section{Untersuchung von Funktionen}
+\section{Untersuchung von speziellen Funktionen}
     \subsection{Gebrochen-rationale Funktionen}
 In der Jahrgangsstufe 8 erfolgten die einführenden Betrachtungen zu Elementaren gebrochen-rationalen Funktionen. Siehe hierzu im Anhang \ref{elemgebrat}.
  \begin{defi}{Gebrochen-rationale Funktion}{}
@@ -1001,7 +1001,7 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
 \end{enumerate}
 \end{bsp}
  Beispielhaft soll im folgenden die Kurvendiskussion einer gebrochen-rationalen Funktion durchgeführt werden. 
- \begin{bsp}{Kurvendiskussion}{}
+ \begin{bsp}{Kurvendiskussion}{}\index{Funktionen!Gebrochen-rationale!Kurvendiskussion}
 Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3-6x^2+9x}{(x-1)^2} = x-4+\dfrac{4}{(x-1)^2}$ mit $\mathds{D}_f = \mathds{D}_{\text{max}}$ dem maximalen Definitionsbereich. 
  \begin{enumerate}
      \item Der maximaler Definitionsbereich ergibt sich aus den Nullstellen des Nennerpolynoms\\ $(x-1)^2$
@@ -1024,7 +1024,6 @@ Damit folgt für $\mathds{D}_{\text{max}}$ folgender Zusammenhang $\mathds{D}_{\
 \end{equation*}
 Damit folgt für den Graphen $G_f$ der Funktion $f$, dass keine Symmetrie für die y-Achse bzw. für den Ursprung vorliegt.
  \item Verhalten an den Rändern des Definitionsbereichs. Hierzu zählt auch das Verhalten an der Definitionslücke.
-
  \begin{enumerate}
      \item Verhalten für $x\longrightarrow \infty$
       \begin{equation*}
@@ -1156,7 +1155,7 @@ Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das 
 Während der Kurvendiskussion müssen die Definitionslücken immer beachtet werden. Das bedeutet, dass sowohl bei der Monotonietabelle als auch bei der Krümmungstabelle die Definitionslücke berücksichtigt werden müssen. An der Definitionslücke kann sich sowohl die Monotonie als auch die Krümmung ändern.
  \end{b8d}
  Die Grenzwertbetrachtungen können nach der Fallunterscheidung \ref{Fallgebrochenrational} bestimmt werden.
-  \subsection{Wurzelfunktionen}\index{Kurvendiskussion!Wurzelfunktionen}
+  \subsection{Wurzelfunktionen}
   \subsubsection{Die Umkehrfunktion}
   Einfache Wurzelfunktionen können als Umkehrfunktion der quadratischen Funktion betrachtet werden. Hierbei ist es notwendig, dass die Umkehrfunktion und die notwendigen Bedingungen der Umkehrbarkeit definiert werden. \index{Funktionen!Wurzelfunktion!Umkehrfunktion}
   \begin{defi}{Umkehrbarkeit eine Funktion}{}
@@ -1312,10 +1311,9 @@ Die Ableitung einer Wurzelfunktion (Ableitungen der Wurzelfunktion findet man in
     \end{equation*}
 \end{enumerate}
  \end{bem}
- \subsection{Trigonometrische Funktionen}\index{Kurvendiskussion!Trigonometrische Funktionen}
+ \subsection{Trigonometrische Funktionen}
 Allgemeine Betrachtungen zum Sinus und Kosinus findet man im Anhang \ref{SinCos}. 
- 
- \begin{defi}{Ableitungen von Sinus und Kosinus}{}
+ \begin{defi}{Ableitungen von Sinus und Kosinus}{}\index{Funktionen!Trigonometrische!Ableitung}
 Die Ableitungen der trigonometrischen Funktionen Sinus und Kosinus lauten wie folgt:
 \begin{multicols}{2}
 \noindent
@@ -1381,7 +1379,7 @@ Die Ableitungen der trigonometrischen Funktionen Sinus und Kosinus lauten wie fo
 \end{tikzpicture} 
 \end{center}
 Wie in \ref{SinCos} dargestellt wurde ergibt sich der Tangens als Quotient von $\sin$ und $\cos$ und damit lautet die Ableitung des Tangens wie folgt.
-\begin{satz}{Ableitung des Tangens}{} \index{Ableitungsregln!Tangensfunktion}
+\begin{satz}{Ableitung des Tangens}{} \index{Ableitungsregeln!Tangensfunktion}\index{Funktionen!Tangens!Ableitung}
 Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\mathds{D}_f = \mathds{R}\setminus\{\dfrac{\pi}{2} + k\cdot \pi\}$ und $ k \in \mathds{N} $ wird mit Hilfe der Quotientenregel abgeleitet. Es ergibt sich damit folgende Ableitungsfunktion: 
 \begin{equation*}
     \begin{split}
@@ -1427,7 +1425,7 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
 \begin{b8d}{Eigenschaften der Sinus- und Kosinuskurve}{}
 Für die Kurvendiskussion trigonometrischer Funktionen und der darin vorkommenden Lösung von trigonometrischer Gleichungen ist es wichtig, dass die allgemeinen Eigenschaften der Sinus- und Kosinuskurve bekannt sind. Insbesondere ist der Merksatz \ref{SinCosEigenschaften} zu beachten.
 \end{b8d}
-\begin{bsp}{Kurvendiskussion einer trigonometrischen Funktion}{}
+\begin{bsp}{Kurvendiskussion einer trigonometrischen Funktion}{}\index{Funktionen!Trigonometrische!Kurvendiskussion}
 Es soll am Beispiel der Funktion $f$ mit $f(x) = -2\sin{(2(x-\frac{\pi}{3}))} +2$  mit $\mathds{D}_f = \mathds{R}$ eine Kurvendiskussion durchgeführt werden.
 \begin{enumerate}
 \item Eigenschaften des Graphen anhand des Funktionsterms:
@@ -1582,7 +1580,7 @@ Die natürliche Exponentialfunktion besitzt die Eigenschaft, dass die Funktion m
 \begin{satz}{Ableitungen spezieller $e$-Funktion}{}
 Die $e$-Funktion tritt häufig mit anderen Funktionen verknüpft auf. So ist $f(x) = e^{g(x)}$ eine der häufigsten auftretenden Funktionen. Hierbei ist zu beachten, dass die Kettenregel für die Ableitung angewendet werden muss. Damit ergibt sich für die Ableitung $$f'(x) = e^{g(x)} \cdot g'(x).$$  Bei der Klasse von Funktionen $f(x) = e^x \cdot g(x)$ muss die Produktregel verwendet werden. Es folgt damit, dass $$f'(x) = e^x \cdot g(x) + e^x \cdot g'(x) = e^x\cdot (g(x)+ g'(x))$$ ist. Siehe hierfür im Anhang \ref{AbleitungEFunktion}
 \end{satz}
- \subsubsection{Kurvendiskussion einer e-Funktion}\index{Kurvendiskussion!Exponentialfunktionen}
+ \subsubsection{Kurvendiskussion einer e-Funktion}\index{Funktionen!e-Funktion!Kurvendiskussion}
  Die Kurvendiskussion einer verknüpften $e$-Funktion erfolgt nach dem selben Muster wie die restlichen Funktionsklassen. Als Beispiel soll hier die Funktion $f(x) = 4x^2\cdot e^x$ betrachtet werden.
  \begin{bsp}{Kurvendiskussion der $e$-Funktion}{}
 Gegeben ist die Funktion $f(x) = 4x^2\cdot e^x$ mit $\mathds{D}_f = \mathds{D}_{max}$
@@ -1770,3 +1768,13 @@ $$\lim_{x \longrightarrow 0^+} f(x) = \lim_{x \longrightarrow 0^+} \ln{(x)} = -\
 \begin{satz}{Grenzwertverhalten der $\ln{}$-Funktion}{}
 In Kombination mit Potenzfunktionen wächst die $\ln{}$-Funktion langsamer als jede Potenzfunktion. Insbesondere gilt der Grenzwert $$\lim_{x\longrightarrow \infty} \dfrac{\ln{(x)}}{x^n} = 0$$ für jedes $n\in \mathds{N}$.
 \end{satz}
+\begin{satz}{Ableitung der $\ln$-Funktion}{} \index{Funktionen!Logarithmusfunktion!Ableitung}
+Die natürliche Logarithmusfunktion $f(x) = \ln{(x)}$ besitzt folgende Ableitung: $$f'(x) = \dfrac{1}{x}$$ für alle $x\in \mathds{R}^+$
+\end{satz}
+\begin{satz}{Ableitungen spezieller $\ln$-Funktion}{}
+Die $\ln$-Funktion tritt häufig mit anderen Funktionen verknüpft auf. So ist $f(x) = \ln{g(x)}$ eine der häufigsten auftretenden Funktionen. Hierbei ist zu beachten, dass die Kettenregel für die Ableitung angewendet werden muss. Damit ergibt sich für die Ableitung $$f'(x) = \dfrac{1}{ g(x)} \cdot g'(x) = \dfrac{g'(x)}{g(x)}.$$  
+Bei der Klasse von Funktionen $f(x) = \ln{x} \cdot g(x)$ muss die Produktregel verwendet werden. Es folgt damit, dass
+$$f'(x) = \dfrac{1}{x}\cdot g(x) +\ln{(x)} \cdot g'(x)$$ 
+ist. Siehe hierfür im Anhang \ref{AbleitungEFunktion}
+\end{satz}
+ \subsubsection{Kurvendiskussion einer $\ln$-Funktion}
