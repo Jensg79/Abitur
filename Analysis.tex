@@ -1529,7 +1529,7 @@ Das eigentliche Krümmungsverhalten muss dann für spezielle Werte von $k$ ermit
 \end{center}
 \end{enumerate}
     \end{bsp}
- \subsection{Exponentialfunktionen}\index{e-Funktion}
+ \subsection{Exponentialfunktionen}\index{Funktionen!e-Funktion}
  In der Mathematik wird unter dem Begriff der natürlichen Exponentialfunktion bzw. der $e$-Funktion folgende Funktion verstanden $$f(x) = e^x$$ mit $\mathds{D}_f = \mathds{R}$ und $\mathds{W}_f =\mathds{R}^{+}$.
 \begin{center}
 \begin{tikzpicture}
@@ -1551,7 +1551,6 @@ Das eigentliche Krümmungsverhalten muss dann für spezielle Werte von $k$ ermit
 \begin{satz}{Die Euler'sche Zahl e}{}
 Die Zahl $e=2,71828...$ ist eine irrationale Zahl und ergibt sich durch folgenden Grenzwert: $$e= \lim_{n\longrightarrow \infty} \left(1+ \dfrac{1}{n}\right)^n.$$ Der Grenzwert konvergiert damit gegen den Wert von $e$.   
 \end{satz}
-
 Die $e$-Funktion ist eine Exponentialfunktion mit spezieller Basis und wird häufig verwendet, um natürliche Prozesse zu beschreiben. Die Umkehrfunktion der $e$-Funktion bildet die natürliche Logarithmusfunktion $g(x) = \ln{(x)}$. Siehe hierfür \ref{ln}
 \begin{center}
 \begin{tikzpicture}
@@ -1567,17 +1566,207 @@ Die $e$-Funktion ist eine Exponentialfunktion mit spezieller Basis und wird häu
         \addplot[color= red, samples = 500, domain= -4:2]{e^x};
     \draw[red] (-2,1)   node [above] {$f(x) = e^x$};
     \addplot[color= blue, samples = 500, domain= 0:4]{ln(x)};
-    \draw[blue] (2,-1.2)   node [above] {$f(x) = e^x$};
+    \draw[blue] (2,-1.2)   node [above] {$f(x) = \ln{(x)}$};
     \end{axis}
 \end{tikzpicture}
 \end{center}
-\begin{satz}{Ableitung der $e$-Funktion}{}\index{e-Funktion!Ableitung}
+\begin{bem}{Grenzwerte der $e$-Funktion}{}\index{Funktionen!e-Funktion!Grenzwert}
+Für die Funktion $f(x) = e^x$ mit $\mathds{D}_f = \mathds{R}$ gelten folgende Grenzwerte: $$\lim_{x\longrightarrow \infty} e^x = \infty$$ und $$\lim_{x\longrightarrow -\infty} e^x = 0$$ 
+\end{bem}
+\begin{satz}{Grenzwertverhalten der $e$-Funktion}{}
+In Kombination mit Potenzfunktionen wächst die $e$-Funktion schneller als jede Potenzfunktion. Insbesondere gilt der Grenzwert $$\lim_{x\longrightarrow \infty} \dfrac{x^n}{e^x} = 0$$ für jedes $n\in \mathds{N}$.
+\end{satz}
+\begin{satz}{Ableitung der $e$-Funktion}{}\index{Funktionen!e-Funktion!Ableitung}
 Die natürliche Exponentialfunktion besitzt die Eigenschaft, dass die Funktion mit ihrer Ableitung übereinstimmt. Es gilt also folgendes $$f(x) = e^x = f'(x).$$
 \end{satz}
 \begin{satz}{Ableitungen spezieller $e$-Funktion}{}
 Die $e$-Funktion tritt häufig mit anderen Funktionen verknüpft auf. So ist $f(x) = e^{g(x)}$ eine der häufigsten auftretenden Funktionen. Hierbei ist zu beachten, dass die Kettenregel für die Ableitung angewendet werden muss. Damit ergibt sich für die Ableitung $$f'(x) = e^{g(x)} \cdot g'(x).$$  Bei der Klasse von Funktionen $f(x) = e^x \cdot g(x)$ muss die Produktregel verwendet werden. Es folgt damit, dass $$f'(x) = e^x \cdot g(x) + e^x \cdot g'(x) = e^x\cdot (g(x)+ g'(x))$$ ist. Siehe hierfür im Anhang \ref{AbleitungEFunktion}
 \end{satz}
  \subsubsection{Kurvendiskussion einer e-Funktion}\index{Kurvendiskussion!Exponentialfunktionen}
- 
- \subsection{Logarithmusfunktionen}\index{Kurvendiskussion!Logarithmusfunktionen}
- 
+ Die Kurvendiskussion einer verknüpften $e$-Funktion erfolgt nach dem selben Muster wie die restlichen Funktionsklassen. Als Beispiel soll hier die Funktion $f(x) = 4x^2\cdot e^x$ betrachtet werden.
+ \begin{bsp}{Kurvendiskussion der $e$-Funktion}{}
+Gegeben ist die Funktion $f(x) = 4x^2\cdot e^x$ mit $\mathds{D}_f = \mathds{D}_{max}$
+\begin{enumerate}
+    \item Definitionsmenge: $\mathds{D}_f = \mathds{R}$ die Funktion ist damit auf ganz $\mathds{R}$ definiert.
+    \item Symmetrie:
+    \begin{equation*}
+        \begin{split}
+            f(-x) &= (-x)^2 \cdot e^{-x}\\
+            &= x^2\cdot e^{-x}\\
+            &\neq f(x)\\
+            &\neq -f(x)
+        \end{split}
+    \end{equation*}
+    Damit ist der Graph der Funktion $f(x)$ weder achsensymmetrisch zur y-Achse noch punktsymmetrisch zum Ursprung.
+    \item Schnittpunkte mit den Koordinatenachsen:
+    \begin{itemize}
+        \item Nullstellen:
+        \begin{equation*}
+            \begin{split}
+                0 &=f(x)\\
+               0 &= 4x^2\cdot e^x\hspace{0.5cm}|\hspace{0.1cm} e^x >0 \text{ für alle} x \in \mathds{R}\\
+               0 &=4x^2\\
+               x_{1/2} &= 0
+            \end{split}
+        \end{equation*}
+        Damit befindet sich bei $x=0$ eine doppelte Nullstelle.
+        \item Schnittpunkt mit der y-Achse
+        \begin{equation*}
+            \begin{split}
+                f(0)&= 4\cdot (0)^2 \cdot e^{0}\\
+                &= 4\cdot 0 \cdot 1\\
+                &= 0
+            \end{split}
+        \end{equation*}
+    \end{itemize}
+    Daraus folgt, dass der Graph $G_f$ der Funktion $f$ durch den Ursprung verläuft.
+    \item Grenzwertverhalten:
+    \begin{equation*}
+            \begin{split}
+               \lim_{x\longrightarrow \infty} f(x) &= \lim_{x\longrightarrow \infty} 4x^2\cdot e^x\\
+               &=  \infty\\
+               \lim_{x\longrightarrow -\infty} f(x) &= \lim_{x\longrightarrow -\infty} 4x^2\cdot e^x\\
+               &= 0          
+            \end{split}
+        \end{equation*}
+    \item Ableitungen:
+    \begin{equation*}
+            \begin{split}
+               f(x) &= 4x^2\cdot e^x\\
+               f'(x) &= 8x\cdot e^x + 4x^2 \cdot e^x\\
+                    &= e^x \cdot (4x^2+8x)\\
+                f''(x) &= e^x \cdot (4x^2+8x) + e^x \cdot (8x+8)\\
+                 &= e^x\cdot (4x^2 +16x+8)
+            \end{split}
+        \end{equation*}
+        \item Monotonie:
+            \begin{equation*}
+            \begin{split}
+                f'(x)&=0\\
+                0&= e^x \cdot (4x^2+8x) \hspace{0.5cm} | e^x \neq 0\\
+                0&= 4x^2+8x\\
+                &= x(4x+8)\\
+                x_1 &= 0\\
+                0&= 4x+8\hspace{0.5cm} | -8\\ 
+                -8&= 4x \hspace{0.5cm} | :4\\
+                x_2 &= -2
+            \end{split}
+        \end{equation*}
+        \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ -\infty <x<-2 $ & $ x =-2$ &$ -2<x<0 $ & $x=0 $& $ 0<x<\infty $\\
+    \hline \hline
+    $e^x$ & + & + & + & 1 & +  \\
+    \hline
+    $4x$ & - & - & - & 0 & + \\
+     \hline
+    $(x+2)$ & - & 0 & + & + & + \\
+    \hline
+    $f'(x)$ & + & 0 & - & 0 & +\\ 
+    \hline
+    \hline
+    $G_f$ & smw & $HoP(-2|16\cdot e^{-2})$ & smf  & $TP(0|0)$& smw\\
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Koordinaten der Extrempunkte:
+            \begin{equation*}
+            \begin{split}
+               f(0)&=0\\
+               f(-2)&= 4(-2)^2 \cdot e^{-2}\\
+               &=16\cdot e^{-2} \approx 2,17
+            \end{split}
+        \end{equation*}
+        \item Krümmungsverhalten:
+                \begin{equation*}
+            \begin{split}
+            f''(x)&= 0\\
+               0 &=e^x\cdot (4x^2 +16x+8) \hspace{0.5cm} | e^x \neq 0\\
+               0 &= 4\cdot (x^2 +4x+2)\\
+               x_{1/2} &= \dfrac{-4\pm \sqrt{4^2 - 4\cdot 1\cdot 2}}{2\cdot 1}\\
+               &= \dfrac{-4\pm \sqrt{16 - 8}}{2}\\
+               &= \dfrac{-4\pm \sqrt{8}}{2}\\
+               &= \dfrac{-4\pm 2\sqrt{2}}{2}\\
+               &= -2\pm \sqrt{2}\\
+               x_1&= -2+\sqrt{2} \approx -0,59\\
+               x_2 &= -2-\sqrt{2} \approx -3,41           
+            \end{split}
+        \end{equation*}
+                \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ -\infty <x<x_2 $ & $ x =x_2$ &$ x_2<x<x_1 $ & $x=x_1 $& $ x_1<x<\infty $\\
+    \hline \hline
+    $4e^x$ & + & + & + & + & +  \\
+    \hline
+    $(x-x_2)$ & - & 0 & + & 0 & + \\
+     \hline
+    $(x-x_1)$ & - & - & - & + & + \\
+    \hline
+    $f''(x)$ & + & 0 & - & 0 & +\\ 
+    \hline
+    \hline
+    $G_f$ & linksgekrümmt & $WP$ & rechtsgekrümmt  & $WP$& linksgekrümmt\\
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Koordinaten der Wendepunkte:
+                \begin{equation*}
+            \begin{split}
+           f(-2-\sqrt{2})  &= (16\sqrt{2} +24) \cdot e^{-2-\sqrt{2}}\approx 1,53\\
+           f(-2+\sqrt{2})  &= (-16\sqrt{2} +24) \cdot e^{-2+\sqrt{2}}\approx 0,76
+            \end{split}
+        \end{equation*}
+        \item Graph:
+        \begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[xmin= -6.1, xmax = 1.1, ymin= -1.4, ymax=4.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-6, ..., 1},
+        ytick={ -1, ..., 4},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= red, samples = 500, domain= -6:1]{4*x^2*e^x};
+        \draw (0,0) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (-0.3,0.2)   node [above] {TP};
+         \draw (-2,2.17) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (-2.5,2.5)   node [above] {HoP};
+         \draw (-3.41, 1.53) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (-3.5,1.8)   node [above] {WP};
+        \draw (-0.59, 0.76) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+         \draw (-0.5,1.2)   node [above] {WP};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+ \end{bsp}
+ \subsection{Logarithmusfunktionen}\index{Funktionen!Logarithmusfunktion}
+ Die Logarithmusfunktion ist die Umkehrfunktion der $e$-Funktion. Damit ergibt sich für den Definitions- und Wertebereich folgende Zusmmenhänge.
+ \begin{satz}{Die Logarithmusfunktion}{}
+Die natürliche Logarithmusfunktion $f(x) = \ln{(x)}$ ordnet jeder positiven reellen Zahl den natürlichen Logarithmus zu. Für die Funktion gilt damit: $$\mathds{D}_f = \mathds{R}^+$$ und $$\mathds{W}_f = \mathds{R}.$$
+ \end{satz}
+ \begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -1.1, xmax = 4.6, ymin= -4.1, ymax=2.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-1,  ..., 4},
+        ytick={ -4, ..., 2},
+        xlabel = $x$,
+        ylabel=$y$]       
+    \addplot[color= blue, samples = 500, domain= 0:4.5]{ln(x)};
+    \draw[blue] (2,-1.2)   node [above] {$f(x) = \ln{(x)}$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{bem}{Grenzwerte der $\ln$-Funktion}{}\index{Funktionen!Logarithmusfunktion!Grenzwert}
+Für die Funktion $f(x) = \ln{(x)}$ mit $\mathds{D}_f = \mathds{R}^+$ gelten folgende Grenzwerte:
+$$\lim_{x \longrightarrow 0^+} f(x) = \lim_{x \longrightarrow 0^+} \ln{(x)} = -\infty$$ und $$\lim_{x \longrightarrow \infty} f(x) = \lim_{x \longrightarrow \infty} \ln{(x)} = \infty$$
+\end{bem}
+\begin{satz}{Grenzwertverhalten der $\ln{}$-Funktion}{}
+In Kombination mit Potenzfunktionen wächst die $\ln{}$-Funktion langsamer als jede Potenzfunktion. Insbesondere gilt der Grenzwert $$\lim_{x\longrightarrow \infty} \dfrac{\ln{(x)}}{x^n} = 0$$ für jedes $n\in \mathds{N}$.
+\end{satz}
