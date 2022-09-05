@@ -1778,3 +1778,118 @@ $$f'(x) = \dfrac{1}{x}\cdot g(x) +\ln{(x)} \cdot g'(x)$$
 ist. Siehe hierfür im Anhang \ref{AbleitungEFunktion}
 \end{satz}
  \subsubsection{Kurvendiskussion einer $\ln$-Funktion}
+ Die Kurendiskussion einer $\ln$-Funktion unterscheidet wird anhand folgendes Beispiel kurz erläutert.
+ \begin{bsp}{Kurvendiskussion einer $\ln$-Funktion}{ }
+Gegeben ist die Funktion $f$ mit $f(x) = x^2\cdot \ln{(x)}$ und $\mathds{D}_f = \mathds{D}_{max}$.
+\begin{enumerate}
+    \item Definitionsbereich: Die Funktion $g(x) = \ln{(x)}$ ist nur für positive reelle zahlen definiert. Damit folgt für den Definitionsbereich der Funktion $f(x) = x^2\ln{(x)}$ folgendes: $\mathds{D}_f = \mathds{R}^+$.
+    \item Symmetrie: Aufgrund des Definitionsbereichs ist es nicht nötig eine Untersuchung auf Symmetrie zum Ursprung bzw. zur y-Achse zu untersuchen.
+    \item Nullstellen: 
+        \begin{equation*}
+            \begin{split}
+                f(x) &=0\\
+                0&= x^2\cdot \ln{(x)}\hspace{0.5cm} | \text{ Fallunterscheidung}\\
+                0&= x^2\\
+                x_{1/2} &= 0 \notin \mathds{D}_f\\
+                0&= \ln{(x)}\\
+                x_3&= 1
+            \end{split}
+        \end{equation*}
+Schnittpunkte mit der y-Achse können aufgrund des Definitionsbereichs nicht existieren.
+\item Ableitungen:
+        \begin{equation*}
+            \begin{split}
+                f(x) &=x^2\cdot \ln{(x)}\\
+                f'(x)&= 2x\cdot \ln{(x)} + x^2 \cdot \frac{1}{x}\\
+                &=2x\cdot \ln{(x)} + x = x\cdot (2\cdot \ln{(x)} +1)\\
+                f''(x) &= 2\cdot \ln{(x)} + 2x\cdot \frac{1}{x} +1\\
+                &=2\cdot \ln{(x)} + 3
+            \end{split}
+        \end{equation*}
+
+\item Monotonie:
+        \begin{equation*}
+            \begin{split}
+                f'(x)&=0\\
+               0&= x\cdot (2\cdot\ln{(x)} +1)\\
+                x_1&= 0 \notin \mathds{D}_f\\
+                0&= 2\cdot\ln{(x)} +1 \hspace{0.5cm} | -1\\
+                 2\cdot\ln{(x)}&= -1 \hspace{0.5cm} | :2\\
+                \ln{(x)}&= -\frac{1}{2} \hspace{0.5cm} |\hspace{0.2cm} e^{()} \text{ Anwendung der $e$-Funktion}\\
+                x_2&= e^{-\frac{1}{2}}\approx 0,61
+            \end{split}
+        \end{equation*}
+\begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ 0<x<e^{-\frac{1}{2}} $ & $ x =e^{-\frac{1}{2}}$ &$ e^{-\frac{1}{2}}<x<\infty $ \\
+    \hline \hline
+    $x$ & + & + & +   \\
+    \hline
+    $(\ln{(x)}+1)$ & - & 0 & +  \\
+     \hline
+    $f'(x)$ & - & 0 & + \\ 
+    \hline
+    \hline
+    $G_f$ & smf & $TiP(e^{-\frac{1}{2}}|-\frac{1}{2} e^{-1})$ & smw  \\
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Lage des Extrempunktes:
+        \begin{equation*}
+            \begin{split}
+               f(e^{-\frac{1}{2}}) &= (e^{-\frac{1}{2}})^2 \cdot \ln{(e^{-\frac{1}{2}})}\\
+               &= \dfrac{1}{e} \cdot\left( -\dfrac{1}{2} \ln{(e)}\right)\\
+                &= \dfrac{1}{e} \cdot \left(-\dfrac{1}{2}\right)
+            \end{split}
+        \end{equation*}
+        \item Krümmungsverhalten:
+        \begin{equation*}
+            \begin{split}
+                f''(x)&=0\\
+               0&= 2\cdot \ln{(x)} + 3 \hspace{0.5cm} | - 3\\
+               2\cdot \ln{(x)}&= -3 \hspace{0.5cm} | : 2\\
+               \ln{(x)}&= -\dfrac{3}{2}  |\hspace{0.2cm} e^{()} \text{ Anwendung der $e$-Funktion}\\
+               x&= e^{-\frac{3}{2} }\approx 0,22
+            \end{split}
+        \end{equation*}
+        \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$& $ 0<x<e^{-\frac{3}{2}} $ & $ x =e^{-\frac{3}{2}}$ &$ e^{-\frac{3}{2}}<x<\infty $ \\
+    \hline \hline
+    $(2\ln{(x)}+3)$ & + & 0 & -  \\
+     \hline
+    $f''(x)$ & + & 0 & - \\ 
+    \hline
+    \hline
+    $G_f$ & linksgekrümmt & $WP(e^{-\frac{3}{2}}|-\dfrac{3}{2} \cdot e^{-3})$ & rechtsgekrümmt \\
+    \hline
+\end{tabular}
+\end{center}
+Berechnung der Koordinaten des Wendepunktes:
+\begin{equation*}
+            \begin{split}
+                f(e^{-\frac{3}{2}})&=\left(e^{-\frac{3}{2}}\right)^2 \cdot \ln{(e^{-\frac{3}{2}})}\\
+            &= \dfrac{1}{e^3} \cdot \left(-\dfrac{3}{2} \ln{(e)}\right)\\
+            &= \dfrac{1}{e^3} \cdot \left(-\dfrac{3}{2}\right)\\
+               &= -\dfrac{3}{2} \cdot e^{-3}
+            \end{split}
+        \end{equation*}
+\item Graph:
+\begin{center}
+ \begin{tikzpicture}
+    \begin{axis}[xmin= -1.1, xmax = 2.6, ymin= -1.1, ymax=5.1,
+    x=1cm,y=1cm,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-1,..., 2},
+        ytick={ -1, ..., 5},
+        xlabel = $x$,
+        ylabel=$y$]       
+    \addplot[color= blue, samples = 500, domain= 0.000000001:2.5]{x^2*ln(x)};
+    \draw[blue] (1.2,2)   node [above] {$f(x) =x^2\cdot  \ln{(x)}$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+ \end{bsp}
