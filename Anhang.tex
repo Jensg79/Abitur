@@ -1,7 +1,12 @@
+\section{Darstellungsformen von Polynomen}\index{Polynome}
+\begin{itemize}
+    \item Nullstellenform: Hierbei sind $x_1, x_2, \cdots x_n$ die Nullstellen des Poilynoms $$f(x) = a\cdot (x-x_1)\cdot (x-x_2) \cdots (x-x_n)$$
+    \item Scheitelpunktform: Hierbei ist $SP(x_s|y_s)$ der Scheitelpunkt des Graphen der quadratischen Funktion $$f(x) = a\cdot (x-x_s)^2 +y_s$$ diese Darstellung gilt auch für die kubische Funktion $$f(x) = a\cdot (x-x_s)^3 +y_s$$ 
+    \item allgemeine Form eines Polynoms vom Grad $n$: $$f(x) = a_n\cdot x^n + a_{n-1}\cdot x^{n-1} \cdots a_2\cdot x^2 + a_1\cdot x^1 + a_0 = \sum\limits_{i=0}^{n} a_i\cdot x^i$$ hierbei gilt $a_n \in \mathds{R}\setminus \left(0\right)$ und $a_i \in \mathds{R}$
+\end{itemize}
 \section{Polynomdivision}\index{Polynomdivision}
 Die Polynomdivision wird eingesetzt um entweder den Grad eines Polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln. 
 \subsection{Polynomdivision bei Polynomen}\index{Polynomdivision!Polynome}\label{polynomdivision}
-
     Bei einem Polynom wird die Polynomdivision angewendet um den Grad des Polynoms zu verringern und die Faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt der Nullstellen darstellen kann.\\
     Es gilt folgender Zusammenhang: $$f(x) = x^3-6x^2-x+6 =  \polyfactorize{x^3-6x^2-x+6}.$$ Aus dieser Darstellung folgt, dass die Funktion $f$ die Nullstellen $x_1 = -1, x_2 = 1$ und $x_3= 6$ hat. Um die Polynomdivision durchführen zu können, muss man als erstes eine Nullstelle kennen und dann das Polynom durch diese Nullstelle teilen. Nach der Division erhält man jeweils eine neues Polynom geringeren Grades. Dieses Polynom muss dann wieder mit der Polynomdivision vom Grad reduziert werden.
     \begin{bsp}{Die Polynomdivision bei Polynomen}{} 
@@ -458,7 +463,8 @@ Gegeben ist die Gleichung $2^{3x} =2^{\frac{1}{2}x-3}$.
 \end{equation*}
 \end{bsp}
 Bei einigen Gleichungen lohnt sich die Substitution zum lösen. hierbei wird die Gleichung auf eine Gleichung zurückgeführt, die einfacher zu lösen ist.
-\begin{bsp}{Substitution bei Logarithmen}{}\index{Logarithmus!Substitution}
+\begin{bsp}{Substitution bei Logarithmen}{}
+\mbox{\index{Logarithmus!Substitution}}
 Gegeben ist die Gleichung $5^{2x} -2\cdot 5^x -8 =0$. Diese Gleichung kann vereinfacht werden, indem man $5^x$ mit dem Parameter $u$ substituiert.
 \begin{equation*}
     \begin{split}
@@ -484,5 +490,5 @@ x&= \dfrac{\ln{(4)} }{\ln{(5)} } \approx 0,86
     \end{split}
 \end{equation*}
 Für den Wert $u_2 = -2$ kann keine Lösung gefunden werden, da $5^x > 0$ für alle Werte von $x$ ist. Damit ist $5^x= -2$ nicht lösbar.\\
-Aus diesen Rechnungen folgt damit, dass nur $x=\dfrac{\ln{(4)} }{\ln{(5)} } $ die Gleichung $5^{2x} -2\cdot 5^x -8 =0$ löst.
+Aus diesen Rechnungen folgt damit, dass nur $x=\dfrac{\ln{(4)}}{\ln{(5)}}$ die Gleichung $5^{2x} -2\cdot 5^x -8 =0$ löst.
 \end{bsp}

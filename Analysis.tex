@@ -1741,6 +1741,7 @@ Berechnung der Koordinaten der Wendepunkte:
 \end{enumerate}
  \end{bsp}
  \subsection{Logarithmusfunktionen}\index{Funktionen!Logarithmusfunktion}
+ \subsubsection{Allgemeines zur $\ln{}$ Funktion}
  Die Logarithmusfunktion ist die Umkehrfunktion der $e$-Funktion. Damit ergibt sich für den Definitions- und Wertebereich folgende Zusmmenhänge.
  \begin{satz}{Die Logarithmusfunktion}{}
 Die natürliche Logarithmusfunktion $f(x) = \ln{(x)}$ ordnet jeder positiven reellen Zahl den natürlichen Logarithmus zu. Für die Funktion gilt damit: $$\mathds{D}_f = \mathds{R}^+$$ und $$\mathds{W}_f = \mathds{R}.$$
@@ -1892,4 +1893,79 @@ Berechnung der Koordinaten des Wendepunktes:
 \end{tikzpicture}
 \end{center}
 \end{enumerate}
+ \end{bsp}
+ \section{Anwendungen der Differentialrechnung}
+ \subsection{Modellierung von Funktionen}\index{Funktionen!Modellierung}
+ Die Modellierung von Funktionen beschäftigt sich mit dem aufstellen von Funktionstermen. Hierbei werden Eigenschaften spezieller Funktionen vorgegeben und es sollen anhand dieser die Terme der entsprechenden Funktionen gefunden werden. Als Beispiel hierfür kann zum Beispiel das aufstellen einer quadratischen Funktion aufgrund des Scheitelpunktes und eines Punktes dienen.
+ \begin{bsp}{}{}
+Der Graph der quadratische Funktion soll folgende Eigenschaften haben:
+\begin{itemize}
+    \item Der Scheitelpunkt liegt bei $(-3|5)$
+    \item Der Graph der Funktion geht durch den Punkt $P(1|2)$
+\end{itemize}
+Um den term zu finden wird als erstes die allgemeine Scheitelpunktform gewählt und die Koordinaten des Scheitelpunktes eingesetzt. So lautet die Scheitlepunktform $f(x) = a\cdot \left(x-x_S\right)^2 +y_S$. Nach dem einsetzen lautet der Term $f(x) = a\cdot \left(x-(-3)\right)^2 +5 = a\cdot \left(x+3\right)^2 +5 $. Um den Wert des Parameters a bestimmen zu können, muss der Punkt $P$ eingesetzt werden und dann wird nach $a$ aufgelöst.
+\begin{equation*}
+    \begin{split}
+        2&= a\cdot (1+3)^2+5\\
+        2&= a\cdot (4)^2 +5\\
+        2&= a\cdot 16 +5 \hspace{0.5cm} | - 5\\
+        -3&= a\cdot 16  \hspace{0.5cm} | : 16\\
+        a&=-\dfrac{3}{16}
+    \end{split}
+\end{equation*}
+Damit lautet der Term $f(x) = -\dfrac{3}{16} \cdot \left(x+3\right)^2 +5$.
+ \end{bsp}
+ Weitere häufig gebrauchte Beispiele sind das Aufstellen von Trigonometrischen  bzw. gebrochen-rationalen Funktionen. Bei diesen werden dann charakteristische Eigenschaften vorgegeben die dann verarbeitet werden müssen. 
+ \subsection{Extremwertprobleme}\index{Extremwertprobleme}
+ Bei Extremwertaufgaben werden Anwendungsaufgaben vorgegeben die durch eine Untersuchung der Monotonie gelöst werden sollen. Hierbei ist es möglich aus der Aufgabenstellungen mindestens zwei Gleichungen zu finden die in eine Funktion zusammengefasst werden muss.\\
+ Diejenige Funktion die einen Extremwert annehmen soll wird hierbei als Zielfunktion bezeichnet. Die weiteren Funktionen werden als Nebenbedingungen bezeichnet.
+ \begin{satz}{Extremwertaufgaben}{}
+Hängt eine zu optimierende Größe von zwei oder mehreren variablen ab, müssen mithilfe von einer oder mehrere Nebenbedingungen eine oder mehrere Variablen aus dem zugehörigen Term eleminiert werden. Danach ist es möglich, das Extremum der Funktion mit einer Variablen zu bestimmen. Hierbei ist auf den Definitionsbereich zu achten.
+ \end{satz}
+ \begin{b8d}{Vorgehen beim lösen von Extremwertproblemen}{}
+\begin{enumerate}
+    \item Beschreiben der Größen, die extremal werden soll, durch einen Term, der mehrere Variablen enthalten kann.
+    \item Formulierung von gegebenen Nebenbedingungen.
+    \item Bestimmen der Zielfunktion, die nur noch von einer variablen abhängig ist.
+    \item Untersuchung der Zielfunktion auf Extremwerte und Formulierung des Ergebnisses. Hierbei sind auch auf Randwerte zu achten.
+\end{enumerate}
+ \end{b8d}
+ \begin{bsp}{Beispiel für Extremwertaufgaben}{}
+Aus einem quadratischen Stück Pappe mit der festen Seitenlänge $a = 5\text{ cm}$ soll eine oben offene Schachtel hergestellt werden. Finde eine Funktionsgleichung für das Volumen der Schachtel in Abhängigkeit von der Länge $x$ (in cm) des Einschnitts und der allgemeinen Seitenlängen $a$. Für welchen Wert von $x$ wird das Volumen der Schachtel maximal. 
+\begin{itemize}
+    \item Zielfunktion: $V_a(x) = \left(a-2x\right)^2 \cdot x$
+    \item Nebenbedingung: $a = 5$
+    \item Extremwertfunktion: $V_5(x) = \left(5-2x\right)^2 \cdot x = \left(25 -20x +4x^2\right)\cdot x = 25x-20x^2 +4x^3$
+    \item Ableitungen:
+    \begin{equation*}
+        \begin{split}
+            V_5(x) &= 4x^3 -20x^2 +25x\\
+          V_5'(x) &= 12x^2 -40x +25\\
+          V_5''(x) &= 24x-40
+        \end{split}
+    \end{equation*}
+    \item Nullstellen der ersten Ableitung:
+        \begin{equation*}
+        \begin{split}
+          V_5'(x) &= 0\\
+        0&= 12x^2 -40x +25\\
+        x_{1/2} &= \dfrac{40 \pm \sqrt{(-40)^2 -4\cdot 12\cdot 25}}{2\cdot 12}\\
+        &= \dfrac{40 \pm \sqrt{1600 -1200}}{24}\\
+        &= \dfrac{40 \pm \sqrt{400}}{24}\\
+        &= \dfrac{40 \pm 20}{24}\\
+        x_1&= \dfrac{5}{2}\\
+        x_2&= \dfrac{5}{6}
+        \end{split}
+    \end{equation*}
+    \item Bestimmung der Art der Extrema
+            \begin{equation*}
+        \begin{split}
+          V_5''\left(\dfrac{5}{2}\right) &= 24\cdot \dfrac{5}{2} -40\\
+          &= 20>0 \longrightarrow \text{ TiP}\\
+          V_5''\left(\dfrac{5}{6}\right) &= 24\cdot \dfrac{5}{6} -40\\
+          &= -20 >0 \longrightarrow \text{ HoP}
+        \end{split}
+    \end{equation*}
+\end{itemize}
+Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das Volumen. Bei $x= \dfrac{5}{2}$ liegt ein Minimum des Volumens. Allerdings liegt das Volumen hier bei Null und ist dadurch keine Lösung für das Problem.
  \end{bsp}
