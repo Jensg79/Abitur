@@ -10,3 +10,13 @@
   - Ableitungsfunktion
   - Ableitungen
   - Newton-Verfahren
+#### Kurvendiskussion
+  - Symmetrie
+  - Nullstellen
+  - Monotonieuntersuchung
+  - Krümmungsverhalten
+  - Graph
+### Analytische Geometrie
+#### Vektoren
+  - Definition von Vektoren
+  - Skalare Multiplikation 
