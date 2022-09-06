@@ -3,7 +3,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{animate}
 \usepackage{multicol}
-\usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lipsum,marvosym}
+\usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, marvosym,esvect}%lipsum,
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage{xcolor}
@@ -29,6 +29,7 @@
 \usepackage[Sonny]{fncychap}
 %Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
 \usepackage{xcolor}
+\definecolor{xvectorcolor}{HTML}{77933C}
 \usepackage{afterpage}
 \usepackage{tikz}
 \usetikzlibrary{quotes, angles}
@@ -133,7 +134,83 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{center}
 \include{Analysis.tex}
 \chapter{Analytische Geometrie}
+\begin{center}
+\begin{tikzpicture}
+%\draw[gray!60!white, thick] (-4.99,-4.99) grid (9.99,9.99);
+\draw[->, >=latex, ultra thick] (0,0,-2.6) -- (0,0,13) node[left]{$x_1$};
+\draw[->, >=latex, ultra thick] (0,0,0) -- (10,0,0) node[below]{$x_2$};
+\draw[->, >=latex, ultra thick] (0,0,0) -- (0,10,0) node[left]{$x_3$};
+\foreach \z/\zc in {2.6/1,5.2/2,7.8/3,10.4/4}{
+\draw[shift={(0,0,\z)}, ultra thick] (0pt,0pt,0pt) -- (0pt,-0.21pt,0pt)node[below]{\zc};
+\draw[gray!60!white, thick](0,0,\z)--++(0:10);
+\draw[gray!60!white, thick](0,0,\z)--++(90:10);}
+\foreach \x/\xc in {2/1,4/2,6/3,8/4}{
+\draw[shift={(\x,0)}, ultra thick] (0pt,0pt) -- (0pt,-6pt)node[below]{\xc};
+\draw[gray!60!white, thick](\x,0)--++(0:10);
+\draw[gray!60!white, thick](\x,0)--++(90:10);
+\draw[gray!60!white, thick](\x,0)--++(-135:7);}
+\foreach \y/\yc in {2/1,4/2,6/3,8/4}{
+\draw[shift={(0,\y)}, ultra thick] (0pt,0pt) -- (-6pt,0pt)node[left]{\yc};
+\draw[gray!60!white, thick](0,\y)--++(0:10);
+\draw[gray!60!white, thick](0,\y)--++(-135:7);}
+\draw[fill=green!50!white, nearly transparent] (0,0,0) -- (0,0,12.7) -- (0,9.9,12.7) -- (0,9.9,0);
+\draw[fill=blue!50!white, nearly transparent] (0,0,0) -- (9.9,0,0) -- (9.9,9.9,0) -- (0,9.9,0);
+\draw[fill=red!50!white, nearly transparent] (0,0,0) -- (9.9,0,0) -- (9.9,0,12.7) -- (0,0,12.7);
+\draw[blue, ultra thick, ->] (4,0,5.2) -- (4,4,5.2);
+\draw[red, ultra thick, ->] (0,0,5.2) -- (4,0,5.2);
+\draw[green, ultra thick, ->] (0,0,0) -- (0,0,5.2);
+\shade[ball color=yellow] (4,4,5.2) circle (0.2);
+\end{tikzpicture}
+\end{center}
+
+\include{AnalytischeGeometrie.tex}
 \chapter{Stochastik}
+\vspace{2cm}
+\begin{center}
+\scalebox{2}{
+\begin{tikzpicture}[every node/.style={minimum size=1cm}]
+\begin{scope}[every node/.append style={yslant=-0.5},yslant=-0.5]
+  \shade[right color=red!10, left color=blue!50] (0,0) rectangle +(3,3);
+  \node at (0.5,2.5) {9};
+  \node at (1.5,2.5) {7};
+  \node at (2.5,2.5) {1};
+  \node at (0.5,1.5) {2};
+  \node at (1.5,1.5) {4};
+  \node at (2.5,1.5) {8};
+  \node at (0.5,0.5) {5};
+  \node at (1.5,0.5) {3};
+  \node at (2.5,0.5) {6};
+  \draw (0,0) grid (3,3);
+\end{scope}
+\begin{scope}[every node/.append style={yslant=0.5},yslant=0.5]
+  \shade[right color=red!70,left color=blue!10] (3,-3) rectangle +(3,3);
+  \node at (3.5,-0.5) {3};
+  \node at (4.5,-0.5) {9};
+  \node at (5.5,-0.5) {7};
+  \node at (3.5,-1.5) {6};
+  \node at (4.5,-1.5) {1};
+  \node at (5.5,-1.5) {5};
+  \node at (3.5,-2.5) {8};
+  \node at (4.5,-2.5) {2};
+  \node at (5.5,-2.5) {4};
+  \draw (3,-3) grid (6,0);
+\end{scope}
+\begin{scope}[every node/.append style={yslant=0.5,xslant=-1},yslant=0.5,xslant=-1]
+  \shade[bottom color=green!10, top color=green!80] (6,3) rectangle +(-3,-3);
+  \node at (3.5,2.5) {1};
+  \node at (3.5,1.5) {4};
+  \node at (3.5,0.5) {7};
+  \node at (4.5,2.5) {5};
+  \node at (4.5,1.5) {6};
+  \node at (4.5,0.5) {8};
+  \node at (5.5,2.5) {2};
+  \node at (5.5,1.5) {3};
+  \node at (5.5,0.5) {9};
+  \draw (3,0) grid (6,3);
+\end{scope}
+\end{tikzpicture}}  
+\end{center}
+\include{Stochastik.tex}
 \chapter{Anhang}
 \AddToShipoutPicture*{\BackgroundPic}
 

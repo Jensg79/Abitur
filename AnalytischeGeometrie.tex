@@ -1,1 +1,114 @@
+\section{Vektoren}
+\subsection{Definition von Vektoren}
+\begin{defi}{Vektoren}{}\index{Vektoren!Definition}
+Die Menge aller parallelen, gleich langen und gleich gerichteten Pfeile nennt man Vektor. Jeder Pfeil ist der Repräsentant des Vektors.
+\begin{center}
+
+\begin{tikzpicture}[x=.5cm, y=.5cm,domain=-9:9,smooth, cross/.style={draw, cross out,
+  minimum size=2*(#1-1pt), inner sep=0pt, outer sep=0pt},>=latex, font= \footnotesize]
+   %Raster zeichnen
+   \draw [color=gray!50]  [step=5mm] (-1,-1) grid (5,5);
+
+\coordinate(a) at (4,4);
+\coordinate(b) at (0,4);
+
+\coordinate(c) at (4,2);
+\coordinate(d) at (0,2);
+
+\coordinate(e) at (5,1);
+\coordinate(f) at (1,1);
+
+\coordinate(g) at (3,0);
+\coordinate(h) at (-1,0);
+%Vektor
+\draw[thick, ->] (a) node[right]{} -- (b) node[left]{};
+\draw[thick, ->] (c) node[right]{} -- (d) node[left]{};
+\draw[thick, ->] (e) node[right]{} -- (f) node[left]{};
+\draw[thick, ->] (g) node[right]{} -- (h) node[left]{};
+\end{tikzpicture}
+\end{center}
+Alle drei Pfeile sind Repräsentanten des selben Vektors.
+\end{defi}
+\begin{merke}{Bezeichnungen}{}\index{Vektoren!Bezeichnung}
+Vektoren werden mit kleinen lateinischen Buchstaben und einem pfeil gekennzeichnet $\vec{u}$. Verläuft ein Repräsentant eines Vektors von einem Punkt z.B. $P$ zu einem zweiten Punkt z.B. $Q$, so bezeichnet man alle Repräsentanten mit $\vv{PQ}$.
+\begin{center}
+
+\begin{tikzpicture}[x=.5cm, y=.5cm,domain=-9:9,smooth, cross/.style={draw, cross out,
+  minimum size=2*(#1-1pt), inner sep=0pt, outer sep=0pt},>=latex, ]
+   %Raster zeichnen
+% \draw [color=gray!50]  [step=5mm] (0,0) grid (3,3);
+\coordinate(a) at (3,3);
+\coordinate(b) at (0,3);
+%Vektor
+\draw[thick, ->] (a) node[right]{P} -- (b) node[left]{Q};
+\end{tikzpicture}
+\end{center}
+\end{merke}
+\begin{satz}{Vektoraddition}{}\phantomsection\label{vekadd}\index{Vektoren!Addition}
+Bei der Addition von zwei Vektoren wird an den Endpunkt eines Repräsentanten des ersten Vektors $\vv{a}$ der Beginn eines Repräsentanten des zweiten Vektors $\vv{b}$ gesetzt. Der Pfeil des Summenvektors $\vv{c} = \vv{a} + \vv{b}$ ergibt sich durch den Pfeil der am Anfangspunkt des Vektors $\vv{a}$ beginnt und am Endpunkt des Vektors $\vv{b}$ endet.\\
+Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer einen, der an der \glqq richtigen\grqq{} Stelle für eine Addition liegt.
+\begin{center}
+ 
+\begin{tikzpicture}[font=\boldmath]\large
+    % Punkte
+    \coordinate (A) at (0,0) {};
+    \coordinate (B) at (4,0) {};
+    \coordinate (C) at (1,3) {};
+    \coordinate (D) at (5,3) {};
+
+    % Draw the triangle
+    \draw[blue!25]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
+    \draw[red!25]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};;
+    \draw[->,  red,   arrows={-latex}]  (A) -- (B) node[sloped,midway,above=-0.1cm] {$\vv{a}$};
+    \draw[->,  blue,  arrows={-latex}]  (A) -- (C) node[sloped,midway,above=-0.1cm] {$\vv{b}$};
+    \draw[->, black, arrows={-latex}]  (A) -- (D) node[sloped,midway,above=-0.1cm] {$\vv{c} = \vv{a} + \vv{b} $};
+\end{tikzpicture}
+\end{center}
+\end{satz}
+\begin{satz}{Kommutativgesetz der Vektoraddition}{}\phantomsection\label{komuvekadd}
+  Wie aus der Zeichnung bei Satz \ref{vekadd} leicht ersichtlich ist, ist die Addition von Vektoren kommutativ. Es gilt also: $$\vv{a} + \vv{b} = \vv{b} +\vv{a}$$ 
+\end{satz}
+\begin{satz}{Kommutativgesetz der Vektoraddition}{}
+  Wie aus der Zeichnung bei Satz \ref{vekadd} leicht ersichtlich ist, ist die Addition von Vektoren kommutativ. Es gilt also: $$\vv{a} + \vv{b} = \vv{b} +\vv{a}$$ 
+\end{satz}
+
+\begin{satz}{Assoziativgesetz der Vektoraddition}{}\phantomsection\label{assivekadd}
+\begin{center}
+ Bei der Addition von Vektoren gilt das Assoziativgesetz. Es gilt also:
+ $$(\vv{a} + \vv{b}) + \vv{c} = \vv{a} + (\vv{b} + \vv{c}) = \vv{a} + \vv{b} +\vv{c}$$
+\begin{tikzpicture}[font=\boldmath]\large
+    % Punkte
+    \coordinate (A) at (0,0) {};
+    \coordinate (B) at (4,0) {};
+    \coordinate (C) at (1,3) {};
+    \coordinate (D) at (5,3) {};
+    \coordinate (E) at (4,6) {};
+
+    % Draw the triangle
+    \draw[blue!25]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
+    \draw[red!25]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};;
+    \draw[->,  red,   arrows={-latex}]  (A) -- (B) node[sloped,midway,above=-0.1cm] {$\vv{a}$};
+    \draw[->,  blue,  arrows={-latex}]  (A) -- (C) node[sloped,midway,above=-0.1cm] {$\vv{b}$};
+    \draw[->, black, arrows={-latex}]  (A) -- (D) node[sloped,midway,above=-0.1cm] {$ \vv{a} + \vv{b} $};
+    \draw[->,  black,   arrows={-latex}]  (D) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{c}$};
+    \draw[->,  black,   arrows={-latex}]  (A) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{a} + \vv{b} + \vv{c}$};
+     \draw[->,  black,   arrows={-latex}]  (B) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{a} + (\vv{b} + \vv{c})$};
+\end{tikzpicture}
+\end{center}
+\end{satz}
+\begin{b8d}{Besondere Vektoren}{}\index{Vektoren!Nullvektor}\index{Vektoren!Gegenvektor}
+Bei der Rechnung mit Vektoren gibt es zwei besondere Vektoren zu betrachten. Hierbei handelt es sich um den sogenannten Nullvektor und den Gegenvektor.\\
+Der Nullvektor $\vv{o}$ ist derjenige Vektor, der die Länge Null hat und bei dem sich bei er Addition mit anderen Vektoren nichts ändert. Es gilt: $$\vv{a} +\vv{o} = \vv{o} +\vv{a} = \vv{a}$$
+Der Gegenvektor $-\vv{a}$ ist derjenige Vektor, der genauso lang wie der Vektor $\vv{a}$ ist allerdings entgegengerichtet. Für den Gegenvektor $-\vv{a}$ und den Vektor $\vv{a}$ gilt: $$\vv{a} +( -\vv{a} ) =\vv{a}-\vv{a}= \vv{o}$$
+\end{b8d}
+\begin{bem}{Vektorkette}{}\index{Vektoren!Vektorkette}
+Werden mehrere Vektoren addiert so werden die jeweiligen Repräsentanten aneinandergereiht und das Ergebnis nennt man dann Vektorkette.
+\end{bem}
+\subsection{Vektor und Skalar}
+\begin{merke}{Skalar}{}\index{Vektoren!Skalar}
+   In der Analytischen Geometrie versteht man unter einem Skalar eine beliebige reelle Zahl. 
+\end{merke}
+\begin{defi}{Skalare Multiplikation}{}
+
+\end{defi}
 \section{Das 3-dim Koordinatensystem}
