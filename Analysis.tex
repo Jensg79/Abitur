@@ -1,14 +1,14 @@
 \begin{section}{Lokales Differenzieren}\index{Differenzieren!lokal}
 \begin{subsection}{Die mittlere Änderungsrate}
 \begin{defi}{Die mittlere Änderungsrate}{maer}\index{Änderungsrate!mittlere}
-Der Quotient $$\dfrac{\Delta y}{\Delta x} = \dfrac{f(b) - f(a)}{b - a}$$ heißt mittler Änderungsrate oder Differenzenquotient der Funktion f im Intervall $\left[a;b\right]$.\\
-Geometrisch gedeutet ist der Differenzenquotient \index{Änderungsrate!Differenzenquotient} die Steigung der Sekante durch die Punkte $P(a|f(a))$ und $Q(b|f(b))$.
+Der Quotient $$\dfrac{\Delta y}{\Delta x} = \dfrac{f(b) - f(a)}{b - a}$$ heißt mittlere Änderungsrate oder Differenzenquotient der Funktion f im Intervall $\left[a;b\right]$.\\
+Die geometrische Deutung des Differenzenquotient \index{Änderungsrate!Differenzenquotient} ist die Steigung der Sekante durch die Punkte $P(a|f(a))$ und $Q(b|f(b))$ am Graphen $G_f$ der Funktion $f$.
 \end{defi}
 \begin{bsp}{Ein Beispiel für die mittlere Änderungsrate}{bspmaer}
-Gegeben sind die Punkte $P(3|4)$ und $Q(6|1)$ und damit die mittlere Änderungsrate: $$ \dfrac{\Delta y}{\Delta x} = \dfrac{4-1}{3-6} = \dfrac{3}{-3} = -1$$
+Gegeben sind die Punkte $P(3|4)$ und $Q(6|1)$ auf dem Graphen $G_f$ einer Funktion $f$. Die mittlere Änderungsrate bestimmt sich damit wie folgt: $$ \dfrac{\Delta y}{\Delta x} = \dfrac{4-1}{3-6} = \dfrac{3}{-3} = -1$$
 \end{bsp}
 \begin{bsp}{Graphische Darstellung der Sekantensteigung}{}
-Gegeben ist die Funktion $f(x) =\dfrac{1}{2}x^3-x^2-2*x^1 +1$ mit $\mathds{D}_f =\mathds{R}$ und die Punkte $P(1|-1,51)$ und $Q(3,3|1,48)$. Um die mittlere Änderungsrate zu bestimmen muss jetzt die Steigung der Sekante berechnet werden.
+Gegeben ist die Funktion $f(x) =\dfrac{1}{2}x^3-x^2-2x +1$ mit $\mathds{D}_f =\mathds{R}$ und die Punkte $P(1|-1,51)$ und $Q(3,3|1,48)$. Um die mittlere Änderungsrate zu bestimmen muss jetzt die Steigung der Sekante durch die Punkt $P$ und $Q$ berechnet werden.
 $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,51)}{3,3 -1} = \dfrac{2,99}{2,3} = \dfrac{13}{10} = 1,3 $$
 \begin{center}
 \begin{tikzpicture}
@@ -22,12 +22,12 @@ $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,5
         xlabel = $x$,
         ylabel=$y$]
             \addplot[color= black, samples = 300, domain= -2:3.5]{0.5*x^3-x^2-2*x^1 +1};
-           \draw[color = red] (1,-1.51)--(3.3,1.48);
-           \draw[color = red] (3.3,-1.51)--(3.3,1.48);
-           \draw[color = red] (1,-1.51)--(3.3,-1.51);
+            \draw[color = red] (3,2.5) node[left] {$G_f$};
+          \addplot[color= red, samples = 300, domain= -1:4]{1.3*x -2.81};
+           \draw[color = red] (1,-3.5) node {Sekante};
            \draw (1,-1.51)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt) node[left] {P};
            \draw (3.3,1.48)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt) node[right] {Q};
-           \draw (3.3,-1.51)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+           
             \draw[color = red] (2.2,0.5) node[left] {$\dfrac{\Delta y}{\Delta x} = 1,3$};
 \end{axis}
 \end{tikzpicture}
@@ -36,15 +36,15 @@ $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,5
 \end{subsection}
 \subsection{Definition der Ableitung}
 Die mittlere Änderungsrate beschreibt die durchschnittliche Steigung des Graphen einer Funktion zwischen zwei bestimmten Punkten. Die Ableitung realisiert den Übergang von der Sekante zur Tangente.
-\begin{merke*}{Wichtige Informationen zur Definition  der Ableitung}
+\begin{merke}{Der Grenzwert einer Funktion}{}
 \index{Ableitung!Definition}
 \begin{itemize}
- \item Nähern sich die Funktionswerte $f(x)$ einer Funktion $f$ einer Zahl $a$ beliebig genau an, das ist der Fall wenn sich die Werte für $x$ von links und von rechts an $x_0$ beliebig genau annnähern, so heißt $a$ Grenzwert der Funktion $f(x)$. Kurzschreibweise: $\lim_{x \rightarrow x_0} f(x)= a$ 
+ \item Nähern sich die Funktionswerte $f(x)$ einer Funktion $f$ an der Stelle $x_0$ einer Zahl $a$ beliebig genau an, das ist der Fall wenn sich die Werte für $x$ von links und von rechts an $x_0$ beliebig genau annähern, so heißt $a$ Grenzwert der Funktion $f(x)$. \\Kurzschreibweise: $$\lim_{x \rightarrow x_0} f(x)= a$$ 
  \item Der Punkt Q laufe auf einer Kurve von links und rechts auf den Punkt P zu. Ergibt sich dabei ein gemeinsamer Grenzwert der Sekante, heißt die Grenzgerade Tangente an die Kurve im Punkt P.
  \item Die Steigung eines Graphen im Punkt P ist gleich der Steigung der Tangente in diesem Punkt.
 \end{itemize}
-\end{merke*}
-Um die Ableitung zu definieren, betrachten wir die Normalparabel mit der Gleichung $$ y=x^2 $$ und darauf einen Punkt $P(1,5|2,25)$. Zur Bestimmung der Sekantensteigung bildet man den Differenzenquotienten zwischen dem Punkt $P$ und einem weiteren beliebigen Punkt $Q(x|x^2)$. 
+\end{merke}
+Um die Ableitung zu definieren, betrachten wir als Beispiel die Normalparabel mit der Gleichung $$ y=x^2 $$ und darauf einen Punkt $P(1,5|2,25)$. Zur Bestimmung der Sekantensteigung bildet man den Differenzenquotienten zwischen dem Punkt $P$ und einem weiteren beliebigen Punkt $Q(x|x^2)$. 
 \begin{bem*}{Differenzenquotient für $f(x) =x^2 $}\index{Änderungsrate!Differenzenquotient}
   
   $$ m_s(x)= \dfrac{\Delta y}{\Delta x} = \dfrac{f(x) - 2,25}{x - 1,5} = \dfrac{x^2 - 2,25}{x- 1,5} = \dfrac{(x-1,5)(x+1,5)}{x-1,5} =x+1,5 $$
@@ -54,15 +54,16 @@ $$\lim_{x\rightarrow 1,5} m_s(x) = 3$$
 
 \label{hmethode}
 \begin{merke*}{Die h-Methode zur Berechnung der Steigung }{}\index{Ableitung!h-Methode}
-Wir führen eine Hilfsvariable h ein, diese gibt die Abweichung der Koordinate $x$ von der Koordinate $x_0$ angibt. Damit ist $x=x_0 + h$. Mit dieser Überlegung ist es jetzt möglich den Grenzwert zu bestimmen: $$m_t =\lim_{h\rightarrow 0} m_t(x_0 +h) =\lim_{h\rightarrow 0} \dfrac{f(x_0 + h) - f(x_0)}{h}.$$
+Es wird eine Hilfsvariable h eingeführt, diese gibt die Abweichung der Koordinate $x$ von der Koordinate $x_0$ an. Damit gilt $x=x_0 + h$. Mit dieser Definition der Stelle $x$ ist es nun möglich den Grenzwert an einer beliebigen Stelle $x_0$ aufzustellen: $$m_t =\lim_{h\rightarrow 0} m_t(x_0 +h) =\lim_{h\rightarrow 0} \dfrac{f(x_0 + h) - f(x_0)}{h}.$$
 \end{merke*}
-\begin{defi}{}{} \index{Ableitung!Definition}
-    Der Grenzwert des Differenzenquotienten $\dfrac{\Delta y}{\Delta x}$ für $x\rightarrow x_0$ heißt Differentialquotient oder Ableitung der Funktion $f$ an der Stelle $x_0$ und wird mit $f'(x_0)$ bezeichnet. Es gilt der Zusammenhang:$$f'(x_0) = \lim_{x\rightarrow x_0} \dfrac{f(x) - f(x_0)}{x - x_0} = \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}$$
+\begin{defi}{Differentialquotiont oder Ableitung}{} \index{Ableitung!Definition}
+    Der Grenzwert des Differenzenquotienten $\frac{\Delta y}{\Delta x}$ für $x\rightarrow x_0$ heißt Differentialquotient oder Ableitung der Funktion $f$ an der Stelle $x_0$ und wird mit $f'(x_0)$ bezeichnet. Es gilt der Zusammenhang:$$f'(x_0) = \lim_{x\rightarrow x_0} \dfrac{f(x) - f(x_0)}{x - x_0} = \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}$$
 \end{defi}
-\begin{bem*}{}{}
-Mit Hilfe der h-Methode ist es damit möglich jede beliebige Funktion abzuleiten. Man spricht in dem Fall von der Ableitung an einer bestimmten Stelle $x_0$. 
+\begin{bem*}{Ableitungen von Funktionen}{}
+Mit Hilfe der h-Methode ist es damit möglich die Ableitung jeder Funktion an einer beliebigen Stelle $x_0$ zu bilden. Man spricht in diesem Zusammenhang dann von der ersten Ableitung der Funktion $f$ an der Stelle $x_0$.
 \end{bem*}
 \begin{bsp}{Graphische Interpretation der h-Methode}{}
+Gegeben ist der Graph $G_f$ einer Funktion $f$ und die beiden beliebigen Punkte $P(x_0|f(x_0))$ und $Q(x_0+h|f(x_0+h))$. Durch $P$ und $Q$ verläuft eine Sekante am Graphen $G_f$. Der Abstand der beiden Punkte läuft bei der h-Methode gegen Null. 
   \begin{center}
 \begin{tikzpicture}
 \begin{axis}[xmin= -0.2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
@@ -93,7 +94,7 @@ Mit Hilfe der h-Methode ist es damit möglich jede beliebige Funktion abzuleiten
             \draw[red, dashed] (1,0) -- (1,1);
          \draw[color= red] (1.5,0.7) node[right] {$h$};
          \addplot[color= red,dashed, samples = 300, domain= 0.5:2.5]{3*x - 2};
-         \draw (1.4,-0.5) node[right] {$\Longleftarrow$};
+         \draw[red] (1.4,-0.5) node[right] {$\longleftarrow$};
          \draw[red] (1.3,-0.8) node[right] {$h\longrightarrow 0$};
 \end{axis}
 \end{tikzpicture}
@@ -102,7 +103,8 @@ Mit Hilfe der h-Methode ist es damit möglich jede beliebige Funktion abzuleiten
 \end{bsp}
 \index{Änderungsrate!lokale}
 \begin{bem*}{Tangentensteigung}{}
-   Die Ableitung $f'(x_0)$ ist die Steigung der Tangente an den Graphen von $f$ an der Stelle $x_0$. Die Ableitung ist hierbei ein Maß dafür, wie stark sich die Funktionswerte in einer Umgebung um die Stelle $x_0$ ändern. Bei zeitlichen  Vorgängen spricht man von einer \textcolor{red}{momentanen Änderungsrate}, bei anderen Vorgängen von einer \textcolor{red}{lokalen Änderungsrate}.
+   Die Ableitung $f'(x_0)$ entspricht der Steigung der Tangente am Graphen von $f$ an der Stelle $x_0$. Dabei ist die Ableitung ein Maß dafür, wie stark sich die Funktionswerte in einer Umgebung um die Stelle $x_0$ ändern. \\
+   Bei zeitlichen  Vorgängen spricht man von einer \textcolor{red}{momentanen Änderungsrate}, bei anderen Vorgängen von einer \textcolor{red}{lokalen Änderungsrate}.
 \end{bem*}
 \index{Änderungsrate!Steigungswinkel}
 \index{Steigungswinkel}
@@ -122,23 +124,25 @@ ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ.
         ylabel=$y$]
         \addplot[red, samples = 100]{x^3+1};
         \addplot[blue, samples = 100]{3*x-1};
-        \draw[color= red] (0.8,2.5) node[right] {$P$};
+        \draw[color= red] (0.5,2) node {$P$};
           \draw (1,2)-- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
 
           \draw (1,0) coordinate (a) -- (0.33,0) coordinate (b) -- (1,2) coordinate (c)  pic[ draw = blue, fill = red!25!white, ->, angle eccentricity =1.2, angle radius = 1cm] {angle = a--b--c};
-        \draw[color= black] (1,0.6) node[right] {$\alpha$};
+        \draw[color= black] (1.5,0.6) node {$\alpha$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \end{bem*}
-Mit Hilfe dieser Definitionen und Überlegungen ist es nun möglich die Steigung einer Funktion an einer bestimmten Stelle zu berechnen und den dazugehörigen Steigungswinkel der Tangente zu bestimmen. Anhand eines Beispiels wird dieses jetzt exempkarisch durchgeführt.
+Mit Hilfe dieser Definitionen und Überlegungen ist es nun möglich, die Steigung einer Funktion an einer bestimmten Stelle zu berechnen und den dazugehörigen Steigungswinkel der Tangente zu bestimmen. Anhand eines Beispiels wird dieses jetzt exemplarisch durchgeführt.
 \begin{bsp*}{Berechnung der Steigung und Steigungswinkel}{}
-Gegeben ist die Funktion $f(x)= 2x^2 - 3x +2 $ und dem Definitionsbereich $\mathds{D}_f = \mathds{R}$. Wir betrachten die Stelle $x_0 = \dfrac{3}{2}$.
+Gegeben ist die Funktion $f(x)= 2x^2 - 3x +2 $ und dem Definitionsbereich $\mathds{D}_f = \mathds{R}$. Betrachtet wird die Stelle $x_0 = \dfrac{3}{2}$.\\
+Vorgehen:
 \begin{enumerate}
     \item Bestimmung der ersten Ableitung mit Hilfe der h-Methode
     \item Berechnung der Steigung an einer bestimmten Stell $x_0$
     \item Berechnung des Steigungswinkels der Tangente an dieser Stelle am Graphen
 \end{enumerate}
+Berechnung:
 \begin{equation*}
 \begin{split}
 f'(x_0) &= \lim_{h\rightarrow 0} \dfrac{f(x_0+h)-f(x_0)}{h}\\ f'(1,5)&=\lim_{h\rightarrow 0} \dfrac{f(1,5 +h) - f(1,5)}{h}\\ &= \lim_{h\rightarrow 0} \dfrac{2\cdot (1,5 +h)^2 -3\cdot(1,5+h) + 2-(2\cdot (1,5)^2 - 3\cdot (1,5) + 2)}{h}\\
@@ -148,6 +152,7 @@ f'(x_0) &= \lim_{h\rightarrow 0} \dfrac{f(x_0+h)-f(x_0)}{h}\\ f'(1,5)&=\lim_{h\r
 &= \textcolor{red}{3 = m_T} \hspace{0.3cm} \longrightarrow \hspace{0.3cm} \textbf{Steigung der Tangente}
 \end{split}
 \end{equation*}
+
 Berechnung des Steigungswinkels der Tangente an der Stelle $x=1,5 $: 
 \begin{equation*}
 \begin{split}
@@ -157,7 +162,7 @@ Berechnung des Steigungswinkels der Tangente an der Stelle $x=1,5 $:
 \end{split}
 \end{equation*}
 \end{bsp*}
-\subsection{Differenzierbarkeit und Lineare Transformation}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
+\subsection{Differenzierbarkeit}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
 \begin{defi}{Die Differenzierbarkeit einer Funktion}{}
  Eine Funktion f heißt an der Stelle $x_0$ im Inneren des Definitionsbereichs $D_f$ differenzierbar, wenn der Grenzwert \begin{equation*}
      f'(x_0) =\lim_{h\rightarrow 0}\dfrac{f(x_0 +h) -f(x_0)}{h}
@@ -185,7 +190,7 @@ f'(0)&=\lim_{h\rightarrow 0^+}\dfrac{f(0+h)-f(0)}{h}\\
 \end{equation*}
 Der Differenzenquotient hat daher für $x\rightarrow 0$ keinen Grenzwert, die Funktion $f$ ist damit an der Stelle $x_0 = 0$ nicht differenzierbar. Der Graph $G_f$ hat an dieser Stelle einen "`Knick"'.
 \end{bsp*}
-
+\subsection{Lineare Transformation}
 \begin{bem*}{}\index{Lineare Transformation}
 Die Lineare Transformation der Betragsfunktion ändert nichts an der Nicht-Differenzierbarkeit der Funktion.
 \end{bem*}

@@ -86,7 +86,7 @@ Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer eine
 
     % Draw the triangle
     \draw[blue!25]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
-    \draw[red!25]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};;
+    \draw[red!25]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};
     \draw[->,  red,   arrows={-latex}]  (A) -- (B) node[sloped,midway,above=-0.1cm] {$\vv{a}$};
     \draw[->,  blue,  arrows={-latex}]  (A) -- (C) node[sloped,midway,above=-0.1cm] {$\vv{b}$};
     \draw[->, black, arrows={-latex}]  (A) -- (D) node[sloped,midway,above=-0.1cm] {$ \vv{a} + \vv{b} $};
@@ -108,7 +108,101 @@ Werden mehrere Vektoren addiert so werden die jeweiligen Repräsentanten aneinan
 \begin{merke}{Skalar}{}\index{Vektoren!Skalar}
    In der Analytischen Geometrie versteht man unter einem Skalar eine beliebige reelle Zahl. 
 \end{merke}
-\begin{defi}{Skalare Multiplikation}{}
-
+\begin{defi}{Skalare Multiplikation}{}\index{Vektoren!Skalare Multiplikation}
+Ein Vektor kann mit einer reellen Zahl durch eine Multiplikation verknüpft werden. Der Vektor $\lambda \cdot \vv{u}$ ist $|\lambda|$-mal so lang wie der Vektor $\vv{u}$. Dabei gilt für dis Zahl $\lambda$ folgendes $\lambda \in \mathds{R}$.\\
+Für $\lambda > 0$ hat der Vektor $\lambda \cdot \vv{u}$ die gleiche Richtung wie der Vektor $\vv{u}$.\\
+Für $\lambda < 0$ hat der Vektor $\lambda \cdot \vv{u}$ die entgegengesetzte Richtung wie der Vektor  $\vv{u}$.\\
+\begin{center}
+\begin{tikzpicture}[font=\boldmath]\large
+    % Punkte
+    \coordinate (A) at (0,0) {};
+    \coordinate (B) at (2,1) {};
+    \coordinate (C) at (6,2) {};
+    \coordinate (D) at (2,0) {};
+    \draw[->,  arrows={-latex}]  (A) -- (B) node[sloped,midway,above=-0.1cm] {$\vv{u}$};
+    \draw[->,  arrows={-latex}]  (D) -- (C) node[sloped,midway,above=-0.1cm] {$2\cdot \vv{u}$};   
+\end{tikzpicture}
+\end{center}
 \end{defi}
-\section{Das 3-dim Koordinatensystem}
+\begin{satz}{Rechenregeln für das Skalarprodukt}{}\index{Vektoren!Skalare Multiplikation}
+Die Skalare Multiplikation folgt zwei Gesetzmäßigkeiten. dabei gilt $\lambda, \mu \in \mathds{R}$:
+\begin{itemize}
+    \item Assoziativgesetz: $\lambda \cdot \left(\mu \cdot \vv{u}\right) =\left( \mu \cdot \lambda \right)\vv{u}$
+    \item Distributivgesetz 1: $\lambda \cdot \left(\vv{u} + \vv{v}\right) =\lambda \cdot \vv{u} + \lambda \cdot \vv{v} $
+    \item Distributivgesetz 2: $\left( \lambda + \mu\right) \cdot \vv{u} =\lambda \cdot \vv{u} + \mu \cdot \vv{u}  $
+\end{itemize}
+\end{satz}
+\begin{bem}{}{}
+Beim aufstellen einer Vektorkette versucht man den Anfangs- und Endpunkt eines Vektors durch bekannte Vektoren zu verbinden. Der Vektor $\vv{AB}$ beginnt im Punkt $A$ und endet im Punkt $B$.
+
+\end{bem}
+\begin{bsp}{Vektorkette}{}
+Die Vektoren $\vv{a}=\vv{AB}, \vv{b}=\vv{AD}$ und $\vv{c}=\vv{AS}$  spannen eine vierseitige Pyramide ABCDS auf, deren Grundfläche ein Parallelogramm ABCD ist. Der Fußpunkt der Pyramidenhöhe ist der Schnittpunkt der Diagonalen der Grundfläche.   
+\begin{center}
+\begin{tikzpicture}[font=\boldmath]\large
+    % Punkte
+    \coordinate (A) at (0,0) {};
+     \draw[blue] (-0.35,-0.35)   node [above] {A};
+    \coordinate (B) at (4,0) {};
+    \draw[blue] (4.5,-0.35)   node [above] {B};
+    \coordinate (C) at (6,2) {};
+    \draw[blue] (6.35,2)   node [above] {C};
+    \coordinate (D) at (2,2) {};
+    \draw[blue] (2.3,2)   node [above] {D};
+    \coordinate (E) at (3,5) {};
+    \draw[blue] (3.35,5)   node [above] {S};
+    \coordinate (F) at (3,1) {};
+    \draw[blue] (2.5,0.8)   node [above] {F};
+    \coordinate (G) at (4.5,3.5) {};
+    \draw[blue] (4.8,3.5)   node [above] {N};
+    \coordinate (H) at (3.5,2.5) {};
+    \draw[blue] (3.2,2.3)   node [above] {M};
+    \draw[->, red]  (A) -- (B) node[sloped,midway,above] {$\vv{a}$};
+    \draw[->,red!25]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
+    \draw  (C) -- (D) node[] {};
+    \draw[->,red]  (A) -- (D) node[sloped,above,very near end] {$\vv{b}$};
+   \draw[->,red]  (A) -- (E) node[sloped,midway,above] {$\vv{c}$};
+   \draw  (E) -- (B) node[] {};
+   \draw  (E) -- (C) node[] {};
+   \draw  (E) -- (D) node[] {};
+   \draw[dashed]  (A) -- (C) node[] {};
+   \draw[dashed]  (B) -- (D) node[] {};
+   \draw[dashed]  (F) -- (E) node[] {};
+    \draw[dashed]  (G) -- (H) node[] {};
+    \draw[dashed]  (F) -- (G) node[] {};
+\end{tikzpicture}
+\end{center}
+Folgende Aufgaben sind typisch für Vektorketten
+\begin{enumerate}
+    \item Warum repräsentieren die Vektoren $\vv{BS}, \vv{CS}$ und $\vv{DS}$ \textcolor{red}{nicht} den Vektor $\vv{c}$?
+    \begin{itemize}
+        \item $\vv{BS}, \vv{CS}$ und $\vv{DS}$ sind gleich lang wie $\vv{c}$
+        \item aber nicht \textcolor{red}{parallel} zu $\vv{c}$
+    \end{itemize}
+    \item Drücke die Vektoren $\vv{BS}, \vv{CS}, \vv{DS}$ und $\vv{AF}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{
+    c}$ aus.
+    \begin{itemize}
+        \item $\vv{BS}$
+        \begin{itemize}
+            \item Um vom Startpunkt $B$ zum Endpunkt $S$ zu kommen, muss man von $B$ nach $A$ und dann nach $S$ \glqq laufen\grqq{}
+            \item $\vv{BS} = -\vv{a} + \vv{c} = \vv{c} - \vv{a}$
+        \end{itemize}       
+        \item $\vv{CS}$ 
+        \begin{itemize}
+            \item Der Vektor $\vv{BC}$ ist ein Repräsentatnt des Vektors $\vv{b}$ 
+            \item $\vv{CS} = -\vv{b} - \vv{a} + \vv{c} = \vv{c} - \vv{a} -\vv{b}$
+        \end{itemize}
+        \item $\vv{DS}$ 
+        \begin{itemize}
+            \item $\vv{DS} = -\vv{b} + \vv{c} = \vv{c} - \vv{b}$
+        \end{itemize}
+         \item $\vv{AF}$ 
+         \begin{itemize}
+             \item Der Punkt $F$ liegt in der Mitte des Vektors $\vv{AC}$
+             \item $\vv{AC} = \vv{a} + \vv{b}$
+             \item $\vv{AF} = \dfrac{1}{2} \left(\vv{a} + \vv{b} \right)$
+         \end{itemize}
+    \end{itemize}
+\end{enumerate}
+\end{bsp}
+\section{Der dreidimensionale Vektorraum}
