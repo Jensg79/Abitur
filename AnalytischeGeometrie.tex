@@ -184,25 +184,98 @@ Folgende Aufgaben sind typisch für Vektorketten
     \begin{itemize}
         \item $\vv{BS}$
         \begin{itemize}
-            \item Um vom Startpunkt $B$ zum Endpunkt $S$ zu kommen, muss man von $B$ nach $A$ und dann nach $S$ \glqq laufen\grqq{}
-            \item $\vv{BS} = -\vv{a} + \vv{c} = \vv{c} - \vv{a}$
+            \item[$\circ$] Um vom Startpunkt $B$ zum Endpunkt $S$ zu kommen, muss man von $B$ nach $A$ und dann nach $S$ \glqq laufen\grqq{}
+            \item[$\circ$] $\vv{BS} = -\vv{a} + \vv{c} = \vv{c} - \vv{a}$
         \end{itemize}       
         \item $\vv{CS}$ 
         \begin{itemize}
-            \item Der Vektor $\vv{BC}$ ist ein Repräsentatnt des Vektors $\vv{b}$ 
-            \item $\vv{CS} = -\vv{b} - \vv{a} + \vv{c} = \vv{c} - \vv{a} -\vv{b}$
+            \item[$\circ$] Der Vektor $\vv{BC}$ ist ein Repräsentatnt des Vektors $\vv{b}$ 
+            \item[$\circ$] $\vv{CS} = -\vv{b} - \vv{a} + \vv{c} = \vv{c} - \vv{a} -\vv{b}$
         \end{itemize}
         \item $\vv{DS}$ 
         \begin{itemize}
-            \item $\vv{DS} = -\vv{b} + \vv{c} = \vv{c} - \vv{b}$
+            \item[$\circ$] $\vv{DS} = -\vv{b} + \vv{c} = \vv{c} - \vv{b}$
         \end{itemize}
          \item $\vv{AF}$ 
          \begin{itemize}
-             \item Der Punkt $F$ liegt in der Mitte des Vektors $\vv{AC}$
-             \item $\vv{AC} = \vv{a} + \vv{b}$
-             \item $\vv{AF} = \dfrac{1}{2} \left(\vv{a} + \vv{b} \right)$
+             \item[$\circ$] Der Punkt $F$ liegt in der Mitte des Vektors $\vv{AC}$
+             \item[$\circ$] $\vv{AC} = \vv{a} + \vv{b}$
+             \item[$\circ$] $\vv{AF} = \dfrac{1}{2} \left(\vv{a} + \vv{b} \right)$
          \end{itemize}
     \end{itemize}
+    \end{enumerate}
+ In der Pyramide ist $M$ der Mittelpunkt der Seitenkante $\vv{BS}$ und $N$ der Mittelpunkt der Seitenkante  $\vv{CS}$.  
+      \begin{enumerate}
+        \item[3.] Drücke den Vektor $\vv{FN}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{
+    c}$ aus.
+    \end{enumerate}
+   \begin{multicols}{2}
+    \begin{tikzpicture}[font=\boldmath, scale=0.8]\large
+    % Punkte
+    \coordinate (A) at (0,0) {};
+     \draw[blue] (-0.35,-0.35)   node [above] {A};
+    \coordinate (B) at (4,0) {};
+    \draw[blue] (4.5,-0.35)   node [above] {B};
+    \coordinate (C) at (6,2) {};
+    \draw[blue] (6.35,2)   node [above] {C};
+    \coordinate (D) at (2,2) {};
+    \draw[blue] (2.3,2)   node [above] {D};
+    \coordinate (E) at (3,5) {};
+    \draw[blue] (3.35,5)   node [above] {S};
+    \coordinate (F) at (3,1) {};
+    \draw[blue] (2.5,0.8)   node [above] {F};
+    \coordinate (G) at (4.5,3.5) {};
+    \draw[blue] (4.8,3.5)   node [above] {N};
+    \coordinate (H) at (3.5,2.5) {};
+    \draw[blue] (3.2,2.3)   node [above] {M};
+    \draw[->, red]  (A) -- (B) node[sloped,midway,above] {$\vv{a}$};
+    \draw[->,red!25]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
+    \draw  (C) -- (D) node[] {};
+    \draw[->,red]  (A) -- (D) node[sloped,above,very near end] {$\vv{b}$};
+   \draw[->,red]  (A) -- (E) node[sloped,midway,above] {$\vv{c}$};
+   \draw  (E) -- (B) node[] {};
+   \draw  (E) -- (C) node[] {};
+   \draw  (E) -- (D) node[] {};
+   \draw[dashed]  (A) -- (C) node[] {};
+   \draw[dashed]  (B) -- (D) node[] {};
+   \draw[dashed]  (F) -- (E) node[] {};
+    \draw[dashed]  (G) -- (H) node[] {};
+    \draw[->,dashed]  (F) -- (G) node[] {};
+\end{tikzpicture} 
+    \begin{itemize}
+        \item[$\circ$] Vektorkette von $F$ nach $C$ zu $N$.
+     \begin{equation*}
+            \begin{split}
+                \vv{FN} &= \vv{FC} + \vv{CN}\\
+                &=\vv{AF} + \dfrac{1}{2} \vv{CS}\\
+                &= \dfrac{1}{2} \left(\vv{a} + \vv{b} \right) + \dfrac{1}{2}\left(\vv{c} - \vv{a} -\vv{b}\right)\\
+                &=\dfrac{1}{2} \vv{a} + \dfrac{1}{2} \vv{b} + \dfrac{1}{2} \vv{c} - \dfrac{1}{2} \vv{a} -\dfrac{1}{2} \vv{b} \\
+                &= \dfrac{1}{2}\vv{c}
+            \end{split}
+        \end{equation*}
+        
+    \end{itemize}
+   \end{multicols}
+   \begin{itemize}
+       \item[$\circ$] Daraus folgt, dass der Vektor $\vv{FN}$ parallel und gleichgerichtet zum Vektor $\vv{c}$ aber nur halb so lang ist.
+   \end{itemize}
+   \begin{enumerate}
+    \item[4.] Drücke den Vektor $\vv{MN}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{
+    c}$ aus.
+    \begin{multicols}{2}
+    \begin{itemize}
+        \item[$\circ$] Vektorkette von $M$ über $B, C$ zum Punkt $N$.
+     \begin{equation*}
+            \begin{split}
+                \vv{MN} &= - \dfrac{1}{2}\vv{BS} + \vv{BC} + \dfrac{1}{2} \vv{CS}\\
+                &= -\dfrac{1}{2} \left( \vv{c} - \vv{a}\right) +\vv{b} + \dfrac{1}{2} \left(\vv{c} - \vv{a} -\vv{b}\right)\\
+                &= -\dfrac{1}{2} \vv{c} +\dfrac{1}{2} \vv{a} +\vv{b} + \dfrac{1}{2} \vv{c} - \dfrac{1}{2}\vv{a} -\dfrac{1}{2}\vv{b}\\
+                &= \dfrac{1}{2} \vv{b}
+            \end{split}
+        \end{equation*}  
+        \item[$\circ$] Damit folgt, das die Mittellinie $MN$ parallel, gleichgerichtet aber nur halb so lang wie der Vektor $\vv{b}$ ist.
+    \end{itemize}
+    \end{multicols}
 \end{enumerate}
 \end{bsp}
 \section{Der dreidimensionale Vektorraum}
