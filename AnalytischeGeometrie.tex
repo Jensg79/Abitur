@@ -153,10 +153,6 @@ Die Vektoren $\vv{a}=\vv{AB}, \vv{b}=\vv{AD}$ und $\vv{c}=\vv{AS}$  spannen eine
     \draw[blue] (3.35,5)   node [above] {S};
     \coordinate (F) at (3,1) {};
     \draw[blue] (2.5,0.8)   node [above] {F};
-    \coordinate (G) at (4.5,3.5) {};
-    \draw[blue] (4.8,3.5)   node [above] {N};
-    \coordinate (H) at (3.5,2.5) {};
-    \draw[blue] (3.2,2.3)   node [above] {M};
     \draw[->, red]  (A) -- (B) node[sloped,midway,above] {$\vv{a}$};
     \draw[->,red!25]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
     \draw  (C) -- (D) node[] {};
@@ -168,8 +164,7 @@ Die Vektoren $\vv{a}=\vv{AB}, \vv{b}=\vv{AD}$ und $\vv{c}=\vv{AS}$  spannen eine
    \draw[dashed]  (A) -- (C) node[] {};
    \draw[dashed]  (B) -- (D) node[] {};
    \draw[dashed]  (F) -- (E) node[] {};
-    \draw[dashed]  (G) -- (H) node[] {};
-    \draw[dashed]  (F) -- (G) node[] {};
+
 \end{tikzpicture}
 \end{center}
 Folgende Aufgaben sind typisch für Vektorketten
@@ -273,9 +268,104 @@ Folgende Aufgaben sind typisch für Vektorketten
                 &= \dfrac{1}{2} \vv{b}
             \end{split}
         \end{equation*}  
-        \item[$\circ$] Damit folgt, das die Mittellinie $MN$ parallel, gleichgerichtet aber nur halb so lang wie der Vektor $\vv{b}$ ist.
+        \item[$\circ$] Damit folgt, das die Mittellinie $\overline{MN}$ parallel, gleichgerichtet aber nur halb so lang wie der Vektor $\vv{b}$ ist.
     \end{itemize}
     \end{multicols}
 \end{enumerate}
 \end{bsp}
-\section{Der dreidimensionale Vektorraum}
+\section{Der Vektorraum}
+\begin{defi}{Der Vektorraum}{}\index{Vektoren!Vektorraum}
+    Die Menge aller Vektoren, in der die Gesetze der Addition von Vektoren und deren Multiplikation mit Skalaren gelten, nennt man Vektorraum. Die Basis des Vektorraums setzt sich aus der minimalen Anzahl von Vektoren zusammen die man braucht, um alle anderen Vektoren darstellen zu können. Die Anzahl dieser Vektoren bildet die Dimension des Vektorraums.
+\end{defi}
+\begin{merke}{Das orthonormale Koordinatensystem}{}\index{Vektoren!orthonormales Koordinatensystem}
+    Das zweidimensionale und das dreidimensionale Koordinatensystem der Schulgeometrie ist ein orthonormales Koordinatensystem. Das bedeutet, die Basis besteht aus 2 bzw. 3 Vektoren der Länge eins welche paarweise senkrecht aufeinander stehen. Man bezeichnet diese Vektoren mit $\vv{e}_1, \vv{e}_2, \vv{e}_3$. 
+\end{merke}
+\begin{b8d}{Die Basisvektoren}{}v\index{Vektoren!Basisvektoren}
+Für die Basisvektoren $e_1, e_2$ und $e_3$ gilt folgende Darstellung:\\
+$$\vv{e}_1 =\begin{pmatrix} 1 \\ 0 \\0 \end{pmatrix}, 
+\vv{e}_2 =\begin{pmatrix} 0 \\ 1 \\0 \end{pmatrix}, 
+\vv{e}_3 =\begin{pmatrix} 0 \\ 0 \\1 \end{pmatrix}$$
+Mit den Basisvektoren ist man in der Lage, jeden Vektor durch eine Addition der Basisvektoren darzustellen. Diese Darstellung bezeichnet man als Spaltendarstellung der Vektoren. Der Vektor $\vv{a}$ hat damit die Darstellung $\vv{a} = \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} = a_1\cdot \vv{e}_1 + a_2 \cdot \vv{e}_2 + a_3\cdot \vv{e}_3$ mit $a_1, a_2, a_3 \in \mathds{R}$. Die reellen Zahlen $a_i$ nennt man Koordinanten des Vektors $\vv{a}$.  
+\end{b8d}
+\begin{bem}{Rechnungen mit Vektoren}{}
+\begin{itemize}
+    \item Addition von Vektoren in der Spaltenschreibweise: Die Vektoren der $\vv{a}$ und $\vv{b}$ werden wie folgt addiert: $$\vv{a} + \vv{b} = \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\b_3 \end{pmatrix} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\a_3 + b_3 \end{pmatrix}$$ dabei gilt $a_i, b_i \in \mathds{R}$.
+    \item Multiplikation eines Vektors mit einem Skalar: Ein Vektor wird mit einem Skalar wie folgt multipliziert $$\lambda \cdot \vv{a} = \lambda \cdot \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} = \begin{pmatrix} \lambda \cdot a_1 \\ \lambda \cdot a_2 \\\lambda \cdot a_3 \end{pmatrix}$$ mit $\lambda , a_i \in \mathds{R}$.
+\end{itemize}
+\end{bem}
+\begin{satz}{Ortsvektoren}{}\index{Vektoren!Ortsvektor}
+Jeder Punkt $P(p_1|p_2|p_3)$ mit $p_i \in \mathds{R}$ des dreidimensionalen Vektorraums lässt sich wie folgt in der Spaltenschreibweise schreiben:
+$$\vv{P} = \begin{pmatrix} p_1 \\ p_2 \\p_3 \end{pmatrix}.$$ 
+Dieser Vektor repräsentiert genau einen Pfeil der im Urpsrung des Koordinatensystems beginnt und an den Koordinaten des Punktes $P$ endet.\\ 
+Diesen Pfeil nennt man Ortsvektor des Punktes $P$.
+\end{satz}
+\begin{satz}{Verbindungsvektoren}{}
+Wird durch den Punkt $A(a_1|a_2|a_3)$ der Anfangspunkt und durch den Punkt $B(b_1|b_2|b_3)$ der Endpunkt eines Vektors festgelegt, so nennt man den dadurch entstehenden Vektor $\vv{AB}$ einen Verbindungsvektor. \\
+Die Koordinaten des Verbindungsvektors berechnen sich wie folgt: $$\vv{AB} = \vv{B} -\vv{A} = \begin{pmatrix} b_1 \\ b_2 \\b_3 \end{pmatrix} - \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} = \begin{pmatrix} b_1 - a_1 \\b_2 - a_2 \\b_3 -a_3 \end{pmatrix}$$
+für alle $a_i, b_i \in \mathds{R}$.
+\end{satz}
+\begin{bsp*}{Orts- und Verbindungsvektor}{}
+\tdplotsetmaincoords{70}{120}
+Gegeben sind die Punkte $P,R$ und $S$ im euklidischen Koordinatensystem. Die Punkte haben folgende Koordinaten: $P(2|3|2), R(3|3|0)$ und $S(0|4|2)$. Damit ergeben sich die die Ortsvektoren:
+$$\vv{P} = \begin{pmatrix} 2 \\ 3 \\2 \end{pmatrix}, \vv{R} = \begin{pmatrix} 3 \\ 3 \\0 \end{pmatrix}, \vv{S}=\begin{pmatrix} 0 \\4 \\2 \end{pmatrix}.$$ Die Koordinaten des Verbindungsvektors berechnen sich damit wie folgt:
+$$\vv{RS} = \vv{S} - \vv{R} = \begin{pmatrix} 0 \\4 \\2 \end{pmatrix} - \begin{pmatrix} 3 \\ 3 \\0 \end{pmatrix}=  \begin{pmatrix} -3 \\ 1 \\2 \end{pmatrix}$$
+\begin{tikzpicture}[scale=2, tdplot_main_coords, axis/.style={-> }, 
+vector/.style={-stealth,red}, 
+vector guide/.style={dashed,red}]
+% -- remove these 3 lines if no axis is preferred
+\draw[axis] (0, 0, 0) -- (5, 0, 0) node [left] {$x_1$};
+\draw[axis] (0, 0, 0) -- (0, 5, 0) node [above] {$x_2$};
+\draw[axis] (0, 0, 0) -- (0, 0, 2) node [above] {$x_3$};
+% define points
+\coordinate  (d1) at (0,0,0){};
+\coordinate  (d2) at (4,0,0){};
+\coordinate  (d3) at (2,3,2){};
+\coordinate  (d4) at (0,4,2){};
+\coordinate  (d5) at (3,3,0){};
+\draw[blue] (2,3,2)   node [above] {$P$};
+\draw[vector] (d1) -- (d3);
+ %\draw (0,0,0) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+  %\draw (2,3,2) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+\draw[vector] (d5) -- (d4);
+\draw[blue] (3,3,0)   node [above] {$R$};
+\draw[blue] (0,4,2)   node [above] {$S$};
+\draw[vector, blue, dashed] (d1) -- (d4);
+\draw[vector, blue, dashed] (d1) -- (d5);
+\draw[blue] (1.5,1.5,0)   node [above] {$\vv{R}$};
+\draw[blue] (0,2,0.6)   node [above] {$\vv{S}$};
+\draw[blue] (0,1,0.6)   node [above] {$\vv{P}$};
+\end{tikzpicture}
+\end{bsp*}
+Durch die Verwendung von Koordinaten in der Vektorgeometrie ist es möglich spezielle Punkte relativ einfach zu berechnen. So ist es jetzt möglich, dass man zum Beispiel eine den Mittelpunkt einer Strecke bestimmt oder eine Strecke zu verdoppeln.
+\begin{b8d*}{Eigenschaften einer Strecke}{}
+Für den Ortsvektor $\vv{M}$ des Mittelpunktes der Strecke $\overline{AB}$ gilt: $$\vv{M} = \dfrac{1}{2}\left(\vv{A} + \vv{B}\right).$$
+Die Strecke $\overline{AB}$ lässt sich so, einfach in beliebig viele Teile einteilen. 
+\end{b8d*}
+\begin{bsp*}{Teilungen einer Strecke}{}
+Die Punkte $A$ und $B$ mit den Koordinaten $\vv{A} = \begin{pmatrix} 4 \\0 \\2 \end{pmatrix}$ und $\vv{B}= \begin{pmatrix} -2 \\3 \\5 \end{pmatrix}$ bestimmen eine Strecke $\overline{AB}$. Um die Strecke in vier gleich große Teile einzuteilen bestimmt man als erstes den Mittelpunkt. $$\vv{M_1}=\dfrac{1}{2}\left(\vv{A} + \vv{B}\right) = \dfrac{1}{2}\left( \begin{pmatrix} 4 \\0 \\2 \end{pmatrix} +  \begin{pmatrix} -2 \\3 \\5 \end{pmatrix} \right)= \dfrac{1}{2}\begin{pmatrix} 2 \\3 \\7 \end{pmatrix} = \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix}. $$ 
+Anschließend werden die Mittelpunkte der Strecken $\overline{AM_1}$ und $\overline{M_1B}$ berechnet.
+$$\vv{M_2} = \dfrac{1}{2}\left(\vv{A} + \vv{M_1}\right) =  \dfrac{1}{2} \left( \begin{pmatrix} 4 \\0 \\2 \end{pmatrix}  + \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix} \right) = \dfrac{1}{2} \begin{pmatrix} 5 \\1,5 \\5,5 \end{pmatrix} = \begin{pmatrix} 2,5 \\0,75 \\2,75 \end{pmatrix}$$
+$$\vv{M_3} = \dfrac{1}{2}\left(\vv{M_1} + \vv{B}\right) =  \dfrac{1}{2} \left( \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix} +   \begin{pmatrix} -2 \\3 \\5 \end{pmatrix} \right) = \dfrac{1}{2} \begin{pmatrix} -1 \\4,5 \\8,5 \end{pmatrix} =  \begin{pmatrix} -0,5 \\2,25 \\4,25 \end{pmatrix}$$
+Durch die Berechnung der Punkte ergeben sich 4 gleich große Teilstücke. \\
+Die Strecken $\overline{AM_2}, \ \overline{M_2M_1}, \ \overline{M_1M_3}$ und $\overline{M_3B}.$
+\begin{center}
+ 
+\begin{tikzpicture}[font=\boldmath]
+    % Punkte
+    \coordinate (C) at (1,3) {};
+    \coordinate (D) at (9,3) {};   
+    
+    \draw[->]  (C) -- (D) node[sloped,midway,above] {};
+    \draw[blue] (0.8,3)   node [above] {$A$};
+    \draw (1, 3) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+    \draw[blue] (9.2,3)   node [above] {$B$};
+       % \draw (9, 3) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+ \draw[blue] (5,3)   node [above] {$M_1$};
+        \draw (5, 3) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+ \draw[blue] (3,3)   node [above] {$M_2$};
+        \draw (3, 3) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);
+ \draw[blue] (7,3)   node [above] {$M_3$};
+        \draw (7, 3) -- ++(-2.5pt,-2.5pt) -- ++(5pt,5pt) ++(-5pt,0pt) -- ++(5pt,-5pt);     
+\end{tikzpicture} 
+\end{center}
+\end{bsp*}

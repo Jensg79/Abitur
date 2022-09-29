@@ -7,7 +7,6 @@
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage{xcolor}
-
 \usepackage{polynom}
 \polyset{%
     vars=x,
@@ -30,8 +29,103 @@
 \usepackage{xcolor}
 \definecolor{xvectorcolor}{HTML}{77933C}
 \usepackage{afterpage}
-\usepackage{tikz}
+\usepackage{tikz,tikz-3dplot}
+\usetikzlibrary{3d}
 \usetikzlibrary{quotes, angles}
+\usetikzlibrary{positioning,intersections}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{calc, decorations.pathreplacing, arrows.meta}
+\newif\ifdrawdimlineleft
+\newif\ifdrawdimlineright
+
+\pgfkeys{/tikz/.cd,  % modification angleshift definition
+  angleshift/.store in=\angleshift,
+  angleshift=0
+}
+\tikzset{%
+  dimlabel distance/.initial=5mm,
+  vertical lines extend/.initial=5mm,
+  vertical dim line/.style={gray, thin},
+  dim arrow line/.style={%  % modification tip
+    arrows={latex[slant={-sin(\angleshift)}]-latex[slant={-sin(\angleshift)}]},
+    thin
+  },
+  dim label/.style={},
+  left dimline/.is if=drawdimlineleft,
+  left dimline=true,
+  right dimline/.is if=drawdimlineright,
+  right dimline=true,
+  indicate dimensions/.style={%
+    decorate, decoration={%
+      show path construction,
+      lineto code={%
+        \draw[dim arrow line]  % modification arrow line 
+        ($(\tikzinputsegmentfirst)!\pgfkeysvalueof{/tikz/dimlabel distance}!
+        {-90+\angleshift}:(\tikzinputsegmentlast) $)
+        -- ($ (\tikzinputsegmentlast)!\pgfkeysvalueof{/tikz/dimlabel distance}!
+        {90+\angleshift}:(\tikzinputsegmentfirst) $)
+        \ifx#1\empty
+        \else  % modification text
+        node[midway, fill=white, dim label,
+        sloped, xslant={-sin(\angleshift)}, scale=.8]{#1}
+        \fi;
+        \ifdrawdimlineleft  % modification vertical dim line
+        \draw[vertical dim line] (\tikzinputsegmentfirst) -- 
+        ($ (\tikzinputsegmentfirst)!\pgfkeysvalueof{/tikz/vertical lines
+          extend}!{-90+\angleshift}:(\tikzinputsegmentlast) $);
+        \fi
+        \ifdrawdimlineright
+        \draw[vertical dim line] (\tikzinputsegmentlast) -- 
+        ($ (\tikzinputsegmentlast)!\pgfkeysvalueof{/tikz/vertical
+          lines extend}!{90+\angleshift}:(\tikzinputsegmentfirst) $);
+        \fi 
+      }
+    }
+  }
+}
+
+%% ---------------------------------------------------------------------
+
+\NewDocumentCommand{\DrawCoordinateGrid}{O{} m m m m m m}{%
+  \def\XGridMin{#2}
+  \def\XGridMax{#3}
+  \def\YGridMin{#4}
+  \def\YGridMax{#5}
+  \def\ZGridMin{#6}
+  \def\ZGridMax{#7}
+  % 
+  \begin{scope}[canvas is xy plane at z=0, ultra thin, gray!75]
+    \draw [#1] (\XGridMin,\YGridMin) grid (\XGridMax,\YGridMax);
+  \end{scope}
+  \begin{scope}[canvas is yz plane at x=0, ultra thin, gray!75]
+    \draw [#1] (\YGridMin,\ZGridMin) grid (\YGridMax,\ZGridMax);
+  \end{scope}
+  \begin{scope}[canvas is xz plane at y=0, ultra thin, gray!75]
+    \draw [#1] (\XGridMin,\ZGridMin) grid (\XGridMax,\ZGridMax);
+  \end{scope}
+}
+
+\NewDocumentCommand{\DrawCoordinateAxis}{O{} m m m m m m}{%
+  \def\XAxisMin{#2}
+  \def\XAxisMax{#3}
+  \def\YAxisMin{#4}
+  \def\YAxisMax{#5}
+  \def\ZAxisMin{#6}
+  \def\ZAxisMax{#7}
+  % 
+  \begin{scope}[thin, gray, -latex]
+    \draw [#1] (\XAxisMin,0,0) -- (\XAxisMax,0,0) node [below left] {$x$};
+    \draw [#1] (0,\YAxisMin,0) -- (0,\YAxisMax,0) node [right] {$y$};
+    \draw [#1] (0,0,\ZAxisMin) -- (0,0,\ZAxisMax) node [above] {$z$};
+  \end{scope}
+}%
+
+\newcommand*\Width{2.5}%
+\newcommand*\Depth{4.5}%
+\newcommand*\Height{2.0}%
+\tikzset{Line Style/.style={draw=brown, ultra thick, join=round}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[most]{tcolorbox}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15, width =10cm}
@@ -162,6 +256,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \shade[ball color=yellow] (4,4,5.2) circle (0.2);
 \end{tikzpicture}
 \end{center}
+
 \include{AnalytischeGeometrie.tex}
 \chapter{Stochastik}
 \vspace{2cm}
