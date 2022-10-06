@@ -162,6 +162,45 @@ Berechnung des Steigungswinkels der Tangente an der Stelle $x=1,5 $:
 \end{split}
 \end{equation*}
 \end{bsp*}
+Als Beispiel für die Möglichkeiten der h-Methode werden die Ableitungen mehrerer Funktionen an einer beliebigen aber festen Stelle $x_0$ gebildet.
+\begin{bsp*}{Ableitungen ausgesuchter Funktionen}{}
+Im folgenden werden die Ableitungen einiger Funktionen mithilfe der h-Methode gebildet. Dabei wird eine beliebige aber feste Stelle $x_0$ verwendet.
+\begin{itemize}
+    \item Die konstante Funktion $f(x) = c$. \index{Ableitung!h-Methode!$f(x) =c$}
+    \begin{equation*}
+\begin{split}
+f'(x_0)&= \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{c-c}{h} = \lim_{h\rightarrow 0} \dfrac{0}{h}  \\
+ &= 0
+\end{split}
+\end{equation*}
+\item Die lineare Funktion $f(x) = m\cdot x + t$\index{Ableitung!h-Methode!$f(x) =m\cdot x + t$}
+\begin{equation*}
+\begin{split}
+f'(x_0)&= \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{m\cdot (x_0 + h) + t -(m\cdot x_0 +t)}{h} \\
+ &=  \lim_{h\rightarrow 0} \dfrac{m\cdot x_0 + m\cdot h + t - m\cdot x_0 - t }{h} \\
+ &= \lim_{h\rightarrow 0} \dfrac{m\cdot \cancel{h}}{\cancel{h}} \\
+ &= \lim_{h\rightarrow 0} m = m
+\end{split}
+\end{equation*}
+\item Die einfache gebrochen-rationale Funktion $f(x) = \dfrac{1}{x}$\index{Ableitung!h-Methode!$f(x) =\frac{1}{x}$}
+\begin{equation*}
+\begin{split}
+f'(x_0)&= \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{\dfrac{1}{x_0 + h} -\dfrac{1}{x_0}}{h} \hspace{0.5cm} | \text{ erweitern der Brüche auf: }\hspace{0.1cm} x_0 \cdot (x_0 + h) \\
+&= \lim_{h\rightarrow 0} \dfrac{\dfrac{x_0}{x_0\cdot (x_0 + h)} -\dfrac{x_0 + h}{x_0\cdot (x_0 + h)}}{h} 
+= \lim_{h\rightarrow 0} \dfrac{\dfrac{x_0 - (x_0 +h)}{x_0\cdot (x_0 + h)}}{h}
+= \lim_{h\rightarrow 0} \dfrac{\dfrac{x_0 - x_0 -h}{x_0\cdot (x_0 + h)}}{h}\\
+&= \lim_{h\rightarrow 0} \dfrac{\dfrac{-h}{x_0\cdot (x_0 + h)}}{h} \hspace{0.5cm} | \hspace{0.5cm}\text{ Umformung des Doppelbruchs } \\
+&= \lim_{h\rightarrow 0} \dfrac{-h}{h\cdot x_0\cdot (x_0 + h)}
+= \lim_{h\rightarrow 0} \dfrac{-\cancel{h}}{\cancel{h}\cdot x_0\cdot (x_0 + h)}\\
+&=\lim_{h\rightarrow 0} \dfrac{-1}{x_0\cdot (x_0 + h)} = \lim_{h\rightarrow 0} \dfrac{-1}{x^2_0 + x_0\cdot h}\\
+&= -\dfrac{1}{x^2_0}
+\end{split}
+\end{equation*}
+\end{itemize}
+\end{bsp*}
 \subsection{Differenzierbarkeit}\index{Differenzieren!Differenzierbarkeit} \index{Ableitung!Differenzierbarkeit}
 \begin{defi}{Die Differenzierbarkeit einer Funktion}{}
  Eine Funktion f heißt an der Stelle $x_0$ im Inneren des Definitionsbereichs $D_f$ differenzierbar, wenn der Grenzwert \begin{equation*}
