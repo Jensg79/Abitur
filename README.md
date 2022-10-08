@@ -19,4 +19,12 @@
 ### Analytische Geometrie
 #### Vektoren
   - Definition von Vektoren
-  - Skalare Multiplikation 
+  - Skalare Multiplikation
+  - Mittelpunkte von Strecken
+  - Schwerpunkte Dreieck
+  - Schwerpunkt dreiseitige Pyramide
+
+
+### Anhang
+#### Polynomdivision
+####

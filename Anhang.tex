@@ -214,6 +214,106 @@ In diesem Fall existiert eine schräge Asymptote. Diese ist direkt aus der Summe
 Für diesen Fall ergibt sich eine Näherungskurve vom Grad $n\geq 2$. Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
 \end{enumerate}
 \end{merke}
+\section{Die Betragsfunktion}\index{Funktionen!Betragsfunktion}
+Wird der Betrag bei einer Funktion angewendet ändert sich der Graph der Funktion in aller Regel. Hierbei hängt die Transformation des Graphen von Position der Betragsfunktion ab.
+\begin{bsp*}{Einfache Betragsfunktion}{}
+Betrachtet werden die Funktion $f$ und $g$ mit den Funktionstermen $f(x) = 3x+2$ und \\ $g(x) = |3x+2|$. Hierbei erkennt man, dass der Graph $G_g$ der Funktion $g$ in der Nullstelle an der $x-Achse$ gespiegelt wurde.
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[xmin= -4.1, xmax = 4.1, ymin= -5, ymax= 5,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-4, ..., 4},
+        ytick={-5, ..., 5},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[mark=none  plot[samples=300,smooth]{3*x+2};
+        \addplot[line width=1pt,mark=none, color=red,restrict x to domain=-0.666666:4]  plot[samples=300,smooth]{3*x+2};
+         \addplot[line width=1pt,mark=none, color=red,restrict x to domain=-4:-0.666666]  plot[samples=300,smooth]{-3*x-2};
+        \draw (-2,-3)   node [above] {$G_{f}$};
+        \draw[red] (-2,2)   node [above] {$G_{g}$};       
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bsp*}
+
+\begin{b8d}{Lineare Transformationen mithilfe des Betrags}{}\index{Funktionen!Betragsfunktion!lineare Transformationen}
+\label{ltbf}
+Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen ergeben sich unterschiedliche Graphen. Diese Graphen haben allerdings gemeinsam, dass die Nicht-Differenzierbarkeit an bestimmten Stellen sich nicht ändert. Es wird im folgenden die Funktion $f(x) = x\cdot(x-2) = x^2-2x$ betrachtet.
+\begin{enumerate}
+    \item $f(x):$ Der Orginalgraph ist eine nach oben geöffnete Parabel mit den Nullstellen $x_1 = 0$ und $x_2 = 2$.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75]
+    \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -1.6, ymax= 3.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2, ..., 4},
+        ytick={-2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[line width=1pt,mark=none, color=red]  plot[samples=300,smooth]{x^2-2*x};  
+        \draw[red] (-1.5,2)   node [above] {$G_{g}$};       
+    \end{axis}
+\end{tikzpicture}
+    \end{center}
+    \item $g_1(x) = |f(x)|:$ Hierbei ändert sich an den positiven Funktionswerten nichts. Die Punkte mit negativen Funktionswerten werden an der $x-Achse$ gespiegelt. Die Spiegelung erfolgt damit an den Nullstellen.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75]
+    \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -0.5, ymax= 3.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2, ..., 4},
+        ytick={-2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[line width=1pt,mark=none, color=red, restrict x to domain=2:3]  plot[samples=300,smooth]{x^2-2*x}; 
+   \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-2:0]  plot[samples=300,smooth]{x^2-2*x};
+    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:2]  plot[samples=300,smooth]{-1*x^2+2*x};
+        \draw[red] (-1.5,2)   node [above] {$G_{g_1}$};       
+    \end{axis}
+\end{tikzpicture}
+    \end{center}
+    \item $g_2(x) = f(|x|):$ Der im positive Teil der $x-Achse$ liegende Graaph wird an der $y-Achse$ gespiegelt. 
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75]
+    \begin{axis}[xmin= -3.6, xmax = 3.6, ymin= -1.3, ymax= 3.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-3, ..., 4},
+        ytick={-2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:3]  plot[samples=300,smooth]{x^2-2*x}; 
+   \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-3:0]  plot[samples=300,smooth]{(-1*x)^2+2*x};
+        \draw[red] (-1.5,2)   node [above] {$G_{g_2}$};       
+    \end{axis}
+\end{tikzpicture}
+    \end{center}
+    \item $g_3(x) = |f(|x|)|:$ Wird sowohl der Betrag der $x-Werte$ als auch der Betrag der Funktionswerte gebildet, werden zunächst die Punkte mit positiven $x-Werten$ an der $y-Achse$ gespiegelt um anschließend die Punkte mit negativen Funktionswerten an der $x-Achse$ zu spiegeln.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75]
+    \begin{axis}[xmin= -3.6, xmax = 3.6, ymin= -0.5, ymax= 3.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-3, ..., 4},
+        ytick={-2, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:2]  plot[samples=300,smooth]{-1*x^2+2*x};
+     \addplot[line width=1pt,mark=none, color=red, restrict x to domain=2:3]  plot[samples=300,smooth]{x^2-2*x}; 
+    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-2:0]  plot[samples=300,smooth]{-1*x^2-2*x};
+     \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-3:-2]  plot[samples=300,smooth]{x^2+2*x}; 
+        \draw[red] (-1.5,2)   node [above] {$G_{g_3}$};       
+    \end{axis}
+\end{tikzpicture}
+    \end{center}
+\end{enumerate} 
+\end{b8d}
 \section{Allgemeine Betrachtung Trigonometrischer Zusammenhänge} \index{Funktionen!Trigonometrische! allgemeine Betrachtungen} \label{SinCos}
 Die trigonometrischenZusammenhänge ergeben sich aus Betrachtungen am Einheitskreis mit darin einbeschriebenen rechtwinkligen Dreiecken. 
 
