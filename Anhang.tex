@@ -269,9 +269,9 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
         ytick={-2, ..., 3},
         xlabel = $x$,
         ylabel=$y$]
-        \addplot[line width=1pt,mark=none, color=red, restrict x to domain=2:3]  plot[samples=300,smooth]{x^2-2*x}; 
-   \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-2:0]  plot[samples=300,smooth]{x^2-2*x};
-    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:2]  plot[samples=300,smooth]{-1*x^2+2*x};
+        \addplot[line width=1pt,mark=none, color=red, restrict x to domain=2:3]  plot[samples=900,smooth]{x^2-2*x}; 
+   \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-2:0]  plot[samples=900,smooth]{x^2-2*x};
+    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0.000001:1.99999999999]  plot[samples=900,smooth]{-1*x^2+2*x};
         \draw[red] (-1.5,2)   node [above] {$G_{g_1}$};       
     \end{axis}
 \end{tikzpicture}
@@ -287,8 +287,8 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
         ytick={-2, ..., 3},
         xlabel = $x$,
         ylabel=$y$]
-        \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:3]  plot[samples=300,smooth]{x^2-2*x}; 
-   \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-3:0]  plot[samples=300,smooth]{(-1*x)^2+2*x};
+        \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:3]  plot[samples=900,smooth]{x^2-2*x}; 
+   \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-3:0]  plot[samples=900,smooth]{(-1*x)^2+2*x};
         \draw[red] (-1.5,2)   node [above] {$G_{g_2}$};       
     \end{axis}
 \end{tikzpicture}
@@ -304,10 +304,10 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
         ytick={-2, ..., 3},
         xlabel = $x$,
         ylabel=$y$]
-    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:2]  plot[samples=300,smooth]{-1*x^2+2*x};
-     \addplot[line width=1pt,mark=none, color=red, restrict x to domain=2:3]  plot[samples=300,smooth]{x^2-2*x}; 
-    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-2:0]  plot[samples=300,smooth]{-1*x^2-2*x};
-     \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-3:-2]  plot[samples=300,smooth]{x^2+2*x}; 
+    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=0:2]  plot[samples=900,smooth]{-1*x^2+2*x};
+     \addplot[line width=1pt,mark=none, color=red, restrict x to domain=2:3]  plot[samples=900,smooth]{x^2-2*x}; 
+    \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-2:0]  plot[samples=900,smooth]{-1*x^2-2*x};
+     \addplot[line width=1pt,mark=none, color=red, restrict x to domain=-3:-2]  plot[samples=900,smooth]{x^2+2*x}; 
         \draw[red] (-1.5,2)   node [above] {$G_{g_3}$};       
     \end{axis}
 \end{tikzpicture}

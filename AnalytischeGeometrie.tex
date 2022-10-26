@@ -305,10 +305,11 @@ Die Koordinaten des Verbindungsvektors berechnen sich wie folgt: $$\vv{AB} = \vv
 für alle $a_i, b_i \in \mathds{R}$.
 \end{satz}
 \begin{bsp*}{Orts- und Verbindungsvektor}{}
-\tdplotsetmaincoords{70}{120}
+
 Gegeben sind die Punkte $P,R$ und $S$ im euklidischen Koordinatensystem. Die Punkte haben folgende Koordinaten: $P(2|3|2), R(3|3|0)$ und $S(0|4|2)$. Damit ergeben sich die die Ortsvektoren:
 $$\vv{P} = \begin{pmatrix} 2 \\ 3 \\2 \end{pmatrix}, \vv{R} = \begin{pmatrix} 3 \\ 3 \\0 \end{pmatrix}, \vv{S}=\begin{pmatrix} 0 \\4 \\2 \end{pmatrix}.$$ Die Koordinaten des Verbindungsvektors berechnen sich damit wie folgt:
 $$\vv{RS} = \vv{S} - \vv{R} = \begin{pmatrix} 0 \\4 \\2 \end{pmatrix} - \begin{pmatrix} 3 \\ 3 \\0 \end{pmatrix}=  \begin{pmatrix} -3 \\ 1 \\2 \end{pmatrix}$$
+\tdplotsetmaincoords{70}{120}
 \begin{tikzpicture}[scale=2, tdplot_main_coords, axis/.style={-> }, 
 vector/.style={-stealth,red}, 
 vector guide/.style={dashed,red}]
@@ -370,8 +371,10 @@ Die Strecken $\overline{AM_2}, \ \overline{M_2M_1}, \ \overline{M_1M_3}$ und $\o
 \end{center}
 \end{bsp*}
 Die Eigenschaften der Berechnung der Mittelpunkte lassen sich auch auf Flächen und Körper anwenden. So ist es jetzt möglich, den Schwerpunkt eines Dreiecks bzw. den Schwerpunkt einer dreiseitigen Pyramide zu bestimmen.
-\begin{merke}{Schwerpunkte bei Strecke, Dreieck und Pyramide}{}
+\begin{merke}{Schwerpunkte bei Strecke, Dreieck und Pyramide}{}\index{Schwerpunkt!Strecke}\index{Schwerpunkt!Dreieck}
+\index{Schwerpunkt!Pyramide}
 \begin{center}
+Mithilfe dieser Übersicht ist es möglich, die Ortskoordinaten des Schwerpunkts zu berechnen.\\[0.5cm]
 \bgroup
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
 \begin{tabular}{|l|c|c|}
@@ -387,66 +390,12 @@ Die Eigenschaften der Berechnung der Mittelpunkte lassen sich auch auf Flächen 
      \hline
 \end{tabular}
 \egroup
-%____________________________
-
-\pgfmathsetmacro{\a}{0.85}
-
-\pgfmathsetmacro{\m}{\a*sqrt(3)/2}
-\pgfmathsetmacro{\H}{sqrt(1-\m^2/4)} %  Höhe
-\pgfmathsetmacro{\h}{sqrt(\H^2-\m^2/4)} %  Mantellinie
-
-\begin{tikzpicture}[scale=5.7,
-font=\footnotesize,
-x={({cos(16.5)*1cm}, {-sin(16.5)*1cm})},
-y={({0.9*cos(10)*1cm}, {0.9*sin(10)*1cm})},
-z={(0cm,1cm)},
-]
-\coordinate[label=left:$A$] (A) at (0,0,0); 
-\coordinate[label=below:$B$] (B) at (\a,0,0); 
-\coordinate[label=right:$C$] (C) at (0,\a,0); 
-%\coordinate[label=below:$D$] (D) at (0,0,\a);
-
-\draw[fill=lightgray!50] (A) -- (B) -- (C) --cycle;
-\path[] (A) -- (B) node[below, near start]{$a$};
-\path[] (B) -- (C) node[right, near start]{$a$};
-\path[] (A) -- (C) node[above, near start]{$a$};
-
-\path[] (A) -- ($(B)!0.5!(C)$) coordinate(Ha);
-\path[] (B) -- ($(A)!0.5!(C)$)  coordinate(Hb);
-\coordinate[] (M) at (intersection of A--Ha and B--Hb); 
-\pgfmathsetmacro{\k}{0.05*\m}
-\draw[] ($(M)!-\k cm!(C)$) -- ($(M)!\k cm!(C)$); 
-\draw[] ($(M)!-\k cm!(B)$) -- ($(M)!\k cm!(B)$);
-
-\path[] (M) --+ (0,0,\H) coordinate[label=$S$] (S);
-\draw[] (A) -- (S) node[midway, left]{$1$};  
-\draw[] (B) -- (S) node[midway, right]{$1$};  
-\draw[] (C) -- (S) node[midway, right]{$1$};
-
-\draw[densely dashed] (S) -- (M) node[near end, right]{$H$};  
-\draw[] (S) -- ($(A)!0.5!(B)$) node[midway, left]{$h$} coordinate(Mc);
-
-\pgfmathsetmacro{\b}{0.3*\a}
-\begin{scope}[-latex, shift={(0,0,\H-\b)}
-]
-\foreach \P/\s/\Pos in {(\b,0,0)/x/below, (0,\b,0)/y/above, (0,0,\b)/z/right} 
-\draw[] (0,0,0) -- \P node[\Pos, pos=0.9,inner sep=3pt]{$\s$};
-\end{scope}
-
-% Punkte
-\foreach \P in {A,B,C,Mc,S}
-\draw[fill=black!1, scale=1/5.7] (\P) circle (1.75pt);
-
-%\node[anchor=north west, align=left, yshift=-1cm, draw] at (A){
-%a = \a cm \\
-%m  = \m cm \\
-%H  = \H cm \\
-%h  = \h cm 
-%};
-
-\end{tikzpicture}
 \end{center}
-Das Teilverhältnis gibt an, in welchem Verhältnis die einzelnen Teilstrecke unterteilt sind. So entstehen, zum Beispiel bei der Teilung einer Strecke, zwei gleich lange Teilstrecken. Bei  
+Das Teilverhältnis gibt an, in welchem Verhältnis der Schwerpunkt die einzelnen Teilstrecke unterteilt. So entstehen, zum Beispiel bei der Teilung einer Strecke, zwei gleich lange Teilstrecken.
 \end{merke}
 \section{Skalar- und Vektorprodukt}
-
+\subsection{Das Skalarprodukt}
+Um die Abstände im Raum berechnen zu können wird die Länge eines Vektors definiert.
+\begin{defi}{Der Betrag eines Vektors}{}
+Gegeben ist der Vektor $\vv{a}$ durch die Koordinaten $\vv{a} = \begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix} $. 
+\end{defi}
