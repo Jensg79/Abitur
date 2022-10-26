@@ -483,7 +483,7 @@ Monotonietabelle:\\
     \hline
     $x$& $ -\infty <x<x_2 $ & $ x_2 \approx -2.15$ &$ x_2<x<x_1 $ & $x_1 \approx 0,15 $& $ x_1<x<\infty $\\
     \hline \hline
-    $6\cdot (x-x_2)$ & - &  0 & - &  & +  \\
+    $6\cdot (x-x_2)$ & + &  0 & - &  & +  \\
     \hline
     $(x -x_1)$ & - & & + &0 & + \\
     \hline
@@ -535,9 +535,9 @@ Monotonietabelle:\\
     \hline
     $x$& $ -\infty <x<1 $ & $ x_2 =1$ &$ 1<x<3 $ & $x_1 = 3 $& $ 3<x<\infty $\\
     \hline \hline
-    $3\cdot (x-1)$ & - &  0 & - &  & +  \\
+    $3\cdot (x-1)$ & - &  0 & + &  & +  \\
     \hline
-    $(x -3)$ & - & & + & 0 & + \\
+    $(x -3)$ & - & & - & 0 & + \\
     \hline
     $f'(x)$ & + & 0 & - & 0 & +\\ 
     \hline
@@ -557,7 +557,7 @@ Monotonietabelle:\\
         xlabel = $x$,
         ylabel=$y$]
             \addplot[color= red, samples = 300, domain= -0.2:4.2]{x^3-6*x^2+9*x-2};
-     \addplot[color= black, samples = 300, domain= -0.2:4.2]{3*x^2-12*x+9};
+     \addplot[color= blue, samples = 300, domain= -0.2:4.2]{3*x^2-12*x+9};
             \draw (4.2,2)   node [right] {$f(x)$}; 
             \draw (1,3)   node [right] {$f'(x)$}; 
             \draw (1.2,0)   node [above] {$x_2$};
