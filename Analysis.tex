@@ -474,8 +474,8 @@ Die einzelnen Iterationsschritte sind hierbei nicht immer von einzeln durchzufü
     0 &= 6x^2+12x-2\\
     x_{1,2} &= \dfrac{-12 \pm \sqrt{144 +48} }{12} = \dfrac{-12\pm 8\sqrt{3}}{12}\\
     &= \dfrac{-3\pm 2\sqrt{3}}{3}\\
-    x_1&= \dfrac{-3+ 2\sqrt{3}}{3}\\
-    x_2&= \dfrac{-3 - 2\sqrt{3}}{3}
+    x_1&= \dfrac{-3+ 2\sqrt{3}}{3}\approx 0,15\\
+    x_2&= \dfrac{-3 - 2\sqrt{3}}{3}\approx -2.15
 	\end{aligned}$\end{center}
  Mit diesen beiden Nullstellen ist es möglich eine faktorisierte Form des Funktionsterms aufzuschreiben. $$f'(x)= 6x^2+12x-2 = 6\cdot \left(x-x_1 \right)\cdot \left(x-x_2 \right)$$
 Monotonietabelle:\\
@@ -493,6 +493,15 @@ Monotonietabelle:\\
     \hline
 \end{tabular}
 \end{center}
+Berechnung der Lage der Extrempunkte:\\
+\begin{center}$\begin{aligned}
+	f(-2,15)&= 2 \cdot(-2,15)^3 +6\cdot (-2,15)^2 -2\cdot (-2,15)+1\\
+ &\approx 13,16 \longrightarrow HoP(-2,15|13,16)
+	\end{aligned}$\end{center}
+ \begin{center}$\begin{aligned}
+	f(0,15)&= 2\cdot(0,15)^3 +6\cdot (0,15)^2 -2\cdot (0,15)+1\\
+ &\approx 0,84 \longrightarrow TiP(0,15|0,84)
+	\end{aligned}$\end{center}
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[xmin= -4.1, xmax = 2.5, ymin= -15.1, ymax= 20.5,
@@ -519,6 +528,36 @@ Monotonietabelle:\\
     \end{tikzpicture}  
 \end{center}
 \end{bsp}
+\begin{b8d}{Zusammenhang Graph der 1.Ableitung und Graph der Funktion}{}
+ \begin{tikzpicture}[scale = 0.8]
+        \begin{axis}[xmin= -4.1, xmax = 2.5, ymin= -15.1, ymax= 20.5,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-4, -3,  ..., 2},
+        ytick={-15, -10, -5, ..., 20},
+        xlabel = $x$,
+        ylabel=$y$]
+            \addplot[color= red, samples = 300, domain= -3.7:1.7]{6*x^2+ 12*x -2};
+    \addplot[color= black, samples = 300, domain= -3.7:1.7]{2*x^3+ 6*x^2 -2*x+5};
+ \draw[red, dashed] (-2.15,0 )-- (-2.15,17.16);   
+  \draw[red, dashed] (0.15,0 )-- (0.15,4.85);
+        \end{axis}
+    \end{tikzpicture}
+     \begin{tikzpicture}[scale=0.8]
+        \begin{axis}[xmin= -1.6, xmax = 4.1, ymin= -15.1, ymax= 10.5,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-1,  ..., 4},
+        ytick={-15, -10, -5, ..., 10},
+        xlabel = $x$,
+        ylabel=$y$]
+            \addplot[color= red, samples = 300, domain= -1:3]{-1*6*x^2+ 12*x -2};
+             \addplot[color= black, samples = 300, domain= -1:4]{-1*2*x^3+ 6*x^2 -2*x+1};
+        \end{axis}
+    \end{tikzpicture}
+\end{b8d}
 \begin{bsp}{Bestimmung der Monotonie und der Extrema II}{}
 Betrachtet wird die Funktion $f(x)= x^3-6x^2 +9x-2$ mit $\mathds{D}_f =\mathds{R}$ und der ersten Ableitung $f'(x)= 3x^2 -12x +9$
 \begin{center}$\begin{aligned}

@@ -397,5 +397,48 @@ Das Teilverhältnis gibt an, in welchem Verhältnis der Schwerpunkt die einzelne
 \subsection{Das Skalarprodukt}
 Um die Abstände im Raum berechnen zu können wird die Länge eines Vektors definiert.
 \begin{defi}{Der Betrag eines Vektors}{}
-Gegeben ist der Vektor $\vv{a}$ durch die Koordinaten $\vv{a} = \begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix} $. 
+Gegeben ist der Vektor $\vv{a}$ durch die Koordinaten $\vv{a} = \begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix}$. Der Betrag des Vektors entspricht der Länge eines Repräsentanten des Vektors. Hierbei berechnet sich die Länge wie folgt: $$|\vv{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$$
 \end{defi}
+Mit dem Betrag eines Vektors kann jetzt der Abstand zweier Punkte berechnet werden.
+\begin{merke}{Abstand zweier Punkte}{}\index{Abstand zweier Punkte}
+Durch die Berechnung des Betrags ist es möglich die Entfernung zweier Punkte im Raum zu berechnen. Dadurch haben die Punkte $A(a_1|a_2|a_3)$ und $B(b_1|b_2|b_3)$ die Entfernung: $$|\vv{AB}|=|\vec{B} - \vv{A}| = | \begin{pmatrix} b_1 \\b_2 \\b_3\end{pmatrix} -\begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix}| = |\begin{pmatrix} b_1 - a_1 \\b_2 - a_2 \\b_3- a_3\end{pmatrix}| =\sqrt{(b_1-a_1)^2+ (b_2-a_2)^2 + (b_3-a_3)^2}$$
+\end{merke}
+\begin{bsp}{Berechnung von Längen}{}
+Gegeben sind die Punkte $A(2|3|-1)$ und $B(-2|2|1)$. Der Orstvektor des Punktes $A$ hat damit die Länge $$|\vv{A}| = \sqrt{2^2 +3^2 +(-1)^2} = \sqrt{14}\ [LE]$$ und die Punkte $A$ und $B$ haben damit den Abstand $$|\vv{AB}| = |\begin{pmatrix} -2 \\2 \\1\end{pmatrix} - \begin{pmatrix} 2 \\3 \\-1\end{pmatrix}| = |\begin{pmatrix} -4 \\-1 \\2\end{pmatrix}| = \sqrt{(-4)^2 +(-1)^2 + (2)^2} = \sqrt{21} \ [LE]$$
+\end{bsp}
+Durch die Einführung des Abstands zweier Punkte ist man jetzt in der Lage neues Strukturen im Raum zu definieren. 
+\begin{b8d}{Kugelgleichung}{}\index{Kugelgleichung}
+Alle Punkte, die von einem gegeben Punkt $M(m_1|m_2|m_3)$ die gleiche Entfernung $r$ haben, liegen auf einer Kugel um den Mittelpunkt $r$. Die Koordinaten aller dieser Punkte $X(x_1|x_2|x_3)$ genügen folgender Gleichung: $$(x_1-m_1)^2 + (x_2 -m_2)^2 + (x_3 -m_3 ^2) = r^2$$
+\end{b8d}
+In der analytischen Geometrie ist es oft wichtig zu wissen, ob zwei Vektoren senkrecht aufeinander stehen. Diese Information ist mit Hilfe des Skalarprodukts bestimmbar.
+\begin{merke}{Das Skalarprodukt}{}\index{Vektoren!Skalarprodukt}
+Die Zahl $$\vv{a} \circ \vv{b} = \begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix} \circ \begin{pmatrix} b_1 \\b_2 \\b_3\end{pmatrix} = a_1\cdot b_1 + a_2\cdot b_2 + a_3\cdot b_3$$ heißt Skalarprodukt der Vektoren $\vv{a}$ und $\vv{b}$. 
+\end{merke}
+Damit zwei Vektoren orthogonal bzw. senkrecht zueinander sind, muss für zwei Vektoren $\vv{a}$ und $\vv{b}$ folgende Gleichung gelten: $|\vv{a}|^2 + |\vv{b}|^2 = |\vv{b} -\vv{a}|^2$. Durch eine einfache Umformung der Gleichung folgt\\ $ a_1\cdot b_1 + a_2\cdot b_2 + a_3\cdot b_3 = 0$ und damit ergibt sich folgendes Kriterium.
+\begin{b8d}{Orthogonalität von zwei Vektoren}{} \index{Vektoren!Orthogonalität}
+Zwei vom Nullvektor verschiedene Vektoren $\vv{a}$ und $\vv{b}$ sind genau dann orthogonal zueinander, wenn ihr Skalarprodukt den Wert Null hat.
+\end{b8d}
+Schließen zwei Vektoren $\vv{a}$ und $\vv{b}$ einen von $90^{\circ}$ verschiedenen Winkel $\varphi$ ein, so lässt sich dieser wie folgt berechnen.
+\begin{merke}{Winkel zwischen zwei Vektoren}{}
+Der Winkel $\varphi$ zwischen zwei vom Nullvektor verschiedenen Vektoren $\vv{a}$ und $\vv{b}$ ergibt sich aus folgendem Zusammenhang: $$\cos{\varphi} = \dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|}\hspace{0.5cm}\text{mit}\hspace{0.25cm} 0^{\circ} \leq \varphi \leq 180^{\circ}.$$  
+\end{merke}
+\begin{bsp}{Berechnung des Winkels zwischen zwei Vektoren}{}
+Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck festlegen. Berechne die Innenwinkel des Dreiecks ABC.
+\begin{center}
+\begin{tikzpicture}[%
+    auto,
+    winkel/.style={draw=gray,angle eccentricity=.6,angle radius=1cm}
+  ]
+  \draw
+    (3,-1) coordinate[label=right:B] (B)
+    -- node{} 
+    (0,0) coordinate[label=left:A] (A)
+    -- node{} 
+    (2,2) coordinate[label=above right:C] (C)
+    -- node{} 
+    cycle
+  ;
+\end{tikzpicture}
+\end{center}
+\end{bsp}
+\subsection{Das Vektorprodukt}

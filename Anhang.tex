@@ -1,14 +1,14 @@
 \section{Darstellungsformen von Polynomen}\index{Polynome}
 \begin{itemize}
     \item Nullstellenform: Hierbei sind $x_1, x_2, \cdots x_n$ die Nullstellen des Polynoms\footnote{Es gilt damit für alle $x_i$ folgende Gleichung $f(x_i) = 0$} $$f(x) = a\cdot (x-x_1)\cdot (x-x_2) \cdots (x-x_n)$$
-    Dies Darstellung gilt nur, \textcolor{red}{wenn alle} Nullstellen reelle Zahlen sind. Der Vorfaktor $a$ muss ist dann noch durch einen Punkt, der keine Nullstelle ist, extra bestimmt werden.
-    \item Scheitelpunktform: Hierbei ist $SP(x_s|y_s)$ der Scheitelpunkt des Graphen der quadratischen Funktion $$f(x) = a\cdot (x-x_s)^2 +y_s$$ diese Darstellung gilt auch für die kubische Funktion $$f(x) = a\cdot (x-x_s)^3 +y_s$$ 
+    Dies Darstellung gilt nur, \textcolor{red}{wenn alle} Nullstellen reelle Zahlen sind. Der Vorfaktor $a$ muss dann noch durch einen Punkt, der keine Nullstelle ist, extra bestimmt werden.
+    \item Scheitelpunktform: Hierbei ist $SP(x_s|y_s)$ der Scheitelpunkt des Graphen der quadratischen Funktion $$f(x) = a\cdot (x-x_s)^2 +y_s$$ diese Darstellung gilt auch für die kubische Funktion $$f(x) = a\cdot (x-x_W)^3 +y_W$$ 
     \item allgemeine Form eines Polynoms vom Grad $n$: $$f(x) = a_n\cdot x^n + a_{n-1}\cdot x^{n-1} \cdots a_2\cdot x^2 + a_1\cdot x^1 + a_0 = \sum\limits_{i=0}^{n} a_i\cdot x^i$$ hierbei gilt $a_n \in \mathds{R}\setminus \left(0\right)$ und $a_i \in \mathds{R}$
 \end{itemize}
 \section{Polynomdivision}\index{Polynomdivision}
 Die Polynomdivision wird eingesetzt um entweder den Grad eines Polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln. 
-\subsection{Polynomdivision bei Polynomen}\index{Polynomdivision!Polynome}\label{polynomdivision}
-    Bei einem Polynom wird die Polynomdivision angewendet um den Grad des Polynoms zu verringern und die Faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt der Nullstellen darstellen kann.\\
+\subsection{Polynomdivision zur Faktorisierung der Nullstellen}\index{Polynomdivision!Faktorisierung}\label{polynomdivision}
+    Bei einem Polynom wird die Polynomdivision angewendet um die faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt der Nullstellen darstellen kann.\\
     Es gilt folgender Zusammenhang: $$f(x) = x^3-6x^2-x+6 =  \polyfactorize{x^3-6x^2-x+6}.$$ Aus dieser Darstellung folgt, dass die Funktion $f$ die Nullstellen $x_1 = -1, x_2 = 1$ und $x_3= 6$ hat. Um die Polynomdivision durchführen zu können, muss man als erstes eine Nullstelle kennen und dann das Polynom durch diese Nullstelle teilen. Nach der Division erhält man jeweils eine neues Polynom geringeren Grades. Dieses Polynom muss dann wieder mit der Polynomdivision vom Grad reduziert werden.
     \begin{bsp}{Die Polynomdivision bei Polynomen}{} 
 Man rät die Nullstelle $x=1$ und führt jetzt die Polynomdivision durch:\\
