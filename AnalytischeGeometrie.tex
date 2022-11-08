@@ -420,25 +420,60 @@ Zwei vom Nullvektor verschiedene Vektoren $\vv{a}$ und $\vv{b}$ sind genau dann 
 \end{b8d}
 Schließen zwei Vektoren $\vv{a}$ und $\vv{b}$ einen von $90^{\circ}$ verschiedenen Winkel $\varphi$ ein, so lässt sich dieser wie folgt berechnen.
 \begin{merke}{Winkel zwischen zwei Vektoren}{}
-Der Winkel $\varphi$ zwischen zwei vom Nullvektor verschiedenen Vektoren $\vv{a}$ und $\vv{b}$ ergibt sich aus folgendem Zusammenhang: $$\cos{\varphi} = \dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|}\hspace{0.5cm}\text{mit}\hspace{0.25cm} 0^{\circ} \leq \varphi \leq 180^{\circ}.$$  
+Der Winkel $\varphi$ zwischen zwei vom Nullvektor verschiedenen Vektoren $\vv{a}$ und $\vv{b}$ ergibt sich aus folgendem Zusammenhang: $$\cos{\varphi} = \dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|}\hspace{0.5cm}\text{mit}\hspace{0.25cm} 0^{\circ} \leq \varphi \leq 180^{\circ}.$$ 
+Die Größe des Winkels $\varphi$ bestimmt sich damit durch die Gleichung:
+$$\varphi = \arccos{(\dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|})} = \cos^{-1}{(\dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|})}$$
 \end{merke}
 \begin{bsp}{Berechnung des Winkels zwischen zwei Vektoren}{}
-Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck festlegen. Berechne die Innenwinkel des Dreiecks ABC.
+Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck festlegen. Berechne die Größe des Winkels $\alpha$.
 \begin{center}
-\begin{tikzpicture}[%
-    auto,
-    winkel/.style={draw=gray,angle eccentricity=.6,angle radius=1cm}
-  ]
+\begin{tikzpicture}
   \draw
-    (3,-1) coordinate[label=right:B] (B)
-    -- node{} 
-    (0,0) coordinate[label=left:A] (A)
-    -- node{} 
-    (2,2) coordinate[label=above right:C] (C)
-    -- node{} 
-    cycle
-  ;
+    (3,-1) coordinate (a) node[right] {B}
+    -- (0,0) coordinate (b) node[left] {A}
+    -- (2,2) coordinate (c) node[above right] {C}
+    -- (3,-1) 
+    pic[draw=red, ->,  angle radius=1cm]
+    {angle=a--b--c};
+    \draw
+    (0.4,0.2) coordinate (wink) node[right] {$\alpha$};
 \end{tikzpicture}
 \end{center}
+Vorgehen zum berechnen des Winkels $\alpha$:
+\begin{enumerate}
+    \item Bestimmung der Vektoren $\vv{a} = \vv{AB}$ und $\vv{b} = \vv{AC}$.
+    \begin{equation*}
+        \begin{split}
+            \vv{a} &= \vv{B} - \vv{A} = \begin{pmatrix} 2 \\2 \\4\end{pmatrix} -\begin{pmatrix} 7 \\-3 \\4\end{pmatrix} = \begin{pmatrix} -5 \\5\\0\end{pmatrix} 
+            \end{split}
+            \end{equation*}
+    \begin{equation*}
+        \begin{split}
+            \vv{b} &= \vv{C} - \vv{A} = \begin{pmatrix} 2 \\-3 \\-1\end{pmatrix} -\begin{pmatrix} 7 \\-3 \\4\end{pmatrix} = \begin{pmatrix} -5 \\0\\-5\end{pmatrix} 
+            \end{split}
+            \end{equation*}
+                
+    \item Berechnung des Skalarprodukts.
+    \begin{equation*}
+        \begin{split}
+            \vv{a} \circ \vv{b} &= \begin{pmatrix} -5 \\5 \\0\end{pmatrix} \circ \begin{pmatrix} -5 \\0 \\-5 \end{pmatrix} = 25 +0 +0 = 25
+            \end{split}
+            \end{equation*}
+    \item Berechnung der Beträge der Vektoren $\vv{a}$ und $\vv{b}$.
+    \begin{equation*}
+        \begin{split}
+            |\vv{a}| & = |\begin{pmatrix} -5 \\0\\-5\end{pmatrix}| =  \sqrt{(-5)^2 + (5)^2 + 0^2}  = \sqrt{25+25} = \sqrt{50} = 5\cdot \sqrt{2}\\
+            |\vv{b}| &= |\begin{pmatrix} -5 \\0\\-5\end{pmatrix} |= \sqrt{(-5)^2 + 0^2 + (-5)^2} = \sqrt{25+25}= \sqrt{50} = 5\cdot \sqrt{2}
+            \end{split}
+            \end{equation*}
+    \item Bildung des Quotienten und Berechnung des Winkels.
+    \begin{equation*}
+        \begin{split}
+            \cos{(\alpha)} &= \dfrac{\vv{a}\circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|}= \dfrac{25}{5\sqrt{2} \cdot 5\sqrt{2}}\\
+            &= \dfrac{25}{50} = \dfrac{1}{2}\\
+            \alpha &= \arccos{(\dfrac{1}{2})} = 60^{\circ}
+            \end{split}
+            \end{equation*}
+\end{enumerate}
 \end{bsp}
 \subsection{Das Vektorprodukt}
