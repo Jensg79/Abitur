@@ -23,7 +23,10 @@
   - Mittelpunkte von Strecken
   - Schwerpunkte Dreieck
   - Schwerpunkt dreiseitige Pyramide
-
+### Operation mit Vektoren
+  - Länge einses Vektors
+  - Skalarprodukt
+  - berechnung von Winkeln
 
 ### Anhang
 #### Polynomdivision
