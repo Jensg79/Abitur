@@ -477,3 +477,24 @@ Vorgehen zum berechnen des Winkels $\alpha$:
 \end{enumerate}
 \end{bsp}
 \subsection{Das Vektorprodukt}
+Das Vektorprodukt ist anders als das Skalarprodukt ein Vektor und keine Zahl. Gekennzeichnet wird das Vektorprodukt durch $\times$ statt durch das Multiplikationszeichen $\cdot$. \\
+\begin{b8d*}{Vektorprodukt und Skalarprodukt}{}
+Dadurch ergibt sich folgende Regel:\\
+Bei der Schreibweise $\vv{a} \times\vv{b}$ ergibt sich ein Vektor $\vv{c}$,\\
+bei der Schreibweise $\vv{a} \cdot \vv{b}$ ergibt sich eine Zahl $c\in \mathds{R}$.
+\end{b8d*}
+Das Vektorprodukt $\vv{a} \times \vv{b}$ aus den beiden Vektoren $\vv{a}$ und $\vv{b}$ ist ein Vektor, der die folgenden Eigenschaften besitzt.
+\begin{merke}{Eigenschaften des Vektorprodukts}{}
+   \begin{enumerate}
+       \item $\vv{a} \times \vv{b} = 0$, falls der Vektor $\vv{a}$ bzw. der Vektor $\vv{b}$ der Nullvektor ist.
+       \item $\vv{a} \times \vv{b} = 0$, falls der Vektor $\vv{a}$ und der Vektor $\vv{b}$ parallel zueinander sind.
+       \item Der Betrag des Vektorprodukts gibt den Flächeninhalt des durch die Vektoren $\vv{a} $ und $\vv{b}$ aufgespannten Parallelogramms wieder. Es gilt damit $$F_P=|\vv{a} \times \vv{b} |.$$
+       \item Der resultierende Vektor $\vv{c} $ steht senkrecht sowohl auf dem Vektoren $\vv{a} $ als auch auf dem Vektor $\vv{b}$.
+   \end{enumerate} 
+\end{merke}
+\begin{defi*}{Berechnung des Vektorprodukts}{}
+Aus zwei Vektoren $\vv{a}\neq 0$ und $\vv{b} \neq 0$ ergibt sich der Vektor durch das Vektorprodukt wie folgt: $$\vv{a} \times \vv{b} = \begin{pmatrix} a_1 \\a_2\\a_3\end{pmatrix} \times \begin{pmatrix} b_1 \\b_2\\b_3\end{pmatrix} = \begin{pmatrix} a_2\cdot b_3 - a_3\cdot b_2 \\a_3\cdot b_1 - a_1\cdot b_3\\a_1\cdot b_2 - a_2\cdot b_1\end{pmatrix}$$
+\end{defi*}
+\begin{b8d*}{Berechnung des Vektorprodukts}{}
+    Bei der Berechnung des Vektorprodukts ist es möglich die obige Variante benutzen oder eine vereinfachte Variante buntzen. Bei dieser Verkürzten Variante werden unter jeden Vektor jeweils die $x_1$ und $x_2$ Koordinaten des Vektors nochmals notiert und die erste Zeile der Vektoren durchgestrichen. Anschließend werden dann die Koordinaten über kreuz multipliziert und dann entsprechende subtrahiert.\\
+\end{b8d*}
