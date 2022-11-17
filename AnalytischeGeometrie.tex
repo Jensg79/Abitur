@@ -477,6 +477,7 @@ Vorgehen zum berechnen des Winkels $\alpha$:
 \end{enumerate}
 \end{bsp}
 \subsection{Das Vektorprodukt}
+\index{Vektoren!Vektorprodukt}
 Das Vektorprodukt ist anders als das Skalarprodukt ein Vektor und keine Zahl. Gekennzeichnet wird das Vektorprodukt durch $\times$ statt durch das Multiplikationszeichen $\cdot$. \\
 \begin{b8d*}{Vektorprodukt und Skalarprodukt}{}
 Dadurch ergibt sich folgende Regel:\\
@@ -489,6 +490,7 @@ Das Vektorprodukt $\vv{a} \times \vv{b}$ aus den beiden Vektoren $\vv{a}$ und $\
        \item $\vv{a} \times \vv{b} = 0$, falls der Vektor $\vv{a}$ bzw. der Vektor $\vv{b}$ der Nullvektor ist.
        \item $\vv{a} \times \vv{b} = 0$, falls der Vektor $\vv{a}$ und der Vektor $\vv{b}$ parallel zueinander sind.
        \item Der Betrag des Vektorprodukts gibt den Flächeninhalt des durch die Vektoren $\vv{a} $ und $\vv{b}$ aufgespannten Parallelogramms wieder. Es gilt damit $$F_P=|\vv{a} \times \vv{b} |.$$
+       \item Der Flächeninhalt des durch drei Punkte aufgestellten Dreiecks berechnet sich durch den halben Betrag des Vektorprodukts: $$F_{\text{Dreieck}} = \dfrac{1}{2} |\vv{a} \times \vv{b}|$$
        \item Der resultierende Vektor $\vv{c} $ steht senkrecht sowohl auf dem Vektoren $\vv{a} $ als auch auf dem Vektor $\vv{b}$.
    \end{enumerate} 
 \end{merke}
@@ -496,5 +498,215 @@ Das Vektorprodukt $\vv{a} \times \vv{b}$ aus den beiden Vektoren $\vv{a}$ und $\
 Aus zwei Vektoren $\vv{a}\neq 0$ und $\vv{b} \neq 0$ ergibt sich der Vektor durch das Vektorprodukt wie folgt: $$\vv{a} \times \vv{b} = \begin{pmatrix} a_1 \\a_2\\a_3\end{pmatrix} \times \begin{pmatrix} b_1 \\b_2\\b_3\end{pmatrix} = \begin{pmatrix} a_2\cdot b_3 - a_3\cdot b_2 \\a_3\cdot b_1 - a_1\cdot b_3\\a_1\cdot b_2 - a_2\cdot b_1\end{pmatrix}$$
 \end{defi*}
 \begin{b8d*}{Berechnung des Vektorprodukts}{}
-    Bei der Berechnung des Vektorprodukts ist es möglich die obige Variante benutzen oder eine vereinfachte Variante buntzen. Bei dieser Verkürzten Variante werden unter jeden Vektor jeweils die $x_1$ und $x_2$ Koordinaten des Vektors nochmals notiert und die erste Zeile der Vektoren durchgestrichen. Anschließend werden dann die Koordinaten über kreuz multipliziert und dann entsprechende subtrahiert.\\
+    Bei der Berechnung des Vektorprodukts ist es möglich die obige Variante benutzen oder eine vereinfachte Variante buntzen. Bei dieser Verkürzten Variante werden unter jeden Vektor jeweils die $x_1$ und $x_2$ Koordinaten des Vektors nochmals notiert und die erste Zeile der Vektoren durchgestrichen. Anschließend werden dann die Koordinaten über kreuz multipliziert und dann entsprechende subtrahiert.
+\[
+\begin{array}[t]{@{}c@{}}
+\vv{c}=\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} \\ a_1 \\ a_2
+\end{array}
+\times
+\begin{array}[t]{@{}c@{}}
+\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} \\ b_1 \\ b_2
+\end{array}
+=
+\begin{pmatrix}
+a_2\cdot b_3-a_3\cdot b_2 \\
+a_3\cdot b_1-a_1\cdot b_3 \\
+a_1\cdot b_2-a_2\cdot b_1
+\end{pmatrix}
+\] 
+\begin{center}
+\begin{tikzpicture}
+\draw[-,fill=white!95!red](0,0)--(3,0)--(4,1)--(1,1)--cycle;
+\node at (2,0.5) {$F_P = |\textcolor{blue}{a}\times \textcolor{red}{b}|$};
+\draw[thick,-latex,blue](0,0)--(3,0)node[midway,below]{$a$};
+\draw[thick,-latex,red](0,0)--(1,1)node[midway,above]{$b$};
+\draw[thick,-latex,blue!50!red](0,0)--(0,3)node[pos=0.7,right]{$a\times b$};
+%\draw (0.6,0) arc [start angle=0,end angle=45,radius=0.6]
+%node[pos=0.7,right]{$\varphi$};
+\draw (0.6,0) arc [start angle=0,end angle=90,radius=0.6]
+node[pos=0.7,right]{};
+\end{tikzpicture}
+\end{center}
 \end{b8d*}
+\begin{bsp}{Berechnung des Vektorprodukts}{}
+Gegeben sind die Punkte $A(3|3|3), B(4|5|6)$ und $C(7|8|9)$. Durch die Bestimmung des Betrags des Vektorprodukts soll der Flächeninhalt des aufgespannten Dreiecks bestimmt werden.
+\begin{equation*}
+    \begin{split}
+        F_{\text{Dreieck}} &= \dfrac{1}{2} \cdot |\vv{AB} \times \vv{AC}|\\
+        &= \dfrac{1}{2} \cdot |\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} \times \begin{pmatrix} 4 \\ 5 \\ 6 \end{pmatrix}|
+        = \dfrac{1}{2} \cdot |
+\begin{array}[t]{@{}c@{}}
+\begin{pmatrix} \bcancel{1} \\ 2 \\ 3 \end{pmatrix} \\ 1 \\ 2
+\end{array}
+\times
+\begin{array}[t]{@{}c@{}}
+\begin{pmatrix} \bcancel{4} \\ 5\\ 6 \end{pmatrix} \\ 4 \\ 5
+\end{array}|\\
+&=
+\dfrac{1}{2} \cdot |\begin{pmatrix}
+2\cdot 6-3\cdot 5 \\
+3\cdot 4-1\cdot 6 \\
+1\cdot 5-2\cdot 4
+\end{pmatrix}|
+=\dfrac{1}{2} \cdot | \begin{pmatrix}
+12-15 \\
+12-6 \\
+5-8
+\end{pmatrix}| =\dfrac{1}{2} \cdot |\begin{pmatrix}
+-3 \\
+6 \\
+-3
+\end{pmatrix}|\\
+&= \dfrac{1}{2} \cdot \sqrt{9+36+9} = \dfrac{1}{2} \cdot \sqrt{54} =\dfrac{3}{2} \cdot \sqrt{6} \ \text{[FE]} 
+    \end{split}
+\end{equation*}
+\end{bsp}
+\subsection{Das Spatprodukt}
+\index{Vektoren!Spatprodukt}
+Ein Spat ist ein geometrischer Körper, der sechs Parallelogramme als Seitenflächen besitzt. Die gegenüberliegende Parallelogramme sind immer kongruent zueinander und liegen in parallelen Ebenen.\\
+Unter dem Spatprodukt versteht man das Skalarprodukt eines Vektors mit dem Vektorprodukt zweier weiterer Vektoren.
+\begin{defi}{Das Spatprodukt}{}
+Spannen die Vektoren $\vv{a}, \vv{b}$ und $\vv{c}$ einen Spat bzw. eine dreiseitige Pyramide auf, ist das Volumen:
+$$V_{\text{Spat}} = |(\vv{a}\times\vv{b})\circ \vv{c}|$$ $$V_{\text{Pyramide}}=\dfrac{1}{6}|(\vv{a}\times\vv{b})\circ \vv{c}| $$
+\end{defi} 
+\begin{bsp}{Berechnung des Volumens einer dreiseitigen Pyramide I}{}
+Durch die Vektoren $\vv{a} = \begin{pmatrix} 1\\2\\3
+\end{pmatrix}, \vv{b}= \begin{pmatrix}
+    2\\3\\1
+\end{pmatrix}$ und $\vv{c}= \begin{pmatrix}
+   3\\1\\2
+\end{pmatrix}$ spannen eine dreiseitige Pyramide auf. Das Volumen dieser Pyramide bestimmt sich damit durch das Spatprodukt wie folgt:
+\begin{equation*}
+    \begin{split}
+      V_{\text{Pyramide}} &= \dfrac{1}{6} \cdot |(\vv{a}\times \vv{b})\circ \vv{c}| = \dfrac{1}{6} \cdot |(\begin{pmatrix}1\\2\\3\end{pmatrix} \times 
+\begin{pmatrix} 2\\3\\1 \end{pmatrix}) \circ 
+\begin{pmatrix} 3\\1\\2 \end{pmatrix}|\\
+&=\dfrac{1}{6} \cdot |\begin{pmatrix} -7\\5\\-1 \end{pmatrix}\circ \begin{pmatrix} 3\\1\\2 \end{pmatrix}|  =\dfrac{1}{6} \cdot |-18| = 3\ \text{[VE]}
+    \end{split}
+\end{equation*}
+\end{bsp}
+\begin{b8d*}{Berechnung der Determinante}{}
+    Das Spatprodukt lässt sich alternativ durch die Berechnung der sogenannten Determinante bestimmen. Die Determinante bestimmt sich durch folgendes Schema:
+\[
+\det(\vv{a}, \vv{b}, \vv{c})
+%
+=\begin{matrix}\begin{tikzpicture}
+\matrix [
+matrix of math nodes,
+column sep=1em,
+row sep=1em,
+] (sarrus) {
+a_1 & b_1 & c_1  \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \\
+};
+% Striche
+\path ($(sarrus-1-1.north west)-(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-1.north west)-(0.5em,0)$);
+\path ($(sarrus-1-3.north east)+(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-3.north east)+(0.5em,0)$);
+\end{tikzpicture}\end{matrix}
+%
+=\begin{matrix}\begin{tikzpicture}
+\matrix [
+matrix of math nodes,
+column sep=1em,
+row sep=1em,
+%left delimiter={|} %,right delimiter={|}, 
+] (sarrus) {
+a_1 & b_1 & c_1 & a_1 & b_1 \\ a_2 & b_2 & c_2 & a_2 & b_2\\ a_3 & b_3 & c_3 & a_3 & b_3\\
+};
+% Striche
+\path ($(sarrus-1-1.north west)-(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-1.north west)-(0.5em,0)$);
+\path ($(sarrus-1-3.north east)+(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-3.north east)+(0.5em,0)$);
+\path[->,blue] (sarrus-1-1) edge (sarrus-2-2)
+(sarrus-2-2) edge (sarrus-3-3)
+(sarrus-1-2) edge (sarrus-2-3)
+(sarrus-2-3) edge (sarrus-3-4)
+(sarrus-1-3) edge (sarrus-2-4)
+(sarrus-2-4) edge (sarrus-3-5);
+\path[->,red](sarrus-3-1) edge[dashed] (sarrus-2-2)
+(sarrus-2-2) edge[dashed] (sarrus-1-3)
+(sarrus-3-2) edge[dashed] (sarrus-2-3)
+(sarrus-2-3) edge[dashed] (sarrus-1-4)
+(sarrus-3-3) edge[dashed] (sarrus-2-4)
+(sarrus-2-4) edge[dashed] (sarrus-1-5);
+
+\foreach \c in{3,4,5} \node[blue] at (sarrus-3-\c.south east) {$+$};
+\foreach \c in{3,4,5} \node[red] at (sarrus-1-\c.north east) {$-$};
+
+% Strich rechts
+\path ($(sarrus-1-5.north east)+(0.5em,0)$) edge[densely dotted] ($(sarrus-3-5.south east -| sarrus-1-5.north east)+(0.5em,0)$);
+\end{tikzpicture}\end{matrix} 
+\]
+Aus der Determinante folgt damit für das Volumen folgende Rechnung:
+\begin{equation*}
+    \begin{split}
+        V_{\text{Spat}} &= |\det(\vv{a}, \vv{b}, \vv{c})| \\
+        &= |a_1\cdot b_2 \cdot c_3 + b_1\cdot c_2 \cdot a_3 + c_1\cdot a_2 \cdot b_3 - a_3\cdot b_2 \cdot c_1 - b_3\cdot c_2 \cdot a_1 - c_3\cdot a_2\cdot b_1|\\
+        V_{\text{Pyramide}} &= \dfrac{1}{6}\cdot |\det(\vv{a}, \vv{b}, \vv{c})| \\ 
+        &= \dfrac{1}{6}\cdot |a_1\cdot b_2 \cdot c_3 + b_1\cdot c_2 \cdot a_3 + c_1\cdot a_2 \cdot b_3 - a_3\cdot b_2 \cdot c_1 - b_3\cdot c_2 \cdot a_1 - c_3\cdot a_2\cdot b_1|
+    \end{split}
+\end{equation*}
+\end{b8d*}
+\begin{bsp}{Berechnung des Volumens einer dreiseitigen Pyramide II}{}
+ Durch die Vektoren $\vv{a} = \begin{pmatrix} 1\\2\\3
+\end{pmatrix}, \vv{b}= \begin{pmatrix}
+    2\\3\\1
+\end{pmatrix}$ und $\vv{c}= \begin{pmatrix}
+   3\\1\\2
+\end{pmatrix}$ spannen eine dreiseitige Pyramide auf. 
+\[
+\det(\vv{a}, \vv{b}, \vv{c})
+%
+=\begin{matrix}\begin{tikzpicture}
+\matrix [
+matrix of math nodes,
+column sep=1em,
+row sep=1em,
+] (sarrus) {
+1 & 2 & 3  \\ 2 &3 & 1 \\ 3 & 1 & 2 \\
+};
+% Striche
+\path ($(sarrus-1-1.north west)-(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-1.north west)-(0.5em,0)$);
+\path ($(sarrus-1-3.north east)+(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-3.north east)+(0.5em,0)$);
+\end{tikzpicture}\end{matrix}
+%
+=\begin{matrix}\begin{tikzpicture}
+\matrix [
+matrix of math nodes,
+column sep=1em,
+row sep=1em,
+%left delimiter={|} %,right delimiter={|}, 
+] (sarrus) {
+1 & 2 & 3 & 1 & 2 \\ 2 & 3 & 1 & 2 & 3\\ 3 & 1 & 2 & 3 & 1\\
+};
+% Striche
+\path ($(sarrus-1-1.north west)-(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-1.north west)-(0.5em,0)$);
+\path ($(sarrus-1-3.north east)+(0.5em,0)$) edge[] ($(sarrus-3-3.south east -| sarrus-1-3.north east)+(0.5em,0)$);
+\path[->,blue] (sarrus-1-1) edge (sarrus-2-2)
+(sarrus-2-2) edge (sarrus-3-3)
+(sarrus-1-2) edge (sarrus-2-3)
+(sarrus-2-3) edge (sarrus-3-4)
+(sarrus-1-3) edge (sarrus-2-4)
+(sarrus-2-4) edge (sarrus-3-5);
+\path[->,red](sarrus-3-1) edge[dashed] (sarrus-2-2)
+(sarrus-2-2) edge[dashed] (sarrus-1-3)
+(sarrus-3-2) edge[dashed] (sarrus-2-3)
+(sarrus-2-3) edge[dashed] (sarrus-1-4)
+(sarrus-3-3) edge[dashed] (sarrus-2-4)
+(sarrus-2-4) edge[dashed] (sarrus-1-5);
+
+\foreach \c in{3,4,5} \node[blue] at (sarrus-3-\c.south east) {$+$};
+\foreach \c in{3,4,5} \node[red] at (sarrus-1-\c.north east) {$-$};
+
+% Strich rechts
+\path ($(sarrus-1-5.north east)+(0.5em,0)$) edge[densely dotted] ($(sarrus-3-5.south east -| sarrus-1-5.north east)+(0.5em,0)$);
+\end{tikzpicture}\end{matrix} 
+\]
+Aus der Determinante folgt damit für das Volumen folgende Rechnung:
+\begin{equation*}
+    \begin{split}
+        V_{\text{Pyramide}} &= \dfrac{1}{6}\cdot |\det(\vv{a}, \vv{b}, \vv{c})| \\ 
+        &= \dfrac{1}{6}\cdot |1\cdot 3 \cdot 2 + 2\cdot 1 \cdot 3 + 3\cdot 2 \cdot 1 - 3\cdot 3 \cdot 3 - 1\cdot 1 \cdot 1 - 2\cdot 2\cdot 2|\\
+        &= \dfrac{1}{6} \cdot |6+6+6-27-1-8|\\
+        &= \dfrac{1}{6} \cdot |-18| = 3 \ \text{[VE]}
+    \end{split}
+\end{equation*}
+\end{bsp}
