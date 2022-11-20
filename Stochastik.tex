@@ -6,6 +6,8 @@ Wahrscheinlichkeiten von Ereignissen können sich verändern, wenn bereits ander
 \end{defi}
 Durch die Betrachtung eines zweistufigen Baumdiagramms ist es möglich, die Definition für die bedingte Wahrsheinlichkeit zu zeigen.
 \begin{merke*}{Die Herleitung der bedingten Wahrscheinlichkeit}{}
+\begin{multicols}{2}
+\scalebox{0.65}{
 % allgemeines Layout des Baums
 \tikzstyle{level 1}=[level distance=2.5cm, sibling distance=5cm]
 \tikzstyle{level 2}=[level distance=2.5cm, sibling distance=4cm]
@@ -17,33 +19,37 @@ Durch die Betrachtung eines zweistufigen Baumdiagramms ist es möglich, die Defi
   \node[bag]{}
   child
   {
-    node[bag] {$\Bar{A}$} % beschriftet Knoten 2 in erster Ebene mit X
+    node[bag] {$A$} % beschriftet Knoten 2 in erster Ebene mit X
     child
     {
-      node[bag] {$\overline{B}$} % beschriftet Knoten 4 in zweiter Ebene mit D
+      node (B) [bag] {$B$} % beschriftet Knoten 4 in zweiter Ebene mit D
+      node [below of = B] {$P(A \cap B)$}
       edge from parent
-      node[below]  {$P_{\Bar{A}}(\overline{B})$} % beschriftet Verbindung zu Knoten 4 (Ebene 2) mit p
+      node[left]  {$P_{A}(B)$} % beschriftet Verbindung zu Knoten 4 (Ebene 2) mit p
 } child {
-      node[bag] {$B$} % beschriftet Knoten 3 in zweiter Ebene mit C
+      node[bag] {$\Bar{B}$} % beschriftet Knoten 3 in zweiter Ebene mit C
       edge from parent
-      node[above]  {$P_{\Bar{A}}(B)$} % beschriftet Verbindung zu Knoten 3 (Ebene 2) mit m
+      node[right]  {$P_{A}(\Bar{B})$} % beschriftet Verbindung zu Knoten 3 (Ebene 2) mit m
     }
     edge from parent
-    node[below]  {$P(\Bar{A})$} % beschriftet Verbindung zu Knoten 2 (Ebene 1) mit f
+    node[left]  {$P(A)$} % beschriftet Verbindung zu Knoten 2 (Ebene 1) mit f
 } child {
-    node[bag] {$A$} % beschriftet Knoten 1 in erster Ebene mit A
+    node[bag] {$\Bar{A}$} % beschriftet Knoten 1 in erster Ebene mit A
     child
     {
-      node[bag] {$\overline{B}$} % beschriftet Knoten 2 in zweiter Ebene mit B
+      node[bag] {$B$} % beschriftet Knoten 2 in zweiter Ebene mit B
       edge from parent
-      node[below]  {$P_{A}(\overline{B})$} % beschriftet Verbindung zu Knoten 2 (Ebene 2) mit k
+      node[left]  {$P_{\Bar{A}}(B)$} % beschriftet Verbindung zu Knoten 2 (Ebene 2) mit k
 } child {
-      node[bag] {B} % beschriftet Knoten 1 in zweiter Ebene mit A
+      node[bag] {$\Bar{B}$} % beschriftet Knoten 1 in zweiter Ebene mit A
       edge from parent
-      node[above]  {$P_{A}(B)$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
+      node[right]  {$P_{\Bar{A}}(B)$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
     }
     edge from parent
-    node[above]  {$P(A)$} % beschriftet Verbindung zu Knoten 1 (Ebene 1) mit w
+    node[right]  {$P(A)$} % beschriftet Verbindung zu Knoten 1 (Ebene 1) mit w
   };
-\end{tikzpicture}
+\end{tikzpicture}}
+
+Nach der ersten Pfadregel berechnet sich die Wahrscheinlichekeit $P(A\cap B)$ durch das Produkt der einezelnen Pfadwahrscheinlichkeiten. Es gilt damit also $$P(A\cap B) = P(A) \cdot P_{A}(B)$$ und daraus folgt die Beziehung: $$P_{A}(B) = \dfrac{P(A \cap B)}{P(A)}$$
+\end{multicols}
 \end{merke*}
