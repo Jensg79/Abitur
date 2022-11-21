@@ -1,4 +1,21 @@
-\section{Bedingte Wahrscheinlichkeit}
+\section{Wiederholung der Wahrscheinlichkeitsbegriffe}
+\begin{merke}{Grundbegriffe der Wahrscheinlichkeit}{}
+    Ein Ereignis A ist eine Teilmenge der Ergebnisraumes $\Omega$.\\
+    Ein Ereignis A tritt ein, wenn das Versuchsergebnis $\omega$ in A enthalten ist, also wenn gilt: $\omega \in A$.\\
+    Alle Elemente von $\Omega$, die nicht zum Ereignis A gehören, fasst man unter dem Namen Gegenereignis $\Bar{A}$ von $A$ zusammen. Damit ist $\Bar{A} = \Omega \setminus A$.
+\end{merke}
+\begin{b8d}{Mengenalgebra}{}
+    \begin{itemize}
+        \item Schnittmenge $A\cap B$: Menge der gemeinsamen Ergebnisse von A und B
+        \item Vereinigungsmenge $A\cup B$: Menge der Ergebnisse die sowohl in A als auch in B liegen.
+    \end{itemize}
+\end{b8d}
+\begin{merke}{Unvereinbar}{}
+Zwei Ereignisse A und B heißen unvereinbar, wenn $A\cap B = \{ \}$.
+\end{merke}
+\section{Axiomatischer Aufbau der Wahrscheinlichkeit}
+
+\section{Bedingte Wahrscheinlichkeit}\index{Wahrscheinlichkeit!bedingte Wahrscheinlichkeit}
 Wahrscheinlichkeiten von Ereignissen können sich verändern, wenn bereits andere Ereignisse eingetreten sind. Um diesen Einfluss zu untersuchen, wird der Begriff der bedingten Wahrscheinlichkeit eingeführt.
 \begin{defi}{Die bedingte Wahrscheinlichkeit}{}
 \index{Bedingte Wahrscheinlichkeit}
@@ -50,6 +67,59 @@ Durch die Betrachtung eines zweistufigen Baumdiagramms ist es möglich, die Defi
   };
 \end{tikzpicture}}
 
-Nach der ersten Pfadregel berechnet sich die Wahrscheinlichekeit $P(A\cap B)$ durch das Produkt der einezelnen Pfadwahrscheinlichkeiten. Es gilt damit also $$P(A\cap B) = P(A) \cdot P_{A}(B)$$ und daraus folgt die Beziehung: $$P_{A}(B) = \dfrac{P(A \cap B)}{P(A)}$$
+Nach der ersten Pfadregel berechnet sich die Wahrscheinlichkeit $P(A\cap B)$ durch das Produkt der einzelnen Pfadwahrscheinlichkeiten. Es gilt damit also $$P(A\cap B) = P(A) \cdot P_{A}(B)$$ und daraus folgt die Beziehung: $$P_{A}(B) = \dfrac{P(A \cap B)}{P(A)}$$
 \end{multicols}
 \end{merke*}
+\begin{bsp}{Beispiel für eine bedingte Wahrscheinlichkeit}{}
+Für einen Laplace-Würfel sind folgende Ereignisse gegeben:\\
+\begin{enumerate}
+    \item Ereignis A: Die geworfenen Augenzahl ist durch drei teilbar.
+    \item Ereignis B: Die geworfene Augenzahl liegt zwischen 1 und 4.
+\end{enumerate}
+Nun soll die Wahrscheinlichkeit von A unter der Bedingung B bestimmt werden.\\
+\emph{Es wird also die Wahrscheinlichkeit dafür gesucht, dass die gewürfelte Zahl durch drei teilbar ist unter der Bedingung, dass sie zwischen 1 und 4 liegt.}\\[0.5cm]
+Für die Wahrscheinlichkeiten gilt damit folgendes: $$P(A) = \dfrac{2}{6} \hspace{0.2cm} \text{und} \hspace{0.2cm} P(B) = \dfrac{4}{6} $$
+\scalebox{0.8}{
+% allgemeines Layout des Baums
+\tikzstyle{level 1}=[level distance=2.5cm, sibling distance=5cm]
+\tikzstyle{level 2}=[level distance=2.5cm, sibling distance=4cm]
+% definiert Knoten- und Endpunkte
+% text width ändert die Boxbreite wobei 1em einem Zeichen entspricht
+\tikzstyle{bag} = [circle, draw, text width=1em, inner sep=2pt, text centered]
+\tikzstyle{end} = [circle, minimum width=4pt, fill, inner sep=0pt]
+\begin{tikzpicture}[grow=down]
+  \node[bag]{}
+  child
+  {
+    node[bag] {$B$} % beschriftet Knoten 2 in erster Ebene mit X
+    child
+    {
+      node (B) [bag] {$A$} % beschriftet Knoten 4 in zweiter Ebene mit D
+      node [below of = B] {$P(B \cap A) = \dfrac{1}{6}$}
+      edge from parent
+      node[left]  {$P_{B}(A)$} % beschriftet Verbindung zu Knoten 4 (Ebene 2) mit p
+} child {
+      node[bag] {$\Bar{A}$} % beschriftet Knoten 3 in zweiter Ebene mit C
+      edge from parent
+      node[right]  {$P_{B}(\Bar{A})$} % beschriftet Verbindung zu Knoten 3 (Ebene 2) mit m
+    }
+    edge from parent
+    node[left]  {$P(B)$} % beschriftet Verbindung zu Knoten 2 (Ebene 1) mit f
+} child {
+    node[bag] {$\Bar{B}$} % beschriftet Knoten 1 in erster Ebene mit A
+    child
+    {
+      node[bag] {$A$} % beschriftet Knoten 2 in zweiter Ebene mit B
+      edge from parent
+      node[left]  {$P_{\Bar{B}}(A)$} % beschriftet Verbindung zu Knoten 2 (Ebene 2) mit k
+} child {
+      node[bag] {$\Bar{A}$} % beschriftet Knoten 1 in zweiter Ebene mit A
+      edge from parent
+      node[right]  {$P_{\Bar{B}}(A)$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
+    }
+    edge from parent
+    node[right]  {$P(\Bar{B})$} % beschriftet Verbindung zu Knoten 1 (Ebene 1) mit w
+  };
+\end{tikzpicture}}\\
+Die Wahrscheinlichkeit für das Ereignis $A\cap B$ entspricht demjenigen Ereignis, dass sowohl B als auch A eintritt. Das entspricht der Menge die nur aus der Augenzahl 3 besteht und damit der Wahrscheinlichkeit $P(A\cap B) = \dfrac{1}{6}$. Aus dem Baumdiagramm folgt damit: $$P(A\cap B) = P(B) \cdot P_{B}(A)$$ und dadurch $$P_{B}(A) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{\dfrac{1}{6}}{\dfrac{4}{6}}= \dfrac{1}{6} \cdot \dfrac{6}{4} = \dfrac{1}{4} $$.
+\end{bsp}
