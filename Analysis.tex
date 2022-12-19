@@ -1052,9 +1052,10 @@ Der Graph der gebrochen-rationale Funktion  $$f(x)= \dfrac{x^2+4x+3}{x^2+x-2}$$ 
     \begin{axis}[domain=-6:5, restrict y to domain=-5:5,axis x line=center, axis y line=center,%
      x=1cm,y=1cm,
 xtick={-6,...,5}, ytick={-5,...,5}]
-        \addplot[mark=none, color=red]  plot[samples=300,smooth]{((x+1)*(x+3)) / (x^2 +x - 2)};
+        \addplot[mark=none, color=red]  plot[samples=800,smooth]{((x+1)*(x+3)) / (x^2 +x - 2)};
         \draw[red] (3.4,1)   node [above] {$G_{f}$};
-
+        \draw[color = blue] (-2,-5) -- (-2,5);
+        \draw[color = blue] (1,-5) -- (1,5);
     \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -1237,7 +1238,20 @@ Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das 
  \begin{b8d}{Definitionslücken}{}
 Während der Kurvendiskussion müssen die Definitionslücken immer beachtet werden. Das bedeutet, dass sowohl bei der Monotonietabelle als auch bei der Krümmungstabelle die Definitionslücke berücksichtigt werden müssen. An der Definitionslücke kann sich sowohl die Monotonie als auch die Krümmung ändern.
  \end{b8d}
- Die Grenzwertbetrachtungen können nach der Fallunterscheidung \ref{Fallgebrochenrational} bestimmt werden.
+ \subsubsection{Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen} \index{Funktionen!Gebrochen-rationale!Grenzwertbetrachtungen} 
+Die Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen kann über die Auswertung von Zähler- und Nennergrad erfolgen. Hierbei versteht man unter dem Grad eines Polynoms den höchsten vorkommenden Exponenten. Man unterscheidet dabei 4 mögliche Fälle.
+\begin{merke}{Fallunterscheidungen für die Betrachtung des Grenzwertverhalten}{}
+Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D} = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
+\begin{enumerate}
+    \item Grad des Zählerpolynoms $<$ Grad des Nennerpolynoms\\
+    Durch Grenzwertbetrachtungen kann nachgewiesen werden, dass die x-Achse die waagerechte Asymptote ist. Daraus folgt $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow -\infty} f(x) = 0$$
+\item  Grad des Zählerpolynoms $=$ Grad des Nennerpolynoms\\ Bei Grenzwertuntersuchungen findet man eine waagerechte Asymptote die parallel zur x-Achse verläuft. Hierbei ergibt sich die waagerechte Asymptote aus dem Quotienten der Vorfaktoren der größten Exponenten.\\ Als Beispiel wird die Funktion $f(x)= \dfrac{2x^2}{3x^2-x+1}$, hierbei folgt aus der Grenzwertbetrachtung: $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow \infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$ und $$\lim_{x\longrightarrow -\infty} f(x) = \lim_{x\longrightarrow -\infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$
+\item Grad des Zählerpolynoms $>$ Grad des Nennerpolynoms\\
+In diesem Fall existiert eine schräge Asymptote. Diese ist direkt aus der Summenform ablesbar. \\ Als Beispiel wird die Funktion $f(x)= \dfrac{x^2+1,5x}{2x-1} = \dfrac{1}{2}x+1+\dfrac{1}{2x-1}$ betrachtet. Die schräge Asymptote hat damit die Gleichung $y= \dfrac{1}{2}x+1$.
+\item Grad des Zählerpolynoms $>$ Grad des Nennerpolynoms +1\\
+Für diesen Fall ergibt sich eine Näherungskurve vom Grad $n\geq 2$. Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
+\end{enumerate}
+\end{merke}
   \subsection{Wurzelfunktionen}
   \subsubsection{Die Umkehrfunktion}
   Einfache Wurzelfunktionen können als Umkehrfunktion der quadratischen Funktion betrachtet werden. Hierbei ist es notwendig, dass die Umkehrfunktion und die notwendigen Bedingungen der Umkehrbarkeit definiert werden. \index{Funktionen!Wurzelfunktion!Umkehrfunktion}
