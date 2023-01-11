@@ -1239,6 +1239,73 @@ Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das 
 Während der Kurvendiskussion müssen die Definitionslücken immer beachtet werden. Das bedeutet, dass sowohl bei der Monotonietabelle als auch bei der Krümmungstabelle die Definitionslücke berücksichtigt werden müssen. An der Definitionslücke kann sich sowohl die Monotonie als auch die Krümmung ändern.
  \end{b8d}
  \subsubsection{Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen} \index{Funktionen!Gebrochen-rationale!Grenzwertbetrachtungen} 
+ \begin{merke}{Untersuchung der Definitionslücke}{}
+     Eine rationale Funktion \textit{kann} Definitionslücken aufweisen. Diese sind dann die Nullstellen des Nenners.\\
+     Die Definitionslücken lassen sich in zwei Arten einteilen:
+     \begin{enumerate}
+         \item Die Definitionslücken die durch \textbf{kürzen behoben} werden können. In diesem Fall hat der Graph an der Definitionslücke ein Lücke im Graphen.      
+         \item Streben die Funktionswerte bei einer Annäherung an die Definitionslücke entweder gegen $+\infty$ oder gegen $-\infty$ so nennt man die Definitionslücke Pol. Wechseln die Funktionswerte $f(x)$ bei Annäherung von links und von rechts an den Pol das Vorzeichen, liegt ein Pol mit Vorzeichenwechsel (VZW) vor, anderfalls ist es ein Pol ohne Vorzweichenwechsel. Hat die Funktion einen Pol so hat der Graph der Funktion an dieser Stelle eine senkrechte Asymptote.
+     \end{enumerate}
+ \end{merke}
+ \begin{bsp}{Untersuchung auf Polstellen}{}
+ \begin{enumerate}
+    \item Gegeben ist die Funktion f mit $g(x) = \dfrac{(x+1)(x-1)}{x-1}$ und $\mathds{D}_g = \mathds{R}\setminus\{1\}$. Durch eine Termumformung ändert sich der Funktionsterm wie folgt: $$g(x) = \dfrac{(x-1)(x+1)}{x-1} =\dfrac{\cancel{(x-1)}(x+1)}{\cancel{(x-1)}} = x+1. $$ Der Graph der Funktion $g$ ist damit eine Gerade mit der Definitionslücke bei $x=1$.
+    \begin{center}
+\begin{tikzpicture}
+    \begin{axis}
+[restrict y to domain=-3:4, axis x line=center, axis y line=center,%
+ x=1cm,y=1cm,
+    xmin= -2.1, xmax = 3.1,
+    ymin= -1.6, ymax=4.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-2,  ..., 3},
+        ytick={-1, ..., 4},
+        xlabel = $x$,
+        ylabel=$y$]
+       \draw (1,2) circle[radius=0.08];
+        \addplot[color= black, samples = 300, domain= -3:0.95,line width=1pt]{x+1};
+        \addplot[color= black, samples = 300, domain= 1.05:4,line width=1pt]{x+1};     
+        \draw (-1,0.5)   node [above] {$g(x)$};
+        \draw (1.35,1.25)   node [above] {Def-lücke};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+     \item Gegeben ist die Funktion f mit $f(x) = \dfrac{x-1}{(x-1)(x+2)}$ mit $\mathds{D}_f = \mathds{R}\setminus\{-2, 1\}$. Durch Termumformungen ist es möglich, die Definitionslücke bei $x=1$ zu heben. Dadurch ändert sich zwar der Term allerdings bleiben die Definitionslücke bei $x= 1$ und $x=-2$ erhalten. $$f(x) = \dfrac{\cancel{x-1}}{\cancel{(x-1)}(x+2)} = \dfrac{1}{x+1}.$$
+     \item Gegeben ist die Funktion h mit $h(x) = \dfrac{1}{x+2}$ mit $\mathds{D}_h = \mathds{R}\setminus\{-2\}$. Bei dieser Funktion kann die Definitionslücke nicht behoben werden. Um zu entscheiden, ob eine Polstelle mit oder ohne VZW vorliegt, muss eine Grenzwertbetrachtung an der Definintionslücke durchgeführt werden.
+     \begin{equation*}
+    \begin{split}
+        \lim_{x\rightarrow -2^+} h(x) &= \lim_{x\rightarrow -2^+} \dfrac{1}{x+2} = \infty\\
+        \lim_{x\rightarrow -2^-} h(x)&= \lim_{x\rightarrow -2^-} \dfrac{1}{x+2} = -\infty
+    \end{split}
+\end{equation*}
+ Damit liegt eine Polstelle mit Vorzeichenwechsel vor.
+ \begin{center}
+\begin{tikzpicture}
+    \begin{axis}
+[restrict y to domain=-4:4, axis x line=center, axis y line=center,%
+ x=1cm,y=1cm,
+    xmin= -7.1, xmax = 3.1,
+    ymin= -4.1, ymax=3.1,
+        axis lines = middle, 
+        ymajorgrids=true,
+        xmajorgrids=true,
+        xtick={-7,  ..., 3},
+        ytick={-4, ..., 3},
+        xlabel = $x$,
+        ylabel=$y$]
+        \addplot[color= black, samples = 300, domain= -7:-2,line width=1pt]{((1) / (x+2)};
+        \addplot[color= black, samples = 300, domain= -2:3,line width=1pt]{((1) / (x+2)};
+        \draw [ red,dashed,line width=1pt] (-2,-4) -- (-2,3);
+        \draw (-3,-2)   node [above] {$h(x)$};
+        \draw[red] (0,-1)   node [above] {senkrechte Asymptote};
+        \draw[red] (0,-1.5)   node [above] {Polstelle mit VZW};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+ \end{enumerate}
+ \end{bsp}
 Die Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen kann über die Auswertung von Zähler- und Nennergrad erfolgen. Hierbei versteht man unter dem Grad eines Polynoms den höchsten vorkommenden Exponenten. Man unterscheidet dabei 4 mögliche Fälle.
 \begin{merke}{Fallunterscheidungen für die Betrachtung des Grenzwertverhalten}{}
 Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D} = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
