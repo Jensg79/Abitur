@@ -2602,7 +2602,7 @@ Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
   bounds where=top,   % top | bottom | none
   bound y shift=2pt,
 }
-    \ShadeArea{\x^2+1}{0}{3}\\
+    \scalebox{0.75}{\ShadeArea{\x^2+1}{0}{3}}\\
     \item Für die Funktion $f(x) = x^3-3x$ im Intervall $I=[-2,5|2,7]$\\
     \IntegralSetup{
   xmin=-4, xmax=2.3,
@@ -2620,7 +2620,7 @@ Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
   bounds where=top,   % top | bottom | none
   bound y shift=2pt,
 }
-    \ShadeArea{\x^3-3*\x}{-2.5}{1.7}
+   \scalebox{0.75}{ \ShadeArea{\x^3-3*\x}{-2.5}{1.7}}
         \end{itemize}
         \item Die Werte unterhalb der $x-$Achse werden dabei negativ gewertet
         \item Die Werte oberhalb der $x-$Achse werden dabei positiv gewertet
@@ -2662,3 +2662,394 @@ die Integralfunktion.
 \end{itemize}
 \end{itemize}
 \end{b8d}
+\section{Integrationsregeln}
+\begin{defi}{Das unbestimmte Integral}{}\index{Integral!unbestimmtes Integral}
+Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Funktion $F$ Stammfunktion von $f$, falls gilt $F'(x) = f(x) $ für alle $x\in I$. Das unbestimmte Integral von $f$ ist dann $\int f(x) dx = F(x) +c$ mit $c\in \mathds{R}$.
+\end{defi}
+\begin{merke}{Regeln zur Integration von Funktionen}{}\index{Integral!Regeln Integration}
+    Sind $G$ und $H$ jeweils Stammfunktionen der Funktionen $g$ und $h$, so gilt für alle $k\in \mathds{R}$:\\
+    Ist
+    \begin{itemize}
+        \item $f: x \mapsto k \cdot g(x) \Rightarrow F: x\mapsto k \cdot G(x)$ 
+        \item $f: x\mapsto g(x) + h(x) \Rightarrow f: x\mapsto G(x) + H(x)$
+    \end{itemize}
+    eine mögliche Stammfunktion von f\\
+    Sind Funktionen $f$ und $g$ auf einem Intervall $I$ definiert, so gilt für alle $k\in \mathds{R}$ und alle $a,b \in I$:
+    \begin{itemize}
+        \item $\integral[limits-mode=limits,limits={a, b}]{k \cdot f(x)} = k \cdot \integral[limits-mode=limits,limits={a, b}]{f(x)}$
+        \item $\integral[limits-mode=limits,limits={a, b}]{(f(x) + g(x))} = \integral[limits-mode=limits,limits={a, b}]{f(x)} + \integral[limits-mode=limits,limits={a, b}]{g(x)}$
+    \end{itemize}
+\end{merke}
+
+\begin{merke}{Spezielle Integrationsregeln}{}\index{Integral!spezielle Integrationsregeln}
+    Für die Integration von speziellen Funktionen gelten folgende Regeln.
+    \begin{multicols}{2}
+        \begin{description}
+            \item[] allgemein 
+            \item[]  $\integral[limits-mode=limits]{f'(x) \cdot e^{f(x)}}= e^{f(x)} +c$
+            \item[]  $\integral[limits-mode=limits]{\dfrac{f'(x)}{f(x)}}= \ln{|f(x)|} +c$ mit $f(x) \neq 0$
+            \item[] $\integral[limits-mode=limits]{f(ax+b)}= \dfrac{1}{a}\cdot F(ax+b) +c$
+            \item[] Beispiel 
+            \item[] $\integral[limits-mode=limits]{2x \cdot e^{x^2}}= e^{x^2} +c$ 
+            \item[] $\integral[limits-mode=limits]{\dfrac{2x}{x^2+1}}= \ln{(|x^2+1|)} +c = \ln{(x^2+1)} +c$ da $x^2 + 1 >0$
+            \item[] $\integral[limits-mode=limits]{\cos{(2x-5)}} = \dfrac{1}{2} \cdot \sin{(2x-5)} +c $ 
+        \end{description}
+    \end{multicols}
+\end{merke}
+\begin{b8d}{Verkette Funktion}{}
+    Bei der Integrationsregel $\integral[limits-mode=limits]{f(ax+b)}= \dfrac{1}{a}\cdot F(ax+b) +c$ steht $f(ax + b)$ für eine verkettete Funktion, bei der die innere Funktion eine lineare Funktion ist. Die Regel gilt \textcolor{red}{nur} für diese Art von Funktionen.
+\end{b8d}
+\begin{bsp}{für die Anwendung der Regeln}{}
+    Berechne die folgenden Integrale:
+    \begin{multicols}{3}
+    \begin{description}
+        \item[] $\integral{\dfrac{2}{x^2}}$
+        \item[] $\integral{\dfrac{1}{\sqrt{x}}}$
+        \item[] $\integral{\dfrac{1}{x}}$
+    \end{description}   
+    \end{multicols}
+    $\integral{\dfrac{2}{x^2}} = 2\integral{x^{-2}} = 2 \cdot (-1) \cdot x^{-1} +c = -2\cdot \dfrac{1}{x} +c = \dfrac{-2}{x} +c$\\[0.2cm] $\integral{\dfrac{1}{\sqrt{x}}} = \integral{x^{-0,5}} = 2\cdot x^{0,5} + c = 2\cdot \sqrt{x} + c$ \\[0.2cm] $\integral{\dfrac{1}{x}} = \ln{|x|} + c$  \end{bsp}
+\section{Flächenberechnungen mit dem Integral}
+\subsection{Fläche zwischen Kurve und x-Achse}
+\begin{defi}{Flächeminhalt}{}\index{Integral!Flächenberechnung}
+    bei der Berechnung des \textbf{Inhalts der Fläche zwischen dem Graphen einer Funktion $f$ und der x-Achse} in einem Interval $I=[a,b]$ geht man wie folgt vor:
+    \begin{enumerate}
+        \item Bestimmen der Nullstelle von $f$ in $I=[a,b]$.
+        \item Berechnen der Integrale über den Teilintervallen.
+        \item Addieren der Inhalte der Teilflächen, d.h. der Beträge der einzelnen Integrale.
+    \end{enumerate}  
+  \begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=12cm, height=8cm,
+  axis lines=middle,
+  axis line style={-stealth},
+  xlabel={$x$}, ylabel={$y$},
+  xmin=-3.5, xmax=2.7,
+  ymin=-5.2,   ymax=3.5,
+  xtick={-3,-2,-1,0,1,2},
+  ytick={-5,-4,-3,-2,-1,0,1,2,3},
+  grid=both,
+  minor grid style={gray!20},
+  major grid style={gray!35},
+  samples=300,
+]
+
+% --- Funktion mit zwei Nullstellen bei -2 und 1 -----------------------------
+% f(x) = 2.25 - (x+0.5)^2  (Maximum bei x=-0.5, f=2.25)
+\addplot[name path=fL, very thick, blue, domain=-3:-2] {2.25 - (x+0.5)^2};
+\addplot[name path=fM, very thick, blue, domain=-2:1 ] {2.25 - (x+0.5)^2};
+\addplot[name path=fR, very thick, blue, domain= 1:2 ] {2.25 - (x+0.5)^2};
+
+% --- x-Achsen-Segmente exakt für die Füllintervalle ------------------------
+\path[name path=axisL] (axis cs:-3,0) -- (axis cs:-2,0);
+\path[name path=axisM] (axis cs:-2,0) -- (axis cs: 1,0);
+\path[name path=axisR] (axis cs: 1,0) -- (axis cs: 2,0);
+
+% --- Flächenfärbung NUR im Intervall [-3,2] --------------------------------
+\addplot[fill=red!60,   fill opacity=0.25, draw=none] fill between[of=fL and axisL]; % [-3,-2]
+\addplot[fill=green!60, fill opacity=0.25, draw=none] fill between[of=fM and axisM]; % [-2,1]
+\addplot[fill=red!60,   fill opacity=0.25, draw=none] fill between[of=fR and axisR]; % [1,2]
+
+% --- Senkrechte Grenzlinien des Integrals a=-3, b=2 -------------------------
+\draw[densely dashed, gray] (axis cs:-3,-5) -- (axis cs:-3,3);
+\draw[densely dashed, gray] (axis cs: 2,-5) -- (axis cs: 2,3);
+\node[below] at (axis cs:-3,1) {$a=-3$};
+\node[below] at (axis cs: 2,1) {$b=2$};
+
+% --- Optional: Nullstellen markieren (zur Vorzeichen-Orientierung) ----------
+\draw[densely dashed, gray!70] (axis cs:-2,-3) -- (axis cs:-2,3);
+\draw[densely dashed, gray!70] (axis cs: 1,-3) -- (axis cs: 1,3);
+\addplot[only marks, mark=*, mark size=1.8pt] coordinates {(-2,0) (1,0)};
+
+% --- Label der Teilflächen ---------------------------------------------------
+\node at (axis cs:-2.6,-1.1) {$A_1$};
+\node at (axis cs:-0.5, 1.2) {$A_2$};
+\node at (axis cs: 1.5,-1.1) {$A_3$};
+
+\end{axis}
+\end{tikzpicture}       
+    \end{center}
+    Die Stellen $x_1 = - 2$ und $x_2 = 1$ sind die Nullstellen des Graphen $G_f$ von f. Dadurch muss für die Bestimmung der Fläche das Integral in aufgeteilt werden.\\[0.25cm]
+    $ A_G =  \left\lvert\integral[limits-mode=limits,limits={-3, -2}]{f(x)} \right\rvert + \integral[limits-mode=limits,limits={-2, 1}]{f(x)} + \left\lvert\integral[limits-mode=limits,limits={1, 2}]{f(x)}\right\rvert =\left\lvert A_1\right\rvert + A_2 + \left\lvert A_3\right\rvert $
+\end{defi}
+\subsection{Fläche zwischen Kurven}
+\begin{merke}{Fläche zwischen Kurven}{}\index{Integral!Fläche zwischen Kurven}
+    Der Inhalt A einer \textbf{\textcolor{blue}{Fläche, die im Intervall $I=[a,b]$ von dem Graphen zweier Funktionen$f$ und $g$ begrenzt wird}}, wobei $f(x)\geq g(x)$ bzw. $g(x)\geq f(x)$ gelten muss, berechnet sich mit: $$A= \left\lvert\integral[limits-mode=limits,limits={a, b}]{(f(x) - g(x))} \right\rvert$$
+ \end{merke}
+  \begin{b8d}{Vorgehen für Flächen zwischen Kurven}{}
+Bei der Berechnung des \textbf{\textcolor{blue}{Inhalts der Fläche zwischen den Graphen zweier Funktionen $f$ und $g$}} im Intervall $I=[a,b]$ geht man wie folgt vor:
+\begin{enumerate}
+    \item Bestimmen aller Schnittstellen $x_i$ der beiden Funktionen in $I=[a,b]$
+    \item Berechnen und Addieren der Inhalte der Teilflächen
+\end{enumerate}
+\begin{center}\begin{tikzpicture}
+\begin{axis}[
+  width=14cm, height=7cm,
+  axis lines=middle,
+  axis line style={-stealth},
+  xlabel={$x$}, ylabel={$y$},
+  xmin=-3.5, xmax=3.5,
+  ymin=-3,   ymax=3,
+  xtick={-3,-2,-1,0,1,2,3},
+  ytick={-2,-1,0,1,2},
+  grid=both,
+  minor grid style={gray!20},
+  major grid style={gray!35},
+  samples=400
+]
+
+% --- Definition der Kurven ---------------------------------------------------
+% Konstruktion mit 3 Schnittpunkten: f - g = (x+2)*x*(x-2)/8
+\addplot[name path=f, very thick, blue, domain=-3.5:3.5]
+  {0.2*x^2 - 1 + (x^3 - 4*x)/8};
+
+\addplot[name path=g, very thick, black!70, domain=-3.5:3.5]
+  {0.2*x^2 - 1};
+
+% --- Unsichtbare Teilpfade zum exakten Füllen (senkrechte Ränder) -----------
+\addplot[name path=fAB, draw=none, domain=-2:0] {0.2*x^2 - 1 + (x^3 - 4*x)/8};
+\addplot[name path=gAB, draw=none, domain=-2:0] {0.2*x^2 - 1};
+
+\addplot[name path=fBC, draw=none, domain=0:2]  {0.2*x^2 - 1 + (x^3 - 4*x)/8};
+\addplot[name path=gBC, draw=none, domain=0:2]  {0.2*x^2 - 1};
+
+% --- Flächenfärbung NUR zwischen dem linken und rechten Schnittpunkt --------
+% [-2,0]: f >= g  → positiv (grün)
+\addplot[fill=green!60, fill opacity=0.25, draw=none]
+  fill between[of=fAB and gAB];
+
+% [0,2]:  f <  g  → negativ (rot)
+\addplot[fill=red!60,   fill opacity=0.25, draw=none]
+  fill between[of=fBC and gBC];
+
+% --- Schnittpunkte und senkrechte Hilfslinien -------------------------------
+\draw[densely dashed, gray, thick] (axis cs:-2,-3) -- (axis cs:-2,3);
+\draw[densely dashed, gray, thick] (axis cs: 0,-3) -- (axis cs: 0,3);
+\draw[densely dashed, gray, thick] (axis cs: 2,-3) -- (axis cs: 2,3);
+
+% --- Labels der Funktionen --------------------------------------------------
+\node at (axis cs:-3,  1.5) {$f(x)$};
+\node[blue] at (axis cs: 2.7,2.7) {$g(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+$$A_g = \left\lvert\integral[limits-mode=limits,limits={-2, 0}]{(f(x) - g(x))}   \right\rvert + \left\lvert\integral[limits-mode=limits,limits={0, 2}]{(f(x) - g(x))}   \right\rvert$$
+ \end{b8d}
+     \begin{b8d}{Stammfunktion der Logarithmusfunktion}{}
+   Wir suchen die Stammfunktion von $\ln(x)$.
+$$
+F(x) = \int \ln(x)\,dx
+$$
+Da der Logarithmus nicht direkt integrierbar ist, verwenden wir die Regel der \textbf{partiellen Integration}:
+$$
+\int u\,dv = u\cdot v - \int v\,du
+$$
+Wir wählen:
+$$
+u = \ln(x) \quad \Rightarrow \quad du = \frac{1}{x}\,dx
+$$
+$$
+dv = dx \quad \Rightarrow \quad v = x
+$$
+
+Einsetzen in die Formel ergibt:
+$$
+\int \ln(x)\,dx = x\ln(x) - \int x \cdot \frac{1}{x}\,dx
+$$
+$$
+= x\ln(x) - \int 1\,dx
+$$
+$$
+= x\ln(x) - x + C
+$$
+\textbf{Ergebnis:}
+$$
+F(x) = x\ln(x) - x + C
+$$
+
+\bigskip
+\textbf{Merksatz:}
+\emph{Die Stammfunktion von $\ln(x)$ erhält man durch partielle Integration. \\ 
+Es gilt:}
+$\int \ln(x)\,dx = x\ln(x) - x + C \hspace{0.5cm} \text{und damit ist }
+F(x) = x\cdot\ln(x) - x + C$ 
+\end{b8d}
+\begin{b8d}{Definitionslücke}{}\index{Integral!Definitionslücke}
+Bei der Berechnung des bestimmten Integrals bzw. der Flächenbilanz muss auf die Definitionslücken geachtet werden. An den Definitionslücken ist jede Funktion \textbf{\textcolor{red}{nicht integrierbar}}. Das bedeutet, dass \textbf{\textcolor{blue}{niemals}} über die Definitionslücke integriert werden darf.
+\end{b8d}
+\begin{bsp}{Die Funktion $f(x) = \dfrac{1}{x}$ }{}
+\begin{tikzpicture}
+\begin{axis}[
+  width=10cm,   % feste Breite
+  height=8cm,   % feste Höhe
+  scale only axis,
+  axis lines=middle,
+  xmin=-3.3, xmax=3.3,
+  ymin=-6.3, ymax=6.3,
+  samples=400,
+  xlabel={$x$}, ylabel={$y$},
+  ticklabel style={font=\small},
+  label style={font=\small},
+  clip=true
+]
+  
+% Kurve
+\addplot[blue, thick, domain=-3:-0.1] {1/x};
+\addplot[blue, thick, domain=0.1:3] {1/x};
+
+% Füllung links
+\addplot[
+  fill=orange!40,
+  fill opacity=0.5,
+  draw=none,
+  domain=-2:-0.01
+] {1/x} \closedcycle;
+
+% Füllung rechts
+\addplot[
+  fill=teal!40,
+  fill opacity=0.5,
+  draw=none,
+  domain=0.01:2
+] {1/x} \closedcycle;
+
+% Optionale Hilfslinien für Integrationsgrenzen
+\draw[very thick,dashed, gray] (axis cs:-2,0) -- (axis cs:-2,{1/(-2)});
+\draw[very thick, dashed, gray] (axis cs:2,0) -- (axis cs:2,{1/(2)});
+
+\end{axis}
+\end{tikzpicture}
+
+ Das Integral $\integral[limits-mode=limits,limits={-2, 2}]{\dfrac{1}{x}}$ der Funktion f mit $f(x) = \dfrac{1}{x}$ und\\ $\mathds{D}_f= \mathds{R}\setminus\{0\}$ ist nicht einfach berechenbar da im Intervall die Definitionslücke $x=0$ liegt. Es ergibt sich für die einzelnen Integrale: 
+ $$\lim\limits_{b\longrightarrow 0^-} \integral[limits-mode=limits,limits={-2, b}]{\dfrac{1}{x}} = -\infty$$
+ und 
+ $$\lim\limits_{a\longrightarrow 0^+} \integral[limits-mode=limits,limits={a, 2}]{\dfrac{1}{x}} = \infty.$$
+
+\end{bsp}
+ \section{Das uneigentliche Integral}
+In den vorangegangenen Abschnitten wurden nur Integrale in abgeschlossenen Intervallen betrachten. Es wurden Flächenbilanzen bzw. Flächen unter Kurven in begrenzten Bereichen bestimmt. Im folgenden wird mithilfe der Integration untersucht, ob auch \glqq ins Unendlich reichende \grqq Flächen einen endlichen Flächeninhalt haben können. Hierfür wird aus
+$$
+\highlightmath{\integral[limits-mode=limits,limits={1, \infty}]{\dfrac{2}{x^2}}=\lim\limits_{a\longrightarrow \infty} \integral[limits-mode=limits,limits={1, a}]{\dfrac{2}{x^2}}}$$
+\begin{bsp}{Berechnung uneigentliches Integral}{}
+\begin{multicols}{2}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=10cm,   % feste Breite
+  height=8cm,   % feste Höhe
+  scale only axis,
+  axis lines=middle,
+  xmin=-0.3, xmax=7.3,
+  ymin=-0.3, ymax=2.6,
+  samples=400,
+  xlabel={$x$}, ylabel={$y$},
+  ticklabel style={font=\small},
+  label style={font=\small},
+  clip=true
+]
+% Kurve
+\addplot[red, thick, domain=0.1:7.2] {2/x^2};
+
+% Füllung rechts
+\addplot[
+  fill=blue!40,
+  fill opacity=0.6,
+  draw=none,
+  domain=1:4
+] {2/x^2} \closedcycle;
+
+% Optionale Hilfslinien für Integrationsgrenzen
+\draw[very thick, dashed, gray] (axis cs:1,0) -- (axis cs:1,{2});
+
+\draw[very thick, dashed, red] (axis cs:4,0) -- (axis cs:4,{1/(8)});
+
+\node[below,yshift=-6pt] at (axis cs:4.5,0)
+    {$\textcolor{red}{\xlongrightarrow{\;a\;} \infty}$};
+\end{axis}
+\end{tikzpicture}
+Berechnung des uneigentlichen Integrals $$\integral[limits-mode=limits,limits={1, \infty}]{\dfrac{2}{x^2}} = \lim \limits_{a \longrightarrow\infty}\integral[limits-mode=limits,limits={1, a}]{\dfrac{2}{x^2}}= \lim \limits_{a \longrightarrow\infty} \left[-2x^{-1}\right]_1^a $$ daraus folgt für die Differenz
+$$\lim \limits_{a \longrightarrow\infty} -\dfrac{2}{a} - \left(-\dfrac{2}{1}\right) = \lim \limits_{a \longrightarrow\infty} -\dfrac{2}{a} +2 = 0^-+2 = 2. $$
+Damit hat die ins unendliche reichende Fläche einen endlichen Flächeninhalt. 
+\end{multicols}
+\end{bsp}
+\begin{defi}{Das uneigentliche Integral}{}
+    Existiert für eine im Intervall $I= \left[a; \infty \right[$ bzw. $I = \left]a;b \right]$ definierte Funktion $f$ $$\lim\limits_{z\longrightarrow \infty} \integral[limits-mode=limits,limits={a, z}]{f(x)} \hspace{0.5cm} \text{bzw.} \hspace{0.5cm} \lim\limits_{z\longrightarrow a} \integral[limits-mode=limits,limits={z, b}]{f(x)}$$ 
+    so nennt man diesen Grenzwert das \textbf{\textcolor{red}{uneigentliche Integral}} über dem betreffenden Intervall.
+\end{defi}
+\begin{bsp}{Berechnung uneigentliches Integral}{}
+\begin{multicols}{2}
+\begin{tikzpicture}
+\begin{axis}[
+  width=10cm,   % feste Breite
+  height=8cm,   % feste Höhe
+  scale only axis,
+  axis lines=middle,
+  xmin=-0.3, xmax=3.3,
+  ymin=-1.3, ymax=15.6,
+  samples=400,
+  xlabel={$x$}, ylabel={$y$},
+  ticklabel style={font=\small},
+  label style={font=\small},
+  clip=true
+]
+% Kurve
+\addplot[red, thick, domain=0.1:3.2] {2/x^2};
+
+% Füllung rechts
+\addplot[
+  fill=blue!40,
+  fill opacity=0.6,
+  draw=none,
+  domain=0.5:1
+] {2/x^2} \closedcycle;
+
+% Optionale Hilfslinien für Integrationsgrenzen
+\draw[very thick, dashed, gray] (axis cs:1,0) -- (axis cs:1,{2});
+
+\draw[very thick, dashed, red] (axis cs:0.5,0) -- (axis cs:0.5,8);
+
+\node[below,yshift=-1pt] at (axis cs:0.25,0)
+    {$\textcolor{red}{0 \xleftarrow
+{\;z\;}}$};
+\end{axis}
+\end{tikzpicture}
+
+Berechnung des uneigentlichen Integrals $$\integral[limits-mode=limits,limits={0, 1}]{\dfrac{2}{x^2}} = \lim \limits_{z \longrightarrow 0}\integral[limits-mode=limits,limits={z, 1}]{\dfrac{2}{x^2}}= \lim \limits_{z \longrightarrow 0} \left[-2x^{-1}\right]_z^1 $$ daraus folgt für die Differenz
+$$
+\highlightmath{\integral[limits-mode=limits,limits={1, \infty}]{\dfrac{2}{x^2}}=\lim\limits_{a\longrightarrow \infty} \integral[limits-mode=limits,limits={1, a}]{\dfrac{2}{x^2}}}$$
+Damit hat die eng begrenzte Fläche einen unendlichen Flächeninhalt. 
+\end{multicols}
+\end{bsp}
+\begin{rechnung}{}{}
+   Untersuchungen am Beispiel: \\[0.3cm]$f(x)= x+\dfrac{1}{4\sqrt{x}}$ \hspace{0.3cm} mit \hspace{0.3cm} $\mathds{D}= \mathds{R}^+$ \\[0.3cm] $a) A(z) = \lim\limits_{z \longrightarrow 0}\integral[limits-mode=limits,limits={z, 1}]{x+\dfrac{1}{4\sqrt{x}}} = \lim\limits_{z \longrightarrow 0}\left[\dfrac{1}{2}x^2 + \dfrac{1}{2} \sqrt{x}\right]_z^1 = \lim\limits_{z \longrightarrow 0} \left(1-\dfrac{1}{2}z^2 - \dfrac{1}{2}\sqrt{z}\right)= 1$\\[0.3cm] Damit hat die Fläche für $z\longrightarrow 0$ den Wert $1$\\[0.3cm] b) $A(b) = \lim\limits_{b \longrightarrow \infty}\integral[limits-mode=limits,limits={1, b}]{\left(x-(x+\dfrac{1}{4\sqrt{x}})\right)} = \lim\limits_{b \longrightarrow \infty}\integral[limits-mode=limits,limits={1, b}]{\dfrac{1}{4\sqrt{x}}} =\lim\limits_{b \longrightarrow \infty}  \left[\dfrac{1}{2} \sqrt{b}\right]_1^b $  \\[0.3cm] $=\lim\limits_{b \longrightarrow \infty} \dfrac{1}{2} \sqrt{b} -\dfrac{1}{2} = \infty$
+\end{rechnung}
+\section{Das Integral als Gesamtänderung einer Fläche}
+\begin{defi}{Von der Änderungsrate zum Bestand}{}\index{Integral!Änderungsrate}
+    Gegeben ist eine in einem Intervall $I$ integrierbare Funktion $f:x\mapsto f(x)$. Beschreibt die Funktion $f$ im Intervall $I$ die lokale bzw. momentane Änderungsrate einer Größe, so entspricht das bestimmte Integral $\integral[limits-mode=limits,limits={a, b}, variable ={t}]{f(t)}$ mit $a,b \in I$ der Gesamtänderung dieser Größe im Intervall $I=[a|b]$.
+\end{defi}
+\newpage
+\section{Rotationskörper}
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{18pt}
+\def\columnseprulecolor{\color{gray!60}}
+\begin{multicols}{2}
+
+Ein Rotationskörper entsteht, wenn die vom Graphen einer Funktion $f$ über dem Intervall $I=[a;b]$ eingeschlossenen Fläche um die $x-$Achse rotiert. \\
+\begin{center}
+\includegraphics[width = 0.3\textwidth]{Bilder/Rotationskoerper1.png}    
+\end{center}
+Die Bestimmung des Volumens bei Rotationskörpern orientiert sich am Vorgehen bei der Definition des Integrals, Flächeninhalte durch Rechtecksummen anzunähern.\\
+\begin{center}
+\includegraphics[width = 0.4\textwidth]{Bilder/Rotationskoerper2.png}    
+\end{center}
+Man nähert bei Rotationskörpern das Volumen durch eine Summe von Zylindervolumina an. Es werden Zylinder der Höhe $h = \Delta x$ betrachtet, deren Volumina sich mit der Formel $V_z = \pi r^2 \cdot h$ berechnen lassen. Somit gilt für das Volumen $V_i$ rechts einer Stelle $x_i$ folgender Zusammenhang: $V_i = \pi\cdot (f(x_i))^2 \cdot \Delta x$. Je schmaler die einzelnen Zylinder werden, desto besser wird das Volumen des Rotationskörpers angenähert.  
+\begin{center}
+\includegraphics[width = 0.3\textwidth]{Bilder/Rotationskoerper3.png}    
+\end{center} 
+Für eine stetige Funktion $f$ ist das Volumen des Rotationskörpers folglich der Grenzwert der einzelnen Zylindervolumina für $n\rightarrow \infty$ und damit $\Delta x \rightarrow 0$ und somit $$V = \integral[limits-mode=limits,limits={a, b}]{\pi \cdot (f(x))^2} = \pi \cdot \integral[limits-mode=limits,limits={a, b}]{(f(x))^2}$$
+\end{multicols}
+\begin{defi}{Volumen von Rotationskörpern}{}
+  Die Funktion $f$ sei über einem Intervall $I$ mit $I=[a;b]$ stetig. Rotiert die Fläche zwischen dem Graphen von $f$ und der $x-$Achse im Intervall $I=[a;b]$ um die $x-$Achse, so entsteht ein \textbf{\textcolor{red}{Rotationskörper}}.\\
+  Sein Volumen berechnet man in Anlehnung an die Fläche mit $$V= \pi \integral[limits-mode=limits,limits={a, b}]{(f(x))^2}$$
+\end{defi}

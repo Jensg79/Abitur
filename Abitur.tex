@@ -10,11 +10,12 @@
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, marvosym,esvect}%lipsum,
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{extarrows}
 \usepackage{{intexgral}}
 \usepackage{Riemann}
 \usepackage{bestIntegral}
+
 \usepackage{polynom}
 \polyset{%
     vars=x,
@@ -22,9 +23,14 @@
     div=:,
     delims={(}{)}}
 \usepackage{dsfont}
+% ---------- kleine "Tasten" ----------
+\newcommand{\taste}[1]{%
+  \tikz[baseline=(X.base)]\node[draw,rounded corners=2pt,inner xsep=4pt,inner ysep=2pt,fill=black!3](X){\sffamily\footnotesize #1};%
+}
+\newcommand{\seq}[1]{\texttt{#1}} % für formale Sequenzen
 \colorlet{shadecolor}{yellow!15}
 \usepackage{thmtools}
-\hypersetup{colorlinks =true, linkcolor = blue, urlcolor =red, pdftitle={Mathematik in Q11}}
+\hypersetup{colorlinks =true, linkcolor = blue, urlcolor =red, pdftitle={Mathematik in der Oberstufe Bayern}}
 \usepackage{fancyvrb}
 \usepackage{fancyhdr, lastpage}
 \pagestyle{fancy}
@@ -143,8 +149,24 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15, width =10cm}
 \usepackage{mathrsfs}
-\usetikzlibrary{arrows,shadows.blur}
+\usepackage{fontawesome5}
+\usetikzlibrary{arrows,shadows.blur, backgrounds, fit}
 \usetikzlibrary{calc,arrows.meta,decorations.pathreplacing,positioning}
+% Marker für Mathematik (inline oder display)
+\newcommand{\highlightmath}[1]{%
+  \tikz[baseline=(X.base)]{
+    % 1) Inhalt (Math) setzen
+    \node[inner sep=0pt, outer sep=0pt] (X) {$\displaystyle #1$};
+    % 2) Hintergrund darüber legen
+    \begin{pgfonlayer}{background}
+      \node[fill=yellow!35, rounded corners=1pt, inner sep=2pt, fit=(X)] {};
+    \end{pgfonlayer}
+  }%
+}
+\newtcbtheorem[no counter]{rechnung}
+  {\faCheckSquare[regular]\ Rechnung}{colback=green!7,colframe=gray!85!black,
+  fonttitle=\bfseries,title after break={\faCheckSquare[regular]\ Rechnung (Fortsetzung)}}{theorem}
+  
 \newtcbtheorem[number within=section]{satz}
     {Satz}{colback=green!7,colframe=gray!85!black,fonttitle=\bfseries,title after break={Satz (Fortsetzung)}}{theorem}
 \newtcbtheorem[number within=section]{defi}
@@ -203,9 +225,9 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 %\renewcommand{\baselinestretch}{1}  % Zeilenabstand einfach
 \huge \textbf{Gymnasium Gröbenzell}
 \vspace{0.2cm}\\
-\Large \textbf{ Mathematik Klasse 11}
+\Large \textbf{ Mathematik PuLSt 12 und 13}
 \vspace{1cm}\\
-\LARGE \textbf{Mathematik}
+\LARGE \textbf{Zusammenfassung der Themengebiete}
 \vspace{1cm}\\
 \end{center}
 \includegraphics[width = \textwidth]{Bilder/Titel.jpg}
@@ -271,8 +293,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \shade[ball color=yellow] (4,4,5.2) circle (0.2);
 \end{tikzpicture}
 \end{center}
-
-%\include{AnalytischeGeometrie.tex}
+\include{AnalytischeGeometrie.tex}
 \chapter{Stochastik}
 \vspace{2cm}
 \begin{center}
@@ -319,11 +340,10 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{scope}
 \end{tikzpicture}}  
 \end{center}
-%\include{Stochastik.tex}
+\include{Stochastik.tex}
 \chapter{Anhang}
 \AddToShipoutPicture*{\BackgroundPic}
-
-%\include{Anhang.tex}
+\include{Anhang.tex}
 \printindex
 
 \end{document}
