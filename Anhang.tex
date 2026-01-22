@@ -68,7 +68,7 @@ f(-x) = -f(x)
     \end{tikzpicture}  
 \end{center}
 \section{Übersicht von Ableitungsregeln mit Beispielen} \index{Ableitung! Übersicht}
-\subsection{Allgemeine Ableitungsregeln}\index{Ableitungsregeln! Allgemeine Ableitungsregln}
+\subsection{Allgemeine Ableitungsregeln}\index{Ableitungsregeln! Allgemeine Ableitungsregln}2
 \begin{merke}{Allgemeine Ableitungsregeln}{}
 \begin{multicols}{2}
 \begin{itemize}
@@ -203,12 +203,12 @@ xtick={-9,...,4}, ytick={-5,...,5}]
 \subsection{Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen} \index{Funktionen!Gebrochen-rationale!Grenzwertbetrachtungen} \label{Fallgebrochenrational}
 Die Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen kann über die Auswertung von Zähler- und Nennergrad erfolgen. Hierbei versteht man unter dem Grad eines Polynoms den höchsten vorkommenden Exponenten. Man unterscheidet dabei 4 mögliche Fälle.
 \begin{merke}{Fallunterscheidungen}{}
-Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D} = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
+Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D}_f = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
 \begin{enumerate}
     \item Grad des Zählerpolynoms $<$ Grad des Nennerpolynoms\\
     Durch Grenzwertbetrachtungen kann nachgewiesen werden, dass die x-Achse die waagerechte Asymptote ist. Daraus folgt $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow -\infty} f(x) = 0$$
 \item  Grad des Zählerpolynoms $=$ Grad des Nennerpolynoms\\ Bei Grenzwertuntersuchungen findet man eine waagerechte Asymptote die parallel zur x-Achse verläuft. Hierbei ergibt sich die waagerechte Asymptote aus dem Quotienten der Vorfaktoren der größten Exponenten.\\ Als Beispiel wird die Funktion $f(x)= \dfrac{2x^2}{3x^2-x+1}$, hierbei folgt aus der Grenzwertbetrachtung: $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow \infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$ und $$\lim_{x\longrightarrow -\infty} f(x) = \lim_{x\longrightarrow -\infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$
-\item Grad des Zählerpolynoms $>$ Grad des Nennerpolynoms\\
+\item Grad des Zählerpolynoms $=$ Grad des Nennerpolynoms +1\\
 In diesem Fall existiert eine schräge Asymptote. Diese ist direkt aus der Summenform ablesbar. \\ Als Beispiel wird die Funktion $f(x)= \dfrac{x^2+1,5x}{2x-1} = \dfrac{1}{2}x+1+\dfrac{1}{2x-1}$ betrachtet. Die schräge Asymptote hat damit die Gleichung $y= \dfrac{1}{2}x+1$.
 \item Grad des Zählerpolynoms $>$ Grad des Nennerpolynoms +1\\
 Für diesen Fall ergibt sich eine Näherungskurve vom Grad $n\geq 2$. Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
@@ -454,7 +454,7 @@ Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve e
         \item Der Parameter a ändert die Amplitute, also die maximale Auslenkung der Kurve
         \item Der Parameter b streckt bzw. staucht die Kurve in Richtung der x-Achse. Durch den Faktor b wird damit die Periode $p$ verändert $p = \dfrac{2\cdot \pi}{b}$
         \item Der Parameter c verschiebt die Kurve in Richtung der x-Achse.
-        \item Der Parameter d verschiebt die Kurve in Richtung der x-Achse.
+        \item Der Parameter d verschiebt die Kurve in Richtung der y-Achse.
     \end{itemize}
 \end{b8d}
 \begin{center}

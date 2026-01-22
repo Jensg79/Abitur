@@ -712,3 +712,86 @@ Aus der Determinante folgt damit für das Volumen folgende Rechnung:
     \end{split}
 \end{equation*}
 \end{bsp}
+\section{Geraden im Raum}
+Eine Gerade lässt sich entweder durch zwei Punkte oder einen Punkt und eine Richtung beschreiben. Um die Richtung einer Geraden festzulegen genügt es in der Ebene die Steigung \(m\) anzugeben. Im 3-dim. Raum wird die Richtung durch einen Vektor markiert.
+\begin{defi}{Geraden in Paramterform}{}\index{Geradengleichung}
+ Jede Gerade \(g\) lässt sich durch eine Gleichung der Form: \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreiben. Hierbei ist \(\vv{OA} = \vv{A}\) der Ortsvektor eines beliebigen Punktes auf der Geraden \(g\) und \(\vv{u} \neq \vv{0}\) ein Richtungsvektor ist.  
+\end{defi}
+\begin{b8d}{Erläuterungen zur Geradengleichung}{}
+Bei der Geradengleichung \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreibt \(\vv{X}\) die Menge aller Ortsvektoren auf der Geraden \(g\). Ein Punkt \(\vv{X}\) liegt damit genau dann auf der Geraden \(g\), wenn es ein \(\lambda_1\) gibt, mit \(\vv{X} = \vv{A} + \lambda_1 \cdot \vv{u}\). Diese Art von Geradengleichung nennt man Parameterform der Geraden \(g\) mit dem \textcolor{red}{\textbf{Aufpunkt}} \(A\) und dem \textcolor{red}{\textbf{Richtungsvektor}} \(\vv{u}\).
+\end{b8d}
+    \subsection{Spurpunkte mit den Koordinatenebenen}\index{Geraden!Spurpunkte}
+    \begin{merke}{Berechnung der Spurpunkte}{}
+Die Spurpunkte einer Geraden mit den Koordinatenebenen erhält man, indem man
+für jede Ebene die entsprechende Koordinate \emph{gleich Null setzt}
+($x_1=0$, $x_2=0$, $x_3=0$), den Parameter $\lambda$ aus der passenden Gleichung
+bestimmt und diesen Wert in die Geradengleichung einsetzt.\\[0.5em]
+Ein Spurpunkt existiert nur, wenn der zugehörige Richtungsanteil der Geraden
+($u_1$, $u_2$ bzw.\ $u_3$) \emph{nicht Null} ist – sonst ist die Gerade zu dieser
+Ebene parallel (oder liegt ganz in ihr).
+    \end{merke}
+\section{Lagebeziehung Gerade Gerade}
+\begin{merke}{Gegenseitige Lage von Geraden im Raum}{}
+Zur Untersuchung der \textcolor{red}{\textbf{gegenseitigen Lage der Geraden}} \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) und \(h: \vv{X} =\vv{B} + \mu \vv{v} \) kann man folgendermaßen vorgehen:\\
+\begin{tikzpicture}[
+  scale=0.9,
+  transform shape,
+  node distance = 1.7cm and 3cm,
+  >=Stealth,
+  every node/.style   = {font=\small},
+  box/.style          = {rectangle, rounded corners=2pt, draw=black, thick,
+                         align=center, inner sep=4pt, minimum width=3.2cm},
+  start/.style        = {box, fill=green!30},
+  par/.style          = {box, fill=yellow!40},
+  nonpar/.style       = {box, fill=blue!20}
+]
+% oberste Entscheidung
+\node[start, text width=4.2cm] (start)
+  {Sind $\vec u$ und $\vec v$\\linear abhängig?};
+
+% zweite Ebene
+\node[par, below left=1.5cm and 1.5cm of start, text width=3.5cm] (gparallel)
+  {$g$ ist parallel zu $h$.};
+\node[nonpar, below right=1.5cm and 2.5cm of start, text width=4.0cm] (gnonparallel)
+  {$g$ ist nicht parallel zu $h$.};
+
+\draw[->] (start.south west) -- node[sloped,above,pos=0.4]{ja} (gparallel.north);
+\draw[->] (start.south east) -- node[sloped,above,pos=0.4]{nein} (gnonparallel.north);
+
+% linker Teil: parallel
+\node[par, below=1.7cm of gparallel, text width=3.5cm] (Aonh)
+  {Liegt $A$ auf $h$?};
+
+% unterste Ebene links – enger zusammen mit xshift
+\node[par, below=1.5cm of Aonh, xshift=-2.5cm, text width=3.4cm] (ident)
+  {$g$ und $h$ sind\\identisch.};
+
+\node[par, below=1.5cm of Aonh, xshift=2.5cm, text width=3.8cm] (parversch)
+  {$g$ und $h$ sind zueinander\\parallel, aber verschieden.};
+
+\draw[->] (gparallel) -- (Aonh);
+\draw[->] (Aonh.south west) -- node[sloped,above,pos=0.4]{ja} (ident.north);
+\draw[->] (Aonh.south east) -- node[sloped,above,pos=0.4]{nein} (parversch.north);
+
+% rechter Teil: nicht parallel
+\node[nonpar, below=1.7cm of gnonparallel, text width=5.2cm] (eq)
+  {Hat $\overrightarrow{OA} + \lambda\cdot\vec u
+    = \overrightarrow{OB} + \mu\cdot\vec v$ eine Lösung?};
+
+% unterste Ebene rechts – ebenfalls enger zusammen
+\node[nonpar, below=1.5cm of eq, xshift=-3.6cm, text width=4.0cm] (schneiden)
+  {$g$ und $h$ schneiden\\sich in einem Punkt $S$.};
+
+\node[nonpar, below=1.5cm of eq, xshift=3.6cm, text width=4.2cm] (windschief)
+  {$g$ und $h$ sind zueinander\\windschief.};
+
+\draw[->] (gnonparallel) -- (eq);
+\draw[->] (eq.south west) -- node[sloped,above,pos=0.4]{ja} (schneiden.north);
+\draw[->] (eq.south east) -- node[sloped,above,pos=0.4]{nein} (windschief.north);
+\end{tikzpicture}
+\end{merke}
+
+\section{Ebenen im Raum}
+
+\section{Lagebeziehung Gerade Ebene}
+\section{Lagebeziehung Ebene Ebene}
