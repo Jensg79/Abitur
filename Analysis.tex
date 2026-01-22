@@ -1668,24 +1668,24 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
 \begin{center}
     
 \begin{tikzpicture}
-  \begin{axis}[
-      axis lines = middle, 
-      xlabel=$x$, 
-      ylabel=$y$, 
-      xmin=-180,xmax=360,ymin=-4.1,ymax=4.1,
-      xtick = {-180,-90,...,360},     
-      xticklabels = {$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$},
-      ytick ={-4,-3,-2,-1,0,1,2,3,4},
-      yticklabels ={$-4$,$-3$,$-2$,$-1$,$0$,$1$,$2$,$3$,$4$},
-      %enlarge x limits=.05,
-      %enlarge y limits=.2,
-      y=1cm,% <- ergänzt
-      x=0.017444cm,% <- ergänzt
-      ticklabel style={font=\small,fill=green!5}]
-      \addplot[red,thick,samples=300,domain=-180 : -91]{tan(x)};
-\addplot[red,thick,samples=300,domain=-90 : 89]{tan(x)};
-\addplot[red,thick,samples=300,domain=91 : 269]{tan(x)};
-\addplot[red,thick,samples=300,domain=271 : 360]{tan(x)};
+\begin{axis}[
+  axis lines=middle,
+  xlabel=$x$, ylabel=$y$,
+  xmin=-180,xmax=360,ymin=-4.1,ymax=4.1,
+  xtick={-180,-90,...,360},
+  xticklabels={$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$},
+  ytick={-4,-3,-2,-1,0,1,2,3,4},
+  yticklabels={$-4$,$-3$,$-2$,$-1$,$0$,$1$,$2$,$3$,$4$},
+  y=1cm,
+  x=0.017444cm,
+  ticklabel style={font=\small,fill=green!5},
+  unbounded coords=jump,
+  restrict y to domain=-4.1:4.1
+]
+      \addplot[red,thick,samples=300,domain=-180:-90.1]{tan(x)};
+\addplot[red,thick,samples=300,domain=-89.9: 89.9]{tan(x)};
+\addplot[red,thick,samples=300,domain= 90.1:269.9]{tan(x)};
+\addplot[red,thick,samples=300,domain=270.1:360]{tan(x)};
 \addplot[blue,thick,samples=300,domain=-70 : 70]{1/((cos(x))^2)};
 \addplot[blue,thick,samples=300,domain=110 : 250]{1/((cos(x))^2)};
 \addplot[blue,thick,samples=300,domain=290 : 350]{1/((cos(x))^2)};
@@ -2245,3 +2245,420 @@ Aus einem quadratischen Stück Pappe mit der festen Seitenlänge $a = 5\text{ cm
 \end{itemize}
 Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das Volumen. Bei $x= \dfrac{5}{2}$ liegt ein Minimum des Volumens. Allerdings liegt das Volumen hier bei Null und ist dadurch keine Lösung für das Problem.
 \end{bsp}
+\section{Flächeninhalt und bestimmtes Integral}\index{Integral}
+    \subsection{Das bestimmte Integral}\index{Integral!Bestimmtes Integral}
+       \begin{defi}{Das bestimmte Integral}{}
+        Eine Funktion $f$ mit $f(x)\geq 0$ sei in einem Intervall $I = [a; b]$ mit $I \in \mathds{D}_f$ definiert. Der Inhalt der Fläche zwischen dem Graphen von $f$ und der $x-$Achse über dem Intervall $[a;b]$ ist der gemeinsame Grenzwert der Obersumme $O_n$ und der Untersumme $U_n$. Es gilt also $\lim\limits_{n \longrightarrow \infty} O_n = \lim\limits_{n \longrightarrow \infty} U_n $. Existiert dieser gemeinsame Grenzwert, dann nennt man diesen das bestimmte Integral der Funktion $f$ über dem Intervall $I = [a;b]$. Für das bestimmte Intervall schreibt man dann $\integral[limits-mode=limits,limits={a, b}]{f(x)}$ und bezeichnet die Funktion $f$ integrierbar über $I=[a,b]$. \\
+        Hierbei wird die zu integrierende Funktion $f$ als Integrandenfunktion und die durch den Parameter $dx$ gegebene Variable x als Integrationsvariable bezeichnet. Die Grenzen des Intervalls $I= [a,b]$ bilden die \textcolor{red}{unter-} bzw. die \textcolor{red}{obere} Grenze des Integrals.
+    \end{defi}
+    \begin{b8d}{Folgerungen aus der Definition}{}
+    \begin{description}
+    \item[i)] Fallen obere und untere Grenze zusammen, so ergibt sich für den Wert des Integrals \textcolor{red}{$\integral[limits-mode=limits,limits={a, a}]{f(x)} = 0$} 
+    \item[ii)] Den Wert des Integrals $\integral[limits-mode=limits,limits={a, c}]{f(x)}$ lässt sich Schrittweise angeben. Es gilt damit \\ \textcolor{red}{$\integral[limits-mode=limits,limits={a, c}]{f(x)} = \integral[limits-mode=limits,limits={a, b}]{f(x)} + \integral[limits-mode=limits,limits={b, c}] {f(x)}$ }für einen Wert $b$ mit \textcolor{red}{$a<b<c$}.
+    \item[iii)] Vertauscht man die Grenzen des Integrals ändert sich das Vorzeichen.\\ \textcolor{red}{ $\integral[limits-mode=limits,limits={a, b}] {f(x)} = - \integral[limits-mode=limits,limits={b, a}] {f(x)}$}. \textcolor{red}{rückwärts Integration}
+    \end{description}
+    \end{b8d}
+    \begin{bsp}{}{}
+      \begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=3 by 1, horizontal sep=\hsep},
+  width=\gpw, height=\gph,
+  scale only axis=true,
+  xmin=0, xmax=3.5, ymin=0, ymax=11.5,
+  axis lines=left,
+  xlabel={$x$}, ylabel={$y$},
+  legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west, font=\small},
+  ybar interval legend,
+  tick label style={fill=none, draw=none},
+  xlabel style={fill=none}, ylabel style={fill=none}
+]
+\nextgroupplot
+    %%%%%% Untersumme n=3
+    \addlegendentry{$f(x)=x^2$}
+    \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2}{0}{3}{3}
+    \pgfplotsset{title={Untersumme $n=3$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{Untersumme $n=3$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+\nextgroupplot
+%%%%%%% Untersumme n=6
+        \addlegendentry{$f(x)=x^2$}
+    \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2}{0}{3}{6}
+    \pgfplotsset{title={Untersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{Untersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+
+%%%%%%%%% Untersumme n=12
+
+\nextgroupplot
+
+    \addlegendentry{$f(x)=x^2$}
+    \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2}{0}{3}{12}
+    \pgfplotsset{title={Untersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{Untersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+  \end{groupplot}
+\end{tikzpicture}
+Als Beispiel die Obersummen der Funktion $f(x) =x^2$ im Intervall $I=[0,3]$. \\
+ \begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=3 by 1, horizontal sep=\hsep},
+  width=\gpw, height=\gph,
+  scale only axis=true,
+  xmin=0, xmax=3.5, ymin=0, ymax=11.5,
+  axis lines=left,
+  xlabel={$x$}, ylabel={$y$},
+  legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west, font=\small},
+  ybar interval legend,
+  tick label style={fill=none, draw=none},
+  xlabel style={fill=none}, ylabel style={fill=none}
+]
+\nextgroupplot
+    %%%%%% Untersumme n=3
+    \addlegendentry{$f(x)=x^2$}
+    \riemannbars[mode=upper, fill=red!35, draw=black]{\x^2}{0}{3}{3}
+    \pgfplotsset{title={Obersumme $n=3$, $S_3=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{Obersumme $n=3$, $S_3=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+
+\nextgroupplot
+%%%%%%% Untersumme n=6
+        \addlegendentry{$f(x)=x^2$}
+    \riemannbars[mode=upper, fill=red!35, draw=black]{\x^2}{0}{3}{6}
+    \pgfplotsset{title={Obersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{Obersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+
+%%%%%%%%% Untersumme n=12
+
+\nextgroupplot
+
+    \addlegendentry{$f(x)=x^2$}
+    \riemannbars[mode=upper, fill=red!35, draw=black]{\x^2}{0}{3}{12}
+    \pgfplotsset{title={Obersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{Obersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+  \end{groupplot}
+\end{tikzpicture}    
+    \end{bsp}
+\section{Hauptsatz der Differential- und Integralrechnung} 
+   \begin{defi}{Die Flächenbilanz und das bestimmte Integral}{}\index{Integral!Flächenbilanz}
+       \begin{multicols}{2} Gegeben ist eine Funktion f, die auf dem Intervall $I=[a,b]$ integrierbar ist. Das bestimmte Integral $\integral[limits-mode=limits,limits={a, b}]{f(x)}$ gibt die  \textcolor{red}{Flächenbilanz} der Fläche an, die der Graph von $f$ mit der x-Achse zwischen der unteren Grenze $a$ und der oberen Grenze $b$ einschließt. Dabei werden Flächeninhalte oberhalb der x-Achse positiv und Flächeninhalte unterhalb der x-Achse negativ gewertet.\\
+       \begin{tikzpicture}[x=1cm,y=1cm,>=Latex,line cap=round,line join=round]
+  % ---------- Parameter ----------
+  \def\xmin{-1.2} \def\xmax{7.3}
+  \def\ymin{-2} \def\ymax{1.8}
+
+  % einfache Cubic als Beispiel-Funktion:
+  % Nullstellen bei x=-0.5, 2.2, 6.0  → + dann – wie im Bild
+  \def\K{0.085}                         % Skalierung (Höhe der Wellen)
+  \def\fx(#1){\K*(#1+0.5)*(#1-2.2)*(#1-6.0)}
+
+  % Grenzen für die Schraffur
+  \def\a{1.0}
+  \def\xb{2.2}   % rechtes Ende der +Fläche: die Nullstelle
+  \def\b{5.2}
+
+  % Auswertungen für die roten Lotlinien
+  \pgfmathsetmacro{\fa}{\fx(\a)}
+  \pgfmathsetmacro{\fb}{\fx(\b)}
+
+  % ---------- Achsen ----------
+  \draw[thick,-Latex] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+  \draw[thick,-Latex] (0,\ymin) -- (0,\ymax) node[above] {$y$};
+  \node[below left] at (0,0) {$0$};
+
+  % ---------- positive Fläche: a → x_b ----------
+  \fill[orange!70,opacity=.7]
+    (\a,0)
+    -- plot[domain=\a:\xb,samples=250,smooth] (\x,{ \fx(\x) })
+    -- (\xb,0) -- cycle;
+
+  % ---------- negative Fläche: x_b → b ----------
+  \fill[blue!50,opacity=.25]
+    (\xb,0)
+    -- plot[domain=\xb:\b,samples=250,smooth] (\x,{ \fx(\x) })
+    -- (\b,0) -- cycle;
+
+  % ---------- Kurve G_f ----------
+  \draw[very thick,blue!70!black]
+    plot[domain=\xmin:\xmax -1,samples=500,smooth] (\x,{ \fx(\x) });
+
+  % ---------- rote Lotlinien + Labels a,b ----------
+  \draw[red!80,very thick] (\a,0) -- (\a,\fa) node[below=3pt,xshift=-5pt,black] {$\color{red}a$};
+  \draw[red!80,very thick] (\b,0) -- (\b,\fb) node[below=3pt,black] {$\color{red}b$};
+
+  % ---------- Zusatztexte ----------
+  \node[blue!70!black] at (3.4,1.8) {$G_f$};
+  \node at (1.4,0.25) {$+$};
+  \node at (4.2,-0.5) {$-$};
+\end{tikzpicture}
+\end{multicols}
+   \end{defi}
+\begin{defi}{Die Integralfunktion}{}\index{Integral!Integralfunktion}
+\begin{multicols}{2}
+Gegeben sei eine in einem Intervall $I$ integrierbare Funktion 
+$f: t \mapsto f(t)$. 
+Dann heißt für jedes $a \in I$ die Funktion
+
+  $I_a : x \mapsto 
+  \integral[limits-mode=limits,
+            limits={a, \textcolor{red}{x}},
+            variable={t}]{f(\textcolor{blue}{t})},
+  \qquad x \in I,$
+
+die \textcolor{red}{Integralfunktion von $f$ zur unteren Grenze $a$}.
+
+
+% ---- TikZ-Grafik separat ----
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,line cap=round,line join=round, scale =1.5]
+  % ---------- Parameter ----------
+  \def\a{0.5}       % untere Grenze a
+  \def\xvar{3.0}    % aktueller Wert von x (obere Grenze)
+  \def\fx(#1){0.6+0.4*sin(60*(#1))}
+
+  % ---------- Achsen ----------
+  \draw[->,thick] (-0.3,0) -- (4.8,0) node[right] {$x$};
+  \draw[->,thick] (0,-0.3) -- (0,1.7) node[above] {$y$};
+
+  % ---------- Schattierte Fläche ----------
+  \fill[blue!30]
+    (\a,0)
+    -- plot[domain=\a:\xvar,smooth,samples=200] (\x,{ \fx(\x) })
+    -- (\xvar,0) -- cycle;
+
+  % ---------- Funktionsgraph ----------
+  \draw[very thick,blue!70!black]
+    plot[domain=0:4.5,samples=300,smooth] (\x,{ \fx(\x) });
+
+  % ---------- Vertikale Linien + Labels ----------
+  \draw[dashed,red] (\xvar,0) -- (\xvar,{ \fx(\xvar) });
+  \node[below,red] at (\xvar,0) {$x$};
+
+  \draw[dashed,red] (\a,0) -- (\a,{ \fx(\a) });
+  \node[below,red] at (\a,0) {$a$};
+
+  % ---------- Text / Beschriftung ----------
+  \node[blue!60!black] at (2.0,1.4) {$G_f$};
+  \node at (2.2,-0.6) {\small\textcolor{blue!50!black}{$\displaystyle I_a(x)=\int_a^x f(t)\,dt$}};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+\end{defi}
+\begin{b8d}{Nullstellen der Integralfunktion}{}\index{Integral!Integralfunktion!Nullstellen}
+Aufgrund der Definition des bestimmten Integral ist $I_a(a) = \integral[limits-mode=limits,limits={a, a}, variable={t}]{f(t)} = 0$. Somit ist die untere Grenze $a$ stets eine Nullstelle von $I_a$. 
+\end{b8d}
+\begin{defi}{Hauptsatz der Diferential- und Integralrechnung}{}\index{Integral!Hauptsatz Differential- und Integralfunktion}
+\index{Ableitung!Hauptsatz Differential- und Integralfunktion}
+    Die Funktion $f$ seim in Intervall $I=[r;s]$ stetig. Für die Integralfunktion $I_a : x \mapsto \integral[limits-mode=limits,
+            limits={a, \textcolor{red}{x}},
+            variable={t}]{f(\textcolor{blue}{t})}$ gilt dann $I'_a(x) = f(x)$ für $a,x \in [r,s]$.
+\end{defi}
+ \begin{b8d}{Folgerung aus dem Hauptsatz}{}
+Die Integralfunktion $I_a$ der Funktion $f$ ist damit eine Stammfunktion von $f$.
+ \end{b8d}
+ 
+ \begin{satz}{Berechnung von Integralen}{}
+     Die Funktion $f$ sei im Intervall $I$ mit  $I=[a, b]$ stetig. Ist $F$ eine \textcolor{red}{beliebige} Stammfunktion von $f$ in diesem Intervall, dann gilt
+    \textcolor{red}{ $$\integral[limits-mode=limits,
+            limits={a, b},
+            variable={x}]{f(x)} = [F(x)]_a^b = F(b) - F(a)$$}
+ \end{satz}
+ \begin{b8d}{Erläuterung Integral}{}
+Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
+\begin{tikzpicture}[
+  >=Latex,
+  every node/.style={align=left}
+]
+  % Gleichung in Segmenten, damit man gezielt pfeilen kann
+  \node (int)  {$\displaystyle \int_{a}^{b} f(x)\,dx$};
+  \node (eq1)  [right=1.2em of int] {$=$};
+  \node (br)   [right=0.8em of eq1] {$\displaystyle [F(x)]_{a}^{b}$};
+  \node (eq2)  [right=0.8em of br] {$=$};
+  \node (diff) [right=0.8em of eq2] {$\displaystyle F(b)-F(a)$};
+
+  % Erklärtexte
+  \node (txt1) [above=2.0em of br, anchor=south west]
+     {\textcolor{red}{\textbf{eine}} Stammfunktion von \textcolor{blue}{$f$} in eckigen Klammern};
+  \node (txt2) [below=2.0em of br, anchor=north west]
+     {obere und untere Grenze};
+
+  % Pfeile
+  \draw[->] (txt1.south west) .. controls +(0,-1.2em) and +(0,1.0em) .. (br.north);
+  % Zielpunkt für Grenzen (nahe Exponenten/Subskripten)
+  \coordinate (limits) at ($(br.south east)+(-0.5em,0.2em)$);
+  \draw[->] (txt2.north west) .. controls +(0,1.2em) and +(0,-1.0em) .. (limits);
+\end{tikzpicture}
+\end{b8d}
+\begin{bem}{Zusammenhang zwischen Stammfunktion und Integralfunktion}{}\index{Integral!Zusammenfassungen}
+\scalebox{0.65}{
+    \begin{tikzpicture}[scale = 0.8]
+% Farben/Strichstärken (bei Bedarf anpassen)
+\tikzset{
+  outer/.style = {draw=blue!70!black, line width=1.8pt},
+  inner/.style = {draw=black!70, line width=1.2pt}
+}
+
+% Äußere Ellipse
+\draw[outer, fill=blue!20, fill opacity=0.3] (0,0) ellipse (5.3cm and 4.3cm);
+
+% Innere Ellipse (leicht nach rechts/unten versetzt)
+\draw[inner,fill=orange!40, fill opacity=0.3] (1.8,-0.3) ellipse (3.2cm and 1.5cm);
+
+% Beschriftungen (zentriert, Zeilenumbruch per text width)
+\node[align=center,text width=9.8cm] at (0,2.1)
+      {\bfseries Menge aller Stammfunktionen von $f$};
+
+\node[align=center,text width=5.6cm] at (1.8,-0.5)
+      {\bfseries Menge aller Integralfunktionen von $f$};
+
+\end{tikzpicture}
+\begin{tikzpicture}[scale = 1.5, >=Latex]
+
+% Knoten für die Formeln
+\node (fx) at (0,0) {\Huge{$f(x)$}};
+\node (integral) at (6,0) {\Huge{$\displaystyle \int_a^x f(t)\,dt$}};
+
+% oberer Bogen (Integration)
+\draw[blue, very thick, ->]
+  (fx.north east) .. controls (3,2.2) .. (integral.north west);
+\node[blue, font=\bfseries, above] at (3,2.1) {von $a$ bis $x$ integrieren};
+
+% unterer Bogen (Differenzieren)
+\draw[red, very thick, <-]
+  (fx.south east) .. controls (3,-2.0) .. (integral.south west);
+\node[red, font=\bfseries, below] at (3,-2.0) {nach $x$ differenzieren};
+
+\end{tikzpicture}}
+\end{bem}
+\section{Zusammenfassung bestimmtes Integral und Integralfunktion}
+\begin{b8d}{\emph{„Wie kann man die Fläche unter einem Funktionsgraphen berechnen?“}}{}
+\begin{itemize}
+    \item Flächenberechnung mit Rechteckapproximation (Riemann-Summe).\\
+\scalebox{0.9}{\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=3 by 1, horizontal sep=\hsep},
+  width=\gpw, height=\gph,
+  scale only axis=true,
+  xmin=0, xmax=3.5, ymin=0, ymax=11.5,
+  axis lines=left,
+  xlabel={$x$}, ylabel={$y$},
+  legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west, font=\small},
+  ybar interval legend,
+  tick label style={fill=none, draw=none},
+  xlabel style={fill=none}, ylabel style={fill=none}
+]
+\nextgroupplot
+    %%%%%% Untersumme n=3
+    \addlegendentry{$f(x)=x^2+1$}
+    \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2+1}{0}{3}{3}
+    \pgfplotsset{title={$U_3=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{$U_3=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[thick, domain=0:3.15, samples=200] {\x^2+1};
+
+\nextgroupplot
+%%%%%%% Untersumme n=6
+        \addlegendentry{$f(x)=x^2+1$}
+    \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2+1}{0}{3}{6}
+    \pgfplotsset{title={Untersumme $n=6$, $U_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{$U_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[thick, domain=0:3.15, samples=200] {\x^2+1};
+
+%%%%%%%%% Untersumme n=12
+
+\nextgroupplot
+
+    \addlegendentry{$f(x)=x^2+1$}
+    \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2+1}{0}{3}{12}
+    \pgfplotsset{title={Untersumme $n=12$, $U_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
+    \addlegendentryexpanded{$U_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[thick, domain=0:3.15, samples=200] {\x^2+1};
+  \end{groupplot}
+  
+\end{tikzpicture}}
+\begin{itemize}
+    \item Streifen unter- bzw. oberhalb des eigentlichen Funktionsgraphen
+    \item je schmaler die Streifen desto genauer die Annäherung an die eigentliche Fläche
+    \item Für die Ober- und Untersumme gilt im Intervall $I=[a,b]$ damit  $\lim\limits_{n \longrightarrow \infty} O_n = \lim\limits_{n\longrightarrow \infty} U_n =\integral[limits-mode=limits,limits={a, b}]{f(x)}$
+\end{itemize}
+    \item Das bestimmte Integral als Flächenbilanz
+
+    \begin{itemize}
+        \item Für die Funktion $f(x) = x^2+1$ im Intervall $I=[0|3]$
+
+    \IntegralSetup{
+  xmin=-2, xmax=3.7,
+  ymin=-2.7, ymax=10.3,
+  width=15cm, height=8cm,
+  intN=400,
+  % Achsen/Legende:
+  axis lines=middle,
+  grid=both,
+  minor x tick num=1,
+  minor y tick num=1,
+  legend pos=outer north east,
+  % Grenzen:
+  mark bounds=true,
+  bounds where=top,   % top | bottom | none
+  bound y shift=2pt,
+}
+    \ShadeArea{\x^2+1}{0}{3}\\
+    \item Für die Funktion $f(x) = x^3-3x$ im Intervall $I=[-2,5|2,7]$\\
+    \IntegralSetup{
+  xmin=-4, xmax=2.3,
+  ymin=-9.3, ymax=6.3,
+  width=15cm, height=8cm,
+  intN=400,
+  % Achsen/Legende:
+  axis lines=middle,
+  grid=both,
+  minor x tick num=1,
+  minor y tick num=1,
+  legend pos=outer north east,
+  % Grenzen:
+  mark bounds=true,
+  bounds where=top,   % top | bottom | none
+  bound y shift=2pt,
+}
+    \ShadeArea{\x^3-3*\x}{-2.5}{1.7}
+        \end{itemize}
+        \item Die Werte unterhalb der $x-$Achse werden dabei negativ gewertet
+        \item Die Werte oberhalb der $x-$Achse werden dabei positiv gewertet
+\item Für eine gegebene Funktion $f$ mit fester unterer Grenze $a$ definiert $I_a(x) = \integral[limits-mode=limits,limits={a, x}, variable={t}]{f(t)}$ 
+die Integralfunktion.
+\begin{itemize}
+    \item $I_a(x)$ misst die „wachsende Fläche“ von $a$ bis zu einer beliebigen oberen Grenze $x$.  
+\item Die Integralfunktion ist damit eine Stammfunktion von $f$.
+\end{itemize}
+\begin{tikzpicture}
+\begin{axis}[
+  width=14cm,   % feste Breite
+  height=8cm,   % feste Höhe
+  scale only axis,
+  axis lines=middle,
+  xmin=-3.3, xmax=3.3,
+  ymin=-6.3, ymax=6.3,
+  samples=400,
+  xlabel={$x$}, ylabel={$y$},
+  ticklabel style={font=\small},
+  label style={font=\small},
+  legend style={font=\small,at={(0.02,0.98)},fill=white,draw=none},
+  legend pos=outer north east,
+  clip=true
+]
+  % f(x) = x^3 - 3x
+  \addplot[thick, blue, domain = -3:3] {x^3 - 3*x};
+  \addlegendentry{$f(x)=x^{3}-3x$}
+
+  % F(x) = 1/4 x^4 - 3/2 x^2 + 1.25  (Stammfunktion von f, Nullstelle bei x=1)
+  \addplot[thick, red, domain = -4:4] {0.25*x^4 - 1.5*x^2 + 1.25};
+  \addlegendentry{$I_1(x)= \integral[limits-mode=limits,limits={1, x}, variable={t}]{f(t)} =\tfrac14 x^{4}-\tfrac32 x^{2}+\tfrac54$}
+\end{axis}
+\end{tikzpicture}
+
+\item Hauptsatz der Differential- und Integralfunktion
+\begin{itemize}
+    \item Das bestimmte Integral $\integral[limits-mode=limits,limits={a, b}]{f(x)}$  wird damit durch die Integralfunktion berechnet: $\integral[limits-mode=limits,limits={a, b}]{f(x)}=F(b)-F(a)$.
+\end{itemize}
+\end{itemize}
+\end{b8d}

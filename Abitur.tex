@@ -1,5 +1,5 @@
 \documentclass[a4paper]{report}
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{animate}
 \usepackage{cancel}
@@ -11,6 +11,10 @@
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{extarrows}
+\usepackage{{intexgral}}
+\usepackage{Riemann}
+\usepackage{bestIntegral}
 \usepackage{polynom}
 \polyset{%
     vars=x,
@@ -133,11 +137,14 @@
 \tikzset{Line Style/.style={draw=brown, ultra thick, join=round}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{adjustbox}
+\usepackage{amssymb}
 \usepackage[most]{tcolorbox}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15, width =10cm}
 \usepackage{mathrsfs}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows,shadows.blur}
+\usetikzlibrary{calc,arrows.meta,decorations.pathreplacing,positioning}
 \newtcbtheorem[number within=section]{satz}
     {Satz}{colback=green!7,colframe=gray!85!black,fonttitle=\bfseries,title after break={Satz (Fortsetzung)}}{theorem}
 \newtcbtheorem[number within=section]{defi}
@@ -176,6 +183,7 @@
             }
 }
 \tikzset{>=stealth}
+
 \usepackage{eso-pic}
 \newcommand\BackgroundPic{%
 \put(0,0){%
@@ -264,7 +272,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{tikzpicture}
 \end{center}
 
-\include{AnalytischeGeometrie.tex}
+%\include{AnalytischeGeometrie.tex}
 \chapter{Stochastik}
 \vspace{2cm}
 \begin{center}
@@ -311,11 +319,11 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{scope}
 \end{tikzpicture}}  
 \end{center}
-\include{Stochastik.tex}
+%\include{Stochastik.tex}
 \chapter{Anhang}
 \AddToShipoutPicture*{\BackgroundPic}
 
-\include{Anhang.tex}
+%\include{Anhang.tex}
 \printindex
 
 \end{document}

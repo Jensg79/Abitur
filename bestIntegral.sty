@@ -1,0 +1,164 @@
+
+\ProvidesPackage{areabalance_simple}[2025/09/29 Area shading with numeric integral; outside legend; top/bottom bound labels]
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta} 
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{legend style={draw=none}}
+\pgfplotsset{legend image code/.code={}}
+\RequirePackage{siunitx}
+\sisetup{
+  round-mode=places,     % oder 'figures' für signifikante Stellen
+  round-precision=2      % Anzahl der Nachkommastellen
+}
+\sisetup{output-decimal-marker = {,}}
+
+% -------- Global setup keys --------
+\pgfkeys{
+  /areabalance/.is family, /areabalance,
+  width/.initial  = 12cm,
+  height/.initial = 7cm,
+  xmin/.initial   = 0,
+  xmax/.initial   = 6.28318,
+  ymin/.initial   = -2,
+  ymax/.initial   = 2,
+  samples/.initial= 400,
+  intN/.initial   = 800,
+  % legend outside by default
+  legend pos/.initial = outer north east,
+  % axis appearance
+  axis lines/.initial = middle,   % middle | left | box
+  grid/.initial = none,           % none | x | y | both | major | minor
+  minor x tick num/.initial = 0,
+  minor y tick num/.initial = 0,
+  axis arrows/.initial = Latex,   % none | Latex | Stealth
+  xlabel/.initial = $x$,
+  ylabel/.initial = $y$,
+  tick align/.initial = outside,
+  clip/.initial = true,
+  enlarge/.initial = false,
+  % bound labels (NOT on x-axis)
+  mark bounds/.initial = true,    % true|false
+  bounds where/.initial = top,    % top|bottom|none
+  bound y shift/.initial = 2pt,
+}
+
+% Public setup
+\newcommand{\IntegralSetup}[1]{\pgfkeys{/areabalance,#1}}
+
+\makeatletter
+\def\AB@get#1{\pgfkeysvalueof{/areabalance/#1}}
+
+% ---- Numeric integral via trapezoidal rule ----
+\newcommand{\AB@integral}[3]{%
+  \pgfmathsetmacro{\AB@Na}{\AB@get{intN}}%
+  \pgfmathsetmacro{\AB@h}{((#3)-(#2))/\AB@Na}%
+  % f(a), f(b)
+  \pgfmathsetmacro{\x}{#2}\pgfmathparse{#1}\let\AB@fa\pgfmathresult
+  \pgfmathsetmacro{\x}{#3}\pgfmathparse{#1}\let\AB@fb\pgfmathresult
+  \pgfmathsetmacro{\AB@s}{(\AB@fa+\AB@fb)/2}%
+  % interior sum
+  \pgfplotsinvokeforeach{1,...,\AB@Na-1}{%
+    \pgfmathsetmacro{\x}{#2+##1*\AB@h}%
+    \pgfmathparse{#1}%
+    \pgfmathsetmacro{\AB@s}{\AB@s+\pgfmathresult}%
+  }%
+  \pgfmathsetmacro{\AB@I}{\AB@s*\AB@h}%
+}
+
+% Build axis options from keys
+\newcommand{\AB@axisoptions}{%
+  width=\AB@get{width},
+  height=\AB@get{height},
+  xmin=\AB@get{xmin}, xmax=\AB@get{xmax},
+  ymin=\AB@get{ymin}, ymax=\AB@get{ymax},
+  samples=\AB@get{samples},
+  legend pos=\AB@get{legend pos},
+  axis lines=\AB@get{axis lines},
+  grid=\AB@get{grid},
+  minor x tick num=\AB@get{minor x tick num},
+  minor y tick num=\AB@get{minor y tick num},
+  tick align=\AB@get{tick align},
+  clip=\AB@get{clip},
+  enlargelimits=\AB@get{enlarge},
+  xlabel={\AB@get{xlabel}}, ylabel={\AB@get{ylabel}},
+  axis line style={->},
+  >=\AB@get{axis arrows}
+}
+
+% Place bound labels at top/bottom (not on x-axis)
+\newcommand{\AB@boundlabels}{%
+  % Check switches
+  \edef\AB@mb{\AB@get{mark bounds}}%
+  \def\AB@mbfalse{false}%
+  \def\AB@doBounds{1}%
+  \ifx\AB@mb\AB@mbfalse \def\AB@doBounds{0}\fi
+  \edef\AB@bw{\AB@get{bounds where}}%
+  \def\AB@bwnone{none}%
+  \ifx\AB@bw\AB@bwnone \def\AB@doBounds{0}\fi
+  \ifnum\AB@doBounds=1
+    % choose y and anchor
+    \def\AB@ypos{\AB@get{ymax}}%
+    \def\AB@anchor{south}%
+    \def\AB@bwbottom{bottom}%
+    \ifx\AB@bw\AB@bwbottom
+      \def\AB@ypos{\AB@get{ymin}}%
+      \def\AB@anchor{north}%
+    \fi
+    \node[anchor=\AB@anchor, yshift=\AB@get{bound y shift}] at (axis cs:\AB@a,\AB@ypos) {$\num{\AB@a}$};
+    \node[anchor=\AB@anchor, yshift=\AB@get{bound y shift}] at (axis cs:\AB@b,\AB@ypos) {$\num{\AB@b}$};
+  \fi
+}
+
+% ---- Main command ----
+\newcommand{\ShadeArea}[3]{%
+  \def\AB@f{#1}%
+  \def\AB@a{#2}%
+  \def\AB@b{#3}%
+  % compute integral BEFORE plotting
+  \AB@integral{\AB@f}{\AB@a}{\AB@b}%
+  % picture
+  \begin{tikzpicture}
+    \begin{axis}[\AB@axisoptions]
+      % full graph
+      \addplot[very thick, domain=\AB@get{xmin}:\AB@get{xmax}] {\AB@f};
+      \addlegendentry{$f(x)$}
+      % x-axis segment [a,b] path
+      \path[name path=AB@xaxis] (axis cs:\AB@a,0) -- (axis cs:\AB@b,0);
+      % positive/negative envelopes on [a,b]
+      \addplot[name path=AB@pos, draw=none, domain=\AB@a:\AB@b] {max(\AB@f,0)};
+      \addplot[name path=AB@neg, draw=none, domain=\AB@a:\AB@b] {min(\AB@f,0)};
+      % shading
+      \addplot[draw=none, fill=green!50, fill opacity=0.35] fill between[of=AB@pos and AB@xaxis];
+      \addplot[draw=none, fill=red!45,   fill opacity=0.35] fill between[of=AB@neg and AB@xaxis];
+      % dashed bounds (no x-axis labels at a,b)
+      \addplot[thick, color = red,densely dashed] coordinates {(\AB@a,\AB@get{ymin}) (\AB@a,\AB@get{ymax})};
+      \addplot[thick, color = red,densely dashed] coordinates {(\AB@b,\AB@get{ymin}) (\AB@b,\AB@get{ymax})};
+      % top/bottom bound labels
+      \AB@boundlabels
+      % legend entry with integral value (legend is placed outside by legend pos)
+      \addlegendentry{$\displaystyle\int_{\num{\AB@a}}^{\num{\AB@b}} f(x)\,\mathrm{d}x \approx \num[round-precision=2]{\AB@I}$}
+    \end{axis}
+  \end{tikzpicture}%
+}
+\makeatother
+
+
+% \IntegralSetup{
+%   xmin=-4, xmax=4,
+%   ymin=-3, ymax=6,
+%   width=12cm, height=7cm,
+%   intN=1200,
+%   % Achsen/Legende:
+%   axis lines=middle,
+%   grid=both,
+%   minor x tick num=1,
+%   minor y tick num=1,
+%   legend pos=outer north east,
+%   % Grenzen:
+%   mark bounds=true,
+%   bounds where=top,   % top | bottom | none
+%   bound y shift=2pt,
+% }
+% \ShadeArea{(\x-1)*(\x-3)*(\x+1)}{-1}{4}

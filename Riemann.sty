@@ -1,0 +1,81 @@
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\pagestyle{empty}
+
+% Zahlformat separat (richtiger Pfad)
+\pgfplotsset{/pgf/number format/.cd, fixed, precision=4}
+% keine weißen Kästchen um Ticks/Labels
+\pgfplotsset{/pgfplots/.cd,
+  tick label style={fill=none, draw=none},
+  xlabel style={fill=none},
+  ylabel style={fill=none},
+}
+
+% ---------- Breiten/Höhen für A4-Querformat ----------
+\newlength\hsep \setlength\hsep{5em} % horizontaler Abstand zwischen Achsen
+\newlength\gpw  \setlength\gpw{\dimexpr(0.9\textwidth - 2\hsep)/3\relax}
+% Höhe: nutze einen großen Anteil der Seitenhöhe
+\newlength\gph  \setlength\gph{0.75\textheight}
+
+% ========= Riemann-Balken – generisches Makro =========
+% Aufruf:
+%   \riemannbars[mode=<lower|upper|mid>, fill=<farbe>, draw=<farbe>, lw=<breite>]{<f(\x)>}{a}{b}{n}
+% WICHTIG: Funktionsausdruck in der Variablen \x schreiben, z.B. {\x^2}, {sin(deg(\x))}.
+\makeatletter
+% 1) Key-Family definieren
+\pgfkeys{
+  /riemann/.is family, /riemann,
+  mode/.estore in=\rb@mode,
+  fill/.estore in=\rb@fill,
+  draw/.estore in=\rb@draw,
+  lw/.estore in=\rb@lw,
+}
+\def\rb@lower{lower}\def\rb@upper{upper}\def\rb@mid{mid}
+
+% 2) Makro
+\newcommand{\riemannbars}[5][]{%
+  % Defaults für diesen Aufruf
+  \def\rb@mode{lower}\def\rb@fill{red!35}\def\rb@draw{black}\def\rb@lw{0.45pt}%
+  % Optionen anwenden
+  \pgfkeys{/riemann/.cd, #1}%
+  %
+  \pgfmathsetmacro{\rb@a}{#3}
+  \pgfmathsetmacro{\rb@b}{#4}
+  \pgfmathtruncatemacro{\rb@n}{#5}
+  \pgfmathsetmacro{\rb@h}{(\rb@b-\rb@a)/\rb@n}
+  %
+  \def\rb@coords{}%
+  \pgfmathsetmacro{\rb@S}{0}%
+  %
+  \pgfplotsinvokeforeach{0,...,\rb@n-1}{%
+    \pgfmathsetmacro{\xL}{\rb@a + ##1*\rb@h}%
+    \pgfmathsetmacro{\xR}{\xL + \rb@h}%
+    \pgfmathsetmacro{\xm}{(\xL+\xR)/2}%
+    % f an L/R/M auswerten: #2 nutzt \x
+    \pgfmathsetmacro{\x}{\xL}\pgfmathparse{#2}\let\yL\pgfmathresult
+    \pgfmathsetmacro{\x}{\xR}\pgfmathparse{#2}\let\yR\pgfmathresult
+    \pgfmathsetmacro{\x}{\xm}\pgfmathparse{#2}\let\ym \pgfmathresult
+    % Höhe je nach Modus:
+    \ifx\rb@mode\rb@upper
+      \pgfmathsetmacro{\yrect}{max(\yL,\yR)}%
+    \else\ifx\rb@mode\rb@mid
+      \pgfmathsetmacro{\yrect}{\ym}%
+    \else
+      \pgfmathsetmacro{\yrect}{min(\yL,\yR)}%
+    \fi\fi
+    % Fläche & Summe:
+    \pgfmathsetmacro{\Ai}{\yrect*\rb@h}%
+    \pgfmathsetmacro{\rb@S}{\rb@S+\Ai}%
+    % ybar-interval Koordinaten:
+    \xdef\rb@coords{\rb@coords (\xL,\yrect) (\xR,\yrect)}%
+  }%
+  % Balken zeichnen
+  \addplot+[
+    ybar interval, area legend,
+    fill=\rb@fill, draw=\rb@draw, line width=\rb@lw, mark=none
+  ] coordinates {\rb@coords};
+  % Summe „exportieren“
+  \xdef\lastRiemannSum{\rb@S}%
+}
+\makeatother

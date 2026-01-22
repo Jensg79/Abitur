@@ -712,15 +712,27 @@ Aus der Determinante folgt damit für das Volumen folgende Rechnung:
     \end{split}
 \end{equation*}
 \end{bsp}
+\section{Lineare Abhängigkeit und Unabhängigkeit}\index{Vektoren!Lineare Abhängigkeit}\index{Vektoren!Lineare Unabhängigkeit}
+\begin{b8d}{Linearkombination}{}\index{Vektoren!Linearkombination}
+Einen Term \(r\cdot \vv{a} + s\cdot \vv{b} + t \cdot \vv{c}\) mit \(r,s,t \in \mathds{R}\) bezeichnet man als Linearkombination der Vektoren \(\vv{a}, \vv{b}\) und \(\vv{c}\)
+\end{b8d}
+\begin{defi}{Lineare Abhängigkeit}{}
+   Die Vektoren \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) heißen \textcolor{red}{\textbf{linear abhängig}}, wenn mindestens einer dieser Vektoren als Linearkombination der anderen Vektoren darstellbar ist.\\
+   Andernfalls nennt man die Vektoren \textcolor{red}{\textbf{linear unabhängig}}, d.h.: Die Vektoren 
+   \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) sind linear unabhängig, wenn keiner dieser Vektoren als Linearkombination der anderen darstellbar ist.
+\end{defi}
+\begin{satz}{Nullvektor}{}
+    Die Vektoren \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) sind genau dann linear unabhängig, wenn sich der Nullvektor \(\vv{0}\)aus diesen nur trivial als Linearkombination darstellen lässt. d.h. wenn für \(r_i \in \mathds{R}\) gilt: Aus \(r_1\vv{a_1} + r_2\vv{a_2} + \ldots + r_n\vv{a_n} = \vv{0}\) folgt \(r_1=r_2 = \ldots = r_n=0\).
+\end{satz}
 \section{Geraden im Raum}
 Eine Gerade lässt sich entweder durch zwei Punkte oder einen Punkt und eine Richtung beschreiben. Um die Richtung einer Geraden festzulegen genügt es in der Ebene die Steigung \(m\) anzugeben. Im 3-dim. Raum wird die Richtung durch einen Vektor markiert.
-\begin{defi}{Geraden in Paramterform}{}\index{Geradengleichung}
+\begin{defi}{Geraden in Paramterform}{}\index{Geraden!Geradengleichung}
  Jede Gerade \(g\) lässt sich durch eine Gleichung der Form: \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreiben. Hierbei ist \(\vv{OA} = \vv{A}\) der Ortsvektor eines beliebigen Punktes auf der Geraden \(g\) und \(\vv{u} \neq \vv{0}\) ein Richtungsvektor ist.  
 \end{defi}
 \begin{b8d}{Erläuterungen zur Geradengleichung}{}
 Bei der Geradengleichung \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreibt \(\vv{X}\) die Menge aller Ortsvektoren auf der Geraden \(g\). Ein Punkt \(\vv{X}\) liegt damit genau dann auf der Geraden \(g\), wenn es ein \(\lambda_1\) gibt, mit \(\vv{X} = \vv{A} + \lambda_1 \cdot \vv{u}\). Diese Art von Geradengleichung nennt man Parameterform der Geraden \(g\) mit dem \textcolor{red}{\textbf{Aufpunkt}} \(A\) und dem \textcolor{red}{\textbf{Richtungsvektor}} \(\vv{u}\).
 \end{b8d}
-    \subsection{Spurpunkte mit den Koordinatenebenen}\index{Geraden!Spurpunkte}
+\subsection{Spurpunkte mit den Koordinatenebenen}\index{Geraden!Spurpunkte}
     \begin{merke}{Berechnung der Spurpunkte}{}
 Die Spurpunkte einer Geraden mit den Koordinatenebenen erhält man, indem man
 für jede Ebene die entsprechende Koordinate \emph{gleich Null setzt}
@@ -729,10 +741,76 @@ bestimmt und diesen Wert in die Geradengleichung einsetzt.\\[0.5em]
 Ein Spurpunkt existiert nur, wenn der zugehörige Richtungsanteil der Geraden
 ($u_1$, $u_2$ bzw.\ $u_3$) \emph{nicht Null} ist – sonst ist die Gerade zu dieser
 Ebene parallel (oder liegt ganz in ihr).
-    \end{merke}
-\section{Lagebeziehung Gerade Gerade}
+\end{merke}
+\begin{bsp}{Spurpunkte}{}\index{Geraden!Spurpunkte}
+    Gegeben ist die Gleichung der Geraden \(g\) mit \(g: \vv{X} = \begin{pmatrix}
+        3\\4\\-10
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        -1\\3\\-5
+    \end{pmatrix}\) es sollen die Spurpunkte mit den Koordinatenebenen bestimmt werden.
+    \begin{enumerate}
+        \item Spurpunkt mit der \(x_1- x_2\)- Ebene \(S_{1/2}\) 
+        \[
+        \begin{aligned}
+        \begin{pmatrix}
+            x_1\\x_2\\0
+        \end{pmatrix} = \begin{pmatrix}
+        3\\4\\-10
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        -1\\3\\-5
+    \end{pmatrix} \hspace{0.2cm}
+    \text{aus der dritten Zeile folgt \hspace{0.2cm}} \lambda = -2   
+        \end{aligned}
+        \]
+        Damit folgt für den Spurpunkt \(S_{1/2} = \begin{pmatrix}
+            3\\4\\-10
+        \end{pmatrix} -2\begin{pmatrix}
+            -1\\3\\-5
+        \end{pmatrix} = \begin{pmatrix}
+            5\\-2\\0
+        \end{pmatrix}\)
+        \item Spurpunkt mit der \(x_1- x_3\)- Ebene \(S_{1/3}\) 
+        \[\begin{aligned}
+            \begin{pmatrix}
+            x_1\\0\\x_3
+        \end{pmatrix} = \begin{pmatrix}
+        3\\4\\-10
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        -1\\3\\-5
+    \end{pmatrix} \hspace{0.2cm}
+    \text{aus der zweiten Zeile folgt \hspace{0.2cm}} \lambda = -\dfrac{4}{3}  
+        \end{aligned}\]
+                Damit folgt für den Spurpunkt \(S_{1/3} = \begin{pmatrix}
+            3\\4\\-10
+        \end{pmatrix} -\dfrac{4}{3} \begin{pmatrix}
+            -1\\3\\-5
+        \end{pmatrix} = \begin{pmatrix}
+            \frac{13}{3}\\0\\-\frac{10}{3}
+        \end{pmatrix}\)
+        \item Spurpunkt mit der \(x_2- x_3\)- Ebene \(S_{2/3}\) 
+        \[\begin{aligned}
+            \begin{pmatrix}
+            0\\x_2\\x_3
+        \end{pmatrix} = \begin{pmatrix}
+        3\\4\\-10
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        -1\\3\\-5
+    \end{pmatrix} \hspace{0.2cm}
+    \text{aus der ersten Zeile folgt \hspace{0.2cm}} \lambda = 3  
+        \end{aligned}\]
+                Damit folgt für den Spurpunkt \(S_{2/3} = \begin{pmatrix}
+            3\\4\\-10
+        \end{pmatrix} +3 \begin{pmatrix}
+            -1\\3\\-5
+        \end{pmatrix} = \begin{pmatrix}
+           0\\10\\-25
+        \end{pmatrix}\)
+    \end{enumerate}
+\end{bsp}
+\subsection{Lagebeziehung Gerade Gerade}\index{Geraden!LagebeziehungGerade Gerade}
 \begin{merke}{Gegenseitige Lage von Geraden im Raum}{}
 Zur Untersuchung der \textcolor{red}{\textbf{gegenseitigen Lage der Geraden}} \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) und \(h: \vv{X} =\vv{B} + \mu \vv{v} \) kann man folgendermaßen vorgehen:\\
+\scalebox{0.75}{
 \begin{tikzpicture}[
   scale=0.9,
   transform shape,
@@ -788,10 +866,400 @@ Zur Untersuchung der \textcolor{red}{\textbf{gegenseitigen Lage der Geraden}} \(
 \draw[->] (gnonparallel) -- (eq);
 \draw[->] (eq.south west) -- node[sloped,above,pos=0.4]{ja} (schneiden.north);
 \draw[->] (eq.south east) -- node[sloped,above,pos=0.4]{nein} (windschief.north);
-\end{tikzpicture}
+\end{tikzpicture}}
 \end{merke}
 
-\section{Ebenen im Raum}
+\begin{b8d}{Graphische Darstellung}{}
+Die folgende tabellarische Übersicht zeigt die möglichen \textcolor{blue}{\textbf{gegenseitigen Lagebeziehungen zweier Geraden g und h}} mit den Richtungsvektoren \textcolor{blue}{\(\vv{u}\) bzw. \(\vv{v}\).}\\
+\begin{center}
+\includegraphics[width =0.8\textwidth]{Bilder/Lagebeziehung.png}
+\end{center}
+\end{b8d}
+\subsection{Winkel zwischen Geraden}\index{Geraden!Schnittwinkel}
+\begin{merke}{Winkel zwischen Geraden}{} 
+    An einer Geradenkreuzung treten vier Winkel auf. Jeweils zwei dieser Winkel sind Scheitelwinkel und damit gleich groß. Als \textcolor{red}{\textbf{Schnittwinkel}} \(\varphi\) zweier Geraden bezeichnet man den \textit{nicht stumpfen Winkel}. Damit hat \(\varphi\) also höchstens \(90^{\circ}\). \\
+    Damit gilt für den Winkel \(\varphi\) der sich schneidenden  Geraden \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) und \(h: \vv{X} =\vv{B} + \mu \vv{v} \) folgender Zusammenhang:\[\cos{(\varphi)} = \left| \dfrac{\vv{u}\circ \vv{v}}{|\vv{u}\cdot \vv{v}|}\right|\]
+\end{merke}
+\begin{bsp}{Schnittwinkel}{}
+ Gegeben sind die Gerade \(g\) und \(h\) mit folgenden Gleichungen:\[g: \vv{X}= \begin{pmatrix}
+          1\\2\\3
+      \end{pmatrix} + \lambda \begin{pmatrix}
+          -1\\1\\2
+      \end{pmatrix} \hspace{1cm} \text{und}\hspace{1cm}
+      h:\vv{X} = \begin{pmatrix}
+          4\\5\\1
+      \end{pmatrix} + \mu \begin{pmatrix}
+          2\\1\\-2
+      \end{pmatrix}\]  
+      Für den Schnittwinkel gilt damit folgendes 
+      \begin{equation*}
+              \cos{(\varphi)} = \left| \dfrac{\vv{u}\circ \vv{v}}{|\vv{u}|\cdot |\vv{v}|}\right| = |\dfrac{\begin{pmatrix}
+          -1\\1\\2
+      \end{pmatrix} \circ \begin{pmatrix}
+          2\\1\\-2\end{pmatrix}}{\sqrt{6} \cdot \sqrt{9}} | = \left|\dfrac{(-1)\cdot 2 +1\cdot 1 +2\cdot (-2)}{\sqrt{6}\cdot \sqrt{9}}\right| = \left|-\dfrac{5}{3\sqrt{6}}\right|= \dfrac{5}{3\sqrt{6}}
+      \end{equation*} 
+      daraus folgt für den Schnittwinkel \(\varphi\) der Geraden \(g\) und \(h\)
+      \begin{equation*}
+           \varphi = \arccos{(\dfrac{5}{3\sqrt{6}})} \approx 47,1^{\circ}
+      \end{equation*}
+\end{bsp}
 
+\section{Ebenen im Raum}
+\subsection{Ebenen in Parameterform}\index{Ebene!Parameterform}
+\begin{defi}{Ebenengleichung}{}
+    Die Ebene \(E\) durch den Punkt \(A\) wird von den beiden \textit{nicht parallelen} Richtungsvektoren \(\vv{u}\) und \(\vv{v}\) aufgespannt. Damit ist für \(\lambda, \mu \in \mathds{R}\) \begin{equation}\label{PEG}       
+    E:\vv{X} = \vv{A} + \lambda\vv{u} + \mu\vv{v}\end{equation}
+    der Ortsvektor jedes Punktes der Ebene \(E\) eindeutig definiert.
+\end{defi}
+\begin{b8d}{}{}
+Ein Punkt \(X\) liegt damit genau dann in \(E\), wenn es Werte für die Parameter \(\lambda\) und \(\mu\) so gibt, dass die Ebenengleichung \ref{PEG} erfüllt ist. In der Ebenengleichung \ref{PEG} nennt man \(\vv{A}\) den \textcolor{red}{\textbf{Aufpunkt}} und die Vektoren \(\vv{u}\) und \(\vv{v}\) die \textcolor{red}{\textbf{Richtungsvektoren}}.
+\end{b8d}
+\begin{merke}{}{}
+    Eine Ebene lässt sich festlegen durch:
+    \begin{itemize}
+        \item drei Punkte, die nicht alle auf einer Geraden liegen,
+        \item eine Gerade und ein Punkt der nicht auf der Geraden liegt,
+        \item zwei sich schneidende Geraden,
+        \item zwei echt parallele Geraden.
+    \end{itemize}
+\end{merke}
+    \begin{b8d}{Die Spurgerade}{}\index{Ebene!Spurgerade}
+    Um die Lage einer Ebene im Koordinatensystem zu veranschaulichen, bestimmt man, falls vorhanden, die Schnittpunkte mit den einzelnen Koordinatenachsen und zeichnet die entsprechenden Schnittgeraden der Ebene mit den Koordinatenebenen, die \textcolor{red}{\textbf{Spurgeraden}} der Ebene.  
+    \end{b8d}
+    \subsection{Normalen- und Koordinatenform der Ebene}\index{Ebene!Normalenform}
+    Neben der Parameterform der Ebene gibt es noch zwei andere Darstellungsformen.  Die Ebene \(E:\vv{X} = \vv{A} + \lambda \vv{u} + \mu\vv{u}\) ist durch einen Aufpunkt und zwei Richtungsvektoren eindeutig festgelegt.  
+    \begin{defi}{Die Normalenform der Ebene}{}
+eine Ebene \(E\) ist durch einen Aufpunkt \(A\) und einen Normalenvektor \(\vv{n}\) festgelegt. Durch die Gleichung \[E: \vv{n}\circ\left( \vv{X} - \vv{A}\right) =0\] ist die Ebene eindeutig beschrieben. Diese Darstellung der Ebene nennt man Normalenform der Ebene.      
+    \end{defi}
+\begin{merke}{Der Normalenvektor}{}
+Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{X} - \vv{A}\right) =0\] berechnet sich als Vektorprodukt der beiden Richtungsvektoren \(\vv{u}\) und \(\vv{v}\). Es gilt also \[\vv{n} = \vv{u} \times \vv{v}\] 
+\end{merke}
+\index{Ebene!Koordinatenform}
+\begin{merke}{Koordinatenform}{}
+    Die ausmultiplizierte Form der Normalenform \[E: \vv{n}\circ\left( \vv{X} - \vv{A}\right) =0\] der Ebenengleichung bezeichnet man als Koordinatenform. Hierbei gilt für den Normalenvektor \(\vv{n} = \begin{pmatrix}
+          n_1\\n_2\\n_3\end{pmatrix}\) folgende Darstellung \[E: n_1\cdot x_1 + n_2\cdot x_2 + n_3 \cdot x_3 -c = 0.\] Der Parameter \(c\) bestimmt sich durch das Einsetzen eines Punktes, in der Regel der Aufpunkt, in die Ebenengleichung in Koordinatenform. 
+\end{merke}
+\begin{bsp}{Berechnungen der Ebenengleichungen}{}
+    Gegeben ist die Ebene \(E\) durch folgende Gleichung in Parameterform \[E:\vv{X} = \begin{pmatrix}
+          3\\-6\\1\end{pmatrix} + \lambda \begin{pmatrix}
+          -3\\12\\6\end{pmatrix} + \mu \begin{pmatrix}
+          2\\14\\-3\end{pmatrix}\]
+          \begin{description}
+              \item[Normalenform:] \begin{itemize}
+                  \item Aufpunkt \(\vv{A}= \begin{pmatrix}
+          3\\-6\\1\end{pmatrix}\)
+          \item Normalenvektor \(\vv{n^*} = \begin{pmatrix}
+          -3\\12\\6\end{pmatrix} \times \begin{pmatrix}
+          2\\14\\-3\end{pmatrix} = \begin{pmatrix}
+         -120\\3\\-66\end{pmatrix} = 3\cdot \begin{pmatrix}
+          -40\\1\\-22\end{pmatrix}\) damit wählt man für \(\vv{n}= \begin{pmatrix}
+          -40\\1\\-22\end{pmatrix}\)
+          \item Die Normalenform lautet damit \(E: \begin{pmatrix}
+          -40\\1\\-22\end{pmatrix} \circ \left(\vv{X} - \begin{pmatrix}
+          3\\-6\\1\end{pmatrix}\right)=0\)
+              \end{itemize}
+              \item[Koordinatenform:] \begin{itemize}
+                  \item Normalenvektor \(\vv{n}=\begin{pmatrix}
+          -40\\1\\-22\end{pmatrix}\)
+          \item Aufpunkt \(\vv{A} = \begin{pmatrix}
+          3\\-6\\1\end{pmatrix}\)
+          \item Aufschreiben der Koordinatenform \(-40\cdot x_1 + 1\cdot x_2 + (-22)\cdot x_3 - c =0\)
+          \item Einsetzen des Aufpunktes in die Ebenengleichung: \(-40 \cdot 3 + 1\cdot (-6) + (-22)\cdot 1 -c = -120 - 6 - 22 -c = -148 -c =0\) damit folgt für den Parameter \(c\) folgendes \(c= -148\)
+          \item  Die Koordinatengleichung lautet damit \(E: -40\cdot x_1 + 1\cdot x_2 -22\cdot x_3 - (-148)=0\)
+              \end{itemize} 
+          \end{description}
+\end{bsp}
+\begin{merke}{Von der Koordinatenform in die Parameterform}{}
+    Um eine Ebenengleichung von der Koordinatenform in die Parameterform umzuwandeln braucht man neben einem Punkt auf der Ebene noch zwei linear unabhängige Vektoren als Richtungsvektoren. Als Beispiel soll die Ebene\\ \(E: -40\cdot x_1 + 1\cdot x_2 -22\cdot x_3 +148=0\) verwendet werden.
+    \begin{description}
+        \item[Punkt auf der Ebene:]  Setze zwei beliebige Koordinaten gleich Null
+        \begin{itemize}
+            \item \(x_1 = x_2 =0\)
+            \item Daraus folgt \(0+0-22\cdot x_3 +148 = 0\)
+            \item \(x_3 = \dfrac{148}{22} = \dfrac{74}{11}\approx 6,73\)
+            \item \(\vv{A} = \begin{pmatrix}
+                0\\0\\\dfrac{74}{11}
+            \end{pmatrix}\)
+        \end{itemize}
+        \item[Richtungsvektoren festlegen:] Gegeben ist der Normalenvektor \(\vv{n} = \begin{pmatrix}
+          -40\\1\\-22\end{pmatrix}\) als Richtungsvektoren können dann alle dazu senkrechten linear unabhängige Vektoren genutzt werden. 
+        \begin{itemize}
+            \item Setze eine Koordinate gleich 0 
+            \item Vertausche die beiden andern Koordinaten
+            \item Ändere bei einem der beiden Koordinaten das Vorzeichen
+            \item  Wiederhole das ganze mit anderen Koordinaten
+        \end{itemize}
+        \item[Durchführung am Beispiel] 
+        \begin{enumerate}
+            \item \(\vv{n} = \begin{pmatrix}
+          -40\\1\\-22\end{pmatrix}\)
+          \item \(x_1 = 0 \longrightarrow \vv{u_1} = \begin{pmatrix}
+          \textcolor{red}{\textbf{0}}\\1\\-22\end{pmatrix}\)
+          \item vertauschen der Koordinaten \\ \(\vv{u_1} =\begin{tikzpicture}[baseline=(m.center)]
+  \matrix (m) [matrix of math nodes,
+               left delimiter=(, right delimiter=),
+               row sep=2pt] { 
+    -40\\
+    1\\
+    -22\\
+  };
+
+  % xshift bestimmt, wie weit rechts hinter die Klammer
+  \draw[<->, bend left=55, color = red, very thick]
+    ([xshift=7mm]m-2-1.east) to ([xshift=6mm]m-3-1.east);
+\end{tikzpicture} \longrightarrow\vv{u_2} =\begin{pmatrix}
+          0\\\textcolor{blue}{\textbf{-22}}\\\textcolor{green}{\textbf{1}}\end{pmatrix} \)
+          \item ändere das Vorzeichen \(\vv{u} =\begin{pmatrix}
+          0\\\textcolor{red}{\textbf{+}}22\\1\end{pmatrix}\)
+        \item wiederhole das ganze für den Vektor \(\vv{v} \\  \vv{n} = \begin{pmatrix}
+          -40\\1\\-22\end{pmatrix}\longrightarrow \vv{v} = \begin{pmatrix}
+          22\\0\\-40\end{pmatrix}\)  
+        \end{enumerate}  
+    \end{description}
+\begin{tcolorbox}[
+  colframe=red,
+  colback=white,
+  boxrule=1pt,
+  %left=2mm,right=2mm,top=1mm,bottom=1mm
+]
+\begin{description}
+  \item[Ebenengleichung in Parameterform:]
+  \(E:\vv{X}=  \begin{pmatrix}
+    0\\0\\ \dfrac{74}{11}
+  \end{pmatrix}
+  + \lambda \begin{pmatrix}
+    0\\22\\1
+  \end{pmatrix}
+  + \mu  \begin{pmatrix}
+    22\\0\\-40
+  \end{pmatrix}\)
+\end{description}
+\end{tcolorbox}  
+\end{merke}
 \section{Lagebeziehung Gerade Ebene}
+\begin{defi}{Lagebeziehung Gerade-Ebene}{LageBezGeEbe}
+    Für die gegenseitige Lage einer Gerade \(g\) mit \[g: \vv{X} = \vv{A} + \lambda \vv{u}\] und einer Ebene \(E\) mit \[E: n_1\cdot x_1 + n_2\cdot x_2 +n_3\cdot x_3 -c = 0\] kann eine der folgenden drei Fälle vorliegen.
+    \begin{enumerate}
+        \item Die Gerade \(g\) und die Ebene \(E\) sind \textbf{echt parallel} zueinander.
+        \item Die Gerade \(g\) \textbf{liegt in} der Ebene \(E\).
+        \item Die Gerade \(g\) und die Ebene \(E\) \textbf{schneiden sich in genau einem Punkt} \(P\). Mit \(P \in g\) und \(P\in E\).
+     \end{enumerate}
+\end{defi}
+\begin{satz}{Entscheidung der gegenseitigen Lage}{}
+ Um zu entscheiden wie eine Gerade und eine Ebene zueinander liegen, untersucht man die Lage des Normalenvektors \(\vv{n}\) der Ebene \(E: n_1\cdot x_1 + n_2\cdot x_2 +n_3\cdot x_3 -c = 0\) zum Richtungsvektor \(\vv{u}\) der Geraden \(g:\vv{X} = \vv{A} + \lambda \vv{u}\).
+ \begin{enumerate}
+     \item \(E \parallel g\): Die Gerade \(g\) ist genau dann parallel zur Ebene \(E\), wenn \(\vv{u} \perp \vv{n}\) und \(\vv{A}\notin E\). 
+     \item \(g\in E\):Die Gerade \(g\) liegt genau dann in der Ebene \(E\), wenn \(\vv{u} \perp \vv{n}\) und \(\vv{A}\in E\).
+    \item \(g\cap E = \vv{P}\): Die Gerade \(g\) schneidet genau dann die Ebene \(E\) in einem Punkt \(\vv{P}\), wenn \(\vv{u}\nparallel \vv{n}\) ist. Gilt zusätzlich noch, dass \(\vv{u}\parallel \vv{n}\) ist, dann steht die Gerade senkrecht auf der Ebene. 
+ \end{enumerate}
+\end{satz}
 \section{Lagebeziehung Ebene Ebene}
+\begin{center}
+   \begin{tikzpicture}[
+  font=\sffamily,
+  >=Latex,
+  line cap=round,
+  line join=round,
+  sep/.style={draw=gray!40, line width=0.6pt},
+  plane/.style={draw=black!70, fill=gray!7},
+  nred/.style={-Latex, very thick, red!80!black},
+  nblue/.style={-Latex, very thick, blue!70!black},
+  inter/.style={very thick, green!60!black},
+  lab/.style={font=\small\sffamily},
+  smalllab/.style={font=\footnotesize\sffamily}
+]
+
+% ============================================================
+% Layout (2 kleine Felder links, 1 großes rechts)
+% ============================================================
+\def\xA{0}
+\def\xB{6}     % Panel 1 breiter
+\def\xC{12}    % Panel 2 breiter
+\def\xD{20}    % rechtes Panel breiter
+
+\def\yTop{9.0}
+\def\yHead{8.0}   % Ende Kopfzeile
+\def\ySub{6.7}    % Ende Subheader-Zeile
+\def\yPic{1.7}    % Ende Bildbereich (darunter Caption)
+\def\yBot{0}
+
+% Trennlinien (wie Vorlage)
+\draw[sep] (\xA,\yHead) -- (\xD,\yHead);
+\draw[sep] (\xA,\ySub)  -- (\xD,\ySub);
+\draw[sep] (\xA,\yPic)  -- (\xD,\yPic);
+
+\draw[sep] (\xB,\ySub) -- (\xB,\yBot);
+\draw[sep] (\xC,\ySub) -- (\xC,\yBot);
+
+% ============================================================
+% Kopftexte
+% ============================================================
+\node[lab] at ({(\xA+\xD)/2}, {(\yTop+\yHead)/2})
+  {$E_1$ und $E_2$ sind in Normalenform gegeben.};
+
+\node[lab, align=left] at ({(\xA+\xC)/2}, {(\yHead+\ySub)/2})
+  {$\vec n_1$ und $\vec n_2$ sind parallel.\\ Es sei $A_1$ ein Punkt von $E_1$.};
+
+\node[lab] at ({(\xC+\xD)/2}, {(\yHead+\ySub)/2})
+  {$\vec n_1$ und $\vec n_2$ sind nicht parallel.};
+
+% Subheader über den Bildern (links)
+\node[smalllab] at ({(\xA+\xB)/2}, {\ySub-0.35}) {$A_1\notin E_2$};
+\node[smalllab] at ({(\xB+\xC)/2}, {\ySub-0.35}) {$A_1\in E_2$};
+
+% ============================================================
+% Helper: Ebene als Parallelogramm
+% ============================================================
+\newcommand{\DrawPlane}[2]{%
+  % #1 = shift (x,y), #2 = Label
+  \begin{scope}[shift={#1}]
+    \path[plane] (0,0) -- (3.6,0.6) -- (5.0,-0.2) -- (1.4,-0.8) -- cycle;
+    \draw[black!70] (0,0) -- (3.6,0.6) -- (5.0,-0.2) -- (1.4,-0.8) -- cycle;
+    \node[smalllab] at (4.35,0.20) {#2};
+  \end{scope}
+}
+
+% Bildbereich-Mitte (für sauberes Zentrieren)
+\pgfmathsetmacro{\yCenterPic}{(\yPic+\ySub)/2}
+
+% ============================================================
+% PANEL 1: E1, E2 echt parallel
+% ============================================================
+\begin{scope}[shift={({\xA+0.55},{\yCenterPic-0.55})}]
+  \DrawPlane{(0,0.9)}{$E_1$}
+  \DrawPlane{(0,-0.9)}{$E_2$}
+
+  \coordinate (M1) at (2.2,0.75);
+  \draw[nred]  ($(M1)+(0,0.05)$) -- ++(0,1.35) node[smalllab, right] {$\vec n_1$};
+  \draw[nblue] ($(M1)+(0,-1.70)$) -- ++(0,1.25) node[smalllab, right] {$\vec n_2$};
+  \draw[blue!70!black, dashed, line width=1.0pt] ($(M1)+(0,-0.25)$) -- ($(M1)+(0,-1.50)$);
+\end{scope}
+
+% ============================================================
+% PANEL 2: E1 = E2
+% ============================================================
+\begin{scope}[shift={({\xB+0.55},{\yCenterPic-0.55})}]
+  \DrawPlane{(0,0.0)}{$E_1=E_2$}
+
+  \coordinate (M2) at (2.2,0.05);
+  \draw[nred]  ($(M2)+(0,0.05)$) -- ++(0,1.55) node[smalllab, right] {$\vec n_1$};
+  \draw[nblue] ($(M2)+(0,-0.05)$) -- ++(0,1.25) node[smalllab, right] {$\vec n_2$};
+\end{scope}
+
+% ============================================================
+% PANEL 3: Ebenen schneiden sich in einer Geraden
+% ============================================================
+\begin{scope}[shift={({\xC+0.75},{\yCenterPic-0.75})}]
+  % Grundebene E2
+  \DrawPlane{(0,0.0)}{$E_2$}
+
+  % Ebene E1 (stehend/schräg)
+  \begin{scope}
+    \path[plane] (2.0,-0.6) -- (3.3,1.6) -- (2.6,2.4) -- (1.3,0.2) -- cycle;
+    \draw[black!70] (2.0,-0.6) -- (3.3,1.6) -- (2.6,2.4) -- (1.3,0.2) -- cycle;
+    \node[smalllab] at (2.95,1.55) {$E_1$};
+  \end{scope}
+
+  % Normalenvektoren
+  \coordinate (M3) at (2.35,0.55);
+  \draw[nred]  ($(M3)+(0.1,0.1)$) -- ++(0,2.55) node[smalllab, right] {$\vec n_1$};
+  \draw[nblue] ($(M3)+(-0.3,0.4)$) -- ++(-1.25,0.55) node[smalllab, left] {$\vec n_2$};
+
+  % gestrichelte rote Hilfslinie + Punkt S
+  \draw[red!80!black, dashed, line width=1.0pt] ($(M3)+(0.1,0.05)$) -- ++(0,-1.2);
+  \fill[green!60!black] ($(M3)+(0.1,-0.55)$) circle (1.4pt);
+  \node[smalllab, text=green!50!black] at ($(M3)+(0.35,-0.55)$) {$S$};
+\end{scope}
+
+% ============================================================
+% Captions unten
+% ============================================================
+\node[lab] at ({(\xA+\xB)/2}, {(\yPic+\yBot)/2}) {$E_1,\,E_2$ echt parallel};
+\node[lab] at ({(\xB+\xC)/2}, {(\yPic+\yBot)/2}) {$E_1=E_2$};
+\node[lab] at ({(\xC+\xD)/2}, {(\yPic+\yBot)/2}) {$E_1,\,E_2$ schneiden sich in einer Geraden.};
+
+\end{tikzpicture}
+\end{center}
+   \begin{merke}{Lagebeziehungen von Ebenen}{}
+Untersucht man die Lage von zwei Ebenen \(E_1\) und \(E_2\) zueinander, so betrachtet man die Normalenvektoren \(n_1\) und \(n_2\) der beiden Ebenen. Hierbei können sich drei unterschiedliche Fälle ergeben.
+\begin{enumerate}
+    \item Die Ebene \(E_1\) ist echt parallel zur Ebene \(E_2 \longrightarrow\) \(E_1 \parallel E_2\)
+    \item Die Ebene \(E_1\) ist identisch mit der Ebene \(E_2 \longrightarrow\) \(E_1 \equiv E_2\)
+    \item Die  Ebene \(E_1\) schneidet die Ebene \(E_2 \) in einer Geraden \( g \longrightarrow E_1 \cap E_2 = g\)
+\end{enumerate}
+\begin{center}
+\begin{adjustbox}{width=0.95\linewidth}
+\begin{tikzpicture}[
+  font=\sffamily,
+  node distance=10mm and 18mm,
+  >=latex,
+  title/.style={
+    rounded corners=1pt,
+    fill=green!25,
+    inner xsep=10mm, inner ysep=3mm,
+    blur shadow={shadow blur steps=6, shadow xshift=2pt, shadow yshift=-2pt, shadow opacity=40}
+  },
+  ybox/.style={
+    rounded corners=1pt,
+    fill=yellow!35,
+    inner xsep=12mm, inner ysep=4mm,
+    minimum width=42mm,
+    align=center,
+    blur shadow={shadow blur steps=6, shadow xshift=2pt, shadow yshift=-2pt, shadow opacity=35}
+  },
+  yboxsmall/.style={
+    rounded corners=1pt,
+    fill=yellow!35,
+    inner xsep=8mm, inner ysep=4mm,
+    minimum width=50mm,
+    align=center,
+    blur shadow={shadow blur steps=6, shadow xshift=2pt, shadow yshift=-2pt, shadow opacity=35}
+  },
+  bignote/.style={
+    rounded corners=1pt,
+    fill=blue!20,
+    inner xsep=8mm, inner ysep=6mm,
+    text width=88mm,
+    align=left,
+    blur shadow={shadow blur steps=6, shadow xshift=2pt, shadow yshift=-2pt, shadow opacity=25}
+  },
+  lab/.style={font=\sffamily\small},
+  q/.style={font=\sffamily\large}
+]
+
+\node[title,q] (Q1) {Sind die Normalenvektoren $\vec n$ und $\vec m$ linear abh\"angig?};
+
+\node[ybox, below left=15mm and 35mm of Q1] (P) {$E\parallel F$};
+
+\node[bignote, below right=15mm and 22mm of Q1] (R) {%
+$E$ und $F$ schneiden sich in einer Geraden.\\
+Um eine Gleichung der Schnittgeraden zu bestimmen, ist es zweckm\"a\ss ig, eine Ebene in Normalen- oder
+Koordinatenform und die andere in Parameterform zu \"uberf\"uhren.};
+
+\node[lab, below=12mm of P] (Q2) {Haben $E$ und $F$ gemeinsame Punkte?};
+
+\node[yboxsmall, below left=10mm and 22mm of Q2] (EQ) {$E\parallel F$ und $E \equiv F$};
+\node[yboxsmall, below right=10mm and 22mm of Q2] (NEQ) {$E\parallel F$ und $E \neq F$};
+
+\draw[thick] (Q1.south) -- node[lab, midway, above, yshift=0.5mm] {\textbf{ja}} (P.north);
+\draw[thick] (Q1.south) -- node[lab, midway, above, yshift=0.5mm] {\textbf{nein}} (R.north);
+
+\draw[thick] (P.south) -- (Q2.north);
+
+\draw[thick] (Q2.south) -- node[lab, midway, above, yshift=0.5mm] {\textbf{ja}} (EQ.north);
+\draw[thick] (Q2.south) -- node[lab, midway, above, yshift=0.5mm] {\textbf{nein}} (NEQ.north);
+
+\end{tikzpicture}
+\end{adjustbox}
+\end{center}
+\end{merke}
+\section{Winkel zwischen Gerade und Ebene}
+\index{Geraden!Winkel Gerade Ebene}\index{Ebene!Winkel Gerade Ebene}
+\begin{merke}{Winkel zwischen einer Geraden und einer Ebene}{}
+Der Schnittwinkel \(\varphi\) zwischen einer Ebene \(E: n_1x_1+n_2x_2+n_3x_3-c =0\) mit dem Normalenvektor \(\vv{n}\) und einer Geraden \(g: \vv{X} = \vv{A} + \lambda \vv{u}\) ergibt sich aus \[\cos{(90^\circ -\varphi)} = \sin{(\varphi)}=\left|\dfrac{\vv{n}\circ \vv{u}}{|\vv{n}| \cdot |\vv{u}|}\right|\]    
+\end{merke}
+\section{Winkel zwischen Ebenen}
+\index{Ebene!Winkel Ebene Ebene}
+\begin{merke}{Winkel zwischen Ebenen}{}
+Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\vv{n_1}\) und \(\vv{n_2}\) ergibt sich aus \[\cos{(\varphi)} = \left|\dfrac{\vv{n_1}\circ \vv{n_2}}{|\vv{n_1}| \cdot |\vv{n_2}|}\right|\]    
+\end{merke}
