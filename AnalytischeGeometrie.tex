@@ -1263,3 +1263,170 @@ Der Schnittwinkel \(\varphi\) zwischen einer Ebene \(E: n_1x_1+n_2x_2+n_3x_3-c =
 \begin{merke}{Winkel zwischen Ebenen}{}
 Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\vv{n_1}\) und \(\vv{n_2}\) ergibt sich aus \[\cos{(\varphi)} = \left|\dfrac{\vv{n_1}\circ \vv{n_2}}{|\vv{n_1}| \cdot |\vv{n_2}|}\right|\]    
 \end{merke}
+\section{Abstände im Raum}
+\subsection{Abstand Punkt Gerade}
+    \begin{merke}{Abstand Punkte Gerade}{}
+        Um den Abstand eines Punktes \(P\) von einer Geraden \(g\) mit \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) zu bestimmen kann man wie folgt vorgehen.
+        \begin{enumerate}
+            \item Aufstellen des allgemeinen Geradenpunktes \(\vv{X}\)
+            \item Aufstellen des Vektors \(\vv{PX}\).
+            \item Berechnung des Parameters so, dass \(\vv{PX} \circ \vv{u} =0\).
+            \item Mit dem Parameter \(\lambda\) den Vektor von \(\vv{P}\) zum Lotfußpunkt \(\vv{F}\) bestimmen.
+            \item Der Abstand des Punktes \(P\) von der Geraden \(g\) ergibt sich dann als Länge des Vektors \(\vv{PF}\) also \(d(P,g) = |\vv{PF}|\)
+        \end{enumerate}
+    \end{merke}
+    \begin{bsp}{Abstand Punkt Gerade}{}\index{Geraden!Abstand!Punkt Gerade}
+    \begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+
+% --- kleine Hilfs-"Funktion" für ein rotes Kreuz (x) ---
+\newcommand{\xmark}[2]{% #1 = coord, #2 = size
+  \draw[red, line width=1pt]
+    ($(#1)+(-#2,-#2)$) -- ($(#1)+(#2,#2)$)
+    ($(#1)+(-#2,#2)$)  -- ($(#1)+(#2,-#2)$);
+}
+
+% --- Grundpunkte (ungefähr wie in der Skizze) ---
+\coordinate (G1) at (-4,-2);      % linkes Ende der Geraden g
+\coordinate (G2) at ( 4, 2);      % rechtes Ende der Geraden g
+\coordinate (F)  at ( 1, 0.5);    % Punkt F auf g
+\coordinate (P)  at ( 0.2, 3.2);  % Punkt P oberhalb
+
+% Punkt auf g links (roter Schnittpunkt)
+\coordinate (A)  at (-2,-1);      % liegt auf g (bei dieser Wahl)
+
+% --- Gerade g ---
+\draw[line width=1.2pt] (G1) -- (G2);
+\node[right] at ($(G2)+(-0.2,0.0)$) {$g$};
+
+% --- Schwarze Strecke/Strahl durch P nach F, mit kleinem "Überstand" oben ---
+\draw[line width=1.2pt] (P) -- (F);
+
+
+% --- Winkelmarkierung bei F zwischen PF und g ---
+\coordinate (Gdir) at (2,1); % Punkt in Richtung der Geraden g von F aus
+
+
+% Beschriftungen
+\node[above right] at (P) {$P$};
+\node[below] at (F) {$F$};
+
+% --- Rote Linie von P nach A mit Pfeil nach unten und zusätzlicher Verlängerung ---
+\draw[red, line width=1.2pt, ->] (P) -- (A);
+\draw[blue, line width=1.2pt, ->] (P) -- (F);
+
+% Rote Kreuze (oben bei P und unten bei A, plus ein zweites unten wie in der Skizze)
+\xmark{P}{0.12}
+\xmark{A}{0.12}
+\coordinate (A2) at (-2.25,-1.35);
+\xmark{A2}{0.10}
+
+\end{tikzpicture}
+\end{center}
+        Gegeben ist der Punkt \(P\) mit \(\vv{P} = \begin{pmatrix}
+            4\\1\\5
+        \end{pmatrix}\) und die Geraden \(g\) mit \(g:\vv{X} = \begin{pmatrix}
+            3\\2\\1
+        \end{pmatrix} + \lambda \begin{pmatrix}
+            1\\2\\-2
+        \end{pmatrix}\). Es soll jetzt der Abstand von \(P\) zu \(g\) bestimmt werden.   
+    \end{multicols}
+    \begin{enumerate}
+        \item Vektor \(\vv{PX} = \vv{X} -\vv{P}\)
+        aufstellen \[\vv{PX} = \begin{pmatrix}
+            3+\lambda\\ 2+2\lambda\\1-2\lambda
+        \end{pmatrix} - \begin{pmatrix}
+            4\\1\\5
+        \end{pmatrix} = \begin{pmatrix}
+            -1+\lambda\\1+2\lambda\\-4-2\lambda
+        \end{pmatrix}\]
+        \item \(\lambda\) so bestimmen, dass \(\vv{PX} \circ \vv{u} =0\) ist. \[\vv{PX}\circ\vv{u} = \begin{pmatrix}
+            -1+\lambda\\1+2\lambda\\-4-2\lambda
+        \end{pmatrix} \circ \begin{pmatrix}
+            1\\2\\-2
+        \end{pmatrix} = 1\cdot(-1+\lambda )+2\cdot(1+2\lambda) -2\cdot (-4-2\lambda) = 9\lambda +9 = 0 \longrightarrow \lambda = -1\]
+        \item Vektor \(\vv{PF}\), durch einsetzen von \(\lambda =-1\) in \(\vv{PX}\), bilden.\[\vv{PF} = \begin{pmatrix}
+            -1-1\\1+2\cdot (-1)\\-4-2\cdot (-1)
+        \end{pmatrix} = \begin{pmatrix}
+            -2\\-1\\-2
+        \end{pmatrix}\] 
+        \item Damit ist der Abstand \(d(P,g)\)  des Punktes \(P\) von der Geraden \(g\) wie folgt, \(d(P,g) = |\vv{PF}| = \sqrt{9} = 3[LE]\)
+    \end{enumerate}
+    \end{bsp}
+    \subsection{Abstand paralleler Geraden}
+    \begin{merke}{Abstand paralleler Geraden}{}\index{Geraden!Abstand!Parallele Geraden}
+       Den Abstand paralleler Geraden führt man bei der Berechnung auf den Abstand Punkt Gerade zurück. 
+    \end{merke}
+\subsection{Abstand windschiefer Geraden}
+\begin{merke}{Abstand windschiefer Geraden}{}\index{Geraden!Abstand!Windschiefe Gerade}
+    Der Abstand \(d(g,h)\) windschiefer Geraden \(g\) mit \(g:\vv{X} = \vv{A} + \lambda \vv{u} \) und \(h\) mit \(h:\vv{X} = \vv{B} + \mu \vv{v}\) wird wie folgt berechnet. \[\highlightmath[red!65]{d(g,h) = |\left(\vv{A} - \vv{B}\right)\circ \vv{n_0}|}.\] Hierbei gelten für \(\vv{n_0}\) folgende Bedingungen 
+    \begin{multicols}{3}
+\begin{enumerate}
+    \item \(|\vv{n_0}| =1\)
+        \item \(\vv{n_0} \circ \vv{u} =0\)
+        \item \(\vv{n_0} \circ \vv{v} =0\)
+    \end{enumerate}
+        \end{multicols}
+\end{merke}
+\begin{bsp}{Berechnung des Abstandes windschiefer Geraden}{}
+    Gegeben sind die windschiefen Geraden \(g\) und \(h\) durch folgende Gleichungen. \[g:\vv{X} = \begin{pmatrix}
+        3\\-2\\2
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        2\\-1\\2
+    \end{pmatrix} \hspace{0.5cm} \text{und}\hspace{0.5cm} h:\vv{X} = \begin{pmatrix}
+        3\\1\\1
+    \end{pmatrix} + \mu \begin{pmatrix}
+        3\\-1\\4
+    \end{pmatrix}\]
+    \begin{enumerate}
+        \item Berechnung des Vektors \(\vv{n} = \vv{u} \times\vv{v}\)\[\vv{n} = \begin{pmatrix}
+        2\\-1\\2
+    \end{pmatrix} \times \begin{pmatrix}
+        3\\-1\\4
+    \end{pmatrix} = \begin{pmatrix}
+        -4+2\\6-8\\-2+3
+    \end{pmatrix} = \begin{pmatrix}
+        -2\\-2\\1
+    \end{pmatrix}\]
+    \item erzeugen des Vektors \(\vv{n_0}\) durch Normierung von \(\vv{n}\)
+    \[|\vv{n}| = \sqrt{9} =3 \longrightarrow \vv{n_0} = \dfrac{1}{3}\cdot \vv{n} = \dfrac{1}{3}\cdot \begin{pmatrix}
+        -2\\-2\\1
+    \end{pmatrix} = \begin{pmatrix}
+        -\frac{2}{3}\\-\frac{2}{3}\\ \frac{1}{3}
+    \end{pmatrix}\]
+    \item Berechnung des Abstandes durch  \(d(g,h) = |\left(\vv{A} - \vv{B}\right)\circ \vv{n_0}| = |\vv{AB}\circ \vv{n_0}|\)
+    \[\vv{AB} = \begin{pmatrix}
+        0\\3\\-1
+    \end{pmatrix} \hspace{0.5cm}\longrightarrow\hspace{0.5cm} d(g,h) = \left|\begin{pmatrix}
+        0\\3\\-1
+    \end{pmatrix} \circ \begin{pmatrix}
+        -\frac{2}{3}\\-\frac{2}{3}\\ \frac{1}{3}
+    \end{pmatrix} \right| = \left|-2-\dfrac{1}{3}\right| = \left|-\dfrac{7}{3}\right| = \dfrac{7}{3}\hspace{0.15cm}[LE]\]
+    \end{enumerate}
+\end{bsp}
+\subsection{Abstand Punkt Ebene}
+\begin{defi}{Hesse'sche Normalenform der Ebene}{}\index{Ebene!Hesse'sche Normalenform}
+    Gegeben ist die Koordinatenform der Ebene \(E\) durch \(E:n_1x_1 +n_2x_2+n_3x_3-c=0\) die zu dieser Ebene gehörende normierte Koordinatenform \(\highlightmath{E: \dfrac{1}{|\vv{n}|}\cdot \left(n_1x_1+n_2x_2+n_3x_3-c\right) =0}\) nennt man die Hesse'sche Normalenform. Hierbei wird der Normalenvektor auf die Länge \(1\) normiert.  
+\end{defi}
+\begin{merke}{Abstand Punkte Ebene}{}\index{Ebene!Abstand Punkt Ebene}
+    Die Berechnung des Abstandes eines Punktes \(P\) von einer Ebene \(E\) erfolgt durch das einsetzen des Punktes in die Hesse'sche Normalenform. Damit ergibt sich \[\highlightmath[red!65]{d(P,E)= \left|\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right)\right|}\]
+\end{merke} 
+\begin{bsp}{Abstand Punkte Ebene}{}
+   Gegeben ist die Ebene \(E\) durch \(E:x_1+2x_2+2x_3-6=0\) und der Punkte \(P\) mit \(\vv{P}= \begin{pmatrix}
+       3\\4\\5
+   \end{pmatrix}\). Es soll der Abstand \(d(P,E)\) des Punktes \(P\) von der Ebene \(E\) berechnet werden.
+   \begin{enumerate}
+       \item Aufstellen der Hesse'schen Normalenform \[\vv{n} = \begin{pmatrix}
+        1\\2\\2
+       \end{pmatrix} \hspace{0.25cm}\longrightarrow \hspace{0.25cm} \left|\vv{n}\right| = \sqrt{1+4+4} = \sqrt{9} =3\hspace{0.25cm}\longrightarrow \hspace{0.25cm} E:\dfrac{1}{3}\left(x_1+2x_2+2x_3-6\right)=0\]
+       \item Einsetzen des Punktes in die Hesse'sche Normalenform \[d(P,E) = \left|\dfrac{1}{3}\left(1\cdot 3 +2\cdot 4 + 2\cdot 5 - 6\right)\right| = \left|\dfrac{1}{3}\left(3+8+10-6\right)\right|= \left|\dfrac{1}{3}\cdot 15\right| =5 \hspace{0.15cm} [LE]\]
+   \end{enumerate}
+\end{bsp}
+\begin{b8d}{Halbräume}{}\index{Ebene!Halbräume}
+Durch eine Ebene wird der 3-dimensionale Raum in 2 Halbräume eingeteilt.
+\begin{itemize}
+    \item Ist der Wert \(\highlightmath{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) > 0}\) dann liegt der Punkt \(P\) im \highlightmath{positiven} Halbraum, also in Richtung des Normalenvektors.
+    \item Ist der Wert \(\highlightmath[blue!35]{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) < 0}\) dann liegt der Punkt \(P\) im \highlightmath[blue!35]{negativen} Halbraum, also in entgegengesetzter Richtung des Normalenvektors.
+\end{itemize}
+\end{b8d}

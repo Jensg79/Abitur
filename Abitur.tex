@@ -153,16 +153,19 @@
 \usetikzlibrary{arrows,shadows.blur, backgrounds, fit}
 \usetikzlibrary{calc,arrows.meta,decorations.pathreplacing,positioning}
 % Marker für Mathematik (inline oder display)
-\newcommand{\highlightmath}[1]{%
+
+\newcommand{\highlightmath}[2][yellow!35]{%
   \tikz[baseline=(X.base)]{
     % 1) Inhalt (Math) setzen
-    \node[inner sep=0pt, outer sep=0pt] (X) {$\displaystyle #1$};
+    \node[inner sep=0pt, outer sep=0pt] (X) {$\displaystyle #2$};
     % 2) Hintergrund darüber legen
     \begin{pgfonlayer}{background}
-      \node[fill=yellow!35, rounded corners=1pt, inner sep=2pt, fit=(X)] {};
+      \node[fill=#1, rounded corners=1pt, inner sep=2pt, fit=(X)] {};
     \end{pgfonlayer}
   }%
 }
+
+
 \newtcbtheorem[no counter]{rechnung}
   {\faCheckSquare[regular]\ Rechnung}{colback=green!7,colframe=gray!85!black,
   fonttitle=\bfseries,title after break={\faCheckSquare[regular]\ Rechnung (Fortsetzung)}}{theorem}
