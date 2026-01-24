@@ -571,3 +571,38 @@ Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man e
 \end{enumerate}
 \end{multicols}
 \end{bem}
+\section{Hypothesentest}\index{Hypothesentest}
+\begin{itemize}
+\item Zwei sich ausschließende Hypothesen werden betrachtet
+\begin{enumerate}
+\item Nullhypothese $H_0$ 
+\item Gegenhypothese $H_1$
+\end{enumerate}
+\item Anzahl der Treffer einer \textcolor{red}{Stichprobe} mit festgelegter Länge bildet die \textcolor{red}{Testgröße}
+\item Wertebereich der Testgröße wird in den \textcolor{red}{kritischen Bereich} K (\textcolor{red}{Ablehnungsbereich}) und den \textcolor{red}{nichtkritischen Bereich} $\bar{K}$  (\textcolor{red}{Annahmebereich}) zerlegt
+\item liegt der durch die Stichprobe gewonnene Wert der Testgröße in K, dann wird $H_0$ verworfen, ansonsten wird $H_0$ nicht verworfen (\textcolor{red}{Entscheidungsregel}). 
+\item Fehler beim Testen von Hypothesen\\
+
+\scalebox{1.2}{\begin{tabular}{|>{\columncolor{gray!15}}l|>{\columncolor{gray!10}}c|>{\columncolor{gray!10}}c|}
+  \hline
+  \rowcolor{gray!20}
+  \textbf{Entscheidung} & \textbf{$H_0$ ist wahr.} & \textbf{$H_0$ ist falsch.} \\
+  \hline
+  $H_0$ wird abgelehnt. &
+  \cellcolor{red!30}Fehler erster Art &
+  \cellcolor{green!20}Richtige Entscheidung \\
+  \hline
+  $H_0$ wird nicht abgelehnt. &
+  \cellcolor{green!20}Richtige Entscheidung &
+  \cellcolor{cyan!20}Fehler zweiter Art \\
+  \hline
+\end{tabular}}
+\begin{enumerate}
+\item Fehler erster Art: $H_0$ wird verworfen, obwohl sie wahr ist. \index{Hypothesentest!Fehler 1. Art}
+\item Fehler zweiter Art: $H_0$ wird beibehalten, obwohl sie falsch ist.\index{Hypothesentest!Fehler 2. Art}
+\item Durch eine Veränderung der Entscheidungsregel kann man nur die Wahrscheinlichkeit
+des Fehlers der einen Art auf Kosten der Wahrscheinlichkeit des Fehlers der anderen Art verringern.
+\item Durch eine Erhöhung des Stichprobenumfangs können bei einem Test die Fehler
+1. und 2. Art verringert werden. Allerdings ist eine solche Erhöhung in der Praxis auch mit erhöhten Kosten verbunden.
+\end{enumerate}
+\end{itemize}

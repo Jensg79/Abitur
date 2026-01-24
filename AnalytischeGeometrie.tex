@@ -1354,6 +1354,101 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
         \item Damit ist der Abstand \(d(P,g)\)  des Punktes \(P\) von der Geraden \(g\) wie folgt, \(d(P,g) = |\vv{PF}| = \sqrt{9} = 3[LE]\)
     \end{enumerate}
     \end{bsp}
+    \begin{bem}{Alternative Methode}{}
+
+    \begin{center}
+\begin{tikzpicture}[>=Stealth, line cap=round, line join=round, scale=1]
+
+  % Ebene E
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (4,1);
+  \coordinate (C) at (4,4);
+  \coordinate (D) at (0,3);
+
+  \fill[yellow!25] (A)--(B)--(C)--(D)--cycle;
+  \draw[black!45, line width=0.7pt] (A)--(B)--(C)--(D)--cycle;
+  \node[black!70] at ($(C)+(-0.25,-0.2)$) {$E$};
+
+  % Gerade g
+  \coordinate (gL) at (-3,3.6);
+  \coordinate (gR) at (6,0.4);
+
+  % Schnittpunkte von g mit der Ebene
+  \path[name path=gline]  (gL)--(gR);
+  \path[name path=leftE]  (A)--(D);
+  \path[name path=rightE] (B)--(C);
+
+  \path[name intersections={of=gline and leftE,  by=I1}];
+  \path[name intersections={of=gline and rightE, by=I2}];
+
+  % Punkt F auf g (weiter links)
+  \coordinate (F) at ($(I1)!0.50!(I2)$);
+
+  % g: sichtbar / hinter E gestrichelt bis F / sichtbar
+  \draw[blue!55, line width=1.2pt]          (gL) -- (I1);
+  \draw[blue!55, line width=1.2pt, dashed]  (I1) -- (F);
+  \draw[blue!55, line width=1.2pt]          (F)  -- (gR);
+
+  \node[blue!55] at ($(gR)+(0.2,-0.1)$) {$g$};
+
+  % Pfeil u
+  \draw[blue!70, line width=1.2pt, ->] (-2.6,3.45) -- (-1.5,3.05);
+  \node[blue!70] at (-2.05,3.72) {$\vec u$};
+
+  % Hilfspunkt G auf g rechts von F
+  \coordinate (G) at ($(F)!0.25!(gR)$);
+
+  % Punkt P: Abstand vergrößern -> PF länger
+  \def\t{1.2} % war 0.55, größer => P weiter weg
+  \coordinate (P) at ($(F)!\t!-90:(G)$);
+
+  % Vektor PF
+  \draw[red!75, line width=1.2pt, ->] (P) -- (F);
+
+  % Kreuzmarken
+  \foreach \X in {P,F}{
+    \draw[red!75, line width=1.1pt]
+      ($(\X)+(-0.07,-0.07)$) -- ($(\X)+(0.07,0.07)$);
+    \draw[red!75, line width=1.1pt]
+      ($(\X)+(-0.07,0.07)$) -- ($(\X)+(0.07,-0.07)$);
+  }
+
+  % Labels
+  \node[red!75] at ($(P)+(-0.25,-0.15)$) {$P$};
+  \node[red!75] at ($(F)+(0.0,0.35)$) {$F$};
+
+  % rechter Winkel als Viertelkreis + Punkt innen
+  \def\r{7mm}
+  \def\alpha{0.6}
+  \def\pr{1.2pt}
+
+  \pgfmathanglebetweenpoints{\pgfpointanchor{F}{center}}{\pgfpointanchor{G}{center}}
+  \let\angFG\pgfmathresult
+  \pgfmathanglebetweenpoints{\pgfpointanchor{F}{center}}{\pgfpointanchor{P}{center}}
+  \let\angFP\pgfmathresult
+
+  \pgfmathsetmacro{\diff}{mod(\angFP-\angFG+180,360)-180}
+  \pgfmathsetmacro{\midang}{\angFG + 0.5*\diff}
+
+  \draw[red!75, line width=1.1pt]
+    (F) ++(\angFG:\r) arc[start angle=\angFG, end angle=\angFG+\diff, radius=\r];
+
+  \fill[red!75] (F) ++(\midang:\alpha*\r) circle[radius=\pr];
+
+\end{tikzpicture}
+    \end{center}
+        Um den Abstand eines Punktes \(P\) von einer geraden \(g\) zu berechnen, ist kann man folgendermaßen vorgehen:
+        \begin{enumerate}
+            \item Aufstellen einer Ebene \(E\), die den Punkt \(P\) enthält und senkrecht zur Geraden \(g\) verläuft.
+            \begin{itemize}
+                \item Richtungsvektor \(\vv{u}\) der Geraden \(g\) wird der Normalenvektor der Ebene
+                \item Einsetzen des Punktes \(P\) in die Koordinatenform der Ebene zur Berechnung des Parameters \(c\)
+            \end{itemize}
+            \item Berechnung der Koordinaten des Schnittpunktes \(F\) der Geraden \(g\) mit der Ebene \(E\)
+            \item Aufstellen des Verbindungsvektors \(\vv{PF}\) und Berechnung der Länge von \(\vv{PF}\) durch \(\left|\vv{PF}\right|\)
+            \item Der Abstand \(d(P,g)\) des Punktes \(P\) von der Geraden \(g\) entspricht der Länge des Vektors \(\vv{PF}\)
+        \end{enumerate}
+    \end{bem}
     \subsection{Abstand paralleler Geraden}
     \begin{merke}{Abstand paralleler Geraden}{}\index{Geraden!Abstand!Parallele Geraden}
        Den Abstand paralleler Geraden führt man bei der Berechnung auf den Abstand Punkt Gerade zurück. 
