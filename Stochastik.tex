@@ -485,49 +485,7 @@ Durch die Anwendung zur Berechnung der Wahrscheinlichkeiten innerhalb der Bernou
 \begin{satz}{Die kumulative Binomialverteilung}{}
 Die kumulative Verteilung \(F(n;p;k)\) einer binomialverteilten ZG \(X\) ist damit\[F(n;p;k) = F^n_p(k) = P^n_p(X\leq k) = \sum\limits_{i=0}^k \binom{n}{i} \cdot p^{i}\cdot (1-p)^{n-i}\]
 \end{satz}
-\begin{b8d}{Berechnung der kumulativen Binomialverteilung}{}\index{Binomialverteilung!Berechnung mit Taschenrechner!\(P^n_p(X\leq k)\)}
-\begin{center}
-\begin{tabular}{p{0.94\linewidth}}
-\hline
-\textbf{Route zur Binomial CD-Funktion}\\[4pt]
-1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
-2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
-3) Mit dem Cursor auf \textbf{Seite 2} wechseln \;\(\rightarrow\)\; \textbf{Binomial CD}\\
-4) \taste{2} \;\(\rightarrow\)\; \textbf{Variablen eingeben}\\[4pt]
-\textbf{Eingabereihenfolge:}\\
-Zuerst \(\;x\) (Wert der Zufallsgröße) \(\rightarrow\) dann \(\;N\) (Kettenlänge) \(\rightarrow\) dann \(\;p\) (Trefferwahrscheinlichkeit).\\
-\hline
-\end{tabular}
-\end{center}
-\noindent
-\textbf{Was rechnet Binomial CD hier?} In diesem Modus liefert der Rechner typischerweise
-\[
-\boxed{\text{Binomial CD}(x;N,p)=P^n_p(X\le x)}
-\]
-Also: „höchstens \(x\) Treffer“.
-\end{b8d}
-\begin{b8d}{Berechnung der Wahrscheinlichkeit in den Taschenrechner}{}\index{Binomialverteilung!Berechnung mit Taschenrechner!\(P^n_p(X=k)\)}
-\begin{center}
-\begin{tabular}{p{0.94\linewidth}}
-\hline
-\textbf{Route zur Funktion für exakt \(k\) Treffer (Binomial PD)}\\[4pt]
-1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
-2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
-3) \taste{4} \;\(\rightarrow\)\; \textbf{Binomial PD} (Probability Distribution)\\
-4) \taste{2} \;\(\rightarrow\)\; \textbf{VAR} (Variablen eingeben)\\[6pt]
-\textbf{Eingabereihenfolge:}\\
-Zuerst \(\;x\) (Wert der Zufallsgröße) \(\rightarrow\) dann \(\;N\) (Kettenlänge) \(\rightarrow\) dann \(\;p\) (Trefferwahrscheinlichkeit).\\
-\hline
-\end{tabular}
-\end{center}
 
-\noindent
-\textbf{Was rechnet Binomial PD?}
-\[
-\boxed{\text{Binomial PD}(x;N,p)=P^n_p(X=x)}
-\]
-Also: „genau \(x\) Treffer“.
-\end{b8d}
 \subsection{Anwendung der kumulativen Verteilung}
 
 Häufig interessiert die Wahrscheinlichkeit, dass in einer Bernoulli-Kette mindestens ein Treffer auftritt. Das ist die Summe der Wahrscheinlichkeiten für einen Treffer, zwei Treffer, drei Treffer, \(\ldots\),  n Treffer. Diese Wahrscheinlichkeit lässt sich viel einfacher durch das \textit{Gegenereignis} \textbf{kein Treffer} berechnen.
@@ -571,6 +529,140 @@ Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man e
 \end{enumerate}
 \end{multicols}
 \end{bem}
+\subsection{Typische Formulierungen}
+\begin{bem}{Typische Formulierungen}{}
+    \begin{center}
+    
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Typische Aufgabenformulierungen bei }$X\sim\mathrm{Bin}(n,p)$\\[6pt]
+
+\textbf{Der Rechner liefert:}\qquad \(\mathrm{Binomial\;CD}(x;N,p)=P^n_p(X\le x)\)\\[6pt]
+
+\textbf{So übersetzt du Texte in Casio-Eingaben:}\\[4pt]
+\(\boxed{P^n_p(X\le x)}\) \quad „\textbf{höchstens} \(x\) Treffer“ \quad\(\Rightarrow\)\quad direkt \(\mathrm{CD}(x)\)\\[4pt]
+
+\(\boxed{P^n_p(X< x)}\) \quad „\textbf{weniger als} \(x\) Treffer“ \quad\(\Rightarrow\)\quad \(\mathrm{CD}(x-1)\)\\[4pt]
+
+\(\boxed{P^n_p(X\ge x)}\) \quad „\textbf{mindestens} \(x\) Treffer“ \quad\(\Rightarrow\)\quad \(1-\mathrm{CD}(x-1)\)\\[4pt]
+
+\(\boxed{P^n_p(X> x)}\) \quad „\textbf{mehr als} \(x\) Treffer“ \quad\(\Rightarrow\)\quad \(1-\mathrm{CD}(x)\)\\[6pt]
+
+\textbf{Entsprechend bei „nicht mehr als / nicht weniger als“:}\\[4pt]
+„\textbf{nicht mehr als} \(x\)“ \(\Leftrightarrow P^n_p(X\le x)\) \(\Rightarrow\) \(\mathrm{CD}(x)\)\\[4pt]
+„\textbf{nicht weniger als} \(x\)“ \(\Leftrightarrow P^n_p(X\ge x)\) \(\Rightarrow\) \(1-\mathrm{CD}(x-1)\)\\[6pt]
+
+\textbf{Zwischen zwei Werten:}\\[4pt]
+\(\boxed{P^n_p(a\le X\le b) = P^n_p(X\leq b) - P^n_p(X\leq a-1)} \) \quad\(\Rightarrow\)\quad \(\mathrm{CD}(b)-\mathrm{CD}(a-1)\)\\[4pt]
+\(\boxed{P^n_p(a< X\le b)= P^n_p(X\leq b) - P^n_p(X\leq a)}\) \quad\(\Rightarrow\)\quad \(\mathrm{CD}(b)-\mathrm{CD}(a)\)\\
+\hline
+\end{tabular}
+\end{center}
+
+\end{bem}
+\subsection{Taschenrechner Anleitungen}\index{Zufallsgröße!Binomialverteilung!Taschenrechner}
+\begin{b8d}{Berechnung der kumulativen Binomialverteilung}{}
+\begin{center}
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Route zur Binomial CD-Funktion}\\[4pt]
+1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
+2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
+3) Mit dem Cursor auf \textbf{Seite 2} wechseln \;\(\rightarrow\)\; \textbf{Binomial CD}\\
+4) \taste{2} \;\(\rightarrow\)\; \textbf{Variablen eingeben}\\[4pt]
+\textbf{Eingabereihenfolge:}\\
+Zuerst \(\;x\) (Wert der Zufallsgröße) \(\rightarrow\) dann \(\;N\) (Kettenlänge) \(\rightarrow\) dann \(\;p\) (Trefferwahrscheinlichkeit).\\
+\hline
+\end{tabular}
+\end{center}
+\noindent
+\textbf{Was rechnet Binomial CD hier?} In diesem Modus liefert der Rechner typischerweise
+\[
+\boxed{\text{Binomial CD}(x;N,p)=P^n_p(X\le x)}
+\]
+Also: „höchstens \(x\) Treffer“.
+\end{b8d}
+\begin{b8d}{Berechnung der Wahrscheinlichkeit in den Taschenrechner}{}
+\begin{center}
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Route zur Funktion für exakt \(k\) Treffer (Binomial PD)}\\[4pt]
+1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
+2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
+3) \taste{4} \;\(\rightarrow\)\; \textbf{Binomial PD} (Probability Distribution)\\
+4) \taste{2} \;\(\rightarrow\)\; \textbf{VAR} (Variablen eingeben)\\[6pt]
+\textbf{Eingabereihenfolge:}\\
+Zuerst \(\;x\) (Wert der Zufallsgröße) \(\rightarrow\) dann \(\;N\) (Kettenlänge) \(\rightarrow\) dann \(\;p\) (Trefferwahrscheinlichkeit).\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Was rechnet Binomial PD?}
+\[
+\boxed{\text{Binomial PD}(x;N,p)=P^n_p(X=x)}
+\]
+Also: „genau \(x\) Treffer“.
+\end{b8d}
+\begin{b8d}{Berechnung der Binomialverteilung als Tabelle}{}
+\begin{center}
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Route zur Binomialverteilung als Tabelle (LIST)}\\[4pt]
+1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
+2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
+3) \taste{3} \;\(\rightarrow\)\; \textbf{Binomial PD} \quad(\textit{Einzelwahrscheinlichkeiten})\\
+4) \taste{1} \;\(\rightarrow\)\; \textbf{LIST} \quad(\textit{Tabelleneingabe})\\[6pt]
+
+\textbf{Eingabereihenfolge:}\\
+Zuerst die gewünschten \(x\)-Werte in der Liste (z.\,B. \(0,1,2,\dots\)) \(\rightarrow\)
+dann \(\;N\) (Kettenlänge/Anzahl der Versuche) \(\rightarrow\)
+dann \(\;p\) (Trefferwahrscheinlichkeit).\\[4pt]
+
+\textbf{Ausgabe:}\\
+In der Ergebnisspalte erscheint zu jedem eingetragenen \(x\) der Wert
+\(\;P^n_p(X=x)\).\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Was liefert die Tabelle hier?} In diesem Modus berechnet der Rechner
+\[
+\boxed{\mathrm{Binomial\;PD}(x;N,p)=P^n_p(X=x)}
+\]
+also: „genau \(x\) Treffer“ (für jedes \(x\) aus der Liste).
+\end{b8d}
+\begin{b8d}{Berechnung der kumulativen Binomialverteilung als Tabelle}{}
+\begin{center}
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Route zur kumulativen Binomialverteilung als Tabelle (LIST)}\\[4pt]
+1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
+2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
+3) Mit dem Cursor auf \textbf{Seite 2} wechseln \;\(\rightarrow\)\; \textbf{Binomial CD}\\
+4) \taste{1} \;\(\rightarrow\)\; \textbf{LIST} \quad(\textit{Tabelleneingabe})\\[6pt]
+
+\textbf{Eingabereihenfolge:}\\
+Zuerst die gewünschten \(x\)-Werte in der Liste (z.\,B. \(0,1,2,\dots\)) \(\rightarrow\)
+dann \(\;N\) (Kettenlänge/Anzahl der Versuche) \(\rightarrow\)
+dann \(\;p\) (Trefferwahrscheinlichkeit).\\[4pt]
+
+\textbf{Ausgabe:}\\
+In der Ergebnisspalte erscheint zu jedem eingetragenen \(x\) der Wert
+\(\;P^n_p(X\le x)\).\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Was liefert die Tabelle hier?} In diesem Modus berechnet der Rechner
+\[
+\boxed{\mathrm{Binomial\;CD}(x;N,p)=P^n_p(X\le x)}
+\]
+also: „höchstens \(x\) Treffer“ (für jedes \(x\) aus der Liste).
+\end{b8d} 
+
 \section{Hypothesentest}\index{Hypothesentest}
 \begin{itemize}
 \item Zwei sich ausschließende Hypothesen werden betrachtet
