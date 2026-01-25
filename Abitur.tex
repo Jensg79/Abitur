@@ -1,6 +1,24 @@
 \documentclass[a4paper]{report}
 %\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\setmainfont[Path = Schriften/, 
+Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  Contextuals=Alternate
+]{Caveat}
+\newfontfamily\CaveatMedium[
+  Path = Schriften/,
+  Extension = .ttf,
+  UprightFont = Caveat-Medium
+]{Caveat}
+
+\newfontfamily\CaveatSemiBold[
+  Path = Schriften/,
+  Extension = .ttf,
+  UprightFont = Caveat-SemiBold
+]{Caveat}
 \usepackage{animate}
 \usepackage{cancel}
 \usepackage{multicol}
@@ -11,6 +29,8 @@
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
 \usepackage[table]{xcolor}
+\definecolor{pelikanblue}{HTML}{304992}
+\AtBeginDocument{\color{pelikanblue}} % dunkler
 \usepackage{extarrows}
 \usepackage{{intexgral}}
 \usepackage{Riemann}
