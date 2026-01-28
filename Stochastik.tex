@@ -611,7 +611,7 @@ Also: „genau \(x\) Treffer“.
 \textbf{Route zur Binomialverteilung als Tabelle (LIST)}\\[4pt]
 1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
 2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
-3) \taste{3} \;\(\rightarrow\)\; \textbf{Binomial PD} \quad(\textit{Einzelwahrscheinlichkeiten})\\
+3) \taste{4} \;\(\rightarrow\)\; \textbf{Binomial PD} \quad(\textit{Einzelwahrscheinlichkeiten})\\
 4) \taste{1} \;\(\rightarrow\)\; \textbf{LIST} \quad(\textit{Tabelleneingabe})\\[6pt]
 
 \textbf{Eingabereihenfolge:}\\
@@ -662,7 +662,50 @@ In der Ergebnisspalte erscheint zu jedem eingetragenen \(x\) der Wert
 \]
 also: „höchstens \(x\) Treffer“ (für jedes \(x\) aus der Liste).
 \end{b8d} 
+\subsection{Erwartungswert und Varianz einer binomialverteilten Zufallsgröße}
+    \begin{defi}{Erwartungswert und Varianz}{}\index{Binomialverteilung!Erwartungswert}\index{Zufallsgröße!Binomialverteilung!Erwartungswert}\index{Binomialverteilung!Varianz}\index{Zufallsgröße!Binomialverteilung!Varianz}\index{Zufallsgröße!Binomialverteilung!Standardabweichung}
+\index{Binomialverteilung!Standardabweichung}
+     Gegeben ist eine Bernoulli-Kette der Länge \(n\) mit der Trefferwahrscheinlichkeit \(p\). Für die Zufallsgröße \(X\) \glqq Anzahl der Treffer\grqq gilt:
+     \begin{description}
+         \item[Erwartungswert:] \(E(X) = \mu = n\cdot p\)
+         \item[Varianz:] \(Var(X) = n\cdot p \cdot q = n\cdot p\cdot \left(1-p\right)\)
+         \item[Standardabweichung:]\(\sigma = \sqrt{n\cdot p \cdot q } = \sqrt{n\cdot p\cdot \left(1-p\right)}\) 
+     \end{description} 
+    \end{defi}
+    \begin{b8d}{}{}
+Werden aus einer großen Gesamtheit nur wenige Elemente ausgewählt, darf man die interessierenden Wahrscheinlichkeiten näherungsweise mit der Bernoulli'schen Formel berechnen.
+    \end{b8d}
+    \begin{merke}{Werte der Binomialverteilung}{}
+   Ist eine ZG \(X\) nach \(B(n,p)\) verteilt, so ist die Trefferanzahl \(k\) mit der größten Wahrscheinlichkeit entweder \begin{itemize}
+       \item \(k=E(X)\) wenn \(\mu = E(X)\) ganzzahlig ist
+       \item bei der von \(\mu = E(X)\) aus gesehenen nächstkleineren oder nächstgrößeren Trefferanzahl, wenn \(E(X)\) nicht ganzzahlig ist.
+   \end{itemize}
+    \end{merke}
+\begin{merke}{Eigenschaften}{}
+Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit wachsenden \(n\) bei konstanten \(p\) flacher. Die Maximalwerte der Wahrscheinlichkeitsfunktionen nehmen dabei ab.
+\begin{center}
+    \includegraphics[width =1\textwidth]{Bilder/Histogramm0.png}
+\end{center}
+Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschieben sich mit wachsenden \(p\) bei konstantem \(n\) nach rechts.
+\begin{center}
+     \includegraphics[width =1\textwidth]{Bilder/Histogramm1.png}
+\end{center}
+Wenn \(n\) konstant ist, dann nehmen die Maximalwerte der Wahrscheinlichkeitsfunktion bei \(p=0.5\) ihr Minimum an.
+\end{merke}
+\begin{b8d}{Symmetrie der Histogramme}{}
+\begin{multicols}{2}
 
+Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(p=0.5\) achsensymetrisch.
+\begin{center}
+     \includegraphics[width =0.45\textwidth]{Bilder/Histogramm2.png}
+\end{center}
+ \columnbreak
+ Die Histogramme von nach \(B(n;p)\) und \(B(n;1-p)\) verteilten Zufallsgrößen \(X\) sind zueinander symmetrisch.
+ \begin{center}
+    \includegraphics[width =0.45\textwidth]{Bilder/Histogramm3.png}  
+ \end{center}
+\end{multicols}
+\end{b8d}
 \section{Hypothesentest}\index{Hypothesentest}
 \begin{itemize}
 \item Zwei sich ausschließende Hypothesen werden betrachtet

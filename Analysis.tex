@@ -12,7 +12,7 @@ Gegeben ist die Funktion $f(x) =\dfrac{1}{2}x^3-x^2-2x +1$ mit $\mathds{D}_f =\m
 $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,51)}{3,3 -1} = \dfrac{2,99}{2,3} = \dfrac{13}{10} = 1,3 $$
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
         axis lines = middle, 
          x=1cm,y=1cm,
         ymajorgrids=true,
@@ -66,7 +66,7 @@ Mit Hilfe der h-Methode ist es damit möglich die Ableitung jeder Funktion an ei
 Gegeben ist der Graph $G_f$ einer Funktion $f$ und die beiden beliebigen Punkte $P(x_0|f(x_0))$ und $Q(x_0+h|f(x_0+h))$. Durch $P$ und $Q$ verläuft eine Sekante am Graphen $G_f$. Der Abstand der beiden Punkte läuft bei der h-Methode gegen Null. 
   \begin{center}
 \begin{tikzpicture}
-\begin{axis}[xmin= -0.2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -0.2, xmax = 3.5, ymin= -1.5, ymax= 5.5,
  x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -115,7 +115,7 @@ Der \textcolor{red}{Steigungswinkel} $\alpha$ einer Tangente ist der \textcolor{
 ist $m$ positiv, ist $\alpha$ positiv; ist $m$ negativ, ist $\alpha$ negativ. 
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[xmin= -2, xmax = 3.5, ymin= -1.5, ymax= 3.5,
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -2, xmax = 3.5, ymin= -1.5, ymax= 3.5,
  x=1cm,y=1cm,
         axis lines = middle, 
         xticklabels=\empty,
@@ -285,7 +285,7 @@ Die Funktion $f(x) = x^3 + x^2 -2x+1$ mit $x\in\mathds{R}$ ist ein Polynom vom G
 \definecolor{ccqqqq}{rgb}{0.8,0,0}
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
 x=1cm,y=1cm,
 axis lines=middle,
 ymajorgrids=true,
@@ -372,7 +372,7 @@ Am Beispiel der Funktion $f(x)=x^3-2x^2-x+1$ soll das Newton-Verfahren exemplari
 	\end{aligned}$\end{center}
 \begin{center}
     \begin{tikzpicture}
-        \begin{axis}[xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
+        \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -3.5, xmax = 4.5, ymin= -4, ymax= 4,
          x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -504,7 +504,7 @@ Berechnung der Lage der Extrempunkte:\\
 	\end{aligned}$\end{center}
 \begin{center}
     \begin{tikzpicture}
-        \begin{axis}[xmin= -4.1, xmax = 2.5, ymin= -15.1, ymax= 20.5,
+        \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -4.1, xmax = 2.5, ymin= -15.1, ymax= 20.5,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -530,7 +530,7 @@ Berechnung der Lage der Extrempunkte:\\
 \end{bsp}
 \begin{b8d}{Zusammenhang Graph der 1.Ableitung und Graph der Funktion}{}
  \begin{tikzpicture}[scale = 0.8]
-        \begin{axis}[xmin= -4.1, xmax = 2.5, ymin= -15.1, ymax= 20.5,
+        \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -4.1, xmax = 2.5, ymin= -15.1, ymax= 20.5,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -545,7 +545,7 @@ Berechnung der Lage der Extrempunkte:\\
         \end{axis}
     \end{tikzpicture}
      \begin{tikzpicture}[scale=0.8]
-        \begin{axis}[xmin= -1.6, xmax = 4.1, ymin= -15.1, ymax= 10.5,
+        \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -1.6, xmax = 4.1, ymin= -15.1, ymax= 10.5,
         axis lines = middle, 
         ymajorgrids=true,
         xmajorgrids=true,
@@ -586,7 +586,7 @@ Monotonietabelle:\\
 \end{center}
 \begin{center}
     \begin{tikzpicture}
-        \begin{axis}[xmin= -1.1, xmax = 5.5, ymin= -4.1, ymax=3.5,
+        \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -1.1, xmax = 5.5, ymin= -4.1, ymax=3.5,
          x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -695,7 +695,7 @@ Berechnung der Koordinaten des Wendepunktes:
 \end{equation*}
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -6.1, ymax=6.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -2.1, xmax = 4.1, ymin= -6.1, ymax=6.1,
      x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -878,7 +878,7 @@ Berechnung der Koordinaten:
 \item Graph der Funktion:
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -5.1, xmax = 3.1, ymin= -3.1, ymax=6.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -5.1, xmax = 3.1, ymin= -3.1, ymax=6.1,
      x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -932,7 +932,7 @@ Bei einer Funktionenschar gibt es neben der Variable $x$ auch noch einen Paramet
 Betrachtet wird die Funktionenschar $f_a(x) = x^2 +a$ mit $\mathds{D}_{f_a} = \mathds{R}$ und $a \in \mathds{R}$. Wie man leicht sieht, realisiert der Parameter $a$ eine Verschiebung des Graphen von $f_a(x)$ entlang der $y-Achse$. So gilt für $a>0$, dass der Graph $G_{f_a}$ nach oben und für $a<0$ nach unten verschoben wird. Für den Wert $a= 0$ erhält man die Normalparabel.
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -3.1, xmax = 3.1, ymin= -4.1, ymax=4.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -3.1, xmax = 3.1, ymin= -4.1, ymax=4.1,
      x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1021,7 +1021,7 @@ Die Art der Extrema kann jetzt durch eine Vorzeichentabelle der ersten Ableitung
 Im folgenden ist der Graph $G_{f_1}$ der Funktion $f_1(x) = \dfrac{1}{8}\cdot(x^3-12x)$ und $G_{f_{-2}}$  der Funktion $f_{-2}(x)= \dfrac{1}{8} \cdot(x^3 -6x+12x-12x) = \dfrac{1}{8}\cdot(x^3+6x)$ abgebildet.
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -4.1, xmax = 4.1, ymin= -2.1, ymax=2.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -4.1, xmax = 4.1, ymin= -2.1, ymax=2.1,
      x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1098,7 +1098,7 @@ Auf dem Graphen der Gleichung $y= -\dfrac{1}{2} x^6$ liegen damit alle Tiefpunkt
 In folgendem Koordinatensystem ist die Ortskurve $y= -\dfrac{1}{2} x^6$ für die Funktionsschar\\ $f_t(x) = t \cdot x^4 -4t^2 \cdot x^2$.
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -3.1, xmax = 3.1, ymin= -5.1, ymax=2.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -3.1, xmax = 3.1, ymin= -5.1, ymax=2.1,
      x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1131,7 +1131,7 @@ Der Graph der gebrochen-rationale Funktion  $$f(x)= \dfrac{x^2+4x+3}{x^2+x-2}$$ 
 Die Nullstellen des Nennerpolynoms ergeben die Definitionslücken und  damit folgt für den Graphen der Funktion folgendes Aussehen.
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[domain=-6:5, restrict y to domain=-5:5,axis x line=center, axis y line=center,%
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},domain=-6:5, restrict y to domain=-5:5,axis x line=center, axis y line=center,%
      x=1cm,y=1cm,
 xtick={-6,...,5}, ytick={-5,...,5}]
         \addplot[mark=none, color=red]  plot[samples=800,smooth]{((x+1)*(x+3)) / (x^2 +x - 2)};
@@ -1431,7 +1431,7 @@ Während der Kurvendiskussion müssen die Definitionslücken beachtet werden. Da
  \end{b8d}
 \newpage
   \subsection{Wurzelfunktionen}
-ö  \subsubsection{Die Umkehrfunktion}
+\subsubsection{Die Umkehrfunktion}
   Einfache Wurzelfunktionen können als Umkehrfunktion der quadratischen Funktion betrachtet werden. Hierbei ist es notwendig, dass die Umkehrfunktion und die notwendigen Bedingungen der Umkehrbarkeit definiert werden. \index{Funktionen!Wurzelfunktion!Umkehrfunktion}
   \begin{defi}{Umkehrbarkeit eine Funktion}{}
 Eine Funktion $f$ heißt umkehrbar, wenn verschiedene x-Werte des Definitionsbereichs $\mathds{D}_f$ stets verschiedene Funktionswerte $f(x)$ der Wertemenge $ \mathds{W}_f$ haben. Hierbei wird diese eindeutig umgekehrte Zuordnung Umkehrfunktion $f^{-1}$ genannt.
@@ -1472,7 +1472,7 @@ Die Bestimmung der Umkehrfunktion erfolgt in zwei Schritten. Als erstes muss man
 \end{enumerate}
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -4.1, xmax = 4.1, ymin= -4.1, ymax=6.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -4.1, xmax = 4.1, ymin= -4.1, ymax=6.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1503,7 +1503,7 @@ Der Graph der Funktion $f(x) = a\cdot \sqrt{x-b}+c$ und $x\geq b$ ist eine Halbp
  \end{satz}
  \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -1.1, xmax = 6.1, ymin= -1.1, ymax=4.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -1.1, xmax = 6.1, ymin= -1.1, ymax=4.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1525,7 +1525,7 @@ Der Graph der Funktion $f(x) = a\cdot \sqrt{x-b}+c$ und $x\geq b$ ist eine Halbp
 Alle Punkte $P(x|y)$ die auf einem Kreis mit Radius $r$ um den Ursprung des Koordinatensystems liegen, erfüllen die Gleichung $$x^2+y^2 = r^2.$$ Bei der Bildung der Umkehrfunktion $f^{-1}$ folgt für die den Graphen der Umkehrfunktion $G_{f^{-1}}$ der Term $f^{-1}(x) = \sqrt{r^2-x^2}$. Für die Werte $-r\leq x\leq r$ ergibt sich als Graph ein Halbkreis mit Radius $r$ um den Ursprung.
  \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -2.5, xmax = 2.5, ymin= -1.1, ymax=2.5,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -2.5, xmax = 2.5, ymin= -1.1, ymax=2.5,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1548,7 +1548,7 @@ Alle Punkte $P(x|y)$ die auf einem Kreis mit Radius $r$ um den Ursprung des Koor
    \begin{center}
 
    \begin{tikzpicture}
-    \begin{axis}[xmin= -2.5, xmax = 5.5, ymin= -1.1, ymax=5.5,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -2.5, xmax = 5.5, ymin= -1.1, ymax=5.5,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1567,7 +1567,8 @@ Alle Punkte $P(x|y)$ die auf einem Kreis mit Radius $r$ um den Ursprung des Koor
 \end{center}
  \end{merke}
  \begin{bem}{Ableitung der Wurzel}{}
-Die Ableitung einer Wurzelfunktion (Ableitungen der Wurzelfunktion findet man in \ref{Ableitungen}.) kann auf zwei unterschiedliche Arten erfolgen. Man verwendet entweder die Kettenregel mit der Wurzel als äußerer Funktion und dem Radikanden als innere Funktion oder wandelt die Wurzel in einen rationalen Exponenten um und wendet dann die Kettenregel an.
+Die Ableitung einer Wurzelfunktion (Ableitungen der Wurzelfunktion findet man in \ref{Ableitungen}.) kann auf zwei unterschiedliche Arten erfolgen. 
+Man verwendet entweder die Kettenregel mit der Wurzel als äußerer Funktion und dem Radikanden als innere Funktion oder wandelt die Wurzel in einen rationalen Exponenten um und wendet dann die Kettenregel an.
 \begin{enumerate}
     \item Ableitung als Wurzel
     \begin{equation*}
@@ -1606,10 +1607,12 @@ Die Ableitungen der trigonometrischen Funktionen Sinus und Kosinus lauten wie fo
     \end{split}
 \end{equation*}
 \end{multicols}
- \end{defi}
+
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
-  \begin{axis}[
+  \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
+  ticklabel style={fill=none},
+  every tick label/.append style={fill=none},
       axis lines = middle, 
       xlabel=$x$, 
       ylabel=$y$, 
@@ -1630,10 +1633,10 @@ Die Ableitungen der trigonometrischen Funktionen Sinus und Kosinus lauten wie fo
 \draw[red] (65,-1)   node [above] {$f'(x)= \cos{(x)}$};
 \end{axis}
 \end{tikzpicture} 
-\end{center}
-\begin{center}
 \begin{tikzpicture}[scale=1.5]
-  \begin{axis}[
+  \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
+  ticklabel style={fill=none},
+  every tick label/.append style={fill=none},
       axis lines = middle, 
       xlabel=$x$, 
       ylabel=$y$, 
@@ -1654,6 +1657,7 @@ Die Ableitungen der trigonometrischen Funktionen Sinus und Kosinus lauten wie fo
 \end{axis}
 \end{tikzpicture} 
 \end{center}
+ \end{defi}
 Wie in \ref{SinCos} dargestellt wurde ergibt sich der Tangens als Quotient von $\sin$ und $\cos$ und damit lautet die Ableitung des Tangens wie folgt.
 \begin{satz}{Ableitung des Tangens}{} \index{Ableitungsregeln!Tangensfunktion}\index{Funktionen!Tangens!Ableitung}
 Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\mathds{D}_f = \mathds{R}\setminus\{\dfrac{\pi}{2} + k\cdot \pi\}$ und $ k \in \mathds{N} $ wird mit Hilfe der Quotientenregel abgeleitet. Es ergibt sich damit folgende Ableitungsfunktion: 
@@ -1669,6 +1673,8 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
     
 \begin{tikzpicture}
 \begin{axis}[
+ticklabel style={fill=none},   
+every tick label/.append style={fill=none},
   axis lines=middle,
   xlabel=$x$, ylabel=$y$,
   xmin=-180,xmax=360,ymin=-4.1,ymax=4.1,
@@ -1681,8 +1687,7 @@ Die Funktion $f$ mit $ f(x)= \tan{(x)} = \dfrac{\sin{(x)}}{\cos{(x)} }$ mit $\ma
   ticklabel style={font=\small,fill=green!5},
   unbounded coords=jump,
   restrict y to domain=-4.1:4.1
-]
-      \addplot[red,thick,samples=300,domain=-180:-90.1]{tan(x)};
+]    \addplot[red,thick,samples=300,domain=-180:-90.1]{tan(x)};
 \addplot[red,thick,samples=300,domain=-89.9: 89.9]{tan(x)};
 \addplot[red,thick,samples=300,domain= 90.1:269.9]{tan(x)};
 \addplot[red,thick,samples=300,domain=270.1:360]{tan(x)};
@@ -1783,7 +1788,7 @@ Das eigentliche Krümmungsverhalten muss dann für spezielle Werte von $k$ ermit
 \item Graph der Funktion $f(x) = -2\cdot \sin{(2\cdot (x-\frac{\pi}{3}))} +2$ im Intervall $I=[-\pi; \frac{3}{2}\pi]$:
 \begin{center}
 \begin{tikzpicture}
-  \begin{axis}[
+  \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
       axis lines = middle, 
       xlabel=$x$, 
       ylabel=$y$, 
@@ -1807,7 +1812,7 @@ Das eigentliche Krümmungsverhalten muss dann für spezielle Werte von $k$ ermit
  In der Mathematik wird unter dem Begriff der natürlichen Exponentialfunktion bzw. der $e$-Funktion folgende Funktion verstanden $$f(x) = e^x$$ mit $\mathds{D}_f = \mathds{R}$ und $\mathds{W}_f =\mathds{R}^{+}$.
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -4.1, xmax = 2.6, ymin= -0.1, ymax=6.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -4.1, xmax = 2.6, ymin= -0.1, ymax=6.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1828,7 +1833,7 @@ Die Zahl $e=2,71828...$ ist eine irrationale Zahl und ergibt sich durch folgende
 Die $e$-Funktion ist eine Exponentialfunktion mit spezieller Basis und wird häufig verwendet, um natürliche Prozesse zu beschreiben. Die Umkehrfunktion der $e$-Funktion bildet die natürliche Logarithmusfunktion $g(x) = \ln{(x)}$. Siehe hierfür \ref{ln}
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -4.1, xmax = 4.6, ymin= -4.1, ymax=4.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -4.1, xmax = 4.6, ymin= -4.1, ymax=4.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -1993,7 +1998,7 @@ Berechnung der Koordinaten der Wendepunkte:
         \item Graph:
         \begin{center}
     \begin{tikzpicture}
-    \begin{axis}[xmin= -6.1, xmax = 1.1, ymin= -1.4, ymax=4.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -6.1, xmax = 1.1, ymin= -1.4, ymax=4.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -2024,7 +2029,7 @@ Die natürliche Logarithmusfunktion $f(x) = \ln{(x)}$ ordnet jeder positiven ree
  \end{satz}
  \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[xmin= -1.1, xmax = 4.6, ymin= -4.1, ymax=2.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -1.1, xmax = 4.6, ymin= -4.1, ymax=2.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -2154,7 +2159,7 @@ Berechnung der Koordinaten des Wendepunktes:
 \item Graph:
 \begin{center}
  \begin{tikzpicture}
-    \begin{axis}[xmin= -1.1, xmax = 2.6, ymin= -1.1, ymax=5.1,
+    \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -1.1, xmax = 2.6, ymin= -1.1, ymax=5.1,
     x=1cm,y=1cm,
         axis lines = middle, 
         ymajorgrids=true,
@@ -2631,7 +2636,7 @@ die Integralfunktion.
 \item Die Integralfunktion ist damit eine Stammfunktion von $f$.
 \end{itemize}
 \begin{tikzpicture}
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=14cm,   % feste Breite
   height=8cm,   % feste Höhe
   scale only axis,
@@ -2720,7 +2725,7 @@ Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Fu
     \end{enumerate}  
   \begin{center}
 \begin{tikzpicture}
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=12cm, height=8cm,
   axis lines=middle,
   axis line style={-stealth},
@@ -2784,7 +2789,7 @@ Bei der Berechnung des \textbf{\textcolor{blue}{Inhalts der Fläche zwischen den
     \item Berechnen und Addieren der Inhalte der Teilflächen
 \end{enumerate}
 \begin{center}\begin{tikzpicture}
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=14cm, height=7cm,
   axis lines=middle,
   axis line style={-stealth},
@@ -2880,7 +2885,7 @@ Bei der Berechnung des bestimmten Integrals bzw. der Flächenbilanz muss auf die
 \end{b8d}
 \begin{bsp}{Die Funktion $f(x) = \dfrac{1}{x}$ }{}
 \begin{tikzpicture}
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=10cm,   % feste Breite
   height=8cm,   % feste Höhe
   scale only axis,
@@ -2935,7 +2940,7 @@ $$
 \begin{multicols}{2}
 
 \begin{tikzpicture}
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=10cm,   % feste Breite
   height=8cm,   % feste Höhe
   scale only axis,
@@ -2980,7 +2985,7 @@ Damit hat die ins unendliche reichende Fläche einen endlichen Flächeninhalt.
 \begin{bsp}{Berechnung uneigentliches Integral}{}
 \begin{multicols}{2}
 \begin{tikzpicture}
-\begin{axis}[
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=10cm,   % feste Breite
   height=8cm,   % feste Höhe
   scale only axis,

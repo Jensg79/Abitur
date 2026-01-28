@@ -1,25 +1,25 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper, twoside]{report}
 %\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{fontspec}
-\setmainfont[Path = Schriften/, 
-Extension = .ttf,
-  UprightFont = *-Regular,
-  BoldFont = *-Bold,
-  Contextuals=Alternate
-]{Caveat}
-\newfontfamily\CaveatMedium[
-  Path = Schriften/,
-  Extension = .ttf,
-  UprightFont = Caveat-Medium
-]{Caveat}
+%\setmainfont[Path = Schriften/, 
+%Extension = .ttf,
+%  UprightFont = *-Regular,
+% BoldFont = *-Bold,
+%  Contextuals=Alternate
+%]{Caveat}
+%\newfontfamily\CaveatMedium[
+%  Path = Schriften/,
+%  Extension = .ttf,
+%  UprightFont = Caveat-Medium
+%]{Caveat}
 
-\newfontfamily\CaveatSemiBold[
-  Path = Schriften/,
-  Extension = .ttf,
-  UprightFont = Caveat-SemiBold
-]{Caveat}
-\usepackage{animate}
+%\newfontfamily\CaveatSemiBold[
+%  Path = Schriften/,
+%  Extension = .ttf,
+%  UprightFont = Caveat-SemiBold
+%]{Caveat}
+%\usepackage{animate}
 \usepackage{cancel}
 \usepackage{multicol}
 \usepackage{pdfpages}
@@ -168,6 +168,11 @@ Extension = .ttf,
 \usepackage[most]{tcolorbox}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15, width =10cm}
+\pgfplotsset{
+  every axis/.append style={
+    ticklabel style={fill=none}
+  }
+}
 \usepackage{mathrsfs}
 \usepackage{fontawesome5}
 \usetikzlibrary{arrows,shadows.blur, backgrounds, fit}
@@ -184,23 +189,46 @@ Extension = .ttf,
     \end{pgfonlayer}
   }%
 }
-
+\newtcbtheorem[number within=section]{satz}
+  {\faFile*[regular]\ Satz}{colback=green!7,colframe=gray!85!black,
+  fonttitle=\bfseries,title after break={\faFile*[regular]\ Satz (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[no counter]{rechnung}
   {\faCheckSquare[regular]\ Rechnung}{colback=green!7,colframe=gray!85!black,
   fonttitle=\bfseries,title after break={\faCheckSquare[regular]\ Rechnung (Fortsetzung)}}{theorem}
-  
-\newtcbtheorem[number within=section]{satz}
-    {Satz}{colback=green!7,colframe=gray!85!black,fonttitle=\bfseries,title after break={Satz (Fortsetzung)}}{theorem}
-\newtcbtheorem[number within=section]{defi}
-    {Definition}{colback=red!7,colframe=red!45!black,fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
-\newtcbtheorem[number within=section]{bsp}
-    {Beispiel}{colback=white,colframe=blue!70!green,fonttitle=\bfseries, breakable,title after break={Beispiel (Fortsetzung)}}{theorem}
-    \newtcbtheorem[number within=section]{b8d}
-    {Beachte}{colback=white,colframe=blue!60!green,fonttitle=\bfseries, breakable,title after break={Beachte (Fortsetzung)}}{theorem}
-\newtcbtheorem[number within=section]{merke}{Merke} {colback=green!5,colframe=green!35!black,fonttitle=\bfseries, breakable,title after break={Merke (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{lsg}{\faCheckCircle
+\ Lösung}%
+{enhanced jigsaw,breakable,colback=green!7,
+ colframe=gray!85!black,fonttitle=\bfseries,
+ title after break={\faCheckCircle
+\ Lösung (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{haus}{Hausaufgabe}%
+{enhanced jigsaw,breakable,colback=red!10,
+ colframe=gray!85!black,fonttitle=\bfseries,
+ title after break={Hausaufgabe (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[number within=chapter]{defi}
+  {\faBook\ Definition}{colback=red!7,colframe=red!45!black,
+  fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{bsp}
+  {\faEdit\ Beispiel}{colback=white,colframe=blue!70!green,
+  fonttitle=\bfseries,breakable,title after break={Beispiel (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{b8d}
+  {\faHighlighter\ Beachte}{colback=white,colframe=blue!60!green,
+  fonttitle=\bfseries,breakable,title after break={\faHighlighter\ Beachte (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[number within=section]{merke}
+  {\faLightbulb[regular]\ Merke}{colback=green!5,colframe=green!35!black,
+  fonttitle=\bfseries,breakable,title after break={\faLightbulb[regular]\ Merke (Fortsetzung)}}{theorem}
+
 \newtcbtheorem[number within=section]{bem}
-    {Bemerkung}{colback=red!2,colframe=red!35!black,breakable, fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
+  {Bemerkung}{colback=red!2,colframe=red!35!black,
+  breakable,fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
+
 \usepackage{setspace}
 
 \usepackage{multicol}
@@ -286,7 +314,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-%\include{Analysis.tex}
+\include{Analysis.tex}
 \chapter{Analytische Geometrie}
 \begin{center}
 \begin{tikzpicture}
@@ -316,7 +344,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \shade[ball color=yellow] (4,4,5.2) circle (0.2);
 \end{tikzpicture}
 \end{center}
-%\include{AnalytischeGeometrie.tex}
+\include{AnalytischeGeometrie.tex}
 \chapter{Stochastik}
 \vspace{2cm}
 \begin{center}
