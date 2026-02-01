@@ -706,6 +706,53 @@ Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(
  \end{center}
 \end{multicols}
 \end{b8d}
+\subsection{\(\sigma\) - Umgebung}
+\begin{defi}{\(\sigma\) - Umgebung}{}\index{Binomialverteilung!Sigma-Umgebung}
+Die \textbf{Die \( \sigma\)-Umgebung} beschreibt einen „typischen Bereich“ um den Erwartungswert \(\mu\).\\
+Man nimmt den Erwartungswert und geht \textbf{eine Standardabweichung \(\sigma\)} nach links und nach rechts.
+
+\[
+U_{1}=[\,\mu-\sigma,\;\mu+\sigma\,]
+\]
+
+Allgemeiner: Die \textbf{\(k\sigma\)-Umgebung} ist der Bereich, der \textbf{\(k\) Standardabweichungen} nach links und rechts umfasst:
+\[
+U_{k}=[\,\mu-k\sigma,\;\mu+k\sigma\,]\quad (k>0).
+\]
+
+Für \(X\sim\mathrm{Bin}(n,p)\) gilt also:
+\[
+U_{k}=\Bigl[\,np-k\sqrt{np(1-p)},\;np+k\sqrt{np(1-p)}\,\Bigr].
+\]    
+\end{defi}
+\begin{b8d}{Bedeutung der \(\sigma\) - Umgebung}{}
+Werte \textbf{in der Sigma-Umgebung} sind „nicht überraschend“, weil sie in der normalen Streuung liegen.\\
+Werte \textbf{weit außerhalb} (z.\,B. außerhalb von \(2\sigma\) oder \(3\sigma\)) sind eher \textbf{auffällig}.\\
+\vspace{2mm}
+\noindent\textbf{Skizze:}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+  \def\a{0}   % Position mu
+  \def\b{3}   % Abstand sigma
+
+  % Achse
+  \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
+
+  % Markierungen
+  \draw (\a,0.08) -- (\a,-0.08) node[below=3pt] {$\mu$};
+  \draw (\a-\b,0.08) -- (\a-\b,-0.08) node[below=3pt] {$\mu-\sigma$};
+  \draw (\a+\b,0.08) -- (\a+\b,-0.08) node[below=3pt] {$\mu+\sigma$};
+
+  % 1-sigma-Umgebung hervorheben
+  \draw[line width=1.2pt] (\a-\b,0) -- (\a+\b,0);
+
+  % Klammer tiefer + Beschriftung tiefer
+  \draw[decorate,decoration={brace,amplitude=5pt}]
+    (\a-\b,-1.05) -- (\a+\b,-1.05)
+    node[midway,below=8pt] {typischer Bereich (\(1\sigma\)-Umgebung)};
+\end{tikzpicture}
+\end{center}
+\end{b8d}
 \section{Hypothesentest}\index{Hypothesentest}
 \begin{itemize}
 \item Zwei sich ausschließende Hypothesen werden betrachtet
