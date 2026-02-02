@@ -706,8 +706,9 @@ Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(
  \end{center}
 \end{multicols}
 \end{b8d}
+\newpage
 \subsection{\(\sigma\) - Umgebung}
-\begin{defi}{\(\sigma\) - Umgebung}{}\index{Binomialverteilung!Sigma-Umgebung}
+\begin{defi}{\(\sigma\) - Umgebung}{}\index{Binomialverteilung!Sigma-Umgebung} \index{Zufallsgröße!Sigma-Umgebung}
 Die \textbf{Die \( \sigma\)-Umgebung} beschreibt einen „typischen Bereich“ um den Erwartungswert \(\mu\).\\
 Man nimmt den Erwartungswert und geht \textbf{eine Standardabweichung \(\sigma\)} nach links und nach rechts.
 
@@ -748,8 +749,9 @@ Werte \textbf{weit außerhalb} (z.\,B. außerhalb von \(2\sigma\) oder \(3\sigma
 
   % Klammer tiefer + Beschriftung tiefer
   \draw[decorate,decoration={brace,amplitude=5pt}]
-    (\a-\b,-1.05) -- (\a+\b,-1.05)
+    (\a+\b,-1.05) -- (\a-\b,-1.05)
     node[midway,below=8pt] {typischer Bereich (\(1\sigma\)-Umgebung)};
+
 \end{tikzpicture}
 \end{center}
 \end{b8d}
@@ -788,3 +790,337 @@ des Fehlers der einen Art auf Kosten der Wahrscheinlichkeit des Fehlers der ande
 1. und 2. Art verringert werden. Allerdings ist eine solche Erhöhung in der Praxis auch mit erhöhten Kosten verbunden.
 \end{enumerate}
 \end{itemize}
+\section{Stetige Zufallsgrößen}\index{Zufallsgrößen!Stetige}
+\begin{bsp}{Tropfen auf einem Tisch}{}
+
+Auf einen Tisch wird versehentlich Wasser gekippt. Die meisten Tropfen landen in der Nähe der \textbf{Tischmitte}, weil dort die Quelle ist; zu den Rändern hin werden es weniger.
+
+Wir betrachten nur eine Dimension:
+
+\textbf{Zufallsgröße:} $X =$ \emph{Position eines zufällig ausgewählten Tropfens} (in cm) gemessen vom linken Rand.\\
+Der Tisch sei $100$ cm lang, also:
+\[
+X \in [0,100].
+\]
+
+\textbf{Wichtig:} Hier sind \textbf{nicht} alle Intervalle gleich wahrscheinlich. Ein Tropfen ist eher bei $x\approx 50$ als bei $x\approx 5$.
+
+\textbf{Idee:} Wir messen sehr viele Tropfenpositionen und zeichnen ein Histogramm. Je feiner wir die Klassen wählen, desto mehr nähert sich das Histogramm einer Kurve an.
+
+Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen. Die Form ist „glockenförmig“: Mitte häufiger, Ränder seltener.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.92\textwidth,
+    height=5.2cm,
+    ymin=0, ymax=0.42,
+    xmin=0, xmax=100,
+    ybar,
+    bar width=26pt,
+    axis lines=left,
+    xtick={0,20,40,60,80,100},
+    ytick={0,0.1,0.2,0.3,0.4},
+    xlabel={$x$ (cm)},
+    ylabel={relative Häufigkeit},
+    title={5 Klassen: Balkenhöhe = Anteil im Intervall},
+    nodes near coords,
+    nodes near coords align={vertical},
+    every node near coord/.append style={font=\scriptsize}
+]
+% Intervallmitten: 10,30,50,70,90
+\addplot coordinates {(10,0.08) (30,0.24) (50,0.36) (70,0.24) (90,0.08)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\textbf{Interpretation:} Z.\,B. liegen ca. $36\%$ der Tropfenpositionen im Bereich $[40,60)$ cm.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.92\textwidth,
+    height=5.2cm,
+    ymin=0, ymax=0.22,
+    xmin=0, xmax=100,
+    ybar,
+    bar width=12pt,
+    axis lines=left,
+    xtick={0,10,20,30,40,50,60,70,80,90,100},
+    ytick={0,0.05,0.10,0.15,0.20},
+    xlabel={$x$ (cm)},
+    ylabel={relative Häufigkeit},
+    title={10 Klassen: feinere Auflösung, gleiche Tendenz},
+]
+% Mitten: 5,15,...,95
+\addplot coordinates {
+(5,0.02) (15,0.06) (25,0.10) (35,0.14) (45,0.18)
+(55,0.18) (65,0.14) (75,0.10) (85,0.06) (95,0.02)
+};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\textbf{Merke:} Die Balken werden schmaler (kleineres $b$). Die Höhen ändern sich, weil die Anteile jetzt auf kleinere Intervalle verteilt werden.
+
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.92\textwidth,
+    height=5.2cm,
+    ymin=0, ymax=0.11,
+    xmin=0, xmax=100,
+    ybar,
+    bar width=5.6pt,
+    axis lines=left,
+    xtick={0,10,20,30,40,50,60,70,80,90,100},
+    ytick={0,0.02,0.04,0.06,0.08,0.10},
+    xlabel={$x$ (cm)},
+    ylabel={relative Häufigkeit},
+    title={20 Klassen: noch feiner, Form wird „kurviger“},
+]
+% Mitten: 2.5,7.5,...,97.5
+\addplot coordinates {
+(2.5,0.005) (7.5,0.015) (12.5,0.025) (17.5,0.035) (22.5,0.045)
+(27.5,0.055) (32.5,0.065) (37.5,0.075) (42.5,0.085) (47.5,0.095)
+(52.5,0.095) (57.5,0.085) (62.5,0.075) (67.5,0.065) (72.5,0.055)
+(77.5,0.045) (82.5,0.035) (87.5,0.025) (92.5,0.015) (97.5,0.005)
+};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{bsp}
+Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinlichkeiten als Balken zuzuordnen. Bei stetigen Zufallsgrößen rechnet man deshalb mit \textbf{Intervallen}.
+\begin{defi}{Stetige Zufallsgrößen}{}
+    Eine Zufallsgröße, die aus einem Intervall jede reelle Zahl als Wert annehmen kann, bezeichnet man als \textbf{\textcolor{red}{stetig}}. Ihr Wertemenge besteht somit aus einem Intervall.
+\end{defi}
+\begin{defi}{Dichtefunktion}{}\index{Zufallsgrößen!Stetige!Dichtefunktion}
+
+    Eine Funktion \(f\) heißt \textbf{Dichtefunktion} über \(\mathds{R}\), wenn gilt:
+    \begin{enumerate}
+        \item \(f(x)\geq 0\) für alle \(x\in \mathds{r}\) und
+        \item \(\integral[limits-mode=limits,limits={-\infty, \infty}]{f(x)} =1\)
+    \end{enumerate}
+    Eine reelwertige Zufallsgröße \(X\) heißt \textbf{stetig} mit der Dichtefunktion \(f\), wenn für alle \(r,s \in I\) mit \(r\leq s\) gilt: \[P(r\leq X \leq s) =\integral[limits-mode=limits,limits={-\infty, \infty}]{f(x)}  \]
+
+% --- Dichtefunktion (hier: "Glocke"). Du kannst die Formel ändern. ---
+\pgfmathdeclarefunction{dens}{1}{%
+  \pgfmathparse{0.78*exp(-((#1-0.8)^2)/(2*0.65^2))}%
+}
+\begin{tikzpicture}
+
+% --- Bereich / Parameter ---
+\pgfmathsetmacro{\xmin}{-1.2}
+\pgfmathsetmacro{\xmax}{ 2.35}
+
+% Automatische Position der Beschriftung links (y aus Kurve)
+\pgfmathsetmacro{\xLabelAll}{0.55}
+\pgfmathsetmacro{\yLabelAll}{0.55*dens(\xLabelAll)}
+
+% Rechts: Intervall [r,s] und automatische Textpositionen
+\pgfmathsetmacro{\r}{0.20}
+\pgfmathsetmacro{\s}{1.30}
+\pgfmathsetmacro{\xmid}{0.5*(\r+\s)}
+\pgfmathsetmacro{\ymid}{dens(\xmid)}
+\pgfmathsetmacro{\yProb}{0.78*\ymid}
+\pgfmathsetmacro{\yInt}{0.45*\ymid}
+
+\begin{groupplot}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
+  group style={group size=2 by 1, horizontal sep=1.1cm},
+  width=0.55\linewidth,   % <-- streckt auf nahezu ganze Zeilenbreite
+  height=0.4\linewidth,  % <-- passende Höhe (skalierbar)
+  xmin=\xmin, xmax=\xmax,
+  ymin=-0.02, ymax=0.9,
+  axis lines=middle,
+  axis line style={->},
+  axis on top,
+  xtick={-1,0,1,2},
+  ytick={0.4,0.8},
+  tick style={black},
+  ticklabel style={font=\small},
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={at={(axis description cs:1.02,0.05)},anchor=west},
+  ylabel style={at={(axis description cs:0.05,1.02)},anchor=south},
+  clip=false,
+]
+
+% -------- Links: Gesamtfläche ----------
+\nextgroupplot
+  \addplot[name path=curveA, very thick, blue, domain=-1.15:2.25, samples=220] {dens(x)};
+  \addplot[name path=axisA,  draw=none, domain=-1.15:2.25] {0};
+
+  \addplot[fill=green!20, fill opacity=0.55, draw=none]
+    fill between[of=curveA and axisA];
+
+  \node[green!40!black] at (axis cs:{\xLabelAll+0.25},\yLabelAll)
+    {$\displaystyle \int_{-\infty}^{+\infty} f(x)\,dx = 1$};
+
+  \node[blue, font=\large] at (axis cs:2.18,0.06) {$G_f$};
+
+% -------- Rechts: Fläche r bis s ----------
+\nextgroupplot
+  \addplot[name path=curveB, very thick, blue, domain=-1.15:2.25, samples=220] {dens(x)};
+  \addplot[name path=axisB,  draw=none, domain=-1.15:2.25] {0};
+
+  \addplot[fill=green!20, fill opacity=0.55, draw=none]
+    fill between[
+      of=curveB and axisB,
+      soft clip={domain=\r:\s}
+    ];
+
+  \addplot[green!60!black, thick] coordinates {(\r,0) (\r,{dens(\r)})};
+  \addplot[green!60!black, thick] coordinates {(\s,0) (\s,{dens(\s)})};
+
+  \node[font=\large] at (axis cs:\r,-0.035) {$r$};
+  \node[font=\large] at (axis cs:\s,-0.035) {$s$};
+
+  \node[green!40!black] at (axis cs:\xmid,{\yProb-0.1})
+    {$\mathrm{P}(r\le X \le s)$};
+  \node[green!40!black, font=\small] at (axis cs:\xmid,\yInt)
+    {$\displaystyle = \int_{r}^{s} f(x)\,dx$};
+
+  \node[blue, font=\large] at (axis cs:2.18,0.06) {$G_f$};
+
+\end{groupplot}
+
+\end{tikzpicture}
+\end{defi}
+\begin{bsp}{Tropfen auf einem Tisch}{}
+    Ein einfaches Modell für die \textbf{ Dichte}:
+\[
+f(x)=
+\begin{cases}
+\displaystyle \frac{30}{100}\left(\frac{x}{100}\right)^{2}\left(1-\frac{x}{100}\right)^{2}
+& 0\le x\le 100,\\[0.8em]
+0 & \text{sonst.}
+\end{cases}
+\]
+Diese Dichte ist in der Mitte am größten und fällt zu den Rändern ab.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.92\textwidth,
+    height=5.2cm,
+    xmin=-2, xmax=102,
+    ymin=0,  ymax=0.021,
+    axis lines=left,
+    scaled y ticks=false,
+y tick label style={
+  /pgf/number format/fixed,
+  /pgf/number format/precision=3
+},
+    xtick={0,10,20,30,40,50,60,70,80,90,100},
+    ytick={0,0.005,0.010,0.015,0.020},
+    xlabel={$x$ (cm)},
+    ylabel={Dichte $f(x)$ (pro cm)},
+    title={Dichtefunktion: Höhe „pro cm“, Fläche = Wahrscheinlichkeit},
+]
+% Glatte Dichte (Beta(3,3) skaliert auf [0,100]):
+% f(x) = 0.3*(x/100)^2*(1-x/100)^2 für 0<=x<=100, sonst 0
+\addplot[thick, blue, no marks, domain=0:100, samples=400]
+  {0.3*(x/100)^2*(1 - x/100)^2};
+
+% Außerhalb [0,100] ist die Dichte 0
+\addplot[thick, blue, no marks, domain=-2:0, samples=2] {0};
+\addplot[thick, blue, no marks, domain=100:102, samples=2] {0};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Die Dichte $f(x)$ ist keine Wahrscheinlichkeit, sondern eine \emph{Wahrscheinlichkeit pro Längeneinheit}.  
+Wahrscheinlichkeiten bekommst du nur durch \textbf{Flächen} (Integrale).\\
+Rechnen mit der Dichtefunktion
+\[
+f(x)=
+\begin{cases}
+\displaystyle 0.3\left(\frac{x}{100}\right)^2\left(1-\frac{x}{100}\right)^2 & 0\le x\le 100,\\[0.6em]
+0 & \text{sonst.}
+\end{cases}
+\]
+Nachweis: Gesamtfläche muss $1$ sein\\
+Wir weisen nach:
+\[
+\int_{-\infty}^{\infty} f(x)\,dx=\int_{0}^{100} f(x)\,dx=1.
+\]
+
+Zuerst quadrieren und ausmultiplizieren:
+\[
+\left(1-\frac{x}{100}\right)^2
+=1-\frac{2x}{100}+\frac{x^2}{10000}
+=1-\frac{x}{50}+\frac{x^2}{10000}.
+\]
+Dann gilt für $0\le x\le 100$:
+\[
+f(x)=0.3\cdot\frac{x^2}{10000}\left(1-\frac{x}{50}+\frac{x^2}{10000}\right)
+=0.3\left(\frac{x^2}{10000}-\frac{x^3}{500000}+\frac{x^4}{100000000}\right).
+\]
+Also:
+\[
+f(x)=3\cdot10^{-5}x^2-6\cdot10^{-7}x^3+3\cdot10^{-9}x^4.
+\]
+
+Nun integrieren wir auf $[0,100]$:
+\[
+\int_0^{100} f(x)\,dx
+=
+\int_0^{100}\left(3\cdot10^{-5}x^2-6\cdot10^{-7}x^3+3\cdot10^{-9}x^4\right)\,dx
+\]
+\[
+=
+\left[\,10^{-5}x^3-1.5\cdot10^{-7}x^4+6\cdot10^{-10}x^5\,\right]_{0}^{100}.
+\]
+
+Einsetzen von $x=100$ (und bei $x=0$ ergibt sich $0$):
+\[
+10^{-5}\cdot 100^3-1.5\cdot10^{-7}\cdot 100^4+6\cdot10^{-10}\cdot 100^5
+=
+10^{-5}\cdot 10^6-1.5\cdot10^{-7}\cdot 10^8+6\cdot10^{-10}\cdot 10^{10}
+\]
+\[
+=10-15+6=1.
+\]
+Damit ist gezeigt:
+\[
+\boxed{\int_{0}^{100} f(x)\,dx=1.}
+\]
+Beispiel: Wahrscheinlichkeit $P(40\le X\le 60)$
+\[
+P(40\le X\le 60)=\int_{40}^{60} f(x)\,dx
+=\int_{40}^{60}\left(3\cdot10^{-5}x^2-6\cdot10^{-7}x^3+3\cdot10^{-9}x^4\right)\,dx
+\]
+\[
+=
+\left[\,10^{-5}x^3-1.5\cdot10^{-7}x^4+6\cdot10^{-10}x^5\,\right]_{40}^{60}.
+\]
+
+Wir berechnen $F(60)$ und $F(40)$:
+
+\medskip
+\textbf{$F(60)$:}\quad
+$60^3=216000,\;60^4=12960000,\;60^5=777600000$.
+\[
+F(60)=10^{-5}\cdot216000-1.5\cdot10^{-7}\cdot12960000+6\cdot10^{-10}\cdot777600000
+\]
+\[
+=2.16-1.944+0.46656=0.68256.
+\]
+
+\textbf{$F(40)$:}\quad
+$40^3=64000,\;40^4=2560000,\;40^5=102400000$.
+\[
+F(40)=10^{-5}\cdot64000-1.5\cdot10^{-7}\cdot2560000+6\cdot10^{-10}\cdot102400000
+\]
+\[
+=0.64-0.384+0.06144=0.31744.
+\]
+
+Damit:
+\[
+P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
+\]
+\[
+\boxed{P(40\le X\le 60)\approx 0.36512\approx 36.5\%.}
+\]
+\end{bsp}
+
