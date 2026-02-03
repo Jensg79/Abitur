@@ -949,7 +949,10 @@ Durch die Monotonietabelle ist es möglich, dass gleichzeitig die Art der Extrem
         \end{split}
 \end{equation*}
 Krümmungstabelle:
-\begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+\begin{center}
+    \setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{||c|c|c|c|c|c||}
     \hline
     $x$ & $ -\infty <x<-2 $ & $ x = -2$ &$ -2<x<0 $ & $x=0 $& $ 0<x<\infty $\\
     \hline \hline
@@ -1047,7 +1050,7 @@ Für alle Konstanten $c$ gilt $c\in \mathds{R}$.
 \section{Funktionenscharen}\index{Funktionen!Funktionenscharen}
 Unter Funktionsscharen versteht man Funktion, die neben der \glqq normalen\grqq{} Variablen $x$ noch einen oder mehrere Parameter besitzen. Diese Parameter werden in der Kurvendiskussion als Zahlen interpretiert. 
 \begin{defi}{Definition von Funktionenscharen}{}
-Bei einer Funktionenschar gibt es neben der Variable $x$ auch noch einen Parameter (häufig a oderk), welchen man frei auf eine Zahl festlegen kann. Für jede Besetzung des Parameters bekommt man einen anderen Funktionsterm und somit auch einen anderen Funktionsgraphen.
+Bei einer Funktionenschar gibt es neben der Variable $x$ auch noch einen Parameter (häufig a oder k), welchen man frei auf eine Zahl festlegen kann. Für jede Belegung des Parameters bekommt man einen anderen Funktionsterm und somit auch einen anderen Funktionsgraphen.
 \end{defi}
 \begin{bsp}{Beispiel für einen Funktionenschar}{}
 Betrachtet wird die Funktionenschar $f_a(x) = x^2 +a$ mit $\mathds{D}_{f_a} = \mathds{R}$ und $a \in \mathds{R}$. Wie man leicht sieht, realisiert der Parameter $a$ eine Verschiebung des Graphen von $f_a(x)$ entlang der $y-Achse$. So gilt für $a>0$, dass der Graph $G_{f_a}$ nach oben und für $a<0$ nach unten verschoben wird. Für den Wert $a= 0$ erhält man die Normalparabel.
@@ -1080,7 +1083,7 @@ Betrachtet wird die Funktionenschar $f_a(x) = x^2 +a$ mit $\mathds{D}_{f_a} = \m
 \begin{bsp}{Kurvendiskussion von Funktionenscharen}{}
 Betrachtet wird die Funktionenschar $f_a(x) = \dfrac{1}{8} \cdot (x^3 - 3a\cdot x +3a^2 \cdot x -12x)$ mit $\mathds{D}_{f_a} = \mathds{R}$ und $a \in \mathds{R}$. Der Graph $G_{f_a}$ soll jetzt in Abhängigkeit von $a$ auf Nullstellen und Extrema untersucht werden.
 \begin{itemize}
-    \item Bestimmung der Nullstellen:
+    \item Bestimmung der Nullstellen in Abhängigkeit von a:
 \begin{equation*}
     \begin{split}
          0 &= \dfrac{1}{8} \cdot (x^3 - 3a\cdot x +3a^2 \cdot x -12x) \hspace{0.5cm} | \cdot 8\\
@@ -1298,7 +1301,7 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
  \end{merke}
  \begin{bsp}{Untersuchung auf Polstellen}{}
  \begin{enumerate}
-    \item Gegeben ist die Funktion f mit $g(x) = \dfrac{(x+1)(x-1)}{x-1}$ und $\mathds{D}_g = \mathds{R}\setminus\{1\}$. Durch eine Termumformung ändert sich der Funktionsterm wie folgt: $$g(x) = \dfrac{(x-1)(x+1)}{x-1} =\dfrac{\cancel{(x-1)}(x+1)}{\cancel{(x-1)}} = x+1. $$ Der Graph der Funktion $g$ ist damit eine Gerade mit der Definitionslücke bei $x=1$.
+    \item Gegeben ist die Funktion f mit $g(x) = \dfrac{(x+1)(x-1)}{x-1}$ und $\mathds{D}_g = \mathds{R}\setminus\{1\}$. Durch eine Termumformung ändert sich der Funktionsterm wie folgt: $$g(x) = \dfrac{(x-1)(x+1)}{(x-1)} =\dfrac{\cancel{(x-1)}(x+1)}{\cancel{(x-1)}} = x+1. $$ Der Graph der Funktion $g$ ist damit eine Gerade mit der Definitionslücke bei $x=1$.
     \begin{center}
 \begin{tikzpicture}
     \begin{axis}
@@ -1321,7 +1324,7 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
     \end{axis}
 \end{tikzpicture}
 \end{center}
-     \item Gegeben ist die Funktion f mit $f(x) = \dfrac{x-1}{(x-1)(x+2)}$ mit $\mathds{D}_f = \mathds{R}\setminus\{-2, 1\}$. Durch Termumformungen ist es möglich, die Definitionslücke bei $x=1$ zu heben. Dadurch ändert sich zwar der Term allerdings bleiben die Definitionslücke bei $x= 1$ und $x=-2$ erhalten. $$f(x) = \dfrac{\cancel{x-1}}{\cancel{(x-1)}(x+2)} = \dfrac{1}{x+2}.$$
+     \item Gegeben ist die Funktion f mit $f(x) = \dfrac{(x-1)}{(x-1)(x+2)}$ mit $\mathds{D}_f = \mathds{R}\setminus\{-2, 1\}$. Durch Termumformungen ist es möglich, die Definitionslücke bei $x=1$ zu heben. Dadurch ändert sich zwar der Term allerdings bleiben die Definitionslücke bei $x= 1$ und $x=-2$ erhalten. $$f(x) = \dfrac{\cancel{(x-1)}}{\cancel{(x-1)}(x+2)} = \dfrac{1}{x+2}.$$
      \item Gegeben ist die Funktion h mit $h(x) = \dfrac{1}{x+2}$ mit $\mathds{D}_h = \mathds{R}\setminus\{-2\}$. Bei dieser Funktion kann die Definitionslücke nicht behoben werden. Um zu entscheiden, ob eine Polstelle mit oder ohne VZW vorliegt, muss eine Grenzwertbetrachtung an der Definintionslücke durchgeführt werden.
      \begin{equation*}
     \begin{split}
@@ -1612,6 +1615,7 @@ Die Bestimmung der Umkehrfunktion erfolgt in zwei Schritten. Als erstes muss man
 \end{tikzpicture}
 \end{center}
 \end{b8d}
+\newpage
  \subsubsection{Die allgemeine Wurzelfunktion}\index{Funktionen!Wurzelfunktion!allgemeine Wurzelfunktion}
  Der Graph der einfachen Wurzelfunktion $f(x) = \sqrt{x}$ geht durch die Spiegelung der Normalparabel an der Winkelhalbierenden $y=x$ hervor. Die allgemein Wurzelfunktion $f(x) = a\cdot \sqrt{x-b} +c$ ergibt sich dann durch lineare Transformationen der einfachen Wurzelfunktion.
  \begin{satz}{Die allgemeine Wurzelfunktion}{}
@@ -1621,7 +1625,7 @@ Der Graph der Funktion $f(x) = a\cdot \sqrt{x-b}+c$ und $x\geq b$ ist eine Halbp
     \item Strecken bzw. Stauchen mit dem Faktor a in y-Richtung
     \item Verschiebung um c in y-Richtung
 \end{itemize}
- \end{satz}
+
  \begin{center}
 \begin{tikzpicture}
     \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},xmin= -1.1, xmax = 6.1, ymin= -1.1, ymax=4.1,
@@ -1641,6 +1645,7 @@ Der Graph der Funktion $f(x) = a\cdot \sqrt{x-b}+c$ und $x\geq b$ ist eine Halbp
     \end{axis}
 \end{tikzpicture}
 \end{center}
+ \end{satz}
  Eine besondere Art von Wurzelfunktionen bilden die Halbkreise als Graphen von Wurzelfunktionen.
  \begin{merke}{Halbkreise als Graphen der Wurzelfunktion}{}
 Alle Punkte $P(x|y)$ die auf einem Kreis mit Radius $r$ um den Ursprung des Koordinatensystems liegen, erfüllen die Gleichung $$x^2+y^2 = r^2.$$ Bei der Bildung der Umkehrfunktion $f^{-1}$ folgt für die den Graphen der Umkehrfunktion $G_{f^{-1}}$ der Term $f^{-1}(x) = \sqrt{r^2-x^2}$. Für die Werte $-r\leq x\leq r$ ergibt sich als Graph ein Halbkreis mit Radius $r$ um den Ursprung.
@@ -1818,7 +1823,7 @@ every tick label/.append style={fill=none},
 \addplot[blue,thick,samples=300,domain=-179 : -100]{1/((cos(x))^2)};
 \draw [red,dashed,line width=0.5pt] (-90,-4) -- (-90,4);
 \draw[blue] (120,0.15)   node [above] {$f'(x)= \dfrac{1}{\cos^2{(x)}}$};
-\draw[red] (65,-1)   node [above] {$f(x)= - \tan{(x)}$};
+\draw[red] (65,-1)   node [above] {$f(x)= \tan{(x)}$};
 
 \end{axis}
 \end{tikzpicture} 
@@ -2181,11 +2186,11 @@ $$f'(x) = \dfrac{1}{x}\cdot g(x) +\ln{(x)} \cdot g'(x)$$
 ist. Siehe hierfür im Anhang \ref{AbleitungEFunktion}
 \end{satz}
  \subsubsection{Kurvendiskussion einer $\ln$-Funktion}
- Die Kurendiskussion einer $\ln$-Funktion unterscheidet wird anhand folgendes Beispiel kurz erläutert.
+ Die Kurvendiskussion einer $\ln$-Funktion unterscheidet wird anhand folgendes Beispiel kurz erläutert.
  \begin{bsp}{Kurvendiskussion einer $\ln$-Funktion}{ }
 Gegeben ist die Funktion $f$ mit $f(x) = x^2\cdot \ln{(x)}$ und $\mathds{D}_f = \mathds{D}_{max}$.
 \begin{enumerate}
-    \item Definitionsbereich: Die Funktion $g(x) = \ln{(x)}$ ist nur für positive reelle zahlen definiert. Damit folgt für den Definitionsbereich der Funktion $f(x) = x^2\ln{(x)}$ folgendes: $\mathds{D}_f = \mathds{R}^+$.
+    \item Definitionsbereich: Die Funktion $g(x) = \ln{(x)}$ ist nur für positive reelle Zahlen definiert. Damit folgt für den Definitionsbereich der Funktion $f(x) = x^2\ln{(x)}$ folgendes: \\ $\mathds{D}_f = \mathds{R}^+$.
     \item Symmetrie: Aufgrund des Definitionsbereichs ist es nicht nötig eine Untersuchung auf Symmetrie zum Ursprung bzw. zur y-Achse zu untersuchen.
     \item Nullstellen: 
         \begin{equation*}
@@ -2384,13 +2389,14 @@ Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das V
     \item[iii)] Vertauscht man die Grenzen des Integrals ändert sich das Vorzeichen.\\ \textcolor{red}{ $\integral[limits-mode=limits,limits={a, b}] {f(x)} = - \integral[limits-mode=limits,limits={b, a}] {f(x)}$}. \textcolor{red}{rückwärts Integration}
     \end{description}
     \end{b8d}
+    \newpage
     \begin{bsp}{}{}
       \begin{tikzpicture}
 \begin{groupplot}[
   group style={group size=3 by 1, horizontal sep=\hsep},
   width=\gpw, height=\gph,
   scale only axis=true,
-  xmin=0, xmax=3.5, ymin=0, ymax=11.5,
+  xmin=0, xmax=3.5, ymin=0, ymax=9.5,
   axis lines=left,
   xlabel={$x$}, ylabel={$y$},
   legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west, font=\small},
@@ -2402,16 +2408,16 @@ Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das V
     %%%%%% Untersumme n=3
     \addlegendentry{$f(x)=x^2$}
     \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2}{0}{3}{3}
-    \pgfplotsset{title={Untersumme $n=3$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{Untersumme $n=3$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+    %\pgfplotsset{title={Untersumme $n=3$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+    %\addlegendentryexpanded{Untersumme $n=3$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3, samples=200] {\x^2};
 \nextgroupplot
 %%%%%%% Untersumme n=6
         \addlegendentry{$f(x)=x^2$}
     \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2}{0}{3}{6}
-    \pgfplotsset{title={Untersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{Untersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+   % \pgfplotsset{title={Untersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+    %\addlegendentryexpanded{Untersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3, samples=200] {\x^2};
 
 %%%%%%%%% Untersumme n=12
 
@@ -2419,18 +2425,18 @@ Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das V
 
     \addlegendentry{$f(x)=x^2$}
     \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2}{0}{3}{12}
-    \pgfplotsset{title={Untersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{Untersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+   % \pgfplotsset{title={Untersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
+    %\addlegendentryexpanded{Untersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3, samples=200] {\x^2};
   \end{groupplot}
-\end{tikzpicture}
+\end{tikzpicture}\\
 Als Beispiel die Obersummen der Funktion $f(x) =x^2$ im Intervall $I=[0,3]$. \\
  \begin{tikzpicture}
 \begin{groupplot}[
   group style={group size=3 by 1, horizontal sep=\hsep},
   width=\gpw, height=\gph,
   scale only axis=true,
-  xmin=0, xmax=3.5, ymin=0, ymax=11.5,
+  xmin=0, xmax=3.5, ymin=0, ymax=9.5,
   axis lines=left,
   xlabel={$x$}, ylabel={$y$},
   legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west, font=\small},
@@ -2442,17 +2448,17 @@ Als Beispiel die Obersummen der Funktion $f(x) =x^2$ im Intervall $I=[0,3]$. \\
     %%%%%% Untersumme n=3
     \addlegendentry{$f(x)=x^2$}
     \riemannbars[mode=upper, fill=red!35, draw=black]{\x^2}{0}{3}{3}
-    \pgfplotsset{title={Obersumme $n=3$, $S_3=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{Obersumme $n=3$, $S_3=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+    %\pgfplotsset{title={Obersumme $n=3$, $S_3=\pgfmathprintnumber{\lastRiemannSum}$}}
+    %\addlegendentryexpanded{Obersumme $n=3$, $S_3=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3, samples=200] {\x^2};
 
 \nextgroupplot
 %%%%%%% Untersumme n=6
         \addlegendentry{$f(x)=x^2$}
     \riemannbars[mode=upper, fill=red!35, draw=black]{\x^2}{0}{3}{6}
-    \pgfplotsset{title={Obersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{Obersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+   % \pgfplotsset{title={Obersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+   % \addlegendentryexpanded{Obersumme $n=6$, $S_6=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3, samples=200] {\x^2};
 
 %%%%%%%%% Untersumme n=12
 
@@ -2460,9 +2466,9 @@ Als Beispiel die Obersummen der Funktion $f(x) =x^2$ im Intervall $I=[0,3]$. \\
 
     \addlegendentry{$f(x)=x^2$}
     \riemannbars[mode=upper, fill=red!35, draw=black]{\x^2}{0}{3}{12}
-    \pgfplotsset{title={Obersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{Obersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[very thick, domain=0:3.15, samples=200] {\x^2};
+   % \pgfplotsset{title={Obersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
+    %\addlegendentryexpanded{Obersumme $n=12$, $S_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[very thick, domain=0:3, samples=200] {\x^2};
   \end{groupplot}
 \end{tikzpicture}    
     \end{bsp}
@@ -2666,7 +2672,7 @@ Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
   group style={group size=3 by 1, horizontal sep=\hsep},
   width=\gpw, height=\gph,
   scale only axis=true,
-  xmin=0, xmax=3.5, ymin=0, ymax=11.5,
+  xmin=0, xmax=3.5, ymin=0, ymax=9,
   axis lines=left,
   xlabel={$x$}, ylabel={$y$},
   legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west, font=\small},
@@ -2678,17 +2684,17 @@ Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
     %%%%%% Untersumme n=3
     \addlegendentry{$f(x)=x^2+1$}
     \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2+1}{0}{3}{3}
-    \pgfplotsset{title={$U_3=\pgfmathprintnumber{\lastRiemannSum}$}}
-    \addlegendentryexpanded{$U_3=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[thick, domain=0:3.15, samples=200] {\x^2+1};
+    %\pgfplotsset{title={$U_3=\pgfmathprintnumber{\lastRiemannSum}$}}
+\addlegendentryexpanded{$U_3=\pgfmathprintnumber{\lastRiemannSum}$}
+    \addplot[thick, domain=0:3, samples=200] {\x^2+1};
 
 \nextgroupplot
 %%%%%%% Untersumme n=6
         \addlegendentry{$f(x)=x^2+1$}
     \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2+1}{0}{3}{6}
-    \pgfplotsset{title={Untersumme $n=6$, $U_6=\pgfmathprintnumber{\lastRiemannSum}$}}
+   % \pgfplotsset{title={Untersumme $n=6$, $U_6=\pgfmathprintnumber{\lastRiemannSum}$}}
     \addlegendentryexpanded{$U_6=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[thick, domain=0:3.15, samples=200] {\x^2+1};
+    \addplot[thick, domain=0:3, samples=200] {\x^2+1};
 
 %%%%%%%%% Untersumme n=12
 
@@ -2696,16 +2702,16 @@ Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
 
     \addlegendentry{$f(x)=x^2+1$}
     \riemannbars[mode=lower, fill=red!35, draw=black]{\x^2+1}{0}{3}{12}
-    \pgfplotsset{title={Untersumme $n=12$, $U_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
+    %\pgfplotsset{title={Untersumme $n=12$, $U_{12}=\pgfmathprintnumber{\lastRiemannSum}$}}
     \addlegendentryexpanded{$U_{12}=\pgfmathprintnumber{\lastRiemannSum}$}
-    \addplot[thick, domain=0:3.15, samples=200] {\x^2+1};
+    \addplot[thick, domain=0:3, samples=200] {\x^2+1};
   \end{groupplot}
   
 \end{tikzpicture}}
 \begin{itemize}
     \item Streifen unter- bzw. oberhalb des eigentlichen Funktionsgraphen
     \item je schmaler die Streifen desto genauer die Annäherung an die eigentliche Fläche
-    \item Für die Ober- und Untersumme gilt im Intervall $I=[a,b]$ damit  $\lim\limits_{n \longrightarrow \infty} O_n = \lim\limits_{n\longrightarrow \infty} U_n =\integral[limits-mode=limits,limits={a, b}]{f(x)}$
+    \item Für die Ober- und Untersumme gilt im Intervall $I=[a,b]$ damit \\ $\lim\limits_{n \longrightarrow \infty} O_n = \lim\limits_{n\longrightarrow \infty} U_n =\integral[limits-mode=limits,limits={a, b}]{f(x)}$
 \end{itemize}
     \item Das bestimmte Integral als Flächenbilanz
 
@@ -2741,7 +2747,6 @@ Bei der Berechnung eines Integrals verwendet man folgende Schreibweise:\\
   minor x tick num=1,
   minor y tick num=1,
   legend pos=outer north east,
-  % Grenzen:
   mark bounds=true,
   bounds where=top,   % top | bottom | none
   bound y shift=2pt,
@@ -2829,12 +2834,17 @@ Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Fu
     Berechne die folgenden Integrale:
     \begin{multicols}{3}
     \begin{description}
-        \item[] $\integral{\dfrac{2}{x^2}}$
-        \item[] $\integral{\dfrac{1}{\sqrt{x}}}$
-        \item[] $\integral{\dfrac{1}{x}}$
+        \item[a)] $\integral{\dfrac{2}{x^2}}$
+        \item[b)] $\integral{\dfrac{1}{\sqrt{x}}}$
+        \item[c)] $\integral{\dfrac{1}{x}}$
     \end{description}   
     \end{multicols}
-    $\integral{\dfrac{2}{x^2}} = 2\integral{x^{-2}} = 2 \cdot (-1) \cdot x^{-1} +c = -2\cdot \dfrac{1}{x} +c = \dfrac{-2}{x} +c$\\[0.2cm] $\integral{\dfrac{1}{\sqrt{x}}} = \integral{x^{-0,5}} = 2\cdot x^{0,5} + c = 2\cdot \sqrt{x} + c$ \\[0.2cm] $\integral{\dfrac{1}{x}} = \ln{|x|} + c$  \end{bsp}
+    \begin{description}
+      \item[a)] $\integral{\dfrac{2}{x^2}} = 2\integral{x^{-2}} = 2 \cdot (-1) \cdot x^{-1} +c = -2\cdot \dfrac{1}{x} +c = \dfrac{-2}{x} +c$ 
+      \item[b)] $\integral{\dfrac{1}{\sqrt{x}}} = \integral{x^{-0,5}} = 2\cdot x^{0,5} + c = 2\cdot \sqrt{x} + c$ 
+      \item[c)] $\integral{\dfrac{1}{x}} = \ln{|x|} + c$  
+    \end{description}
+    \end{bsp}
 \section{Flächenberechnungen mit dem Integral}
 \subsection{Fläche zwischen Kurve und x-Achse}
 \begin{defi}{Flächeminhalt}{}\index{Integral!Flächenberechnung}
@@ -2901,7 +2911,7 @@ Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Fu
 \end{defi}
 \subsection{Fläche zwischen Kurven}
 \begin{merke}{Fläche zwischen Kurven}{}\index{Integral!Fläche zwischen Kurven}
-    Der Inhalt A einer \textbf{\textcolor{blue}{Fläche, die im Intervall $I=[a,b]$ von dem Graphen zweier Funktionen$f$ und $g$ begrenzt wird}}, wobei $f(x)\geq g(x)$ bzw. $g(x)\geq f(x)$ gelten muss, berechnet sich mit: $$A= \left\lvert\integral[limits-mode=limits,limits={a, b}]{(f(x) - g(x))} \right\rvert$$
+    Der Inhalt A einer \textbf{\textcolor{blue}{Fläche, die im Intervall $I=[a,b]$ von dem Graphen zweier Funktionen $f$ und $g$ begrenzt wird}}, wobei $f(x)\geq g(x)$ bzw. $g(x)\geq f(x)$ gelten muss, berechnet sich mit: $$A= \left\lvert\integral[limits-mode=limits,limits={a, b}]{(f(x) - g(x))} \right\rvert$$
  \end{merke}
   \begin{b8d}{Vorgehen für Flächen zwischen Kurven}{}
 Bei der Berechnung des \textbf{\textcolor{blue}{Inhalts der Fläche zwischen den Graphen zweier Funktionen $f$ und $g$}} im Intervall $I=[a,b]$ geht man wie folgt vor:
@@ -2911,7 +2921,7 @@ Bei der Berechnung des \textbf{\textcolor{blue}{Inhalts der Fläche zwischen den
 \end{enumerate}
 \begin{center}\begin{tikzpicture}
 \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
-  width=14cm, height=7cm,
+  width=14cm, height=9cm,
   axis lines=middle,
   axis line style={-stealth},
   xlabel={$x$}, ylabel={$y$},
@@ -3154,14 +3164,12 @@ Damit hat die eng begrenzte Fläche einen unendlichen Flächeninhalt.
 \begin{defi}{Von der Änderungsrate zum Bestand}{}\index{Integral!Änderungsrate}
     Gegeben ist eine in einem Intervall $I$ integrierbare Funktion $f:x\mapsto f(x)$. Beschreibt die Funktion $f$ im Intervall $I$ die lokale bzw. momentane Änderungsrate einer Größe, so entspricht das bestimmte Integral $\integral[limits-mode=limits,limits={a, b}, variable ={t}]{f(t)}$ mit $a,b \in I$ der Gesamtänderung dieser Größe im Intervall $I=[a|b]$.
 \end{defi}
-\newpage
 \section{Rotationskörper}
 \setlength{\columnseprule}{0.4pt}
 \setlength{\columnsep}{18pt}
 \def\columnseprulecolor{\color{gray!60}}
 \begin{multicols}{2}
-
-Ein Rotationskörper entsteht, wenn die vom Graphen einer Funktion $f$ über dem Intervall $I=[a;b]$ eingeschlossenen Fläche um die $x-$Achse rotiert. \\
+Ein Rotationskörper\footnote{Alle Bilder aus \cite{klett_lambacher_schweizer_mathe13_bayern_2025} S.42} entsteht, wenn die vom Graphen einer Funktion $f$ über dem Intervall $I=[a;b]$ eingeschlossenen Fläche um die $x-$Achse rotiert. \\
 \begin{center}
 \includegraphics[width = 0.3\textwidth]{Bilder/Rotationskoerper1.png}    
 \end{center}
@@ -3175,6 +3183,7 @@ Man nähert bei Rotationskörpern das Volumen durch eine Summe von Zylindervolum
 \end{center} 
 Für eine stetige Funktion $f$ ist das Volumen des Rotationskörpers folglich der Grenzwert der einzelnen Zylindervolumina für $n\rightarrow \infty$ und damit $\Delta x \rightarrow 0$ und somit $$V = \integral[limits-mode=limits,limits={a, b}]{\pi \cdot (f(x))^2} = \pi \cdot \integral[limits-mode=limits,limits={a, b}]{(f(x))^2}$$
 \end{multicols}
+\newpage
 \begin{defi}{Volumen von Rotationskörpern}{}
   Die Funktion $f$ sei über einem Intervall $I$ mit $I=[a;b]$ stetig. Rotiert die Fläche zwischen dem Graphen von $f$ und der $x-$Achse im Intervall $I=[a;b]$ um die $x-$Achse, so entsteht ein \textbf{\textcolor{red}{Rotationskörper}}.\\
   Sein Volumen berechnet man in Anlehnung an die Fläche mit $$V= \pi \integral[limits-mode=limits,limits={a, b}]{(f(x))^2}$$

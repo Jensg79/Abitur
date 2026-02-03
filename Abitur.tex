@@ -20,6 +20,31 @@
 %  UprightFont = Caveat-SemiBold
 %]{Caveat}
 %\usepackage{animate}
+\usepackage[
+  backend=biber,
+  style=numeric-comp,   % kompakte Nummern: [3–5]
+  sorting=none,         % Reihenfolge nach Auftreten im Text
+  giveninits=true,      % Vornamen abkürzen
+  maxnames=6,           % ab 7: "u. a." / "et al."
+  minnames=1,
+  date=year,            % nur Jahr (statt vollem Datum)
+  doi=true,
+  url=true,
+  isbn=false,           % in Naturwissenschaften oft weglassen
+  eprint=true,
+  language=ngerman,
+  autolang=other        % fremdsprachige Titel automatisch kennzeichnen
+]{biblatex}
+
+\addbibresource{literatur.bib}
+
+% Optional: "u. a." statt "et al." in deutscher Umgebung
+\DefineBibliographyStrings{ngerman}{%
+  andothers = {u\adddot\addabbrvspace a\adddot}%
+}
+
+\addbibresource{literatur.bib}
+
 \usepackage{cancel}
 \usepackage{multicol}
 \usepackage{pdfpages}
@@ -282,7 +307,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \LARGE \textbf{Zusammenfassung der Themengebiete}
 \vspace{1cm}\\
 \end{center}
-\includegraphics[width = \textwidth]{Bilder/Titel.jpg}
+\includegraphics[width = \textwidth]{Bilder/Titelbild.jpg}
 \end{titlepage}
 \tableofcontents
 \newpage
@@ -399,5 +424,6 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 %\AddToShipoutPicture*{\BackgroundPic}
 %\include{Anhang.tex}
 \printindex
-
+\nocite{*}
+\printbibliography[title={Literaturverzeichnis}]
 \end{document}

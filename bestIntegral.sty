@@ -25,22 +25,22 @@
   ymax/.initial   = 2,
   samples/.initial= 400,
   intN/.initial   = 800,
-  % legend outside by default
   legend pos/.initial = outer north east,
-  % axis appearance
-  axis lines/.initial = middle,   % middle | left | box
-  grid/.initial = none,           % none | x | y | both | major | minor
+  axis lines/.initial = middle,
+  grid/.initial = none,
   minor x tick num/.initial = 0,
   minor y tick num/.initial = 0,
-  axis arrows/.initial = Latex,   % none | Latex | Stealth
+  axis arrows/.initial = Latex,
   xlabel/.initial = $x$,
   ylabel/.initial = $y$,
   tick align/.initial = outside,
   clip/.initial = true,
   enlarge/.initial = false,
-  % bound labels (NOT on x-axis)
-  mark bounds/.initial = true,    % true|false
-  bounds where/.initial = top,    % top|bottom|none
+  tick label style/.initial = {fill=none, draw=none},
+  xlabel style/.initial     = {fill=none},
+  ylabel style/.initial     = {fill=none},
+  mark bounds/.initial = true,
+  bounds where/.initial = top,
   bound y shift/.initial = 2pt,
 }
 
