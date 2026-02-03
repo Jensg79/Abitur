@@ -1,4 +1,4 @@
-\documentclass[a4paper, twoside]{report}
+\documentclass[a4paper, twoside, 11pt]{report}
 %\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{fontspec}
@@ -28,6 +28,7 @@
 \usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, marvosym,esvect}%lipsum,
 \geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
 \usepackage{hyperref}
+\usepackage{csquotes}
 \usepackage[table]{xcolor}
 \definecolor{pelikanblue}{HTML}{304992}
 \AtBeginDocument{\color{pelikanblue}} % dunkler
@@ -295,7 +296,9 @@ keepaspectratio]{Bilder/Anhang.pdf}%
         xtick={-2, -1, 0, ..., 4},
         ytick={-4, -3, -2, ..., 3},
         xlabel = $x$,
-        ylabel=$y$]
+        ylabel=$y$,
+         tick label style={fill=none, draw=none},
+  xlabel style={fill=none}, ylabel style={fill=none}]
       \addplot[name path = f,red,thick,samples=200] {-1*(x-1)^2 +2};
       \addplot[name path = l1,teal,thick, samples = 200] {1/3*x^3-1.5};
       \addplot [
@@ -314,7 +317,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-%\include{Analysis.tex}
+\include{Analysis.tex}
 \chapter{Analytische Geometrie}
 \begin{center}
 \begin{tikzpicture}
@@ -391,7 +394,7 @@ keepaspectratio]{Bilder/Anhang.pdf}%
 \end{scope}
 \end{tikzpicture}}  
 \end{center}
-\include{Stochastik.tex}
+%\include{Stochastik.tex}
 %\chapter{Anhang}
 %\AddToShipoutPicture*{\BackgroundPic}
 %\include{Anhang.tex}
