@@ -1525,3 +1525,147 @@ Durch eine Ebene wird der 3-dimensionale Raum in 2 Halbräume eingeteilt.
     \item Ist der Wert \(\highlightmath[blue!35]{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) < 0}\) dann liegt der Punkt \(P\) im \highlightmath[blue!35]{negativen} Halbraum, also in entgegengesetzter Richtung des Normalenvektors.
 \end{itemize}
 \end{b8d}
+\section{Anwendungen}
+\subsection{Schnittfläche Kugel Ebene}
+\begin{merke}{}{}
+    
+Gegeben sei eine Kugel mit Mittelpunkt \(M(m_1|m_2|m_3)\) und Radius \(R\), sowie eine Ebene \(E\).
+Schneidet die Ebene die Kugel, entsteht ein \textbf{Kreis} (Schnittkreis).
+\subsubsection*{Der Abstand \(d\) von \(M\) zur Ebene \(E\)}
+\begin{itemize}
+\item Sei \(d(M,E)\) der \textbf{senkrechte Abstand} des Kugelmittelpunkts zur Ebene.
+\item Dann gilt:
+\[
+\begin{array}{rcl}
+d(M,E)>R &\Rightarrow& \text{kein Schnitt (Ebene zu weit weg)}\\
+d(M,E)=R &\Rightarrow& \text{Berührung (Schnittkreis hat Radius }0\text{)}\\
+d(M,E)<R &\Rightarrow& \text{Schnittkreis entsteht}
+\end{array}
+\]
+\end{itemize}
+\end{merke}
+\subsection*{Mittelpunkt des Schnittkreises}
+Der Mittelpunkt des Schnittkreises ist der \textbf{Lotfuß} \(F\) vom Mittelpunkt des Kreises \(M\) auf die Ebene \(E\),
+also der Punkt, an dem die Senkrechte durch \(M\) die Ebene trifft.
+\begin{merke}{Berechnung des Lotfußpunktes}{}
+ Um den \textbf{Lotfußpunkt} zu bestimmen, stellt man die Gerade \(g\) so auf, dass der \textbf{Aufpunkt} der Geraden der Punkt \(M\) ist und man als \textbf{Richtungsvektor} den \textbf{Normalenvektor} der Ebene \(E\) benutzt. \\
+ Mit dieser Geraden wird dann der \textbf{Schnittpunkt der Geraden mit der Ebene} berechnet. Dieser Punkt ist dann der \textbf{Lotfußpunkt}.
+\end{merke}
+\begin{bem}{Aufstellen der Lotgeraden}{}\index{Lotgerade}
+    Gegeben ist der Kreis \(k\) durch \(\left(x_1-m_1\right)^2 + \left(x_2-m_2\right)^2 + \left(x_3-m_3\right)^2 = R^2\) mit dem Mittelpunkt \(M(m_1|m_2|m_3)\) und dem Radiu \(R\) und die Ebene \(E: n_1x_1 +n_2x_2+n_3x_3-c=0\). Die Lotgerade lautet damit wie folgt: \[l:\vv{X} = \vv{M} + \lambda \vv{n} = \begin{pmatrix}
+        m_1\\m_2\\m_3
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        n_1\\n_2\\n_3
+    \end{pmatrix}.\]
+    Der Lotfußpunkt wird dann durch das Einsetzen der Gerade \(l\) in die Ebene \(E\) bestimmt.
+\end{bem}
+
+\begin{b8d}{Radius des Schnittkreises}{}
+\begin{multicols}{2}
+Wähle einen Punkt \(P\) auf dem Schnittkreis. Dann liegt \(\vv{FP}\) in der Ebene \(E\) und
+\(\vv{MF}\) steht senkrecht auf \(E\). Das Dreieck \(MFP\) ist damit rechtwinklig in \(F\):
+
+\[
+\left|\vv{MP}\right|=R ,\qquad \left|\vv{MF}\right|=d,\qquad \left|\vv{FP}\right|=r
+\]
+
+Mit dem Satz des Pythagoras:
+\[
+R^2 = d^2 + r^2
+\qquad\Rightarrow\qquad
+r=\sqrt{R^2-d^2}.
+\]
+
+
+\subsection*{Abstand Punkt–Ebene }
+Ist \(E: n_1x_1+n_2x_2+n_3x_3 -c =0\) und \(M(m_1,m_2,m_3)\), dann ist
+\[
+d=\frac{|n_1m_1+n_2m_2+n_3m_3 -c|}{\sqrt{n_1^2 +n_2^2 + n_3^2}}.
+\]
+der Abstand des Mittelpunktes \(M\) von der Ebene \(M\). 
+\bigskip
+\end{multicols}
+\begin{center}
+\begin{tikzpicture}[scale=0.65, line cap=round, line join=round]
+  % --- Parameter (nur für die Skizze) ---
+  \def\R{2.4}     % Kugelradius in der Skizze (als Kreis)
+  \def\d{1.5}     % Abstand Mittelpunkt->Ebene in der Skizze
+
+  % --- Ebene als Gerade ---
+  \draw[thick] (-4,0) -- (4,0) node[right] {Ebene $E$};
+
+  % --- Kugel als Kreis im Schnittbild ---
+  \coordinate (H) at (0,0);          % Lotfuß auf der Ebene
+  \coordinate (M) at (0,\d);         % Kugelmittelpunkt
+  \draw[thick] (M) circle (\R);
+
+  % --- Schnittkreis im 2D-Schnitt: als Strecke (Chord) auf der Ebene ---
+   %r = sqrt(R^2 - d^2) (nur für die Zeichnung berechnet)
+  \pgfmathsetmacro{\r}{sqrt(\R*\R - \d*\d)}
+  \coordinate (P)  at (\r,0);
+  \coordinate (P2) at (-\r,0);
+
+  \draw[very thick] (P2) -- (P);     % Schnittkreis "Querschnitt" (Durchmesser im Schnitt)
+  \fill (P)  circle (1.5pt) node[below right] {$P$};
+  \fill (H)  circle (1.5pt) node[below left] {$F$};
+  \fill (M)  circle (1.5pt) node[above left] {$M$};
+
+  % --- Senkrechter Abstand d ---
+  \draw[very thick, dashed, green] (M) -- (H);
+  \node[left] at ($(M)!0.5!(H)$) {$d$};
+
+  % --- Radius R (zum Punkt P) ---
+  \draw[very thick, blue] (M) -- (P);
+  \node[above right] at ($(M)!0.55!(P)$) {$R$};
+
+  % --- Radius r des Schnittkreises (in der Ebene) ---
+  \draw[very thick, red] (H) -- (P);
+  \node[below] at ($(H)!0.5!(P)$) {$r$};
+
+  % --- rechter Winkel bei H markieren ---
+  \draw ($(H)+(0,0.28)$) -- ($(H)+(0.28,0.28)$) -- ($(H)+(0.28,0)$);
+
+  % --- kleine Klammer "Schnittkreis" ---
+\draw[decorate,decoration={brace,amplitude=4pt}]
+  ($(P)+(0,-1)$) -- ($(P2)+(0,-1)$)
+  node[midway,below=8pt] {Schnittkreis (in der Ebene)};
+\end{tikzpicture}
+\end{center}
+
+\end{b8d}
+\begin{rechnung}{Berechnung des Schnittkreises}{}
+Gegeben ist die Kugel \(k\) mit dem Mittelpunkt \(M(1|2|3)\) und dem Radius \(R=5\) und die Ebene \(E:2x_1-2x_2+x_3+8=0\). 
+    \begin{enumerate}
+        \item Nachweis, dass der Kreis die Ebene schneidet durch Berechnung des Abstandes von \(M\) von der Ebene \(E\).
+        \begin{itemize}
+            \item Länge des Normalenvektors: \(\vv{n} = \begin{pmatrix}
+                2\\-2\\1
+            \end{pmatrix} \longrightarrow \left|\vv{n}\right| = \sqrt{2^2 + (-2)^2 +1^2} = \sqrt{9} = 3\)
+            \item aufstellen der HNF: \(E: \dfrac{1}{3} \cdot \left(2x_1-2x_2+x_3+8\right)=0\)
+            \item Berechnung des Abstandes durch einsetzen von \(M\) in die HNF\\ \(d(M;E) =\left| \dfrac{1}{3} \cdot \left(2\cdot 1 -2\cdot 2 +1\cdot 3 +8\right)\right| = \left|\dfrac{1}{3} \cdot 9\right| = 3 [LE]\)
+            \item \(k\) schneidet \(E\) da \(d(M;E) = 3 < 5 = R\)
+        \end{itemize}
+        \item Berechnung des Radius \(r\) des Schnittkreises
+        \begin{itemize}
+            \item \(d^2 +r^2 = R^2\)
+            \item \(r = \sqrt{R^2-d^2} = \sqrt{5^2 -3^2} = \sqrt{16} = 4\)
+        \end{itemize}
+        \item Berechnung des Mittelpunktes
+        \begin{itemize}
+            \item Aufstellen der Lotgerade \(l:\vv{X} = \vv{M} + \lambda\vv{n} = \begin{pmatrix}
+                1\\2\\3
+            \end{pmatrix} + \lambda \begin{pmatrix}
+                2\\-2\\1
+            \end{pmatrix}\)
+            \item  einsetzen in \(E\)\\ \(2x_1-2x_2+x_3+8 =0 \longrightarrow 2(1+2\lambda)-2(2-2\lambda)+(3+\lambda) +8 =0\)\\ \(9\lambda +9 =0\)\\ \( \lambda =-1\)
+            \item Berechnung von \(\vv{F} = \vv{M}+ \left(-1\right)\cdot \vv{n} = \begin{pmatrix}
+                1\\2\\3
+            \end{pmatrix} + \left(-1\right)\cdot\begin{pmatrix}
+                2\\-2\\1
+            \end{pmatrix} = \begin{pmatrix}
+                -1\\4\\2
+            \end{pmatrix}\)
+        \end{itemize}
+    \end{enumerate}
+    Mit der Angabe des Radius \(r\) des Mittelpunktes \(F\) des Kreises \(k\) ist der Kreis ausreichend bestimmt. 
+\end{rechnung}

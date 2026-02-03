@@ -681,7 +681,8 @@ Werden aus einer großen Gesamtheit nur wenige Elemente ausgewählt, darf man di
        \item bei der von \(\mu = E(X)\) aus gesehenen nächstkleineren oder nächstgrößeren Trefferanzahl, wenn \(E(X)\) nicht ganzzahlig ist.
    \end{itemize}
     \end{merke}
-\begin{merke}{Eigenschaften}{}
+    Im folgenden sollen einige Eigenschaften von Histogrammen betrachtet werden\footnote{Die hier gezeigten Histogramme sind aus \cite{klett_lambacher_schweizer_mathe12_bayern_2024} S.102}.
+\begin{merke}{Eigenschaften spezieller Histogramme}{}
 Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit wachsenden \(n\) bei konstanten \(p\) flacher. Die Maximalwerte der Wahrscheinlichkeitsfunktionen nehmen dabei ab.
 \begin{center}
     \includegraphics[width =1\textwidth]{Bilder/Histogramm0.png}
@@ -823,7 +824,7 @@ Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen.
     ytick={0,0.1,0.2,0.3,0.4},
     xlabel={$x$ (cm)},
     ylabel={relative Häufigkeit},
-    title={5 Klassen: Balkenhöhe = Anteil im Intervall},
+    title={5 Klassen},
     nodes near coords,
     nodes near coords align={vertical},
     every node near coord/.append style={font=\scriptsize}
@@ -849,7 +850,7 @@ Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen.
     ytick={0,0.05,0.10,0.15,0.20},
     xlabel={$x$ (cm)},
     ylabel={relative Häufigkeit},
-    title={10 Klassen: feinere Auflösung, gleiche Tendenz},
+    title={10 Klassen},
 ]
 % Mitten: 5,15,...,95
 \addplot coordinates {
@@ -877,7 +878,7 @@ Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen.
     ytick={0,0.02,0.04,0.06,0.08,0.10},
     xlabel={$x$ (cm)},
     ylabel={relative Häufigkeit},
-    title={20 Klassen: noch feiner, Form wird „kurviger“},
+    title={20 Klassen},
 ]
 % Mitten: 2.5,7.5,...,97.5
 \addplot coordinates {
@@ -953,10 +954,10 @@ Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinl
   \addplot[fill=green!20, fill opacity=0.55, draw=none]
     fill between[of=curveA and axisA];
 
-  \node[green!40!black] at (axis cs:{\xLabelAll+0.25},\yLabelAll)
+  \node[green!40!black] at (axis cs:{\xLabelAll+0.25},{\yLabelAll - 0.1})
     {$\displaystyle \int_{-\infty}^{+\infty} f(x)\,dx = 1$};
 
-  \node[blue, font=\large] at (axis cs:2.18,0.06) {$G_f$};
+  \node[blue, font=\large] at (axis cs:2.18,0.04) {$G_f$};
 
 % -------- Rechts: Fläche r bis s ----------
 \nextgroupplot
@@ -975,13 +976,12 @@ Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinl
   \node[font=\large] at (axis cs:\r,-0.035) {$r$};
   \node[font=\large] at (axis cs:\s,-0.035) {$s$};
 
-  \node[green!40!black] at (axis cs:\xmid,{\yProb-0.1})
+  \node[green!40!black] at (axis cs:\xmid,{\yProb-0.15})
     {$\mathrm{P}(r\le X \le s)$};
-  \node[green!40!black, font=\small] at (axis cs:\xmid,\yInt)
+  \node[green!40!black, font=\small] at (axis cs:\xmid,{\yInt-0.1})
     {$\displaystyle = \int_{r}^{s} f(x)\,dx$};
 
-  \node[blue, font=\large] at (axis cs:2.18,0.06) {$G_f$};
-
+  \node[blue, font=\small] at (axis cs:2.18,0.03) {$G_f$};
 \end{groupplot}
 
 \end{tikzpicture}
@@ -1013,8 +1013,8 @@ y tick label style={
     xtick={0,10,20,30,40,50,60,70,80,90,100},
     ytick={0,0.005,0.010,0.015,0.020},
     xlabel={$x$ (cm)},
-    ylabel={Dichte $f(x)$ (pro cm)},
-    title={Dichtefunktion: Höhe „pro cm“, Fläche = Wahrscheinlichkeit},
+    ylabel={Dichte $f(x)$},
+    title={Dichtefunktion: Höhe „pro cm“},
 ]
 % Glatte Dichte (Beta(3,3) skaliert auf [0,100]):
 % f(x) = 0.3*(x/100)^2*(1-x/100)^2 für 0<=x<=100, sonst 0
