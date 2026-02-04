@@ -1526,9 +1526,8 @@ Durch eine Ebene wird der 3-dimensionale Raum in 2 Halbräume eingeteilt.
 \end{itemize}
 \end{b8d}
 \section{Anwendungen}
-\subsection{Schnittfläche Kugel Ebene}
-\begin{merke}{}{}
-    
+\subsection{Schnittfläche Kugel Ebene}\index{Anwendung!Analytische Geometrie!Schnittfläche Kugel Ebene}
+\begin{merke}{}{}   
 Gegeben sei eine Kugel mit Mittelpunkt \(M(m_1|m_2|m_3)\) und Radius \(R\), sowie eine Ebene \(E\).
 Schneidet die Ebene die Kugel, entsteht ein \textbf{Kreis} (Schnittkreis).
 \subsubsection*{Der Abstand \(d\) von \(M\) zur Ebene \(E\)}
@@ -1544,7 +1543,7 @@ d(M,E)<R &\Rightarrow& \text{Schnittkreis entsteht}
 \]
 \end{itemize}
 \end{merke}
-\subsection*{Mittelpunkt des Schnittkreises}
+\subsubsection*{Mittelpunkt des Schnittkreises}
 Der Mittelpunkt des Schnittkreises ist der \textbf{Lotfuß} \(F\) vom Mittelpunkt des Kreises \(M\) auf die Ebene \(E\),
 also der Punkt, an dem die Senkrechte durch \(M\) die Ebene trifft.
 \begin{merke}{Berechnung des Lotfußpunktes}{}
@@ -1577,7 +1576,7 @@ r=\sqrt{R^2-d^2}.
 \]
 
 
-\subsection*{Abstand Punkt–Ebene }
+\subsubsection*{Abstand Punkt–Ebene }
 Ist \(E: n_1x_1+n_2x_2+n_3x_3 -c =0\) und \(M(m_1,m_2,m_3)\), dann ist
 \[
 d=\frac{|n_1m_1+n_2m_2+n_3m_3 -c|}{\sqrt{n_1^2 +n_2^2 + n_3^2}}.
@@ -1667,5 +1666,93 @@ Gegeben ist die Kugel \(k\) mit dem Mittelpunkt \(M(1|2|3)\) und dem Radius \(R=
             \end{pmatrix}\)
         \end{itemize}
     \end{enumerate}
-    Mit der Angabe des Radius \(r\) des Mittelpunktes \(F\) des Kreises \(k\) ist der Kreis ausreichend bestimmt. 
-\end{rechnung}
+    Mit der Angabe des Radius \(r\) des Mittelpunktes \(F\) des Kreises \(k\) ist der Kreis ausreichend bestimmt. \end{rechnung}
+ \subsection{Spiegelung eines Punktes an einer Ebene}\index{Anwendung!Analytische Geometrie!Spiegelung an einer Ebene}
+ Eine weitere typische Anwendung ist die Berechnung von Spiegelpunkten zu einer gegebenen Ebene \(E\) mit der Angabe des Lotfußpunktes \(F\).
+ \begin{merke}{Spiegelung eines Punktes an einer Ebene}{}
+  Um die Koordinaten des Spiegelpunktes \(P'\) zu eine gegebenen Punkt \(P\) und einer Ebene \(E\) bestimmen zu können, muss man eine Lotgerade aufstellen und diese dann mit der Ebene schneiden. \\
+Gegeben sei die Ebene \(E\) in \textbf{Koordinatenform}
+\[
+E:\ n_1x_1+n_2x_2 + n_3x_3=c
+\]
+und ein Punkt $P(p_1,p_2,p_3)$, der an $E$ gespiegelt werden soll.
+Der Normalenvektor der Ebene ist
+\[
+\vv{n}=\begin{pmatrix}n_1\\ n_2\\ n_3\end{pmatrix}.
+\]
+\medskip
+\subsubsection*{Lotgerade durch $P$ aufstellen:}\quad
+Die Lotgerade (Senkrechte auf $E$) durch $P$ hat Richtungsvektor $\vv{n}$:
+\[
+g:\ \vv{X}=
+\begin{pmatrix}p_1\\p_2\\p_3\end{pmatrix}
++\lambda\begin{pmatrix}n_1\\n_2\\n_3\end{pmatrix}.
+\]
+\medskip
+\subsubsection*{Lotfußpunkt $F$ berechnen:}\quad
+Setze $g$ in die Ebenengleichung ein und löse nach $\lambda$ auf.
+\[
+n_1(p_1+\lambda n_1)+n_2(p_2+\lambda n_2)+n_3(p_3+\lambda n_3)=c
+\]
+\[
+\Longrightarrow\ (n_1p_1+n_2p_2+n_3p_3)+\lambda(n_1^2+n_2^2+n_3^2)=c
+\]
+\[
+\Longrightarrow\ \lambda_0=\frac{c-(n_1p_1+n_2p_2+n_3p_3)}{n_1^2+n_2^2+n_3^2}.
+\]
+Dann ist der Lotfußpunkt $F(f_1,f_2,f_3)$ mit
+\[
+\vv{F} =\begin{pmatrix}f_1\\f_2\\f_3\end{pmatrix}
+=
+\begin{pmatrix}p_1\\p_2\\p_3\end{pmatrix}
++\lambda_0\begin{pmatrix}n_1\\n_2\\n_3\end{pmatrix}.
+\]
+
+\medskip
+\subsubsection*{Spiegelpunkt $P'$ berechnen:}\quad
+$F$ ist Mittelpunkt von $\overline{PP'}$, also
+\[
+\vv{P'} = \vv{F} + \vv{PF} = \vv{P} + 2\cdot \vv{PF}
+=
+\begin{pmatrix}p_1\\p_2\\p_3\end{pmatrix}
++2\cdot\lambda_0\begin{pmatrix}n_1\\n_2\\n_3\end{pmatrix}.
+\]
+
+\medskip
+\begin{center}
+\begin{tikzpicture}[scale=1.05, line cap=round, line join=round, >=Latex]
+  % Ebene als Parallelogramm (schematisch)
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (5,0);
+  \coordinate (C) at (6.2,2.2);
+  \coordinate (D) at (1.2,2.2);
+
+  \fill[gray!10] (A)--(B)--(C)--(D)--cycle;
+  \draw (A)--(B)--(C)--(D)--cycle;
+  \node[xshift=-18pt,yshift=10pt] at ($(A)!0.5!(C)$) {$E$};
+
+  % Lotfußpunkt F auf der Ebene (mittig)
+  \coordinate (F) at (3.3,1.1);
+  \fill (F) circle (1.6pt) node[below, xshift=10pt] {$F$};
+
+  % P und P' senkrecht "über" bzw. "unter" der Ebene:
+  % Wir zeichnen die Lotstrecke bewusst vertikal im Bild (schematisch).
+  \coordinate (P)  at ($(F)+(0,2.0)$);
+  \coordinate (Pp) at ($(F)+(0,-2.0)$);
+
+  \fill (P)  circle (1.7pt) node[above] {$P$};
+  \fill (Pp) circle (1.7pt) node[below] {$P'$};
+
+  % Lotstrecke (senkrecht zur Ebene, schematisch als vertikale Gerade)
+  \draw[dashed] (P) -- (F) -- (Pp);
+
+  % Normalenpfeil entlang der Lotrichtung
+  \draw[-{Latex}, thick, red] (F) -- (P) node[midway,right] {$\vec n$};
+
+  % Mittelpunkt-Markierung bei F
+  \draw ($(F)+(-0.18,0.12)$) -- ($(F)+(0.18,-0.12)$);
+  \draw ($(F)+(-0.18,-0.12)$) -- ($(F)+(0.18,0.12)$);
+
+\end{tikzpicture}
+\end{center}
+ \end{merke}
