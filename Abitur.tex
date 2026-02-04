@@ -1,429 +1,139 @@
-\documentclass[a4paper, twoside, 11pt]{report}
-%\usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
-\usepackage{fontspec}
-%\setmainfont[Path = Schriften/, 
-%Extension = .ttf,
-%  UprightFont = *-Regular,
-% BoldFont = *-Bold,
-%  Contextuals=Alternate
-%]{Caveat}
-%\newfontfamily\CaveatMedium[
-%  Path = Schriften/,
-%  Extension = .ttf,
-%  UprightFont = Caveat-Medium
-%]{Caveat}
+\documentclass[a4paper,twoside,11pt]{report}
 
-%\newfontfamily\CaveatSemiBold[
-%  Path = Schriften/,
-%  Extension = .ttf,
-%  UprightFont = Caveat-SemiBold
-%]{Caveat}
-%\usepackage{animate}
-\usepackage[
-  backend=biber,
-  style=numeric-comp,   % kompakte Nummern: [3–5]
-  sorting=none,         % Reihenfolge nach Auftreten im Text
-  giveninits=true,      % Vornamen abkürzen
-  maxnames=6,           % ab 7: "u. a." / "et al."
-  minnames=1,
-  date=year,            % nur Jahr (statt vollem Datum)
-  doi=true,
-  url=true,
-  isbn=false,           % in Naturwissenschaften oft weglassen
-  eprint=true,
-  language=ngerman,
-  autolang=other        % fremdsprachige Titel automatisch kennzeichnen
-]{biblatex}
+% Zentrales Style-Paket (kommt gleich darunter)
+\usepackage{abiturvorbereitung}
 
+% Bib-Datei bleibt sinnvollerweise im Hauptdokument
 \addbibresource{literatur.bib}
 
-% Optional: "u. a." statt "et al." in deutscher Umgebung
-\DefineBibliographyStrings{ngerman}{%
-  andothers = {u\adddot\addabbrvspace a\adddot}%
-}
-
-\addbibresource{literatur.bib}
-
-\usepackage{cancel}
-\usepackage{multicol}
-\usepackage{pdfpages}
-\usepackage{vwcol}
-\usepackage{array, multirow}
-\usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, marvosym,esvect}%lipsum,
-\geometry{verbose,a4paper,tmargin=25mm,bmargin = 25mm,lmargin=20mm }%,rmargin=20mm}
-\usepackage{hyperref}
-\usepackage{csquotes}
-\usepackage[table]{xcolor}
-\definecolor{pelikanblue}{HTML}{304992}
-\AtBeginDocument{\color{pelikanblue}} % dunkler
-\usepackage{extarrows}
-\usepackage{{intexgral}}
-\usepackage{Riemann}
-\usepackage{bestIntegral}
-
-\usepackage{polynom}
-\polyset{%
-    vars=x,
-    style=C,
-    div=:,
-    delims={(}{)}}
-\usepackage{dsfont}
-% ---------- kleine "Tasten" ----------
-\newcommand{\taste}[1]{%
-  \tikz[baseline=(X.base)]\node[draw,rounded corners=2pt,inner xsep=4pt,inner ysep=2pt,fill=black!3](X){\sffamily\footnotesize #1};%
-}
-\newcommand{\seq}[1]{\texttt{#1}} % für formale Sequenzen
-\colorlet{shadecolor}{yellow!15}
-\usepackage{thmtools}
-\hypersetup{colorlinks =true, linkcolor = blue, urlcolor =red, pdftitle={Mathematik in der Oberstufe Bayern}}
-\usepackage{fancyvrb}
-\usepackage{fancyhdr, lastpage}
-\pagestyle{fancy}
-
-\lhead{Abiturvorbereitung}
-\rhead{Bayern}
-\cfoot{Seite \thepage \ von \pageref{LastPage}}
-\usepackage[Sonny]{fncychap}
-%Options: Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, Bjornstrup
-\usepackage{xcolor}
-\definecolor{xvectorcolor}{HTML}{77933C}
-\usepackage{afterpage}
-\usepackage{tikz,tikz-3dplot}
-\usetikzlibrary{calc,matrix}
-\usetikzlibrary{3d}
-\usetikzlibrary{quotes, angles}
-\usetikzlibrary{positioning,intersections}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%
-\usetikzlibrary{calc, decorations.pathreplacing, arrows.meta}
-\newif\ifdrawdimlineleft
-\newif\ifdrawdimlineright
-
-\pgfkeys{/tikz/.cd,  % modification angleshift definition
-  angleshift/.store in=\angleshift,
-  angleshift=0
-}
-\tikzset{%
-  dimlabel distance/.initial=5mm,
-  vertical lines extend/.initial=5mm,
-  vertical dim line/.style={gray, thin},
-  dim arrow line/.style={%  % modification tip
-    arrows={latex[slant={-sin(\angleshift)}]-latex[slant={-sin(\angleshift)}]},
-    thin
-  },
-  dim label/.style={},
-  left dimline/.is if=drawdimlineleft,
-  left dimline=true,
-  right dimline/.is if=drawdimlineright,
-  right dimline=true,
-  indicate dimensions/.style={%
-    decorate, decoration={%
-      show path construction,
-      lineto code={%
-        \draw[dim arrow line]  % modification arrow line 
-        ($(\tikzinputsegmentfirst)!\pgfkeysvalueof{/tikz/dimlabel distance}!
-        {-90+\angleshift}:(\tikzinputsegmentlast) $)
-        -- ($ (\tikzinputsegmentlast)!\pgfkeysvalueof{/tikz/dimlabel distance}!
-        {90+\angleshift}:(\tikzinputsegmentfirst) $)
-        \ifx#1\empty
-        \else  % modification text
-        node[midway, fill=white, dim label,
-        sloped, xslant={-sin(\angleshift)}, scale=.8]{#1}
-        \fi;
-        \ifdrawdimlineleft  % modification vertical dim line
-        \draw[vertical dim line] (\tikzinputsegmentfirst) -- 
-        ($ (\tikzinputsegmentfirst)!\pgfkeysvalueof{/tikz/vertical lines
-          extend}!{-90+\angleshift}:(\tikzinputsegmentlast) $);
-        \fi
-        \ifdrawdimlineright
-        \draw[vertical dim line] (\tikzinputsegmentlast) -- 
-        ($ (\tikzinputsegmentlast)!\pgfkeysvalueof{/tikz/vertical
-          lines extend}!{90+\angleshift}:(\tikzinputsegmentfirst) $);
-        \fi 
-      }
-    }
-  }
-}
-
-%% ---------------------------------------------------------------------
-
-\NewDocumentCommand{\DrawCoordinateGrid}{O{} m m m m m m}{%
-  \def\XGridMin{#2}
-  \def\XGridMax{#3}
-  \def\YGridMin{#4}
-  \def\YGridMax{#5}
-  \def\ZGridMin{#6}
-  \def\ZGridMax{#7}
-  % 
-  \begin{scope}[canvas is xy plane at z=0, ultra thin, gray!75]
-    \draw [#1] (\XGridMin,\YGridMin) grid (\XGridMax,\YGridMax);
-  \end{scope}
-  \begin{scope}[canvas is yz plane at x=0, ultra thin, gray!75]
-    \draw [#1] (\YGridMin,\ZGridMin) grid (\YGridMax,\ZGridMax);
-  \end{scope}
-  \begin{scope}[canvas is xz plane at y=0, ultra thin, gray!75]
-    \draw [#1] (\XGridMin,\ZGridMin) grid (\XGridMax,\ZGridMax);
-  \end{scope}
-}
-
-\NewDocumentCommand{\DrawCoordinateAxis}{O{} m m m m m m}{%
-  \def\XAxisMin{#2}
-  \def\XAxisMax{#3}
-  \def\YAxisMin{#4}
-  \def\YAxisMax{#5}
-  \def\ZAxisMin{#6}
-  \def\ZAxisMax{#7}
-  % 
-  \begin{scope}[thin, gray, -latex]
-    \draw [#1] (\XAxisMin,0,0) -- (\XAxisMax,0,0) node [below left] {$x$};
-    \draw [#1] (0,\YAxisMin,0) -- (0,\YAxisMax,0) node [right] {$y$};
-    \draw [#1] (0,0,\ZAxisMin) -- (0,0,\ZAxisMax) node [above] {$z$};
-  \end{scope}
-}%
-
-\newcommand*\Width{2.5}%
-\newcommand*\Depth{4.5}%
-\newcommand*\Height{2.0}%
-\tikzset{Line Style/.style={draw=brown, ultra thick, join=round}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{adjustbox}
-\usepackage{amssymb}
-\usepackage[most]{tcolorbox}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15, width =10cm}
-\pgfplotsset{
-  every axis/.append style={
-    ticklabel style={fill=none}
-  }
-}
-\usepackage{mathrsfs}
-\usepackage{fontawesome5}
-\usetikzlibrary{arrows,shadows.blur, backgrounds, fit}
-\usetikzlibrary{calc,arrows.meta,decorations.pathreplacing,positioning}
-% Marker für Mathematik (inline oder display)
-
-\newcommand{\highlightmath}[2][yellow!35]{%
-  \tikz[baseline=(X.base)]{
-    % 1) Inhalt (Math) setzen
-    \node[inner sep=0pt, outer sep=0pt] (X) {$\displaystyle #2$};
-    % 2) Hintergrund darüber legen
-    \begin{pgfonlayer}{background}
-      \node[fill=#1, rounded corners=1pt, inner sep=2pt, fit=(X)] {};
-    \end{pgfonlayer}
-  }%
-}
-\newtcbtheorem[number within=section]{satz}
-  {\faFile*[regular]\ Satz}{colback=green!7,colframe=gray!85!black,
-  fonttitle=\bfseries,title after break={\faFile*[regular]\ Satz (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[no counter]{rechnung}
-  {\faCheckSquare[regular]\ Rechnung}{colback=green!7,colframe=gray!85!black,
-  fonttitle=\bfseries,title after break={\faCheckSquare[regular]\ Rechnung (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[no counter]{lsg}{\faCheckCircle
-\ Lösung}%
-{enhanced jigsaw,breakable,colback=green!7,
- colframe=gray!85!black,fonttitle=\bfseries,
- title after break={\faCheckCircle
-\ Lösung (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[no counter]{haus}{Hausaufgabe}%
-{enhanced jigsaw,breakable,colback=red!10,
- colframe=gray!85!black,fonttitle=\bfseries,
- title after break={Hausaufgabe (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[number within=chapter]{defi}
-  {\faBook\ Definition}{colback=red!7,colframe=red!45!black,
-  fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[no counter]{bsp}
-  {\faEdit\ Beispiel}{colback=white,colframe=blue!70!green,
-  fonttitle=\bfseries,breakable,title after break={Beispiel (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[no counter]{b8d}
-  {\faHighlighter\ Beachte}{colback=white,colframe=blue!60!green,
-  fonttitle=\bfseries,breakable,title after break={\faHighlighter\ Beachte (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[number within=section]{merke}
-  {\faLightbulb[regular]\ Merke}{colback=green!5,colframe=green!35!black,
-  fonttitle=\bfseries,breakable,title after break={\faLightbulb[regular]\ Merke (Fortsetzung)}}{theorem}
-
-\newtcbtheorem[number within=section]{bem}
-  {Bemerkung}{colback=red!2,colframe=red!35!black,
-  breakable,fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
-
-\usepackage{setspace}
-
-\usepackage{multicol}
-\usepackage{makeidx}
-\renewcommand{\indexname}{Sachregister}
-\makeindex
-\usepgfplotslibrary{fillbetween}
-
-% axis style, ticks, etc
-\pgfplotsset{every axis/.append style={
-              axis x line=middle,    % put the x axis in the middle
-              axis y line=middle,    % put the y axis in the middle
-              axis line style={<->}, % arrows on the axis
-              xlabel={$x$},          % default put x on x-axis
-              ylabel={$y$},          % default put y on y-axis
-            %  axis equal,            % 1:1 ratio
-              grid=both,             % coordinate grid
-              grid style={line width=.1pt, draw=gray!10},
-              major grid style={line width=.2pt,draw=gray!50},
-              ticks=both,            % ticks for integers
-              minor tick num=1,      % number of subticks
-              ticklabel style={font=\small,fill=white},
-              xlabel style={at={(ticklabel* cs:1)},anchor=north west},
-              ylabel style={at={(ticklabel* cs:1)},anchor=south west},
-            }
-}
-\tikzset{>=stealth}
-
-\usepackage{eso-pic}
-\newcommand\BackgroundPic{%
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vfill
-\centering
-\includegraphics[width=\paperwidth,height=\paperheight,%
-keepaspectratio]{Bilder/Anhang.pdf}%
-\vfill
-}}}
 \begin{document}
 
 \onehalfspacing
-\begin{titlepage}
 
+\begin{titlepage}
 \begin{center}
-%\renewcommand{\baselinestretch}{1}  % Zeilenabstand einfach
-\huge \textbf{Gymnasium Gröbenzell}
-\vspace{0.2cm}\\
-\Large \textbf{ Mathematik PuLSt 12 und 13}
-\vspace{1cm}\\
-\LARGE \textbf{Zusammenfassung der Themengebiete}
-\vspace{1cm}\\
+\huge \textbf{Gymnasium Gröbenzell}\par
+\vspace{0.2cm}
+\Large \textbf{Mathematik PuLSt 12 und 13}\par
+\vspace{1cm}
+\LARGE \textbf{Zusammenfassung der Themengebiete}\par
+\vspace{1cm}
 \end{center}
-\includegraphics[width = \textwidth]{Bilder/Titelbild.jpg}
+\includegraphics[width=\textwidth]{Bilder/Titelbild.jpg}
 \end{titlepage}
+
 \tableofcontents
 \newpage
+
 \chapter{Analysis}
 \begin{center}
-\scalebox{2}{\begin{tikzpicture}
-\begin{axis}[xmin= -2.2, xmax = 3.2, ymin= -3.2, ymax= 3.2,
-        axis lines = middle, 
-        ymajorgrids=true,
-        xmajorgrids=true,
-        xtick={-2, -1, 0, ..., 4},
-        ytick={-4, -3, -2, ..., 3},
-        xlabel = $x$,
-        ylabel=$y$,
-         tick label style={fill=none, draw=none},
-  xlabel style={fill=none}, ylabel style={fill=none}]
-      \addplot[name path = f,red,thick,samples=200] {-1*(x-1)^2 +2};
-      \addplot[name path = l1,teal,thick, samples = 200] {1/3*x^3-1.5};
-      \addplot [
-        thick,
-        color=lightgray,
-        fill=none, 
-        fill opacity=0.5
-      ]
-      fill between[
-        of=l1 and f,
-        split,
-        every segment no 2/.style={
-            fill=lime,
-        },
-      ];
+\scalebox{2}{%
+\begin{tikzpicture}
+\begin{axis}[
+  xmin=-2.2, xmax=3.2, ymin=-3.2, ymax=3.2,
+  axis lines=middle,
+  xmajorgrids=true, ymajorgrids=true,
+  xtick={-2,-1,0,...,4},
+  ytick={-4,-3,-2,...,3},
+  xlabel=$x$, ylabel=$y$,
+  tick label style={fill=none, draw=none},
+  xlabel style={fill=none},
+  ylabel style={fill=none},
+]
+  \addplot[name path=f,red,thick,samples=200] {-1*(x-1)^2 +2};
+  \addplot[name path=l1,teal,thick,samples=200] {1/3*x^3-1.5};
+
+  \addplot[
+    thick,
+    color=lightgray,
+    fill=none,
+    fill opacity=0.5
+  ]
+  fill between[
+    of=l1 and f,
+    split,
+    every segment no 2/.style={fill=lime},
+  ];
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}%
+}
 \end{center}
 \include{Analysis.tex}
+
 \chapter{Analytische Geometrie}
 \begin{center}
 \begin{tikzpicture}
-%\draw[gray!60!white, thick] (-4.99,-4.99) grid (9.99,9.99);
-\draw[->, >=latex, ultra thick] (0,0,-2.6) -- (0,0,13) node[left]{$x_1$};
-\draw[->, >=latex, ultra thick] (0,0,0) -- (10,0,0) node[below]{$x_2$};
-\draw[->, >=latex, ultra thick] (0,0,0) -- (0,10,0) node[left]{$x_3$};
+\draw[->,>=latex,ultra thick] (0,0,-2.6) -- (0,0,13) node[left]{$x_1$};
+\draw[->,>=latex,ultra thick] (0,0,0) -- (10,0,0) node[below]{$x_2$};
+\draw[->,>=latex,ultra thick] (0,0,0) -- (0,10,0) node[left]{$x_3$};
+
 \foreach \z/\zc in {2.6/1,5.2/2,7.8/3,10.4/4}{
-\draw[shift={(0,0,\z)}, ultra thick] (0pt,0pt,0pt) -- (0pt,-0.21pt,0pt)node[below]{\zc};
-\draw[gray!60!white, thick](0,0,\z)--++(0:10);
-\draw[gray!60!white, thick](0,0,\z)--++(90:10);}
+  \draw[shift={(0,0,\z)},ultra thick] (0pt,0pt,0pt) -- (0pt,-0.21pt,0pt) node[below]{\zc};
+  \draw[gray!60!white,thick](0,0,\z)--++(0:10);
+  \draw[gray!60!white,thick](0,0,\z)--++(90:10);
+}
 \foreach \x/\xc in {2/1,4/2,6/3,8/4}{
-\draw[shift={(\x,0)}, ultra thick] (0pt,0pt) -- (0pt,-6pt)node[below]{\xc};
-\draw[gray!60!white, thick](\x,0)--++(0:10);
-\draw[gray!60!white, thick](\x,0)--++(90:10);
-\draw[gray!60!white, thick](\x,0)--++(-135:7);}
+  \draw[shift={(\x,0)},ultra thick] (0pt,0pt) -- (0pt,-6pt) node[below]{\xc};
+  \draw[gray!60!white,thick](\x,0)--++(0:10);
+  \draw[gray!60!white,thick](\x,0)--++(90:10);
+  \draw[gray!60!white,thick](\x,0)--++(-135:7);
+}
 \foreach \y/\yc in {2/1,4/2,6/3,8/4}{
-\draw[shift={(0,\y)}, ultra thick] (0pt,0pt) -- (-6pt,0pt)node[left]{\yc};
-\draw[gray!60!white, thick](0,\y)--++(0:10);
-\draw[gray!60!white, thick](0,\y)--++(-135:7);}
-\draw[fill=green!50!white, nearly transparent] (0,0,0) -- (0,0,12.7) -- (0,9.9,12.7) -- (0,9.9,0);
-\draw[fill=blue!50!white, nearly transparent] (0,0,0) -- (9.9,0,0) -- (9.9,9.9,0) -- (0,9.9,0);
-\draw[fill=red!50!white, nearly transparent] (0,0,0) -- (9.9,0,0) -- (9.9,0,12.7) -- (0,0,12.7);
-\draw[blue, ultra thick, ->] (4,0,5.2) -- (4,4,5.2);
-\draw[red, ultra thick, ->] (0,0,5.2) -- (4,0,5.2);
-\draw[green, ultra thick, ->] (0,0,0) -- (0,0,5.2);
+  \draw[shift={(0,\y)},ultra thick] (0pt,0pt) -- (-6pt,0pt) node[left]{\yc};
+  \draw[gray!60!white,thick](0,\y)--++(0:10);
+  \draw[gray!60!white,thick](0,\y)--++(-135:7);
+}
+
+\draw[fill=green!50!white,nearly transparent] (0,0,0) -- (0,0,12.7) -- (0,9.9,12.7) -- (0,9.9,0);
+\draw[fill=blue!50!white,nearly transparent]  (0,0,0) -- (9.9,0,0) -- (9.9,9.9,0) -- (0,9.9,0);
+\draw[fill=red!50!white,nearly transparent]   (0,0,0) -- (9.9,0,0) -- (9.9,0,12.7) -- (0,0,12.7);
+
+\draw[blue,ultra thick,->]  (4,0,5.2) -- (4,4,5.2);
+\draw[red,ultra thick,->]   (0,0,5.2) -- (4,0,5.2);
+\draw[green,ultra thick,->] (0,0,0) -- (0,0,5.2);
+
 \shade[ball color=yellow] (4,4,5.2) circle (0.2);
 \end{tikzpicture}
 \end{center}
 \include{AnalytischeGeometrie.tex}
+
 \chapter{Stochastik}
 \vspace{2cm}
 \begin{center}
-\scalebox{2}{
+\scalebox{2}{%
 \begin{tikzpicture}[every node/.style={minimum size=1cm}]
 \begin{scope}[every node/.append style={yslant=-0.5},yslant=-0.5]
-  \shade[right color=red!10, left color=blue!50] (0,0) rectangle +(3,3);
-  \node at (0.5,2.5) {9};
-  \node at (1.5,2.5) {7};
-  \node at (2.5,2.5) {1};
-  \node at (0.5,1.5) {2};
-  \node at (1.5,1.5) {4};
-  \node at (2.5,1.5) {8};
-  \node at (0.5,0.5) {5};
-  \node at (1.5,0.5) {3};
-  \node at (2.5,0.5) {6};
+  \shade[right color=red!10,left color=blue!50] (0,0) rectangle +(3,3);
+  \node at (0.5,2.5) {9}; \node at (1.5,2.5) {7}; \node at (2.5,2.5) {1};
+  \node at (0.5,1.5) {2}; \node at (1.5,1.5) {4}; \node at (2.5,1.5) {8};
+  \node at (0.5,0.5) {5}; \node at (1.5,0.5) {3}; \node at (2.5,0.5) {6};
   \draw (0,0) grid (3,3);
 \end{scope}
 \begin{scope}[every node/.append style={yslant=0.5},yslant=0.5]
   \shade[right color=red!70,left color=blue!10] (3,-3) rectangle +(3,3);
-  \node at (3.5,-0.5) {3};
-  \node at (4.5,-0.5) {9};
-  \node at (5.5,-0.5) {7};
-  \node at (3.5,-1.5) {6};
-  \node at (4.5,-1.5) {1};
-  \node at (5.5,-1.5) {5};
-  \node at (3.5,-2.5) {8};
-  \node at (4.5,-2.5) {2};
-  \node at (5.5,-2.5) {4};
+  \node at (3.5,-0.5) {3}; \node at (4.5,-0.5) {9}; \node at (5.5,-0.5) {7};
+  \node at (3.5,-1.5) {6}; \node at (4.5,-1.5) {1}; \node at (5.5,-1.5) {5};
+  \node at (3.5,-2.5) {8}; \node at (4.5,-2.5) {2}; \node at (5.5,-2.5) {4};
   \draw (3,-3) grid (6,0);
 \end{scope}
 \begin{scope}[every node/.append style={yslant=0.5,xslant=-1},yslant=0.5,xslant=-1]
-  \shade[bottom color=green!10, top color=green!80] (6,3) rectangle +(-3,-3);
-  \node at (3.5,2.5) {1};
-  \node at (3.5,1.5) {4};
-  \node at (3.5,0.5) {7};
-  \node at (4.5,2.5) {5};
-  \node at (4.5,1.5) {6};
-  \node at (4.5,0.5) {8};
-  \node at (5.5,2.5) {2};
-  \node at (5.5,1.5) {3};
-  \node at (5.5,0.5) {9};
+  \shade[bottom color=green!10,top color=green!80] (6,3) rectangle +(-3,-3);
+  \node at (3.5,2.5) {1}; \node at (3.5,1.5) {4}; \node at (3.5,0.5) {7};
+  \node at (4.5,2.5) {5}; \node at (4.5,1.5) {6}; \node at (4.5,0.5) {8};
+  \node at (5.5,2.5) {2}; \node at (5.5,1.5) {3}; \node at (5.5,0.5) {9};
   \draw (3,0) grid (6,3);
 \end{scope}
-\end{tikzpicture}}  
+\end{tikzpicture}%
+}
 \end{center}
 \include{Stochastik.tex}
+
 \chapter{Anhang}
 \AddToShipoutPicture*{\BackgroundPic}
 \include{Anhang.tex}
+
 \printindex
 \nocite{*}
 \printbibliography[title={Literaturverzeichnis}]
+
 \end{document}

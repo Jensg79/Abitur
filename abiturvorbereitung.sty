@@ -1,0 +1,264 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{abiturvorbereitung}[2026/02/04 Zentrales Layout und Makros]
+
+% --- Sprache/Fonts (LuaLaTeX) ---
+\RequirePackage[ngerman]{babel}
+\RequirePackage{fontspec}
+\RequirePackage{marvosym}
+
+% --- Mathe & Layout ---
+\RequirePackage{esvect}
+\RequirePackage{intexgral}
+\RequirePackage{Riemann}
+\RequirePackage{bestIntegral}
+\RequirePackage{amsmath,amssymb,amsfonts,amsthm,mathrsfs}
+\RequirePackage{geometry}
+\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=20mm}
+
+\RequirePackage{graphicx}
+\RequirePackage{array,multirow}
+\RequirePackage{multicol}
+\RequirePackage{vwcol}
+\RequirePackage{pdfpages}
+\RequirePackage{cancel}
+\RequirePackage{dsfont}
+\RequirePackage{setspace}
+\RequirePackage{extarrows}
+% --- Farben/Links ---
+\RequirePackage[table]{xcolor}
+\definecolor{pelikanblue}{HTML}{304992}
+\AtBeginDocument{\color{pelikanblue}}
+
+\RequirePackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=red,
+  pdftitle={Mathematik in der Oberstufe Bayern}
+}
+
+\RequirePackage{csquotes}
+
+% --- Bibliographie (Setup hier, Ressource im Hauptdokument) ---
+\RequirePackage[
+  backend=biber,
+  style=numeric-comp,
+  sorting=none,
+  giveninits=true,
+  maxnames=6,
+  minnames=1,
+  date=year,
+  doi=true,
+  url=true,
+  isbn=false,
+  eprint=true,
+  language=ngerman,
+  autolang=other
+]{biblatex}
+
+\DefineBibliographyStrings{ngerman}{%
+  andothers = {u\adddot\addabbrvspace a\adddot}%
+}
+
+% --- Kopf-/Fußzeilen ---
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\lhead{Abiturvorbereitung}
+\rhead{Bayern}
+\cfoot{Seite \thepage\ von \pageref{LastPage}}
+
+% --- Kapitelstil ---
+\RequirePackage[Sonny]{fncychap}
+
+% --- TikZ / PGFPlots ---
+\RequirePackage{tikz}
+\RequirePackage{tikz-3dplot}
+\usetikzlibrary{calc,matrix,3d,quotes,angles,positioning,intersections}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta,shadows.blur,backgrounds,fit}
+\tikzset{>=stealth}
+
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.15, width=10cm}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{groupplots}
+% Einheitlicher Axis-Style (deiner bisherigen Idee, aber zentral)
+\pgfplotsset{every axis/.append style={
+  axis x line=middle,
+  axis y line=middle,
+  axis line style={<->},
+  xlabel={$x$},
+  ylabel={$y$},
+  grid=both,
+  grid style={line width=.1pt, draw=gray!10},
+  major grid style={line width=.2pt, draw=gray!50},
+  ticks=both,
+  minor tick num=1,
+  ticklabel style={font=\small,fill=white},
+  xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+  ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+}}
+
+% --- Eigene Mathe/Format-Makros ---
+\newcommand{\seq}[1]{\texttt{#1}}
+
+\newcommand{\taste}[1]{%
+  \tikz[baseline=(X.base)]\node[
+    draw,rounded corners=2pt,
+    inner xsep=4pt,inner ysep=2pt,
+    fill=black!3
+  ](X){\sffamily\footnotesize #1};%
+}
+
+% Marker für Mathematik
+\newcommand{\highlightmath}[2][yellow!35]{%
+  \tikz[baseline=(X.base)]{
+    \node[inner sep=0pt, outer sep=0pt] (X) {$\displaystyle #2$};
+    \begin{pgfonlayer}{background}
+      \node[fill=#1, rounded corners=1pt, inner sep=2pt, fit=(X)] {};
+    \end{pgfonlayer}
+  }%
+}
+
+% --- polynom ---
+\RequirePackage{polynom}
+\polyset{vars=x,style=C,div=:,delims={(}{)}}
+
+% --- tcolorbox + Theorem-Styles ---
+\RequirePackage{adjustbox}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{fontawesome5}
+
+\newtcbtheorem[number within=section]{satz}
+  {\faFile*[regular]\ Satz}{colback=green!7,colframe=gray!85!black,
+  fonttitle=\bfseries,title after break={\faFile*[regular]\ Satz (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{rechnung}
+  {\faCheckSquare[regular]\ Rechnung}{colback=green!7,colframe=gray!85!black,
+  fonttitle=\bfseries,title after break={\faCheckSquare[regular]\ Rechnung (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{lsg}{\faCheckCircle\ Lösung}%
+{enhanced jigsaw,breakable,colback=green!7,
+ colframe=gray!85!black,fonttitle=\bfseries,
+ title after break={\faCheckCircle\ Lösung (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{haus}{Hausaufgabe}%
+{enhanced jigsaw,breakable,colback=red!10,
+ colframe=gray!85!black,fonttitle=\bfseries,
+ title after break={Hausaufgabe (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[number within=chapter]{defi}
+  {\faBook\ Definition}{colback=red!7,colframe=red!45!black,
+  fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{bsp}
+  {\faEdit\ Beispiel}{colback=white,colframe=blue!70!green,
+  fonttitle=\bfseries,breakable,title after break={Beispiel (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[no counter]{b8d}
+  {\faHighlighter\ Beachte}{colback=white,colframe=blue!60!green,
+  fonttitle=\bfseries,breakable,title after break={\faHighlighter\ Beachte (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[number within=section]{merke}
+  {\faLightbulb[regular]\ Merke}{colback=green!5,colframe=green!35!black,
+  fonttitle=\bfseries,breakable,title after break={\faLightbulb[regular]\ Merke (Fortsetzung)}}{theorem}
+
+\newtcbtheorem[number within=section]{bem}
+  {Bemerkung}{colback=red!2,colframe=red!35!black,
+  breakable,fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
+
+% --- Hintergrundbild für Anhang ---
+\RequirePackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Bilder/Anhang.pdf}%
+\vfill
+}}}
+
+% --- Deine Dimension-Tools / 3D-Helfer (unverändert, aber ausgelagert) ---
+\newif\ifdrawdimlineleft
+\newif\ifdrawdimlineright
+
+\pgfkeys{/tikz/.cd,
+  angleshift/.store in=\angleshift,
+  angleshift=0
+}
+
+\tikzset{%
+  dimlabel distance/.initial=5mm,
+  vertical lines extend/.initial=5mm,
+  vertical dim line/.style={gray, thin},
+  dim arrow line/.style={
+    arrows={latex[slant={-sin(\angleshift)}]-latex[slant={-sin(\angleshift)}]},
+    thin
+  },
+  dim label/.style={},
+  left dimline/.is if=drawdimlineleft,
+  left dimline=true,
+  right dimline/.is if=drawdimlineright,
+  right dimline=true,
+  indicate dimensions/.style={%
+    decorate, decoration={%
+      show path construction,
+      lineto code={%
+        \draw[dim arrow line]
+        ($(\tikzinputsegmentfirst)!\pgfkeysvalueof{/tikz/dimlabel distance}!
+        {-90+\angleshift}:(\tikzinputsegmentlast) $)
+        -- ($ (\tikzinputsegmentlast)!\pgfkeysvalueof{/tikz/dimlabel distance}!
+        {90+\angleshift}:(\tikzinputsegmentfirst) $)
+        \ifx#1\empty\else
+        node[midway, fill=white, dim label,
+        sloped, xslant={-sin(\angleshift)}, scale=.8]{#1}
+        \fi;
+        \ifdrawdimlineleft
+        \draw[vertical dim line] (\tikzinputsegmentfirst) --
+        ($ (\tikzinputsegmentfirst)!\pgfkeysvalueof{/tikz/vertical lines extend}!
+        {-90+\angleshift}:(\tikzinputsegmentlast) $);
+        \fi
+        \ifdrawdimlineright
+        \draw[vertical dim line] (\tikzinputsegmentlast) --
+        ($ (\tikzinputsegmentlast)!\pgfkeysvalueof{/tikz/vertical lines extend}!
+        {90+\angleshift}:(\tikzinputsegmentfirst) $);
+        \fi
+      }
+    }
+  }
+}
+
+\NewDocumentCommand{\DrawCoordinateGrid}{O{} m m m m m m}{%
+  \def\XGridMin{#2}\def\XGridMax{#3}
+  \def\YGridMin{#4}\def\YGridMax{#5}
+  \def\ZGridMin{#6}\def\ZGridMax{#7}
+  \begin{scope}[canvas is xy plane at z=0, ultra thin, gray!75]
+    \draw [#1] (\XGridMin,\YGridMin) grid (\XGridMax,\YGridMax);
+  \end{scope}
+  \begin{scope}[canvas is yz plane at x=0, ultra thin, gray!75]
+    \draw [#1] (\YGridMin,\ZGridMin) grid (\YGridMax,\ZGridMax);
+  \end{scope}
+  \begin{scope}[canvas is xz plane at y=0, ultra thin, gray!75]
+    \draw [#1] (\XGridMin,\ZGridMin) grid (\XGridMax,\ZGridMax);
+  \end{scope}
+}
+
+\NewDocumentCommand{\DrawCoordinateAxis}{O{} m m m m m m}{%
+  \def\XAxisMin{#2}\def\XAxisMax{#3}
+  \def\YAxisMin{#4}\def\YAxisMax{#5}
+  \def\ZAxisMin{#6}\def\ZAxisMax{#7}
+  \begin{scope}[thin, gray, -latex]
+    \draw [#1] (\XAxisMin,0,0) -- (\XAxisMax,0,0) node [below left] {$x$};
+    \draw [#1] (0,\YAxisMin,0) -- (0,\YAxisMax,0) node [right] {$y$};
+    \draw [#1] (0,0,\ZAxisMin) -- (0,0,\ZAxisMax) node [above] {$z$};
+  \end{scope}
+}
+
+\newcommand*\Width{2.5}
+\newcommand*\Depth{4.5}
+\newcommand*\Height{2.0}
+\tikzset{Line Style/.style={draw=brown, ultra thick, join=round}}
+
+\RequirePackage{makeidx}
+\renewcommand{\indexname}{Sachregister}
+\makeindex
