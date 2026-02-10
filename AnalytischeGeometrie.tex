@@ -30,7 +30,7 @@ Die Menge aller parallelen, gleich langen und gleich gerichteten Pfeile nennt ma
 Alle drei Pfeile sind Repräsentanten des selben Vektors.
 \end{defi}
 \begin{merke}{Bezeichnungen}{}\index{Vektoren!Bezeichnung}
-Vektoren werden mit kleinen lateinischen Buchstaben und einem pfeil gekennzeichnet $\vec{u}$. Verläuft ein Repräsentant eines Vektors von einem Punkt z.B. $P$ zu einem zweiten Punkt z.B. $Q$, so bezeichnet man alle Repräsentanten mit $\vv{PQ}$.
+Vektoren werden mit kleinen lateinischen Buchstaben und einem Pfeil gekennzeichnet $\vec{u}$. Verläuft ein Repräsentant eines Vektors von einem Punkt z.B. $P$ zu einem zweiten Punkt z.B. $Q$, so bezeichnet man alle Repräsentanten mit $\vv{PQ}$.
 \begin{center}
 
 \begin{tikzpicture}[x=.5cm, y=.5cm,domain=-9:9,smooth, cross/.style={draw, cross out,
@@ -57,8 +57,8 @@ Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer eine
     \coordinate (D) at (5,3) {};
 
     % Draw the triangle
-    \draw[blue!25]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
-    \draw[red!25]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};;
+    \draw[blue!85]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
+    \draw[red!85]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};;
     \draw[->,  red,   arrows={-latex}]  (A) -- (B) node[sloped,midway,above=-0.1cm] {$\vv{a}$};
     \draw[->,  blue,  arrows={-latex}]  (A) -- (C) node[sloped,midway,above=-0.1cm] {$\vv{b}$};
     \draw[->, black, arrows={-latex}]  (A) -- (D) node[sloped,midway,above=-0.1cm] {$\vv{c} = \vv{a} + \vv{b} $};
@@ -85,8 +85,8 @@ Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer eine
     \coordinate (E) at (4,6) {};
 
     % Draw the triangle
-    \draw[blue!25]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
-    \draw[red!25]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};
+    \draw[blue!85]  (B) -- (D) node[sloped,midway,above] {$\vv{b}$};
+    \draw[red!85]   (C) -- (D) node[sloped,midway,above] {$\vv{a}$};
     \draw[->,  red,   arrows={-latex}]  (A) -- (B) node[sloped,midway,above=-0.1cm] {$\vv{a}$};
     \draw[->,  blue,  arrows={-latex}]  (A) -- (C) node[sloped,midway,above=-0.1cm] {$\vv{b}$};
     \draw[->, black, arrows={-latex}]  (A) -- (D) node[sloped,midway,above=-0.1cm] {$ \vv{a} + \vv{b} $};
@@ -154,7 +154,7 @@ Die Vektoren $\vv{a}=\vv{AB}, \vv{b}=\vv{AD}$ und $\vv{c}=\vv{AS}$  spannen eine
     \coordinate (F) at (3,1) {};
     \draw[blue] (2.5,0.8)   node [above] {F};
     \draw[->, red]  (A) -- (B) node[sloped,midway,above] {$\vv{a}$};
-    \draw[->,red!25]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
+    \draw[->,red!85]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
     \draw  (C) -- (D) node[] {};
     \draw[->,red]  (A) -- (D) node[sloped,above,very near end] {$\vv{b}$};
    \draw[->,red]  (A) -- (E) node[sloped,midway,above] {$\vv{c}$};
@@ -224,7 +224,7 @@ Folgende Aufgaben sind typisch für Vektorketten
     \coordinate (H) at (3.5,2.5) {};
     \draw[blue] (3.2,2.3)   node [above] {M};
     \draw[->, red]  (A) -- (B) node[sloped,midway,above] {$\vv{a}$};
-    \draw[->,red!25]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
+    \draw[->,red!85]  (B) -- (C) node[sloped,midway,above] {$\vv{b}$};
     \draw  (C) -- (D) node[] {};
     \draw[->,red]  (A) -- (D) node[sloped,above,very near end] {$\vv{b}$};
    \draw[->,red]  (A) -- (E) node[sloped,midway,above] {$\vv{c}$};
@@ -280,7 +280,7 @@ Folgende Aufgaben sind typisch für Vektorketten
 \begin{merke}{Das orthonormale Koordinatensystem}{}\index{Vektoren!orthonormales Koordinatensystem}
     Das zweidimensionale und das dreidimensionale Koordinatensystem der Schulgeometrie ist ein orthonormales Koordinatensystem. Das bedeutet, die Basis besteht aus 2 bzw. 3 Vektoren der Länge eins welche paarweise senkrecht aufeinander stehen. Man bezeichnet diese Vektoren mit $\vv{e}_1, \vv{e}_2, \vv{e}_3$. 
 \end{merke}
-\begin{b8d}{Die Basisvektoren}{}v\index{Vektoren!Basisvektoren}
+\begin{b8d}{Die Basisvektoren}{}\index{Vektoren!Basisvektoren}
 Für die Basisvektoren $e_1, e_2$ und $e_3$ gilt folgende Darstellung:\\
 $$\vv{e}_1 =\begin{pmatrix} 1 \\ 0 \\0 \end{pmatrix}, 
 \vv{e}_2 =\begin{pmatrix} 0 \\ 1 \\0 \end{pmatrix}, 
@@ -373,8 +373,9 @@ Die Strecken $\overline{AM_2}, \ \overline{M_2M_1}, \ \overline{M_1M_3}$ und $\o
 Die Eigenschaften der Berechnung der Mittelpunkte lassen sich auch auf Flächen und Körper anwenden. So ist es jetzt möglich, den Schwerpunkt eines Dreiecks bzw. den Schwerpunkt einer dreiseitigen Pyramide zu bestimmen.
 \begin{merke}{Schwerpunkte bei Strecke, Dreieck und Pyramide}{}\index{Schwerpunkt!Strecke}\index{Schwerpunkt!Dreieck}
 \index{Schwerpunkt!Pyramide}
-\begin{center}
+
 Mithilfe dieser Übersicht ist es möglich, die Ortskoordinaten des Schwerpunkts zu berechnen.\\[0.5cm]
+\begin{center}
 \bgroup
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
 \begin{tabular}{|l|c|c|}

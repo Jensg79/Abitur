@@ -142,6 +142,7 @@ Vorgehen:
     \item Berechnung der Steigung an einer bestimmten Stelle $x_0$
     \item Berechnung des Steigungswinkels der Tangente an dieser Stelle am Graphen
 \end{enumerate}
+
 Berechnung:
 \begin{equation*}
 \begin{split}
@@ -203,7 +204,7 @@ f'(x_0)&= \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}\\
 \end{bsp*}
 \subsection{Stetigkeit}
 \begin{merke}{Stetigkeit}{}
-    Eine Funktion \(f\) ist stetig, genau dann wenn der Graph\(G_f\) der Funktion \(f\) in \(\mathds{D}_f\) ohne \enquote{absetzen} gezeichnet werden kann.
+    Eine Funktion \(f\) ist stetig, genau dann wenn der Graph \(G_f\) der Funktion \(f\) in \(\mathds{D}_f\) ohne \enquote{absetzen} gezeichnet werden kann.
 \end{merke}
 \begin{bsp}{Die stetige Funktion \(f(x) = \dfrac{1}{x}\)}{}\index{Stetigkeit}\index{Differenzieren!Stetigkeit}
 Die Funktion \(f(x)= \dfrac{1}{x}\) ist in ganz \(\mathds{D}_f = \mathds{R}\setminus\{0\} \) stetig. Man kann den Graphen \(G_f\) ohne abzusetzen zeichnen, da \(f\) nicht in \(x=0\) definiert ist.
@@ -348,7 +349,7 @@ ytick={-3,-2,...,4},]
 \draw[line width=1.2pt,color=ccqqqq,smooth,samples=100,domain=-4.6725325047810795:3.4865844816315783] plot(\x,{3*(\x)^(2)+2*(\x)-2});
 \begin{scriptsize}
 \draw[color=black] (-2,-2.7) node {$f(x)$};
-\draw[color=ccqqqq] (-2.2,3.5) node {$f'(x)$};
+\draw[color=red] (-2.2,3.5) node {$f'(x)$};
 \end{scriptsize}
 \end{axis}
 \end{tikzpicture}
@@ -358,7 +359,7 @@ ytick={-3,-2,...,4},]
 Die Ableitung von Funktionen mit der h-Methode ist für jede Funktion möglich. Allerdings wird das Ableiten damit schnell mühsam. Durch die Anwendung von Regeln zur Ableitung ganzrationaler Funktionen wird das Bilden der ersten Ableitung um einiges einfacher.\\
 \begin{merke*}{Ableitungsregel Potenzfunktionen}{}\index{Ableitungsregeln!Potenzfunktion}
 Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist differenzierbar und es gilt: $$f'(x) = n\cdot x^{n-1}$$
-\underline{Merkregel:} Der Term $x^n$ wird differenziert, indem man den Exponenten $n$ als Faktor voranstellt und den Exponenten um 1 verringert.
+\underline{Merkregel:} Der Term $x^n$ wird differenziert, indem man den Exponenten $n$ als Faktor voranstellt und dann den Exponenten um 1 verringert.
 \end{merke*}
 \begin{bsp}{Beispiele für das Ableiten von Potenzfunktionen}{}
 \begin{itemize}
@@ -584,7 +585,7 @@ dann besitzt \(f\) in \(x_0\) einen \textbf{Terrassenpunkt} (stationären Wendep
 \end{satz}
  \begin{bsp}{Bestimmung der Monotonie und der Extrema I}{}
  Gegeben ist die Funktion $f(x) = 2x^3 +6x^2 -2x + 1$ mit $\mathds{D}_f = \mathds{R}$ und der ersten Ableitung $f'(x) = 6x^2+12x-2$.\\
- Vorgehen:
+ Vorgehen zum bestimmen der Monotonie und der Extrema:
  \begin{enumerate}
      \item Bestimmung der Nullstelle der ersten Ableitung
      \item Untersuchung der Monotonie mit Hilfe der Monotonietabelle
@@ -599,7 +600,7 @@ dann besitzt \(f\) in \(x_0\) einen \textbf{Terrassenpunkt} (stationären Wendep
     x_2&= \dfrac{-3 - 2\sqrt{3}}{3}\approx -2.15
 	\end{aligned}$\end{center}
  Mit diesen beiden Nullstellen ist es möglich eine faktorisierte Form des Funktionsterms aufzuschreiben. $$f'(x)= 6x^2+12x-2 = 6\cdot \left(x-x_1 \right)\cdot \left(x-x_2 \right)$$
-Monotonietabelle:\\
+Ausführliche Monotonietabelle:\\
 \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
     \hline
     $x$& $ -\infty <x<x_2 $ & $ x_2 \approx -2.15$ &$ x_2<x<x_1 $ & $x_1 \approx 0,15 $& $ x_1<x<\infty $\\
@@ -690,7 +691,7 @@ Betrachtet wird die Funktion $f(x)= x^3-6x^2 +9x-2$ mit $\mathds{D}_f =\mathds{R
 	\end{aligned}$\end{center}
  Mit diesen beiden Nullstellen ist es möglich eine faktorisierte Form des Funktionsterms aufzuschreiben. $$f'(x)= 3x^2-12x+9 = 3\cdot \left(x-3 \right)\cdot \left(x-1 \right)$$
 
-Monotonietabelle:\\
+Ausführliche Monotonietabelle:\\
 \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
     \hline
     $x$& $ -\infty <x<1 $ & $ x_2 =1$ &$ 1<x<3 $ & $x_1 = 3 $& $ 3<x<\infty $\\
@@ -859,8 +860,10 @@ Die ausführliche Kurvendiskussion besteht aus einer Reihe von analytischen Unte
     \item Untersuchungen des Terms der zweiten Ableitung
         \begin{itemize}
             \item Krümmungsverhalten
-            \item Tangentensteigungen von speziellen Punkten
-        \end{itemize}
+            \item Wendepunkte
+              \end{itemize}
+    \item Tangentensteigungen von speziellen Punkten
+      
     \item Graph der Funktion mit allen berechneten Werten
     \item Wertemenge der Funktion
 \end{enumerate}
@@ -917,9 +920,9 @@ Monotonietabelle:
     \hline
     $x$& $ -\infty <x<-3 $ & $ x = -3$ &$ -3<x<0 $ & $x=0 $& $ 0<x<\infty $\\
     \hline \hline
-    $\frac{1}{4} x^2$ & + &  0 & + &  & +  \\
+    $\frac{1}{4} x^2$ & + &  + & + & 0 & +  \\
     \hline
-    $(x +3)$ & - & 0 & + &  & + \\
+    $(x +3)$ & - & 0 & + & + & + \\
     \hline
 
     $f'(x)$ & - & 0 & + & 0 & +\\ 
@@ -1292,10 +1295,10 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
 \end{bsp}
  \subsubsection{Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen} \index{Funktionen!Gebrochen-rationale!Grenzwertbetrachtungen} 
  \begin{merke}{Untersuchung der Definitionslücke}{}
-     Eine rationale Funktion \textit{kann} Definitionslücken aufweisen. Diese sind dann die Nullstellen des Nenners.\\
+     Eine rationale Funktion \textcolor{red}{\textbf{kann}} Definitionslücken aufweisen. Diese sind dann die Nullstellen des Nenners.\\
      Die Definitionslücken lassen sich in zwei Arten einteilen:
      \begin{enumerate}
-         \item Die Definitionslücken die durch \textbf{kürzen behoben} werden können. In diesem Fall hat der Graph an der Definitionslücke ein Lücke im Graphen.      
+         \item Die Definitionslücken die durch \textcolor{red}{\textbf{kürzen behoben}} werden können. In diesem Fall hat der Graph an der Definitionslücke ein Lücke im Graphen.      
          \item Streben die Funktionswerte bei einer Annäherung an die Definitionslücke entweder gegen $+\infty$ oder gegen $-\infty$ so nennt man die Definitionslücke Pol. Wechseln die Funktionswerte $f(x)$ bei Annäherung von links und von rechts an den Pol das Vorzeichen, liegt ein Pol mit Vorzeichenwechsel (VZW) vor, anderfalls ist es ein Pol ohne Vorzweichenwechsel. Hat die Funktion einen Pol so hat der Graph der Funktion an dieser Stelle eine senkrechte Asymptote.
      \end{enumerate}
  \end{merke}
@@ -1381,7 +1384,7 @@ Liegt der Term der Funktion in der Summenform vor, ist es möglich die schräge 
 Die Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen kann über die Auswertung von Zähler- und Nennergrad erfolgen. Hierbei versteht man unter dem Grad eines Polynoms den höchsten vorkommenden Exponenten. Man unterscheidet dabei vier mögliche Fälle.
 
 \begin{merke}{Fallunterscheidungen für die Betrachtung des Grenzwertverhalten}{}
-Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D} = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
+Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{z(x)}{n(x)}$ mit $\mathds{D} = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
 \begin{enumerate}
     \item Grad des Zählerpolynoms  $z<n$ Grad des Nennerpolynoms\\
     Durch Grenzwertbetrachtungen kann nachgewiesen werden, dass die x-Achse die waagerechte Asymptote ist. Daraus folgt $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow -\infty} f(x) = 0$$
@@ -2333,7 +2336,7 @@ Hängt eine zu optimierende Größe von zwei oder mehreren variablen ab, müssen
 \begin{enumerate}
     \item Beschreiben der Größen, die extremal werden soll, durch einen Term, der mehrere Variablen enthalten kann.
     \item Formulierung von gegebenen Nebenbedingungen.
-    \item Bestimmen der Zielfunktion, die nur noch von einer variablen abhängig ist.
+    \item Bestimmen der Zielfunktion, die nur noch von einer Variablen abhängig ist.
     \item Untersuchung der Zielfunktion auf Extremwerte und Formulierung des Ergebnisses. Hierbei sind auch auf Randwerte zu achten.
 \end{enumerate}
  \end{b8d}
@@ -2379,7 +2382,7 @@ Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das V
 \section{Flächeninhalt und bestimmtes Integral}\index{Integral}
     \subsection{Das bestimmte Integral}\index{Integral!Bestimmtes Integral}
        \begin{defi}{Das bestimmte Integral}{}
-        Eine Funktion $f$ mit $f(x)\geq 0$ sei in einem Intervall $I = [a; b]$ mit $I \in \mathds{D}_f$ definiert. Der Inhalt der Fläche zwischen dem Graphen von $f$ und der $x-$Achse über dem Intervall $[a;b]$ ist der gemeinsame Grenzwert der Obersumme $O_n$ und der Untersumme $U_n$. Es gilt also $\lim\limits_{n \longrightarrow \infty} O_n = \lim\limits_{n \longrightarrow \infty} U_n $. Existiert dieser gemeinsame Grenzwert, dann nennt man diesen das bestimmte Integral der Funktion $f$ über dem Intervall $I = [a;b]$. Für das bestimmte Intervall schreibt man dann $\integral[limits-mode=limits,limits={a, b}]{f(x)}$ und bezeichnet die Funktion $f$ integrierbar über $I=[a,b]$. \\
+        Eine Funktion $f$ mit $f(x)\geq 0$ sei in einem Intervall $I = [a; b]$ mit $I \in \mathds{D}_f$ definiert. Der Inhalt der Fläche zwischen dem Graphen von $f$ und der $x-$Achse über dem Intervall $[a;b]$ ist der gemeinsame Grenzwert der Obersumme $O_n$ und der Untersumme $U_n$. Es gilt also $\lim\limits_{n \longrightarrow \infty} O_n = \lim\limits_{n \longrightarrow \infty} U_n $. Existiert dieser gemeinsame Grenzwert, dann nennt man diesen das bestimmte Integral der Funktion $f$ über dem Intervall $I = [a;b]$. Für das bestimmte Integral schreibt man dann $\integral[limits-mode=limits,limits={a, b}]{f(x)}$ und bezeichnet die Funktion $f$ integrierbar über $I=[a,b]$. \\
         Hierbei wird die zu integrierende Funktion $f$ als Integrandenfunktion und die durch den Parameter $dx$ gegebene Variable x als Integrationsvariable bezeichnet. Die Grenzen des Intervalls $I= [a,b]$ bilden die \textcolor{red}{unter-} bzw. die \textcolor{red}{obere} Grenze des Integrals.
     \end{defi}
     \begin{b8d}{Folgerungen aus der Definition}{}
@@ -2763,7 +2766,7 @@ die Integralfunktion.
 \end{itemize}
 \begin{tikzpicture}
 \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
-  width=14cm,   % feste Breite
+  width=9cm,   % feste Breite
   height=8cm,   % feste Höhe
   scale only axis,
   axis lines=middle,

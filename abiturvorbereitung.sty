@@ -130,42 +130,40 @@
 \RequirePackage{fontawesome5}
 
 \newtcbtheorem[number within=section]{satz}
-  {\faFile*[regular]\ Satz}{colback=green!7,colframe=gray!85!black,
+  {\faFile*[regular]\ Satz}{enhanced jigsaw,breakable,colback=green!7,colframe=gray!85!black,
   fonttitle=\bfseries,title after break={\faFile*[regular]\ Satz (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[no counter]{rechnung}
-  {\faCheckSquare[regular]\ Rechnung}{colback=green!7,colframe=gray!85!black,
+  {\faCheckSquare[regular]\ Rechnung}{enhanced jigsaw,breakable,colback=green!7,colframe=gray!85!black,
   fonttitle=\bfseries,title after break={\faCheckSquare[regular]\ Rechnung (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[no counter]{lsg}{\faCheckCircle\ Lösung}%
 {enhanced jigsaw,breakable,colback=green!7,
- colframe=gray!85!black,fonttitle=\bfseries,
+colframe=gray!85!black,fonttitle=\bfseries,
  title after break={\faCheckCircle\ Lösung (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[no counter]{haus}{Hausaufgabe}%
-{enhanced jigsaw,breakable,colback=red!10,
- colframe=gray!85!black,fonttitle=\bfseries,
+{enhanced jigsaw,breakable,colback=red!10, colframe=gray!85!black,fonttitle=\bfseries,
  title after break={Hausaufgabe (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[number within=chapter]{defi}
-  {\faBook\ Definition}{colback=red!7,colframe=red!45!black,
+  {\faBook\ Definition}{enhanced jigsaw,breakable,colback=red!7,colframe=red!45!black,
   fonttitle=\bfseries,title after break={Definition (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[no counter]{bsp}
-  {\faEdit\ Beispiel}{colback=white,colframe=blue!70!green,
-  fonttitle=\bfseries,breakable,title after break={Beispiel (Fortsetzung)}}{theorem}
+  {\faEdit\ Beispiel}{enhanced jigsaw,breakable,colback=white,colframe=blue!70!green,
+  fonttitle=\bfseries,title after break={Beispiel (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[no counter]{b8d}
-  {\faHighlighter\ Beachte}{colback=white,colframe=blue!60!green,
-  fonttitle=\bfseries,breakable,title after break={\faHighlighter\ Beachte (Fortsetzung)}}{theorem}
+  {\faHighlighter\ Beachte}{enhanced jigsaw,breakable,colback=white,colframe=blue!60!green,
+  fonttitle=\bfseries,title after break={\faHighlighter\ Beachte (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[number within=section]{merke}
-  {\faLightbulb[regular]\ Merke}{colback=green!5,colframe=green!35!black,
-  fonttitle=\bfseries,breakable,title after break={\faLightbulb[regular]\ Merke (Fortsetzung)}}{theorem}
+  {\faLightbulb[regular]\ Merke}{enhanced jigsaw,breakable,colback=green!5,colframe=green!35!black,
+  fonttitle=\bfseries,title after break={\faLightbulb[regular]\ Merke (Fortsetzung)}}{theorem}
 
 \newtcbtheorem[number within=section]{bem}
-  {Bemerkung}{colback=red!2,colframe=red!35!black,
-  breakable,fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
+  {Bemerkung}{enhanced jigsaw,breakable,colback=red!2,colframe=red!35!black,fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
 
 % --- Hintergrundbild für Anhang ---
 \RequirePackage{eso-pic}

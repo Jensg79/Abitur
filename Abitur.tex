@@ -16,16 +16,17 @@
 \vspace{0.2cm}
 \Large \textbf{Mathematik PuLSt 12 und 13}\par
 \vspace{1cm}
-\LARGE \textbf{Zusammenfassung der Themengebiete}\par
+\LARGE \textbf{Überblick über die Lerninhalte}\par
 \vspace{1cm}
 \end{center}
 \includegraphics[width=\textwidth]{Bilder/Titelbild.jpg}
 \end{titlepage}
-
+\include{disclaimer}
+\newpage
 \tableofcontents
 \newpage
 
-%\chapter{Analysis}
+\chapter{Analysis}
 \begin{center}
 \scalebox{2}{%
 \begin{tikzpicture}
@@ -58,7 +59,7 @@
 \end{tikzpicture}%
 }
 \end{center}
-%\include{Analysis.tex}
+\include{Analysis.tex}
 
 %\chapter{Analytische Geometrie}
 \begin{center}
@@ -95,7 +96,7 @@
 \shade[ball color=yellow] (4,4,5.2) circle (0.2);
 \end{tikzpicture}
 \end{center}
-%\include{AnalytischeGeometrie.tex}
+\include{AnalytischeGeometrie.tex}
 
 \chapter{Stochastik}
 \vspace{2cm}
@@ -128,9 +129,9 @@
 \end{center}
 \include{Stochastik.tex}
 
-%\chapter{Anhang}
-%\AddToShipoutPicture*{\BackgroundPic}
-%\include{Anhang.tex}
+\chapter{Anhang}
+\AddToShipoutPicture*{\BackgroundPic}
+\include{Anhang.tex}
 
 \printindex
 \nocite{*}
