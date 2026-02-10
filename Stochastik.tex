@@ -791,7 +791,7 @@ des Fehlers der einen Art auf Kosten der Wahrscheinlichkeit des Fehlers der ande
 1. und 2. Art verringert werden. Allerdings ist eine solche Erhöhung in der Praxis auch mit erhöhten Kosten verbunden.
 \end{enumerate}
 \end{itemize}
-\section{Stetige Zufallsgrößen}\index{Zufallsgrößen!Stetige}
+\section{Stetige Zufallsgrößen}\index{Zufallsgröße!Stetige}
 \begin{bsp}{Tropfen auf einem Tisch}{}
 
 Auf einen Tisch wird versehentlich Wasser gekippt. Die meisten Tropfen landen in der Nähe der \textbf{Tischmitte}, weil dort die Quelle ist; zu den Rändern hin werden es weniger.
@@ -895,7 +895,7 @@ Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinl
 \begin{defi}{Stetige Zufallsgrößen}{}
     Eine Zufallsgröße, die aus einem Intervall jede reelle Zahl als Wert annehmen kann, bezeichnet man als \textbf{\textcolor{red}{stetig}}. Ihr Wertemenge besteht somit aus einem Intervall.
 \end{defi}
-\begin{defi}{Dichtefunktion}{}\index{Zufallsgrößen!Stetige!Dichtefunktion}
+\begin{defi}{Dichtefunktion}{}\index{Zufallsgröße!Stetige!Dichtefunktion}
 
     Eine Funktion \(f\) heißt \textbf{Dichtefunktion} über \(\mathds{R}\), wenn gilt:
     \begin{enumerate}
@@ -1123,12 +1123,309 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 \boxed{P(40\le X\le 60)\approx 0.36512\approx 36.5\%.}
 \]
 \end{bsp}
-\begin{defi}{Erwartungswert, Varianz und Standardabweichung}{}
+\begin{defi}{Erwartungswert, Varianz und Standardabweichung}{}\index{Zufallsgröße!Stetige!Erwartungswert}\index{Zufallsgröße!Stetige!Varianz}\index{Zufallsgröße!Stetige!Standardabweichung}
   Für die stetige Zufallsgröße \(X\) mit \(x\in \mathds{R}\) und der Dichtefunktion \(f(x)\) können folgende Kenngrößen definiert werden:
   \begin{description}
       \item[Erwartungswert:] \(E(X) = \mu = \integral[limits-mode=limits,limits={-\infty, \infty}]{x \cdot f(x)}\) 
       \item[Varianz:] \(Var(X) =  \integral[limits-mode=limits,limits={-\infty, \infty}]{\left(x-\mu \right)^2 \cdot f(x)}\) 
       \item[Standardabweichung:] \(\sigma = \sqrt{Var(X)}\) 
-  \end{description}
-  
+  \end{description}  
 \end{defi}
+    \section{Die Gauß'sche Glockenkurve}\index{Zufallsgröße!Stetige!Gauß'sche Glockenfunktion}
+    \begin{defi}{Die Gauß'sche Glockenfunktion}{}
+        Jede Funktion der Funktionenschar \[\varphi_{\mu, \sigma} : x\mapsto \dfrac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\dfrac{\left(x-\mu\right)^2}{2\sigma^2}}\] mit \(\mu \in \mathds{R}\) und \(\sigma \in \mathds{R}^+\) bezeichnet man als eine Gauß'sche Glockenfunktion.\\
+        Für die Werte \(\mu =0\) und \(\sigma =1\) ergibt sich die Funktion \[\varphi_{0,1}: x \mapsto \dfrac{1}{\sqrt{2\pi}} \cdot e^{-\dfrac{x^2}{2}}\]
+    \end{defi}
+    \begin{satz}{Eigenschaften der Scharfunktion \(\varphi_{\mu, \sigma}\)}{}\label{EigenschaftGauss}
+        Jede Scharfunktion \(\varphi_{\mu, \sigma}\) besitzt folgende Eigenschaften:
+        \begin{enumerate}
+            \item \(\varphi_{\mu, \sigma} > 0\) für \( x\in \mathds{R}\)
+            \item \(G_{\varphi_{\mu, \sigma}}\) ist achsensymmetrisch zur Geraden mit der Gleichung \(x= \mu\)
+            \item \(\lim\limits_{x \longrightarrow \pm \infty}\varphi_{\mu, \sigma} =0\)
+            \item \(G_{\varphi_{\mu, \sigma}}\) wächst im Intervall \(\left] -\infty; \mu \right]\) und fällt im Intervall \(\left[ \mu; \infty \right[\) 
+            \item \(G_{\varphi_{\mu, \sigma}}\) hat als Extrempunkt nur den Hochpunkt \(H(\mu |\varphi_{\mu, \sigma}(\mu))\) mit \(\varphi_{\mu, \sigma}(\mu)) = \dfrac{1}{\sigma \sqrt{2\pi}}\)
+            \item \(G_{\varphi_{\mu, \sigma}}\) hat die Wendepunkte \(W_{1,2} (\mu \pm \sigma|\varphi_{\mu, \sigma}(\mu \pm \sigma)))\) mit \( \varphi_{\mu, \sigma}(\mu \pm \sigma)) = \dfrac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}}\)
+            \item \(\integral[limits-mode=limits,limits={-\infty, \infty}]{\varphi_{\mu, \sigma}(x)} =1\)
+            \item Die Integralfunktion \(\Phi_{\mu, \sigma}\) von \(\varphi_{\mu, \sigma}(x)\) mit \(\Phi_{\mu, \sigma} = \integral[limits-mode=limits,limits={-\infty, x}, variable={t}]{\varphi_{\mu, \sigma}(t)}\) kann \textcolor{red}{\textbf{nicht}} mithilfe elementarer Funktionen angegeben werden. Der Graph \(\Phi_{\mu, \sigma}\) ist punktsymmetrisch zu \(P(\mu|0,5)\) und streng monoton wachsend.
+        \end{enumerate}    
+        \end{satz}
+
+\begin{bsp}{Dichtefunktion und Integralfunktion}{}
+
+ \begin{tikzpicture}
+
+% -------- Achse 1 (links): Dichten --------
+\begin{axis}[
+  width=14cm,
+  height=8.5cm,
+  xmin=-4, xmax=4,
+  domain=-4:4,
+  samples=700,
+  grid=both,
+  grid style={line width=.1pt, draw=gray!30},
+  major grid style={line width=.2pt, draw=gray!50},
+  axis lines=left,
+  xlabel={$x$},
+  ylabel={Dichte $\varphi(x)$ (linke Achse)},
+  ymin=0,
+  legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west},
+  tick align=outside
+]
+
+% Dichten: drei Glocken
+\addplot[thick, black] {1/(1*sqrt(2*pi))*exp(-0.5*((x-0)/1)^2)};
+\addlegendentry{\textcolor{black}{Dichte $\mu=0,\ \sigma=1$}}
+
+\addplot[thick, dashed, red] {1/(0.5*sqrt(2*pi))*exp(-0.5*((x-0)/0.5)^2)};
+\addlegendentry{\textcolor{red}{Dichte $\mu=0,\ \sigma=0{,}5$}}
+
+\addplot[thick, dotted, green] {1/(1.2*sqrt(2*pi))*exp(-0.5*((x-1)/1.2)^2)};
+\addlegendentry{\textcolor{green}{Dichte $\mu=1,\ \sigma=1{,}2$}}
+
+% Legendeneinträge für die CDF-Stile (damit alles in *einer* Legende steht)
+\addlegendimage{very thick, dash dot}
+\addlegendentry{\textcolor{black}{CDF $\mu=0,\ \sigma=1$}}
+
+\addlegendimage{very thick, densely dashed}
+\addlegendentry{\textcolor{red}{CDF $\mu=0,\ \sigma=0{,}5$}}
+
+\addlegendimage{very thick, densely dotted}
+\addlegendentry{\textcolor{green}{CDF $\mu=1,\ \sigma=1{,}2$}}
+
+\end{axis}
+
+% -------- Achse 2 (rechts): Verteilungsfunktionen --------
+% (gleicher x-Bereich, zweite y-Achse rechts; dadurch "ein" Koordinatensystem mit zwei Skalen)
+\begin{axis}[
+  width=14cm,
+  height=8.5cm,
+  xmin=-4, xmax=4,
+  domain=-4:4,
+  samples=700,
+  axis y line*=right,
+  axis x line=none,
+  ylabel={Verteilungsfunktion $\Phi(x)$ (rechte Achse)},
+  ymin=0, ymax=1,
+  tick align=outside,
+  grid=none,
+  legend style={draw=none},
+]
+
+% CDFs: drei Integralfunktionen (ohne erf), ohne Legende (Legendeneinträge kommen oben)
+\addplot[very thick, dash dot, forget plot, black] {gausscdf(x,0,1)};
+\addplot[very thick, densely dashed, forget plot, red] {gausscdf(x,0,0.5)};
+\addplot[very thick, densely dotted, forget plot, green] {gausscdf(x,1,1.2)};
+
+\end{axis}
+
+\end{tikzpicture}
+\end{bsp}
+
+\begin{merke}{Besondere Werte der Gauß'schen Glockenkurve}{}
+\begin{center}
+\begin{tikzpicture}
+
+% -----------------------------
+% Parameter (frei anpassbar)
+% -----------------------------
+\pgfmathsetmacro{\MU}{2.2}
+\pgfmathsetmacro{\SIG}{0.9}
+
+% Hilfs-x-Werte
+\pgfmathsetmacro{\A}{\MU-\SIG} % mu-sigma
+\pgfmathsetmacro{\B}{\MU}      % mu
+\pgfmathsetmacro{\C}{\MU+\SIG} % mu+sigma
+
+% Skalenfaktor für PDF, damit sie optisch zum CDF-Plot passt
+% (rein grafisch, nicht mathematisch nötig)
+\pgfmathsetmacro{\PDFSCALE}{1.5}
+
+\begin{axis}[
+  width=10cm,
+  height=8.5cm,
+  axis lines=middle,
+  xmin=0, xmax=5.5,
+  ymin=0, ymax=1.25,
+  xlabel={$x$},
+  ylabel={$y$},
+  xtick={0,\A,\B,\C},
+  xticklabels={$0$,$\mu-\sigma$,$\mu$,$\mu+\sigma$},
+  ytick={0,0.25,0.5,0.75,1.0,1.25},
+  tick style={black},
+  enlargelimits=false,
+  clip=false,
+  samples=220,
+]
+
+% -----------------------------
+% Kurven: CDF (rot) und PDF (blau)
+% -----------------------------
+\addplot[name path=cdf, very thick, red, domain=0:5.5]
+  ({x},{gausscdf(x,\MU,\SIG)});
+
+\addplot[name path=pdf, very thick, blue, domain=0:5.5]
+  ({x},{\PDFSCALE*gausspdf(x,\MU,\SIG)});
+
+% -----------------------------
+% Flächen W1, W2 unter der PDF
+% -----------------------------
+\path[name path=axisbase] (axis cs:0,0) -- (axis cs:5.5,0);
+
+\addplot[blue!25] fill between[
+  of=pdf and axisbase,
+  soft clip={domain=\A:\B},
+];
+
+\addplot[blue!15] fill between[
+  of=pdf and axisbase,
+  soft clip={domain=\B:\C},
+];
+
+\node[blue] at (axis cs:{(\A+\B)/2 -0.7},0.4) {$W_1$};
+\node[blue] at (axis cs:{(\B+\C)/2 +0.7},0.4) {$W_2$};
+
+% -----------------------------
+% Markierungen + Hilfslinien
+% -----------------------------
+% Werte an den drei Stellen:
+\pgfmathsetmacro{\cdfA}{gausscdf(\A,\MU,\SIG)}
+\pgfmathsetmacro{\cdfB}{gausscdf(\B,\MU,\SIG)}
+\pgfmathsetmacro{\cdfC}{gausscdf(\C,\MU,\SIG)}
+\pgfmathsetmacro{\pdfA}{\PDFSCALE*gausspdf(\A,\MU,\SIG)}
+\pgfmathsetmacro{\pdfB}{\PDFSCALE*gausspdf(\B,\MU,\SIG)}
+\pgfmathsetmacro{\pdfC}{\PDFSCALE*gausspdf(\C,\MU,\SIG)}
+
+% gestrichelte Guides (wie im Bild)
+\addplot[gray, dashed] coordinates {(0,\cdfC) (\C,\cdfC)};
+\addplot[gray, dashed] coordinates {(\C,0) (\C,\cdfC)};
+\addplot[gray, dashed] coordinates {(\B,0) (\B,\pdfB)};
+\addplot[gray, dashed] coordinates {(\A,0) (\A,\pdfA)};
+
+% Kreuz-Markierungen
+\addplot[only marks, mark=x, mark size=3.5pt, very thick, red]
+  coordinates {(\C,\cdfC)};
+\addplot[only marks, mark=x, mark size=3.5pt, very thick, blue]
+  coordinates {(\A,\pdfA) (\B,\pdfB) (\C,\pdfC)};
+
+% -----------------------------
+% Beschriftungen (nah am Original)
+% -----------------------------
+\node[red] at (axis cs:1.3,0.76) {$G_{\varphi_{\mu;\sigma}}$};
+\node[blue] at (axis cs:4.6,0.10) {$\varphi_{\mu;\sigma}$};
+
+\node[thick,red] at (axis cs:2.9,1.08)
+  {$P(\mu+\sigma)=\Phi_{\mu;\sigma}(\mu+\sigma)$};
+
+\node[green!60!black] at (axis cs:3.65,0.63)
+  {$\Phi_{\mu;\sigma}(\mu+\sigma)$};
+
+% -----------------------------
+% Grüne Integral-Skizze (Fläche bis x = mu+sigma)
+% -----------------------------
+
+
+\addplot[green!30,] fill between[
+  of=pdf and axisbase,
+  soft clip={domain=0:\C},
+];
+
+\node[green!60!black] at (axis cs:4.15,0.50)
+  {$\int_{-\infty}^{\mu+\sigma}\varphi_{\mu;\sigma}(x)\,dx$};
+
+% kleine H-Markierung (optional)
+\node[cyan!60!black] at (axis cs:2.45,0.48) {\large H};
+
+\end{axis}
+\end{tikzpicture}
+    
+\end{center}
+\end{merke}
+\begin{bsp}{Bestimmung von \(\mu\) und \(\sigma\) am Graphen}{}
+\begin{center}
+
+\begin{tikzpicture}
+% Parameter wie im Bild
+\pgfmathsetmacro{\MU}{1}
+\pgfmathsetmacro{\SIG}{1.5}
+
+\pgfmathsetmacro{\A}{\MU-\SIG} % mu-sigma
+\pgfmathsetmacro{\B}{\MU}      % mu
+\pgfmathsetmacro{\C}{\MU+\SIG} % mu+sigma
+
+% Funktionswerte (für Markerpositionen)
+\pgfmathsetmacro{\yA}{gausspdf(\A,\MU,\SIG)}
+\pgfmathsetmacro{\yB}{gausspdf(\B,\MU,\SIG)}
+\pgfmathsetmacro{\yC}{gausspdf(\C,\MU,\SIG)}
+
+\begin{axis}[
+  width=15cm,
+  height=8cm,
+  axis lines=middle,
+  xmin=-3.0, xmax=5.0,
+  ymin=0, ymax=0.32,
+  xlabel={$x$},
+  ylabel={$y$},
+  xtick={-2,-1,0,1,2,3,4},
+  ytick={0.1,0.2,0.3},
+  yticklabels={0{,}1,0{,}2,0{,}3}, % deutsches Komma wie im Bild
+  grid=both,
+  major grid style={gray!60, line width=0.35pt},
+  minor grid style={gray!35, line width=0.25pt},
+  minor tick num=1,
+  tick style={black},
+  enlargelimits=false,
+  clip=false,
+]
+
+% Glockenkurve (PDF)
+\addplot[very thick, cyan!70!blue, samples=260, domain=-3:5]
+  ({x},{gausspdf(x,\MU,\SIG)});
+
+% Linke Beschriftung G_{phi_{mu;sigma}} (wie im Bild, auch wenn's eigentlich pdf ist)
+\node[cyan!70!blue] at (axis cs:-2.7,0.055) {$G_{\varphi_{\mu;\sigma}}$};
+
+% Gestrichelte Vertikalen bei mu-sigma, mu, mu+sigma bis zum jeweiligen Punkt
+\addplot[gray, dashed] coordinates {(\A,0) (\A,\yA)};
+\addplot[gray, dashed] coordinates {(\B,0) (\B,\yB)};
+\addplot[gray, dashed] coordinates {(\C,0) (\C,\yC)};
+
+% Marker (Kreuz) bei den drei Punkten
+\addplot[only marks, mark=x, mark size=4.5pt, very thick, cyan!70!blue]
+  coordinates {(\A,\yA) (\B,\yB) (\C,\yC)};
+
+% Labels W1, H, W2
+\node[cyan!70!blue] at (axis cs:{\A-0.35},{\yA+0.02}) {$W_1$};
+\node[cyan!70!blue] at (axis cs:{\B+0.05},{\yB+0.035}) {$\mathrm{H}$};
+\node[cyan!70!blue] at (axis cs:{\C+0.25},{\yC+0.02}) {$W_2$};
+
+% Rote Markierungen auf der x-Achse (kleine Striche)
+\addplot[red, very thick] coordinates {(\A,0) (\A,0.01)};
+\addplot[red, very thick] coordinates {(\B,0) (\B,0.01)};
+\addplot[red, very thick] coordinates {(\C,0) (\C,0.01)};
+
+% Rote Texte unten
+\node[red] at (axis cs:\A,-0.04) {$\mu-\sigma\approx -0{,}5$};
+\node[red] at (axis cs:\B,-0.038) {$\mu=1$};
+\node[red] at (axis cs:\C,-0.04) {$\mu+\sigma\approx 2{,}5$};
+
+% Maßpfeile für sigma links/rechts (rote Doppelpfeile)
+% In axis coordinates: wir zeichnen die Pfeile unterhalb der Achse
+\draw[red, very thick, <->]
+  (axis cs:\A,-0.07) -- (axis cs:\B,-0.07)
+  node[midway, below=2pt] {$\sigma\approx 1{,}5$};
+
+\draw[red, very thick, <->]
+  (axis cs:\B,-0.07) -- (axis cs:\C,-0.07)
+  node[midway, below=2pt] {$\sigma\approx 1{,}5$};
+
+\end{axis}
+\end{tikzpicture}   
+\end{center}
+   \begin{itemize}
+       \item Ablesen von \(\mu\) aus dem Graphen \(\longleftrightarrow \mu = 1\)
+       \item Mit Satz \ref{EigenschaftGauss} und der Eigenschaft \(H(\mu| \varphi_{\mu, \sigma} (\mu))\) kann \(\mu\) abgelesen werden und \(\sigma \) berechnet werden
+       \item Es gilt \(\varphi_{\mu, \sigma} (\mu) = \dfrac{1}{\sigma\sqrt{2\pi}} \longleftrightarrow 0,26 \approx \dfrac{1}{\sigma\sqrt{2\pi}}\)
+       \item \(\sigma \approx \dfrac{1}{0,26\cdot \sqrt{2\pi}} \approx 1,5\)
+   \end{itemize}
+
+\end{bsp}

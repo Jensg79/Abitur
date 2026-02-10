@@ -1,0 +1,100 @@
+% normalcdf.sty  -- Normalverteilung (CDF/PDF) in PGFMath ohne erf
+% Jens-tauglich: schnell, sauber, robust.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{normalcdf}[2026/02/10 Normal CDF/PDF via PGFMath approximation]
+
+\RequirePackage{pgf} % für pgfmathdeclarefunction
+
+% ------------------------------------------------------------
+% Paketoptionen
+% ------------------------------------------------------------
+\newif\ifnormalcdf@guardsigma
+\normalcdf@guardsigmatrue % default: Schutz aktiv
+
+\DeclareOption{guardsigma}{\normalcdf@guardsigmatrue}
+\DeclareOption{noguardsigma}{\normalcdf@guardsigmafalse}
+\ProcessOptions\relax
+
+% ------------------------------------------------------------
+% Konstanten: einmalig setzen (Performance!)
+% Abramowitz/Stegun-Approximation
+% ------------------------------------------------------------
+\pgfmathsetmacro{\normalcdf@p}{0.2316419}%
+\pgfmathsetmacro{\normalcdf@aone}{0.319381530}%
+\pgfmathsetmacro{\normalcdf@atwo}{-0.356563782}%
+\pgfmathsetmacro{\normalcdf@athree}{1.781477937}%
+\pgfmathsetmacro{\normalcdf@afour}{-1.821255978}%
+\pgfmathsetmacro{\normalcdf@afive}{1.330274429}%
+
+% 1/sqrt(2*pi) als Konstante (noch ein bisschen schneller)
+\pgfmathsetmacro{\normalcdf@invSqrtTwoPi}{1/sqrt(2*pi)}%
+
+% ------------------------------------------------------------
+% Standardnormal-CDF Φ(z) (Approximation, ohne erf)
+% Für z>=0: Φ(z) ≈ 1 - φ(z)*P(t), t = 1/(1+p z)
+% Für z<0 : Φ(z) = 1 - Φ(-z)
+% ------------------------------------------------------------
+\pgfmathdeclarefunction{normcdf}{1}{%
+  \begingroup
+  \pgfmathsetmacro{\z}{#1}%
+  \pgfmathsetmacro{\az}{abs(\z)}%
+  \pgfmathsetmacro{\t}{1/(1+\normalcdf@p*\az)}%
+  % φ(|z|) = 1/sqrt(2*pi) * exp(-0.5*|z|^2)
+  \pgfmathsetmacro{\phi}{\normalcdf@invSqrtTwoPi*exp(-0.5*\az*\az)}%
+  % P(t) = a1 t + a2 t^2 + ... + a5 t^5
+  \pgfmathsetmacro{\poly}{%
+    \normalcdf@aone*\t
+    + \normalcdf@atwo*\t*\t
+    + \normalcdf@athree*\t*\t*\t
+    + \normalcdf@afour*\t*\t*\t*\t
+    + \normalcdf@afive*\t*\t*\t*\t*\t
+  }%
+  % Φ(|z|) ≈ 1 - φ(|z|)*P(t)
+  \pgfmathsetmacro{\PhiPos}{1 - \phi*\poly}%
+  % Symmetrie
+  \pgfmathparse{ifthenelse(\z<0, 1-\PhiPos, \PhiPos)}%
+  \pgfmathsmuggle\pgfmathresult
+  \endgroup
+}
+
+% ------------------------------------------------------------
+% CDF einer N(mu, sigma^2): Φ_{mu,sigma}(x) = normcdf((x-mu)/sigma)
+% Optional: sigma abs() + Schutz gegen sigma=0
+% ------------------------------------------------------------
+\pgfmathdeclarefunction{gausscdf}{3}{%
+  \begingroup
+  \pgfmathsetmacro{\x}{#1}%
+  \pgfmathsetmacro{\mu}{#2}%
+  \pgfmathsetmacro{\sigma}{#3}%
+  \ifnormalcdf@guardsigma
+    % abs(sigma); bei 0 -> NaN vermeiden: gib 0 oder 1/2 zurück (hier: 0.5)
+    \pgfmathparse{ifthenelse(abs(\sigma)<1e-12, 0.5, normcdf((\x-\mu)/abs(\sigma)))}%
+  \else
+    \pgfmathparse{normcdf((\x-\mu)/(\sigma))}%
+  \fi
+  \pgfmathsmuggle\pgfmathresult
+  \endgroup
+}
+
+% ------------------------------------------------------------
+% PDF einer N(mu, sigma^2)
+% f(x) = 1/(sigma*sqrt(2*pi))*exp(-0.5*((x-mu)/sigma)^2)
+% Optional: abs(sigma) + Schutz gegen sigma=0
+% ------------------------------------------------------------
+\pgfmathdeclarefunction{gausspdf}{3}{%
+  \begingroup
+  \pgfmathsetmacro{\x}{#1}%
+  \pgfmathsetmacro{\mu}{#2}%
+  \pgfmathsetmacro{\sigma}{#3}%
+  \ifnormalcdf@guardsigma
+    \pgfmathparse{%
+      ifthenelse(abs(\sigma)<1e-12, 0,
+      (1/(abs(\sigma)))*\normalcdf@invSqrtTwoPi*exp(-0.5*((\x-\mu)/abs(\sigma))^2))}%
+  \else
+    \pgfmathparse{(1/(\sigma*sqrt(2*pi)))*exp(-0.5*((\x-\mu)/\sigma)^2)}%
+  \fi
+  \pgfmathsmuggle\pgfmathresult
+  \endgroup
+}
+
+\endinput
