@@ -34,7 +34,8 @@
   colorlinks=true,
   linkcolor=blue,
   urlcolor=red,
-  pdftitle={Mathematik in der Oberstufe Bayern}
+  pdftitle={Vorbereitung auf das Mathematikabitur in Bayern}
+  pdfcopyright={© 2026 J. Gundelwein}
 }
 
 \RequirePackage{csquotes}
@@ -266,3 +267,25 @@ colframe=gray!85!black,fonttitle=\bfseries,
 \definecolor{sig2}{RGB}{ 46,139, 87}     % grün (2σ)
 \definecolor{sig3}{RGB}{160, 32,240}     % violett (3σ)
 \definecolor{curvefill}{RGB}{240,220,250}% zart lila Füllung
+
+% --- Copyright-Block (nicht weitergeben) ---
+\newcommand{\copyrightblock}{
+  \par\smallskip
+  {\footnotesize
+  © \the\year\ Jens Gundelwein. Alle Rechte vorbehalten.\\
+  Weitergabe, Veröffentlichung oder Vervielfältigung – auch auszugsweise – ist ohne ausdrückliche schriftliche Genehmigung nicht gestattet.
+  \par}
+}
+\newcommand{\WasserzeichenAn}{%
+  \AddToShipoutPictureFG{%
+    \AtPageCenter{%
+      \begin{tikzpicture}[remember picture,overlay]
+        \node[rotate=45,scale=5.0,text opacity=0.22, color = red]{Gymnasium Gröbenzell};
+      \end{tikzpicture}%
+    }%
+  }%
+}
+\newcommand{\WasserzeichenAus}{\ClearShipoutPictureFG}
+
+% Standard: an
+\WasserzeichenAn

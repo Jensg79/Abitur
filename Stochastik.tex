@@ -1632,18 +1632,18 @@ ist die Normalverteilung nicht anwendbar.
 
 \begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
 \item \textbf{Körpergröße in einer Jahrgangsstufe (grobe Näherung):} 
-stetig, viele Einflüsse (Genetik, Ernährung, Zufall), oft recht symmetrisch \(\Rightarrow\) Normal \textit{plausibel}.
+stetig, viele Einflüsse (Genetik, Ernährung, Zufall), oft recht symmetrisch \(\Rightarrow\) Normalverteilung \textit{plausibel}.
 \item \textbf{Messfehler bei einem Experiment:} \\
-„wahrer Wert + viele kleine Störungen“ \(\Rightarrow\) Normal \textit{sehr typisch}.
+„wahrer Wert + viele kleine Störungen“ \(\Rightarrow\) Normalverteilung \textit{sehr typisch}.
 \item \textbf{Anzahl richtiger Antworten in einem Multiple-Choice-Test:} \\
 \textbf{Zählgröße} \(\Rightarrow\) nicht normal (binomialartig). \\
 \textit{Aber:} bei großem \(n\) manchmal Normalapproximation.
 \item \textbf{Wartezeit bis der Bus kommt:} \\
-oft \textbf{rechtsschief} (klein geht, aber nach oben langer Schwanz) \(\Rightarrow\) Normal meist unpassend.
+oft \textbf{rechtsschief} (klein geht, aber nach oben langer Schwanz) \(\Rightarrow\) Normalverteilung meist unpassend.
 \item \textbf{Einkommen:} \\
-stark rechtsschief, viele Ausreißer \(\Rightarrow\) Normal \textbf{unrealistisch}.
+stark rechtsschief, viele Ausreißer \(\Rightarrow\) Normalverteilung \textbf{unrealistisch}.
 \end{enumerate}
-\subsection{Sigma-Regeln}
+\subsection{\(\sigma\)-Regeln}
 Eine normalverteilte Zufallsgröße \(X\) mit der Dichtefunktion \(\varphi_{\mu, \sigma}\) hat nach Definition \ref{NormZG} den Erwartungswert \(\mu\) und die Standardabweichung \(\sigma\). Nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{NormExtrem} hat \(\varphi_{\mu, \sigma}\) das Maximum bei \(\mu\) mit dem Funktionswert \(\varphi_{\mu, \sigma}(\mu) = \dfrac{1}{\sigma\sqrt{2\pi}}\). Der Wendepunkt liegt nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{WendeNorm} bei \(x= \mu \pm \sigma\). Die Wahrscheinlichkeit dafür, dass Werte in diesem, zu \(\mu \) symmetrischen, Intervall liegen ist 
 \[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (\mu + \sigma) - \Phi_{\mu, \sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\). Der Nachweis dafür ergibt sich aus Überlegungen am Graphen der Dichtefunktion.\\
 Wird diese Überlegung verallgemeinert ergibt sich für das Integral \[\integral[limits-mode=limits,limits={\mu - k\cdot\sigma , \mu + k\cdot\sigma}]{\varphi_{\mu, \sigma}}\hspace{0.2cm} \text{mit} \hspace{0.2cm} k\in \mathds{R}^+\] nur eine Abhängigkeit vom Parameter \(k\). 
