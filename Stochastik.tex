@@ -1131,7 +1131,7 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
       \item[Standardabweichung:] \(\sigma = \sqrt{Var(X)}\) 
   \end{description}  
 \end{defi}
-    \section{Die Gauß'sche Glockenkurve}\index{Zufallsgröße!Stetige!Gauß'sche Glockenfunktion}
+    \subsection{Die Gauß'sche Glockenkurve}\index{Zufallsgröße!Stetige!Gauß'sche Glockenfunktion}
     \begin{defi}{Die Gauß'sche Glockenfunktion}{}
         Jede Funktion der Funktionenschar \[\varphi_{\mu, \sigma} : x\mapsto \dfrac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\dfrac{\left(x-\mu\right)^2}{2\sigma^2}}\] mit \(\mu \in \mathds{R}\) und \(\sigma \in \mathds{R}^+\) bezeichnet man als eine Gauß'sche Glockenfunktion.\\
         Für die Werte \(\mu =0\) und \(\sigma =1\) ergibt sich die Funktion \[\varphi_{0,1}: x \mapsto \dfrac{1}{\sqrt{2\pi}} \cdot e^{-\dfrac{x^2}{2}}\]
@@ -1429,7 +1429,7 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
    \end{itemize}
 
 \end{bsp}
-\section{Die Normalverteilung}
+\subsection{Die Normalverteilung}
 \begin{defi}{Die Normalverteilung}{}\index{Zufallsgröße!Stetige!Normalverteilung}\label{NormZG}
     Eine Zufallsgröße \(X\) heißt \textcolor{red}{\textbf{normalverteilt}} mit dem Parameter \(\textbf{\mu}\) (Erwartungswert) und \(\textbf{\sigma}\) (Standardabweichung), wenn ihre Dichtefunktion eine Gauß'sche Glockenfunktion \(\varphi_{\mu, \sigma}\) ist. \\
     Die Wahrscheinlichkeit dafür, dass \(X\) Werte aus dem Intervall \([a;b]\) mit \(a<b\) und \(a,b \in \mathds{R}\) annimmt, ist \(P(a\leq X\leq b = \integral[limits-mode=limits,limits={a, b}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (b) - \Phi_{\mu, \sigma} (a)\).
@@ -1507,6 +1507,262 @@ eine normalverteilte Zufallsvariable \(X\sim \mathcal{N}(\mu,\sigma)\) im Interv
 Der häufigste Fehler ist, \(\sigma\) (Standardabweichung) mit \(\sigma^2\) (Varianz) zu verwechseln.
 Wenn deine Ergebnisse „komisch“ aussehen: genau da zuerst hinschauen.
 \end{b8d}
-\section{Sigma-Regeln}
+\subsection{Erkennungsmerkmale eine Normalverteilung}
+%%%%%
+\textbf{Kernidee:} Normalverteilung passt oft bei \textbf{stetigen Messgrößen}, wenn \textbf{viele kleine, unabhängige Einflüsse} zusammenwirken und die Werte \textbf{ungefähr symmetrisch} um einen Mittelwert liegen.
+
+\vspace{0.8em}
+\hrule
+\vspace{0.8em}
+\textbf{Schnell-Check:}
+\begin{itemize}
+\item \textbf{Zählt man?} (nur ganze Zahlen) \(\rightarrow\) \textbf{nicht normal} (evtl. Binomial/Poisson; manchmal Normalapproximation).
+\item \textbf{Misst man stetig?} (Kommawerte möglich) \(\rightarrow\) Normal \textbf{kann} passen.
+\item \textbf{Symmetrisch + „viele kleine Ursachen“?} \(\rightarrow\) Normal ist \textbf{plausibel}. Bei starker Schiefe eher nicht.
+\end{itemize}
+
+\vspace{0.8em}
+\textbf{Entscheidungsbaum}\index{Zufallsgröße!Stetige!Entscheidungsbaum}\newline
+\begin{adjustbox}{max totalsize={\textwidth}{0.85\textheight}, left}
+\begin{tikzpicture}[
+  node distance=10mm and 3mm,
+  box/.style={
+    draw, rounded corners=3pt, align=center,
+    inner sep=4pt, text width=0.55\linewidth
+  },
+  decision/.style={
+    draw, diamond, aspect=2.0, align=center,
+    inner sep=2pt, text width=0.32\linewidth
+  },
+  arrow/.style={-Latex, thick},
+  every node/.style={font=\small} % optional: nur leicht kleiner
+]
+\node[box] (start) {\textbf{Start:} Man soll ein Modell \\ für eine Zufallsgröße \(X\) wählen.};
+
+\node[decision, below=of start] (count) {\textbf{Zählt man?}\\
+(nur ganze Zahlen: Treffer,\\ Anzahl, Stückzahl)};
+
+\node[box, below right=of count, xshift=-10mm] (notnormal1) {\textbf{Dann: eher nicht normal.}\\
+Typisch: Binomial.\\
+\textbf{Achtung:} Normalapproximation\\ manchmal möglich (bei großem \(n\)).};
+
+\node[decision, below left=of count, xshift=10mm] (continuous) {\textbf{Stetig messbar?}\\
+(Kommawerte möglich, Messgröße)};
+
+\node[box, below right=of continuous, xshift=-10mm] (notnormal2) {\textbf{Dann: \\ normal unpassend.}\\
+Diskrete Modelle prüfen.};
+
+\node[decision, below left=of continuous, xshift=10mm] (mechanism) {\textbf{Viele kleine\\ unabhängige Einflüsse?}\\
+(Messfehler, Schwankungen, Summe vieler Mini-Effekte)};
+
+\node[decision, below=of mechanism] (shape) {\textbf{Ungefähr symmetrisch\\ um \(\mu\)?}\\
+(links/rechts ähnlich, ein Gipfel)};
+
+\node[box, below right= of shape, xshift=-10mm] (skew) {\textbf{Eher nicht normal.}\\
+Häufig bei Wartezeiten,\\ Einkommen, Lebensdauern (rechtsschief).};
+
+\node[box, below left=of shape, xshift=-10mm] (normalok) {\textbf{Normalverteilung\\ ist plausibel.}\\
+Checke zusätzlich: Grenzen/Ausreißer.};
+
+\draw[arrow] (start) -- (count);
+\draw[arrow] (count) -- node[midway, left]{\small Ja} (notnormal1);
+\draw[arrow] (count) -- node[midway, right]{\small Nein} (continuous);
+
+\draw[arrow] (continuous) -- node[midway, left]{\small Nein} (notnormal2);
+\draw[arrow] (continuous) -- node[midway, right]{\small Ja} (mechanism);
+
+\draw[arrow] (mechanism) -- (shape);
+\draw[arrow] (shape) -- node[midway, left]{\small Nein} (skew);
+\draw[arrow] (shape) -- node[midway, right]{\small Ja} (normalok);
+
+\end{tikzpicture}
+\end{adjustbox}
+
+\vspace{0.4em}
+\textbf{Typische Stolperstelle:} „Normal“ heißt nicht „immer richtig“. Es ist ein \textbf{Modell}.
+Wenn Daten stark schief sind, viele Ausreißer haben oder nahe an einer harten Grenze liegen (z.\,B. nahe 0),
+ist die Normalverteilung nicht anwendbar.
+
+\vspace{0.8em}
+\textbf{Glocke vs.\ schiefe Glocke}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  % Left plot: bell curve
+  \begin{scope}
+    \draw[thick] (0,0) -- (6,0);
+    \draw[thick] (0,0) -- (0,3.2);
+    \node[below] at (3,0) {\small \(x\)};
+    \node[left] at (0,1.8) {\small \(f(x)\)};
+    \node[above] at (3,3.0) {\small \textbf{„Glocke“ (symmetrisch)}};
+
+    % bell curve (approx Gaussian)
+    \draw[thick, smooth] plot coordinates {
+      (0.3,0.2) (0.8,0.45) (1.3,0.85) (1.8,1.45)
+      (2.3,2.25) (2.8,2.85) (3.0,3.0) (3.2,2.85)
+      (3.7,2.25) (4.2,1.45) (4.7,0.85) (5.2,0.45) (5.7,0.2)
+    };
+    \draw[dashed] (3,0) -- (3,3.0);
+    \node[below] at (3,-0.5) {\small \(\mu\)};
+  \end{scope}
+
+  % Right plot: right-skewed curve
+  \begin{scope}[xshift=8.2cm]
+    \draw[thick] (0,0) -- (6,0);
+    \draw[thick] (0,0) -- (0,3.2);
+    \node[below] at (3,0) {\small \(x\)};
+    \node[left] at (0,1.8) {\small \(f(x)\)};
+    \node[above] at (3,3.0) {\small \textbf{„Schief“ (rechtsschief)}};
+
+    % skewed curve: sharp rise then long tail
+    \draw[thick, smooth] plot coordinates {
+      (0.2,0.0) (0.5,0.25) (0.8,0.85) (1.1,1.9)
+      (1.3,2.6) (1.5,2.9) (1.8,2.5) (2.2,1.9)
+      (2.8,1.25) (3.6,0.8) (4.5,0.5) (5.4,0.32) (5.8,0.25)
+    };
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.8em}
+\hrule
+\vspace{0.8em}
+
+\textbf{Beispiele (mit kurzer Begründung)}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
+\item \textbf{Körpergröße in einer Jahrgangsstufe (grobe Näherung):} 
+stetig, viele Einflüsse (Genetik, Ernährung, Zufall), oft recht symmetrisch \(\Rightarrow\) Normal \textit{plausibel}.
+\item \textbf{Messfehler bei einem Experiment:} \\
+„wahrer Wert + viele kleine Störungen“ \(\Rightarrow\) Normal \textit{sehr typisch}.
+\item \textbf{Anzahl richtiger Antworten in einem Multiple-Choice-Test:} \\
+\textbf{Zählgröße} \(\Rightarrow\) nicht normal (binomialartig). \\
+\textit{Aber:} bei großem \(n\) manchmal Normalapproximation.
+\item \textbf{Wartezeit bis der Bus kommt:} \\
+oft \textbf{rechtsschief} (klein geht, aber nach oben langer Schwanz) \(\Rightarrow\) Normal meist unpassend.
+\item \textbf{Einkommen:} \\
+stark rechtsschief, viele Ausreißer \(\Rightarrow\) Normal \textbf{unrealistisch}.
+\end{enumerate}
+\subsection{Sigma-Regeln}
 Eine normalverteilte Zufallsgröße \(X\) mit der Dichtefunktion \(\varphi_{\mu, \sigma}\) hat nach Definition \ref{NormZG} den Erwartungswert \(\mu\) und die Standardabweichung \(\sigma\). Nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{NormExtrem} hat \(\varphi_{\mu, \sigma}\) das Maximum bei \(\mu\) mit dem Funktionswert \(\varphi_{\mu, \sigma}(\mu) = \dfrac{1}{\sigma\sqrt{2\pi}}\). Der Wendepunkt liegt nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{WendeNorm} bei \(x= \mu \pm \sigma\). Die Wahrscheinlichkeit dafür, dass Werte in diesem, zu \(\mu \) symmetrischen, Intervall liegen ist 
-\[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (\mu + \sigma) - \Phi_{\mu, \sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\).
+\[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (\mu + \sigma) - \Phi_{\mu, \sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\). Der Nachweis dafür ergibt sich aus Überlegungen am Graphen der Dichtefunktion.\\
+Wird diese Überlegung verallgemeinert ergibt sich für das Integral \[\integral[limits-mode=limits,limits={\mu - k\cdot\sigma , \mu + k\cdot\sigma}]{\varphi_{\mu, \sigma}}\hspace{0.2cm} \text{mit} \hspace{0.2cm} k\in \mathds{R}^+\] nur eine Abhängigkeit vom Parameter \(k\). 
+\begin{merke}{Die Sigma Intervalle}{}
+\index{Zufallsgröße!Stetige!Sigma-Regeln}Durch die Analyse der normalverteilten Zufallsgrößen lassen sich die folgenden Intervalle bestimmen. 
+% 1) TABELLEN (oben)
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{7pt}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.52\linewidth}|>{\raggedright\arraybackslash}p{0.22\linewidth}|}
+\hline
+\rowcolor{headbg}\textbf{Intervall \(I\)} & \textbf{\(P(X\in I)\)}\\ \hline
+\([\mu-\sigma;\,\mu+\sigma]\)   & \(\approx 0{,}683\)\\ \hline
+\([\mu-2\sigma;\,\mu+2\sigma]\) & \(\approx 0{,}954\)\\ \hline
+\([\mu-3\sigma;\,\mu+3\sigma]\) & \(\approx 0{,}997\)\\ \hline
+\end{tabular}
+
+\vspace{10pt}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.52\linewidth}|>{\raggedright\arraybackslash}p{0.22\linewidth}|}
+\hline
+\rowcolor{headbg}\textbf{Intervall \(I\)} & \textbf{\(P(X\in I)\)}\\ \hline
+\([\mu-1{,}64\sigma;\,\mu+1{,}64\sigma]\) & \(\approx 0{,}900\)\\ \hline
+\([\mu-1{,}96\sigma;\,\mu+1{,}96\sigma]\) & \(\approx 0{,}950\)\\ \hline
+\([\mu-2{,}58\sigma;\,\mu+2{,}58\sigma]\) & \(\approx 0{,}990\)\\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{14pt}
+
+% ------------------------------------------------------------
+% 2) GRAFIK (unten)
+% ------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}[font=\small]
+  % Achsen
+  \draw[-{Latex[length=3mm]}, thick] (0,0) -- (11,0) node[below right] {\(x\)};
+  \draw[-{Latex[length=3mm]}, thick] (0,0) -- (0,4.5) node[left] {\(y\)};
+
+  % Parameter: μ=5, σ=1 (nur zur Skizze)
+  \def\mu{5}
+  \def\s{1.5}
+
+  % Fläche + Kurve
+  \fill[curvefill, opacity=0.55]
+    (0.6,0) --
+    plot[smooth, samples=160, domain=0.6:9.4]
+      (\x, {4.0*exp(-0.5*((\x-\mu)/\s)^2)}) --
+    (9.4,0) -- cycle;
+
+  \draw[thick]
+    plot[smooth, samples=160, domain=0.2:10.4]
+      (\x, {4.0*exp(-0.5*((\x-\mu)/\s)^2)});
+
+  % gestrichelte Linie bei μ
+  \draw[gray, dashed, thick] (\mu,0) -- (\mu,4.2);
+  \node[below] at (\mu,0) {\(\mu\)};
+
+  % Hilfslinien bei μ±kσ
+  \foreach \k/\col in {1/sig1,2/sig2,3/sig3}{
+    \draw[\col, dashed, thick] ({\mu-\k*\s},0) -- ({\mu-\k*\s},{4.0*exp(-0.5*(\k)^2)});
+    \draw[\col, dashed, thick] ({\mu+\k*\s},0) -- ({\mu+\k*\s},{4.0*exp(-0.5*(\k)^2)});
+  }
+
+  % obere Klammern: 1σ links/rechts
+  \draw[sig1, thick, decorate, decoration={brace, amplitude=5pt}]
+    ({\mu-\s},4.05) -- (\mu,4.05) node[midway, yshift=14pt] {\(1\sigma\)};
+  \draw[sig1, thick, decorate, decoration={brace, amplitude=5pt}]
+    (\mu,4.05) -- ({\mu+\s},4.05) node[midway, yshift=14pt] {\(1\sigma\)};
+
+  % 2σ und 3σ (eine Klammer über dem Bauch)
+  \draw[sig2, thick, decorate, decoration={brace, amplitude=5pt}]
+    ({\mu-2*\s},3.25) -- ({\mu+2*\s},3.25) node[midway, yshift=14pt] {\(2\sigma\)};
+  \draw[sig3, thick, decorate, decoration={brace, amplitude=5pt}]
+    ({\mu-3*\s},2.45) -- ({\mu+3*\s},2.45) node[midway, yshift=14pt] {\(3\sigma\)};
+
+  % Prozentangaben innen
+  \node[sig2] at ({\mu-1.5*\s},0.5) {\(13{,}55\%\)};
+  \node[sig1] at ({\mu-0.5*\s},0.75) {\(34{,}15\%\)};
+  \node[sig1] at ({\mu+0.5*\s},0.75) {\(34{,}15\%\)};
+  \node[sig2] at ({\mu+1.5*\s},0.5) {\(13{,}55\%\)};
+  \node[sig3] at ({\mu-2.65*\s},0.45) {\small \(2{,}15\%\)};
+  \node[sig3] at ({\mu+2.65*\s},0.45) {\(2{,}15\%\)};
+
+  % Klammern unten: 68.3 / 95.4 / 99.7
+  \draw[sig1, very thick, decorate, decoration={brace, amplitude=6pt, mirror}]
+    ({\mu-\s},-0.10) -- ({\mu+\s},-0.10) node[midway, yshift=-16pt] {\(68{,}3\%\)};
+  \draw[sig2, very thick, decorate, decoration={brace, amplitude=6pt, mirror}]
+    ({\mu-2*\s},-0.8) -- ({\mu+2*\s},-0.8) node[midway, yshift=-16pt] {\(95{,}4\%\)};
+  \draw[sig3, very thick, decorate, decoration={brace, amplitude=6pt, mirror}]
+    ({\mu-3*\s},-1.5) -- ({\mu+3*\s},-1.5) node[midway, yshift=-16pt] {\(99{,}7\%\)};
+
+  % Label rechts
+  \node[right] at (9.6,0.35) {\(G_{\mu;\sigma}\)};
+\end{tikzpicture}
+\end{center}
+\end{merke}
+\begin{b8d}{Weitere Wahrscheinlichkeiten}{}
+Aufgrund der Symmetrie der Glockenkurve zum Erwartungswert lassen sich mithilfe der Sigma-Regeln weitere Wahrscheinlichkeiten bestimmen.
+\begin{enumerate}
+    \item \(P(X\geq \mu + \sigma)\) ergibt sich aus den Überlegungen, dass \(P(X\geq \mu) \approx 0{,}5 \) und \\ \(P(\mu \leq X \leq \mu + \sigma) \approx \dfrac{1}{2}\cdot 0{,}683 = 0{,}3415\) wie folgt:
+    \[P(X\geq \mu + \sigma) \approx 0{,}5 - 0{,}3415 = 0{,}1585\]
+    \item \(P(\mu -2\sigma \leq X \leq \mu -\sigma) \approx \dfrac{1}{2} \cdot \left( 0{,}954 - 0{,}683 \right) = 0{,}1355  \)
+\end{enumerate}
+\end{b8d}
+\begin{rechnung}{Rechnungen mit den Sigma-Regeln}{}
+    Bestimmen Sie mithilfe der Sigma-Regeln zu einer \(N_{200;75}\)-verteilten Zufallsgröße \(X\) ein Intervall \(I\) so, dass für die Wahrscheinlichkeit \(P(X\in I)\) gilt:
+    \begin{multicols}{2}
+    \begin{description}
+        \item[a)] \(P(X\in I) \approx 0{,}954\)
+        \item[b)] \(P(X\in I)\approx 0{,}050\) 
+    \end{description}
+    \end{multicols}
+    Lösungen:
+    \begin{description}
+        \item[a)] Aus der Angabe entnimmt man die Werte \(\mu = 200\) und \(\sigma = 75\). Damit kann man festhalten \(P(\mu-2\sigma \leq X \leq \mu+2\sigma) = P(200 - 2\cdot 75 \leq X\leq 200 + 2\cdot 75)\approx 0{,}954\) damit ist \[I=\left[50;350\right]\] 
+        \item[b)] \(P(\mu-1{,}64\sigma \leq X\leq \mu+1{,}64\sigma) \approx 0{,}900\) damit folgt für \\ \(P(\mu-1{,}64\sigma \leq X \leq \mu) \approx \frac{1}{2} \cdot 0{,}900 = 0{,}450\) damit ist \(P(\mu-1{,}64\sigma \leq X) \approx 0{,}050\) also ist \[I_1=\left[-\infty; \mu-1{,}64\sigma\right] = \left[-\infty;200- 1{,}64 \cdot 75\right] = \left[-\infty; 77\right]\] bzw. \[I_2 = \left[\mu+1{,}64\sigma; \infty\right] = \left[200 + 1{,}64 \cdot 75; \infty\right] = \left[323; \infty\right]\]
+    
+    \end{description}
+\end{rechnung}

@@ -16,7 +16,7 @@
 \geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=20mm}
 
 \RequirePackage{graphicx}
-\RequirePackage{array,multirow}
+\RequirePackage{array,multirow, booktabs}
 \RequirePackage{multicol}
 \RequirePackage{vwcol}
 \RequirePackage{pdfpages}
@@ -75,9 +75,9 @@
 \RequirePackage{tikz}
 \RequirePackage{tikz-3dplot}
 \usetikzlibrary{calc,matrix,3d,quotes,angles,positioning,intersections}
-\usetikzlibrary{decorations.pathreplacing,arrows.meta,shadows.blur,backgrounds,fit}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta,shadows.blur,backgrounds,fit, shapes.geometric}
 \tikzset{>=stealth}
-
+\RequirePackage{enumitem}
 \RequirePackage{pgfplots}
 \pgfplotsset{compat=1.15, width=10cm}
 \usepgfplotslibrary{fillbetween}
@@ -260,3 +260,9 @@ colframe=gray!85!black,fonttitle=\bfseries,
 \RequirePackage{makeidx}
 \renewcommand{\indexname}{Sachregister}
 \makeindex
+% --- Farben (ungefähr wie im Screenshot) ---
+\definecolor{headbg}{RGB}{224,234,210}   % hellgrün für Tabellenkopf
+\definecolor{sig1}{RGB}{ 30,144,255}     % blau (1σ)
+\definecolor{sig2}{RGB}{ 46,139, 87}     % grün (2σ)
+\definecolor{sig3}{RGB}{160, 32,240}     % violett (3σ)
+\definecolor{curvefill}{RGB}{240,220,250}% zart lila Füllung
