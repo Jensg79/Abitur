@@ -895,7 +895,7 @@ Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinl
 \begin{defi}{Stetige Zufallsgrößen}{}
     Eine Zufallsgröße, die aus einem Intervall jede reelle Zahl als Wert annehmen kann, bezeichnet man als \textbf{\textcolor{red}{stetig}}. Ihr Wertemenge besteht somit aus einem Intervall.
 \end{defi}
-\begin{defi}{Dichtefunktion}{}\index{Zufallsgröße!Stetige!Dichtefunktion}
+\begin{defi}{Dichtefunktion}{}\index{Zufallsgröße!Stetige!Dichtefunktion}\label{EigenStetigeZG}
 
     Eine Funktion \(f\) heißt \textbf{Dichtefunktion} über \(\mathds{R}\), wenn gilt:
     \begin{enumerate}
@@ -1143,8 +1143,8 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
             \item \(G_{\varphi_{\mu, \sigma}}\) ist achsensymmetrisch zur Geraden mit der Gleichung \(x= \mu\)
             \item \(\lim\limits_{x \longrightarrow \pm \infty}\varphi_{\mu, \sigma} =0\)
             \item \(G_{\varphi_{\mu, \sigma}}\) wächst im Intervall \(\left] -\infty; \mu \right]\) und fällt im Intervall \(\left[ \mu; \infty \right[\) 
-            \item \(G_{\varphi_{\mu, \sigma}}\) hat als Extrempunkt nur den Hochpunkt \(H(\mu |\varphi_{\mu, \sigma}(\mu))\) mit \(\varphi_{\mu, \sigma}(\mu)) = \dfrac{1}{\sigma \sqrt{2\pi}}\)
-            \item \(G_{\varphi_{\mu, \sigma}}\) hat die Wendepunkte \(W_{1,2} (\mu \pm \sigma|\varphi_{\mu, \sigma}(\mu \pm \sigma)))\) mit \( \varphi_{\mu, \sigma}(\mu \pm \sigma)) = \dfrac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}}\)
+            \item \label{NormExtrem}\(G_{\varphi_{\mu, \sigma}}\) hat als Extrempunkt nur den Hochpunkt \(H(\mu |\varphi_{\mu, \sigma}(\mu))\) mit \(\varphi_{\mu, \sigma}(\mu)) = \dfrac{1}{\sigma \sqrt{2\pi}}\)
+            \item \label{WendeNorm}\(G_{\varphi_{\mu, \sigma}}\) hat die Wendepunkte \(W_{1,2} (\mu \pm \sigma|\varphi_{\mu, \sigma}(\mu \pm \sigma)))\) mit \( \varphi_{\mu, \sigma}(\mu \pm \sigma)) = \dfrac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}}\)
             \item \(\integral[limits-mode=limits,limits={-\infty, \infty}]{\varphi_{\mu, \sigma}(x)} =1\)
             \item Die Integralfunktion \(\Phi_{\mu, \sigma}\) von \(\varphi_{\mu, \sigma}(x)\) mit \(\Phi_{\mu, \sigma} = \integral[limits-mode=limits,limits={-\infty, x}, variable={t}]{\varphi_{\mu, \sigma}(t)}\) kann \textcolor{red}{\textbf{nicht}} mithilfe elementarer Funktionen angegeben werden. Der Graph \(\Phi_{\mu, \sigma}\) ist punktsymmetrisch zu \(P(\mu|0,5)\) und streng monoton wachsend.
         \end{enumerate}    
@@ -1429,3 +1429,84 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
    \end{itemize}
 
 \end{bsp}
+\section{Die Normalverteilung}
+\begin{defi}{Die Normalverteilung}{}\index{Zufallsgröße!Stetige!Normalverteilung}\label{NormZG}
+    Eine Zufallsgröße \(X\) heißt \textcolor{red}{\textbf{normalverteilt}} mit dem Parameter \(\textbf{\mu}\) (Erwartungswert) und \(\textbf{\sigma}\) (Standardabweichung), wenn ihre Dichtefunktion eine Gauß'sche Glockenfunktion \(\varphi_{\mu, \sigma}\) ist. \\
+    Die Wahrscheinlichkeit dafür, dass \(X\) Werte aus dem Intervall \([a;b]\) mit \(a<b\) und \(a,b \in \mathds{R}\) annimmt, ist \(P(a\leq X\leq b = \integral[limits-mode=limits,limits={a, b}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (b) - \Phi_{\mu, \sigma} (a)\).
+\end{defi}
+\begin{b8d}{Bezeichnungen}{}
+Ist die Zufallsgröße \(X\) normalverteilt so spricht man von  \(N_{\mu, \sigma}\)-verteilt. Für die Werte \(\mu =0\) und \(\sigma = 1\) spricht man von einer Standardnormalverteilung.
+\end{b8d}
+Da die Zufallsgröße \(X\) eine \(N_{\mu, \sigma}\)-verteilte ist und damit eine stetige Zufallsgröße, gelten die entsprechenden Eigenschaften aus \ref{EigenStetigeZG} und  \ref{EigenschaftGauss}.
+\begin{b8d}{Berechnung der Dichte der Normalverteilung (Normal PD)}{}\index{Normalverteilung!Taschenrechner!Dichte}
+\begin{center}
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Route zur Normal-PD-Funktion (Dichte)}\\[4pt]
+1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
+2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
+3) \taste{1} \;\(\rightarrow\)\; \textbf{Normal PD}\\
+4) \taste{2} \;\(\rightarrow\)\; \textbf{Variablen eingeben}\\[4pt]
+\textbf{Eingabereihenfolge:}\\
+Zuerst \(\;x\) (Stelle, an der die Dichte berechnet wird) \(\rightarrow\)
+dann \(\;\sigma\) (Standardabweichung, \(\sigma>0\)) \(\rightarrow\)
+dann \(\;\mu\) (Erwartungswert).\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Was rechnet Normal PD hier?} In diesem Modus liefert der Rechner die
+\textcolor{red}{\textbf{\emph{Wahrscheinlichkeitsdichte}}} der Normalverteilung an der Stelle \(x\):
+\[
+\boxed{\text{Normal PD}(x;\mu,\sigma)=\varphi_{\mu, \sigma}(x)}
+\]
+\textbf{Wichtig (typischer Denkfehler):} Das Ergebnis ist \textcolor{red}{\textbf{\emph{keine Wahrscheinlichkeit}}}.
+Wahrscheinlichkeiten bekommst du erst über \textbf{Normal CD} (Flächen unter der Kurve).
+\end{b8d}
+
+\begin{b8d}{Berechnung der kumulativen Normalverteilung (Normal CD)}{}\index{Normalverteilung!Taschenrechner!kumulativ}
+\begin{center}
+\begin{tabular}{p{0.94\linewidth}}
+\hline
+\textbf{Route zur Normal-CD-Funktion (kumulativ)}\\[4pt]
+1) \taste{MODE/SETUP} \;\(\rightarrow\)\; Auswahlmenü\\
+2) \taste{4} \;\(\rightarrow\)\; \textbf{DIST} (Verteilung)\\
+3) \taste{2} \;\(\rightarrow\)\; \textbf{Normal CD}\\
+4) \taste{2} \;\(\rightarrow\)\; \textbf{Variablen eingeben}\\[4pt]
+\textbf{Eingabereihenfolge:}\\
+Zuerst \(\;\text{Lower}\) (untere Grenze) \(\rightarrow\)
+dann \(\;\text{Upper}\) (obere Grenze) \(\rightarrow\)
+dann \(\;\sigma\) (Standardabweichung, \(\sigma>0\)) \(\rightarrow\)
+dann \(\;\mu\) (Erwartungswert).\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Was rechnet Normal CD hier?} Der Rechner liefert \textcolor{red}{\textbf{\emph{die Wahrscheinlichkeit}}}, dass
+eine normalverteilte Zufallsvariable \(X\sim \mathcal{N}(\mu,\sigma)\) im Intervall liegt:
+\[
+\boxed{\text{Normal CD}(\text{Lower},\text{Upper};\mu,\sigma)=P(\text{Lower}\le X\le \text{Upper}) = \Phi_{\mu, \sigma} (\text{Upper}) - \Phi_{\mu, \sigma} (\text{Lower})}
+\]
+
+\medskip
+\noindent
+\textbf{Standardfälle (die du ständig brauchst):}
+\begin{itemize}
+\item \(\;P(X\le x)\): Setze \(\text{Upper}=x\) und \(\text{Lower}\) ``sehr klein''.\\
+\hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Lower}=-1\text{E}99\) (oder ähnlich extrem negativ).
+\item \(\;P(X\ge x)\): Setze \(\text{Lower}=x\) und \(\text{Upper}\) ``sehr groß''.\\
+\hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Upper}=1\text{E}99\) (oder ähnlich extrem positiv).
+\item \(\;P(a\le X\le b)\): Setze \(\text{Lower}=a\), \(\text{Upper}=b\).
+
+\end{itemize}
+
+\noindent
+\textbf{Damit es funktioniert:} Achte auf \(\mu\) und \(\sigma\).
+Der häufigste Fehler ist, \(\sigma\) (Standardabweichung) mit \(\sigma^2\) (Varianz) zu verwechseln.
+Wenn deine Ergebnisse „komisch“ aussehen: genau da zuerst hinschauen.
+\end{b8d}
+\section{Sigma-Regeln}
+Eine normalverteilte Zufallsgröße \(X\) mit der Dichtefunktion \(\varphi_{\mu, \sigma}\) hat nach Definition \ref{NormZG} den Erwartungswert \(\mu\) und die Standardabweichung \(\sigma\). Nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{NormExtrem} hat \(\varphi_{\mu, \sigma}\) das Maximum bei \(\mu\) mit dem Funktionswert \(\varphi_{\mu, \sigma}(\mu) = \dfrac{1}{\sigma\sqrt{2\pi}}\). Der Wendepunkt liegt nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{WendeNorm} bei \(x= \mu \pm \sigma\). Die Wahrscheinlichkeit dafür, dass Werte in diesem, zu \(\mu \) symmetrischen, Intervall liegen ist 
+\[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (\mu + \sigma) - \Phi_{\mu, \sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\).
