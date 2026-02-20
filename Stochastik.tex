@@ -1432,12 +1432,19 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 \subsection{Die Normalverteilung}
 \begin{defi}{Die Normalverteilung}{}\index{Zufallsgröße!Stetige!Normalverteilung}\label{NormZG}
     Eine Zufallsgröße \(X\) heißt \textcolor{red}{\textbf{normalverteilt}} mit dem Parameter \(\textbf{\mu}\) (Erwartungswert) und \(\textbf{\sigma}\) (Standardabweichung), wenn ihre Dichtefunktion eine Gauß'sche Glockenfunktion \(\varphi_{\mu, \sigma}\) ist. \\
-    Die Wahrscheinlichkeit dafür, dass \(X\) Werte aus dem Intervall \([a;b]\) mit \(a<b\) und \(a,b \in \mathds{R}\) annimmt, ist \(P(a\leq X\leq b = \integral[limits-mode=limits,limits={a, b}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (b) - \Phi_{\mu, \sigma} (a)\).
+    Die Wahrscheinlichkeit dafür, dass \(X\) Werte aus dem Intervall \([a;b]\) mit \(a<b\) und \(a,b \in \mathds{R}\) annimmt, ist \(P(a\leq X\leq b) = \integral[limits-mode=limits,limits={a, b}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (b) - \Phi_{\mu, \sigma} (a)\).
 \end{defi}
 \begin{b8d}{Bezeichnungen}{}
 Ist die Zufallsgröße \(X\) normalverteilt so spricht man von  \(N_{\mu, \sigma}\)-verteilt. Für die Werte \(\mu =0\) und \(\sigma = 1\) spricht man von einer Standardnormalverteilung.
 \end{b8d}
 Da die Zufallsgröße \(X\) eine \(N_{\mu, \sigma}\)-verteilte ist und damit eine stetige Zufallsgröße, gelten die entsprechenden Eigenschaften aus \ref{EigenStetigeZG} und  \ref{EigenschaftGauss}.
+\begin{bem}{Wiederholung}{}
+    Da \(\varphi_{\mu, \sigma}\) eine Dichtefunktion der Zufallsgröße \(X\) ist gilt:
+    \begin{enumerate}
+        \item \(P(X=x)=0\) die Wahrscheinlichkeit eines einzelnen Wertes ist 0
+        \item \(P(a\leq X\leq b) = P(a\leq X<b) = P(a<X\leq b) = P(a<X<b)\)
+    \end{enumerate}
+\end{bem}
 \begin{b8d}{Berechnung der Dichte der Normalverteilung (Normal PD)}{}\index{Normalverteilung!Taschenrechner!Dichte}
 \begin{center}
 \begin{tabular}{p{0.94\linewidth}}
@@ -1495,9 +1502,9 @@ eine normalverteilte Zufallsvariable \(X\sim \mathcal{N}(\mu,\sigma)\) im Interv
 \textbf{Standardfälle (die du ständig brauchst):}
 \begin{itemize}
 \item \(\;P(X\le x)\): Setze \(\text{Upper}=x\) und \(\text{Lower}\) ``sehr klein''.\\
-\hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Lower}=-1\text{E}99\) (oder ähnlich extrem negativ).
+\hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Lower}=-1\cdot 10^{99}\) (oder ähnlich extrem negativ).
 \item \(\;P(X\ge x)\): Setze \(\text{Lower}=x\) und \(\text{Upper}\) ``sehr groß''.\\
-\hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Upper}=1\text{E}99\) (oder ähnlich extrem positiv).
+\hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Upper}=1\cdot 10^{99}\) (oder ähnlich extrem positiv).
 \item \(\;P(a\le X\le b)\): Setze \(\text{Lower}=a\), \(\text{Upper}=b\).
 
 \end{itemize}
@@ -1507,7 +1514,7 @@ eine normalverteilte Zufallsvariable \(X\sim \mathcal{N}(\mu,\sigma)\) im Interv
 Der häufigste Fehler ist, \(\sigma\) (Standardabweichung) mit \(\sigma^2\) (Varianz) zu verwechseln.
 Wenn deine Ergebnisse „komisch“ aussehen: genau da zuerst hinschauen.
 \end{b8d}
-\subsection{Erkennungsmerkmale eine Normalverteilung}
+\subsubsection{Erkennungsmerkmale eine Normalverteilung}
 %%%%%
 \textbf{Kernidee:} Normalverteilung passt oft bei \textbf{stetigen Messgrößen}, wenn \textbf{viele kleine, unabhängige Einflüsse} zusammenwirken und die Werte \textbf{ungefähr symmetrisch} um einen Mittelwert liegen.
 
@@ -1520,22 +1527,21 @@ Wenn deine Ergebnisse „komisch“ aussehen: genau da zuerst hinschauen.
 \item \textbf{Misst man stetig?} (Kommawerte möglich) \(\rightarrow\) Normal \textbf{kann} passen.
 \item \textbf{Symmetrisch + „viele kleine Ursachen“?} \(\rightarrow\) Normal ist \textbf{plausibel}. Bei starker Schiefe eher nicht.
 \end{itemize}
-
-\vspace{0.8em}
-\textbf{Entscheidungsbaum}\index{Zufallsgröße!Stetige!Entscheidungsbaum}\newline
+\subsubsection{Entscheidungsbaum}
+\index{Zufallsgröße!Stetige!Entscheidungsbaum}
 \begin{adjustbox}{max totalsize={\textwidth}{0.85\textheight}, left}
 \begin{tikzpicture}[
-  node distance=10mm and 3mm,
+  node distance=17mm and 17mm,
   box/.style={
     draw, rounded corners=3pt, align=center,
-    inner sep=4pt, text width=0.55\linewidth
+    inner sep=4pt, text width=0.75\linewidth
   },
   decision/.style={
     draw, diamond, aspect=2.0, align=center,
     inner sep=2pt, text width=0.32\linewidth
   },
   arrow/.style={-Latex, thick},
-  every node/.style={font=\small} % optional: nur leicht kleiner
+  every node/.style={font=\LARGE} % optional: nur leicht kleiner
 ]
 \node[box] (start) {\textbf{Start:} Man soll ein Modell \\ für eine Zufallsgröße \(X\) wählen.};
 
@@ -1552,7 +1558,7 @@ Typisch: Binomial.\\
 \node[box, below right=of continuous, xshift=-10mm] (notnormal2) {\textbf{Dann: \\ normal unpassend.}\\
 Diskrete Modelle prüfen.};
 
-\node[decision, below left=of continuous, xshift=10mm] (mechanism) {\textbf{Viele kleine\\ unabhängige Einflüsse?}\\
+\node[decision, below left=of continuous, xshift=10mm] (mechanism) {\textbf{Viele kleine unabhängige Einflüsse?}\\
 (Messfehler, Schwankungen, Summe vieler Mini-Effekte)};
 
 \node[decision, below=of mechanism] (shape) {\textbf{Ungefähr symmetrisch\\ um \(\mu\)?}\\
@@ -1647,6 +1653,7 @@ stark rechtsschief, viele Ausreißer \(\Rightarrow\) Normalverteilung \textbf{un
 Eine normalverteilte Zufallsgröße \(X\) mit der Dichtefunktion \(\varphi_{\mu, \sigma}\) hat nach Definition \ref{NormZG} den Erwartungswert \(\mu\) und die Standardabweichung \(\sigma\). Nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{NormExtrem} hat \(\varphi_{\mu, \sigma}\) das Maximum bei \(\mu\) mit dem Funktionswert \(\varphi_{\mu, \sigma}(\mu) = \dfrac{1}{\sigma\sqrt{2\pi}}\). Der Wendepunkt liegt nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{WendeNorm} bei \(x= \mu \pm \sigma\). Die Wahrscheinlichkeit dafür, dass Werte in diesem, zu \(\mu \) symmetrischen, Intervall liegen ist 
 \[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (\mu + \sigma) - \Phi_{\mu, \sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\). Der Nachweis dafür ergibt sich aus Überlegungen am Graphen der Dichtefunktion.\\
 Wird diese Überlegung verallgemeinert ergibt sich für das Integral \[\integral[limits-mode=limits,limits={\mu - k\cdot\sigma , \mu + k\cdot\sigma}]{\varphi_{\mu, \sigma}}\hspace{0.2cm} \text{mit} \hspace{0.2cm} k\in \mathds{R}^+\] nur eine Abhängigkeit vom Parameter \(k\). 
+
 \begin{merke}{Die Sigma Intervalle}{}
 \index{Zufallsgröße!Stetige!Sigma-Regeln}Durch die Analyse der normalverteilten Zufallsgrößen lassen sich die folgenden Intervalle bestimmen. 
 % 1) TABELLEN (oben)
