@@ -38,7 +38,7 @@ Das PDF gliedert sich im Wesentlichen in:
 
 ## Datei
 
-- `Abiturvorbereitung_Mathematik (1).pdf`
+- `Abiturvorbereitung_Mathematik.pdf`
 
 ---
 
