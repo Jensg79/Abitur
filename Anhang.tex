@@ -596,26 +596,18 @@ Aus diesen Rechnungen folgt damit, dass nur $x=\dfrac{\ln{(4)}}{\ln{(5)}}$ die G
 \section{Grenzwertbestimmung nach L´Hospital}
 \index{Grenzwerte!L´Hospital}
 Mit der Regel von L´Hospital lassen sich Grenzwerte von Funktionen, die sich als Quotient zweier gegen Null konvergierender oder bestimmt divergierender Funktionen schreiben lassen, mithilfe der ersten Ableitungen dieser Funktionen berechnen.\\
-Durch die Regel von L´Hospital ist es möglich, den Grenzwert von zwei Funktionen selbst dann noch zu bestimmen, wenn deren Grenzwert beim Erreichen der betreffenden Grenze einen unbestimmten Ausdruck der Form $\dfrac{0}{0}$ bzw. $\pm\dfrac{\infty}{\infty}$ liefert.\\
-\label{sec:L_Hospital} % Label fur den Verweis aus dem Inhaltsverzeichnis
-\includepdf[%
-pages=-,% einzubindende Seite aus dem PDF-Dokument
-scale=0.9,%
-noautoscale=false,%
-fitpaper=true,%
-addtotoc={%
-  1,% einzubindende Seite aus dem PDF-Dokument
-  subsection,% Abschnitt
-  2,% Tiefe im Inhaltsverzeichnis
-  L'Hospital,%
-  sec:Regel von L'Hospital% Label-Name
-},%
-pagecommand={}%
-]%
-{Bilder/L_Hospital}
+Durch die Regel von L´Hospital ist es möglich, den Grenzwert von zwei Funktionen selbst dann noch zu bestimmen, wenn deren Grenzwert beim Erreichen der betreffenden Grenze einen unbestimmten Ausdruck der Form $\dfrac{0}{0}$ bzw. $\pm\dfrac{\infty}{\infty}$ liefert.
+\label{sec:L_Hospital} % Label für den Verweis aus dem Inhaltsverzeichnis
+\begin{merke}{Erläuterung zur Regel von L'Hospital}{}
+Erreicht der Grenzwert einer Funktion \(f\) einen unbestimmten Ausdruck der Form \(\dfrac{0}{0}\), \(\dfrac{\infty}{\infty}\) oder \(0 \cdot \infty\) ist dieser Grenzwert in vielen Fällen trotzdem berechenbar.\\
+Die Regel von L'Hospital lautet in diesen Fällen: \\
+    Existiert der Grenzwert \[\lim\limits _{x\longrightarrow x_0} f(x) = \lim\limits _{x\longrightarrow x_0} \dfrac{z'(x)}{n'(x)}\] so ist dieser sogleich der Grenzwert des Terms \[f(x) = \dfrac{z(x)}{n(x)}\] wobei hier \(z'(x)\) und \(n'(x)\) jeweils die 1. Ableitungen der Funktionen \(z(x)\) und \(n(x)\) sind.
 
+\end{merke}
+\begin{achtung}
+Bei der Anwendung des Regel von L'Hospital besteht kein Zusammenhang mit der Quotientenregel der Ableitung.
+\end{achtung}
 \section{Handschriftliche Ausführungen}
-
 \label{sec:Polynome_10} % Label fur den Verweis aus dem Inhaltsverzeichnis
 \includepdf[%
 pages=-,% einzubindende Seite aus dem PDF-Dokument

@@ -61,6 +61,7 @@
   andothers = {u\adddot\addabbrvspace a\adddot}%
 }
 
+
 % --- Kopf-/Fußzeilen ---
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
@@ -68,6 +69,7 @@
 \lhead{Abiturvorbereitung}
 \rhead{Bayern}
 \cfoot{Seite \thepage\ von \pageref{LastPage}}
+\fancyfoot[R]{\hyperref[toc]{Inhaltsverzeichnis}}
 
 % --- Kapitelstil ---
 \RequirePackage[Sonny]{fncychap}
@@ -133,6 +135,15 @@
 \newtcbtheorem[number within=section]{satz}
   {\faFile*[regular]\ Satz}{enhanced jigsaw,breakable,colback=green!7,colframe=gray!85!black,
   fonttitle=\bfseries,title after break={\faFile*[regular]\ Satz (Fortsetzung)}}{theorem}
+
+\newtcolorbox{hinweisbox}[1][]{%
+  enhanced, breakable,
+  fonttitle=\bfseries,
+  colframe=orange!70!black, colback=orange!5,
+  title=\textbf{Hinweis},
+  fonttitle=\bfseries, rounded corners,
+  title after break={Hinweis (Fortsetzung)}
+  boxrule=0.6mm, drop shadow=gray!20, #1}
 
 \newtcbtheorem[no counter]{rechnung}
   {\faCheckSquare[regular]\ Rechnung}{enhanced jigsaw,breakable,colback=green!7,colframe=gray!85!black,
@@ -280,7 +291,7 @@ colframe=gray!85!black,fonttitle=\bfseries,
   \AddToShipoutPictureFG{%
     \AtPageCenter{%
       \begin{tikzpicture}[remember picture,overlay]
-        \node[rotate=45,scale=5.0,text opacity=0.22, color = red]{Gymnasium Gröbenzell};
+        \node[rotate=45,scale=5.0,text opacity=0.32, color = red]{Gymnasium Gröbenzell};
       \end{tikzpicture}%
     }%
   }%
@@ -289,3 +300,42 @@ colframe=gray!85!black,fonttitle=\bfseries,
 
 % Standard: an
 \WasserzeichenAn
+
+
+% --- Handschrift-Fonts wählen (LuaLaTeX!) ---
+% Wenn die Schrift nicht existiert, nimmt TeX eine Standardschrift.
+\newfontfamily\warnfont{Comic Sans MS}[
+  Scale=1.05
+]
+\newfontfamily\warntitlefont{Comic Sans MS}[
+  Scale=1.15
+]
+
+% --- Box-Style definieren ---
+\tcbset{
+  warnnote/.style={
+    enhanced,
+    colback=yellow!20,
+    colframe=yellow!40!black,
+    boxrule=0.4pt,
+    sharp corners,
+    left=6mm,right=6mm,top=4mm,bottom=4mm,
+    boxsep=1mm,
+    before skip=6pt, after skip=6pt,
+  }
+}
+
+% --- Umgebung: \begin{achtung} ... \end{achtung} ---
+\newtcolorbox{achtung}[1][]{%
+  warnnote,
+  #1,
+  overlay={
+    % "Achtung:" oben links, rot und größer
+    \node[anchor=north west, inner sep=0pt]
+      at ([xshift=2mm,yshift=-1mm]frame.north west)
+      {\warntitlefont\bfseries\color{red!80!black}\underline{\Large  Achtung:}};
+  },
+  % Platz schaffen für die Überschrift im Overlay
+  top=9mm,
+  fontupper=\warnfont\Large\color{black},
+}

@@ -56,7 +56,7 @@ $$\lim_{x\rightarrow 1,5} m_s(x) = 3$$
 \begin{merke*}{Die h-Methode zur Berechnung der Steigung }{}\index{Ableitung!h-Methode}
 Es wird eine Hilfsvariable h eingeführt, diese gibt die Abweichung der Koordinate $x$ von der Koordinate $x_0$ an. Damit gilt $x=x_0 + h$. Mit dieser Definition der Stelle $x$ ist es nun möglich den Grenzwert an einer beliebigen Stelle $x_0$ aufzustellen: $$m_t =\lim_{h\rightarrow 0} m_t(x_0 +h) =\lim_{h\rightarrow 0} \dfrac{f(x_0 + h) - f(x_0)}{h}.$$
 \end{merke*}
-\begin{defi}{Differentialquotiont oder Ableitung}{} \index{Ableitung!Definition}
+\begin{defi}{Differentialquotient oder Ableitung}{} \index{Ableitung!Definition}
     Der Grenzwert des Differenzenquotienten $\frac{\Delta y}{\Delta x}$ für $x\rightarrow x_0$ heißt Differentialquotient oder Ableitung der Funktion $f$ an der Stelle $x_0$ und wird mit $f'(x_0)$ bezeichnet. Es gilt der Zusammenhang:$$f'(x_0) = \lim_{x\rightarrow x_0} \dfrac{f(x) - f(x_0)}{x - x_0} = \lim_{h\rightarrow 0} \dfrac{f(x_0 +h) - f(x_0)}{h}$$
 \end{defi}
 \begin{bem*}{Ableitungen von Funktionen}{}
@@ -99,7 +99,7 @@ Gegeben ist der Graph $G_f$ einer Funktion $f$ und die beiden beliebigen Punkte 
 \end{axis}
 \end{tikzpicture}
 \end{center}
- Das bedeutet, dass sich die beiden Punkten der Sekante beliebig genau annähern, ihr Abstand geht damit gegen Null ($h\rightarrow 0$). Somit wird aus der Sekannte eine Tangente.
+ Das bedeutet, dass sich die beiden Punkten der Sekante beliebig genau annähern, ihr Abstand geht damit gegen Null ($h\rightarrow 0$). Somit wird aus der Sekante eine Tangente.
 \end{bsp}
 \index{Änderungsrate!lokale}
 \begin{bem*}{Tangentensteigung}{}
@@ -379,7 +379,7 @@ Funktionsweise des Newton-Verfahren:
 \begin{merke*}{Iterationsverfahren}\index{Iterationsverfahren}
   Für die Durchführung des Newton-Verfahrens werden bestimmte Rechenschritte beliebig oft wiederholt. Da sich dabei die Rechenschritte nur mit sich ändernden Zahlen wiederholen, handelt es sich um ein iteratives Verfahren.
 \end{merke*}
-Um das Newton-Verfahren zu verstehen, betrachtet man die allgemeine Herleitung. Ziel des Verfahren ist es, eine Nullstelle einer beliebigen Funktion $f$ zu finden. Setzt man einen Anfangswert $x_0$ in die Funktionsgleichung ein, erhält man im Allgemeinen einen von Null verschiedenen Funktionswert $f(x_0)$. Bildet man jetzt die Tangente durch den Punkt $A(x_0|f(x_0))$ am Graphen $G_f$ der Funktion $f$ und bestimmt davon die Nullstelle erhält man im Allgemeinen eine bessere Näherung für die Nullstelle des Graphen $G_f$\footnote{Ein Besipiel für das Bestimmen einer Tangentengleichung findet man im Beispiel \ref{Tangentengleichung}}. 
+Um das Newton-Verfahren zu verstehen, betrachtet man die allgemeine Herleitung. Ziel des Verfahren ist es, eine Nullstelle einer beliebigen Funktion $f$ zu finden. Setzt man einen Anfangswert $x_0$ in die Funktionsgleichung ein, erhält man im Allgemeinen einen von Null verschiedenen Funktionswert $f(x_0)$. Bildet man jetzt die Tangente durch den Punkt $A(x_0|f(x_0))$ am Graphen $G_f$ der Funktion $f$ und bestimmt davon die Nullstelle erhält man im Allgemeinen eine bessere Näherung für die Nullstelle des Graphen $G_f$\footnote{Ein Beispiel für das Bestimmen einer Tangentengleichung findet man im Beispiel \ref{Tangentengleichung}}. 
 \begin{bsp*}{Herleitung des Newton-Verfahren}\index{Newton-Verfahren!Herleitung}
     Gegeben ist eine beliebige Funktion $f$ und ein Startwert $x_0 \in \mathds{D}_f$ und $A(x_0|f(x_0))$ mit $f'(x_0)\neq 0$. Für die Tangente durch $x_0$ an $G_f$ gilt allgemein folgende Geradengleichung $y_T= m\cdot x + t$. Am Punkt $A(x_0|f(x_0))$ ergibt sich damit folgende Gleichung:$$y_T = f'(x_0) \cdot x + t.$$ Um die Nullstelle dieser bestimmten Tangente bestimmen zu können, ist es notwendig, dass man den y-Achsenabschnitt bestimmt. Hierfür werden die Werte $x_0$ und $f(x_0)$ in die Geradengleichung eingesetzt und nach $t$ aufgelöst. 
     \begin{equation*}
@@ -1140,7 +1140,7 @@ An dieser Stelle muss, wie bei der Bestimmung der Nullstellen, eine Falluntersch
        \end{split}
 \end{equation*}
 Damit hat $f'_a(x)$ genau eine Nullstelle wenn der Parameter $a$ den Wert  $a= a_1$ bzw. $a = a_2$ annimmt.
-\item Zwei Lösungen genau dann wenn der Parameter folgende Ungleichung erfüllt: $a_1<a<a_2$. Damit hat $f_a(x)$ genau zwei Nullsten.
+\item Zwei Lösungen genau dann wenn der Parameter folgende Ungleichung erfüllt: $a_1<a<a_2$. Damit hat $f_a(x)$ genau zwei Nullstellen.
 \item Keine Lösung genau dann wenn folgende Beziehungen erfüllt sind $a<a_1$ bzw. $a>a_2$. Das führt dazu, dass $f'_a(x)$ keine Nullstellen besitzt.
     \end{enumerate}
 Die Art der Extrema kann jetzt durch eine Vorzeichentabelle der ersten Ableitung oder das einsetzen der Werte $a_1$ bzw. $a_2$ in die zweite Ableitung herausgefunden werden. 
@@ -2583,7 +2583,7 @@ die \textcolor{red}{Integralfunktion von $f$ zur unteren Grenze $a$}.
 \begin{b8d}{Nullstellen der Integralfunktion}{}\index{Integral!Integralfunktion!Nullstellen}
 Aufgrund der Definition des bestimmten Integral ist $I_a(a) = \integral[limits-mode=limits,limits={a, a}, variable={t}]{f(t)} = 0$. Somit ist die untere Grenze $a$ stets eine Nullstelle von $I_a$. 
 \end{b8d}
-\begin{defi}{Hauptsatz der Diferential- und Integralrechnung}{}\index{Integral!Hauptsatz Differential- und Integralfunktion}
+\begin{defi}{Hauptsatz der Differential- und Integralrechnung}{}\index{Integral!Hauptsatz Differential- und Integralfunktion}
 \index{Ableitung!Hauptsatz Differential- und Integralfunktion}
     Die Funktion $f$ seim in Intervall $I=[r;s]$ stetig. Für die Integralfunktion $I_a : x \mapsto \integral[limits-mode=limits,
             limits={a, \textcolor{red}{x}},
