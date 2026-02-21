@@ -690,9 +690,9 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
   width=15.8cm,
   height=4.4cm,
   ybar,
-  bar width=5.5pt,
-  enlarge x limits={abs=0.8},
-  xmin=-0.5, xmax=43.5,          % <- bis 43 abgeschnitten (mit Rand)
+  bar width=9.5pt,
+  enlarge x limits=0,
+  xmin=0, xmax=43.5,          % <- bis 43 abgeschnitten (mit Rand)
   ymin=0, ymax=0.26,
   axis lines=left,
   axis line style={->, line width=0.9pt},
@@ -712,7 +712,7 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 
 % --- Rot: n=10 (links) ---
 \addplot+[
-  bar shift=-6pt,
+  bar shift=0pt,
   fill=red!80,
   draw=red!65!black,
   line width=0.4pt,
@@ -769,7 +769,7 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 };
 
 % Beschriftungen
-\node[anchor=west] at (rel axis cs:0.01,0.98) {$\mathrm{B}(n;\,0{,}55;\,k)$};
+\node[anchor=west] at (rel axis cs:0.4,1.05) {\textcolor{blue}{$\mathrm{B}(n;\,0{,}55;\,k)$}};
 
 \node[anchor=west, text=red!80!black, font=\bfseries] at (axis cs:6.6,0.215) {n = 10};
 \node[anchor=west, text=cyan!70!blue, font=\bfseries] at (axis cs:12.8,0.215) {n = 25};
@@ -787,7 +787,102 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 \end{center}
 Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschieben sich mit wachsenden \(p\) bei konstantem \(n\) nach rechts.
 \begin{center}
-     \includegraphics[width =1\textwidth]{Bilder/Histogramm1.png}
+\begin{tikzpicture}
+\begin{axis}[
+  width=15.8cm,
+  height=4.4cm,
+  ybar,
+  bar width=10.6pt,
+  enlarge x limits=0,
+  xmin=0, xmax=36.5,          % <- bis 36 abgeschnitten (mit Rand)
+  ymin=0, ymax=0.26,
+  axis lines=left,
+  axis line style={->, line width=0.9pt},
+  tick align=outside,
+  tick style={line width=0.7pt},
+  xtick={0,2,...,36},
+  ytick={0,0.05,...,0.25},
+  yticklabel style={
+    /pgf/number format/fixed,
+    /pgf/number format/precision=2,
+    /pgf/number format/use comma
+  },
+  grid=major,
+  grid style={gray!35, line width=0.6pt},
+  clip=false
+]
+
+% --- p = 0,2 (rot) links ---
+\addplot+[
+ bar shift = 1pt,
+  fill=red!80,
+  draw=red!65!black,
+  line width=0.4pt,
+  opacity=0.90
+] coordinates {
+(0,3.777893186295e-03) (1,2.361183241434e-02) (2,7.083549724302e-02)
+(3,1.353132491640e-01) (4,1.827829863714e-01) (5,1.960151025272e-01)
+(6,1.666128371482e-01) (7,1.144296494291e-01) (8,6.555951494659e-02)
+(9,3.182279512562e-02) (10,1.323281580224e-02) (11,4.771338282880e-03)
+(12,1.491043213400e-03) (13,4.065581400002e-04) (14,9.680908095241e-05)
+(15,2.016856036527e-05) (16,3.682515427899e-06) (17,5.892024684638e-07)
+(18,8.188923173108e-08) (19,9.941744420951e-09) (20,1.043383264199e-09)
+(21,9.441262506834e-11) (22,7.090946380126e-12) (23,4.205212669704e-13)
+(24,1.752171945710e-14) (25,3.502753248000e-16)
+};
+
+% --- p = 0,5 (blau) mitte ---
+\addplot+[
+  fill=cyan!70!blue,
+  draw=cyan!55!black,
+  line width=0.4pt,
+  opacity=0.85
+] coordinates {
+(0,2.980232238770e-08) (1,7.450580596924e-07) (2,8.940696716309e-06)
+(3,6.854534149170e-05) (4,3.770993232727e-04) (5,1.583814620972e-03)
+(6,5.279382169247e-03) (7,1.437395811081e-02) (8,3.233140945435e-02)
+(9,6.087416887283e-02) (10,9.739867001772e-02) (11,1.329527327418e-01)
+(12,1.549810171127e-01) (13,1.549810171127e-01) (14,1.329527327418e-01)
+(15,9.739867001772e-02) (16,6.087416887283e-02) (17,3.233140945435e-02)
+(18,1.437395811081e-02) (19,5.279382169247e-03) (20,1.583814620972e-03)
+(21,3.770993232727e-04) (22,6.854534149170e-05) (23,8.940696716309e-06)
+(24,7.450580596924e-07) (25,2.980232238770e-08)
+};
+
+% --- p = 0,8 (gelb) rechts --- nur bis k=36
+\addplot+[
+  fill=yellow!85!orange,
+  draw=yellow!55!black,
+  line width=0.4pt,
+  opacity=0.85
+] coordinates {
+(0,3.502753248000e-16) (1,1.752171945710e-14) (2,4.205212669704e-13)
+(3,7.090946380126e-12) (4,9.441262506834e-11) (5,1.043383264199e-09)
+(6,9.941744420951e-09) (7,8.188923173108e-08) (8,5.892024684638e-07)
+(9,3.682515427899e-06) (10,2.016856036527e-05) (11,9.680908095241e-05)
+(12,4.065581400002e-04) (13,1.491043213400e-03) (14,4.771338282880e-03)
+(15,1.323281580224e-02) (16,3.182279512562e-02) (17,6.555951494659e-02)
+(18,1.144296494291e-01) (19,1.666128371482e-01) (20,1.960151025272e-01)
+(21,1.827829863714e-01) (22,1.353132491640e-01) (23,7.083549724302e-02)
+(24,2.361183241434e-02) (25,3.777893186295e-03)
+};
+
+% ----- Beschriftungen -----
+\node[anchor=west] at (rel axis cs:0.4,1.5) {\textcolor{blue}{$\mathrm{B}(25;\,p;\,k)$}};
+
+\node[anchor=west, text=red!80!black, font=\bfseries]  at (axis cs:3.8,0.215) {p = 0,2};
+\node[anchor=west, text=cyan!70!blue, font=\bfseries] at (axis cs:11.3,0.215) {p = 0,5};
+\node[anchor=west, text=yellow!60!orange, font=\bfseries] at (axis cs:18.8,0.215) {p = 0,8};
+
+\node[anchor=west] at (axis cs:15.0,0.165) {n = 25};
+
+\node[anchor=west] at (axis cs:30.0,0.225) {n konstant};
+\node[anchor=west] at (axis cs:30.0,0.175) {p variabel};
+
+\node[anchor=west] at (rel axis cs:1.01,0.06) {$k$};
+
+\end{axis}
+\end{tikzpicture}
 \end{center}
 Wenn \(n\) konstant ist, dann nehmen die Maximalwerte der Wahrscheinlichkeitsfunktion bei \(p=0.5\) ihr Minimum an.
 \end{merke}
