@@ -604,9 +604,27 @@ Die Regel von L'Hospital lautet in diesen Fällen: \\
     Existiert der Grenzwert \[\lim\limits _{x\longrightarrow x_0} f(x) = \lim\limits _{x\longrightarrow x_0} \dfrac{z'(x)}{n'(x)}\] so ist dieser sogleich der Grenzwert des Terms \[f(x) = \dfrac{z(x)}{n(x)}\] wobei hier \(z'(x)\) und \(n'(x)\) jeweils die 1. Ableitungen der Funktionen \(z(x)\) und \(n(x)\) sind.
 
 \end{merke}
-\begin{achtung}
-Bei der Anwendung des Regel von L'Hospital besteht kein Zusammenhang mit der Quotientenregel der Ableitung.
-\end{achtung}
+% in der Präambel:
+\usetikzlibrary{calc}
+
+% im Dokument:
+\begin{tikzpicture}[remember picture, overlay]
+
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-6.5cm]current page.north east) {%
+  \begin{achtung}[width=6cm,height=3.5cm]
+Bei der Anwendung der Regel von L'Hospital besteht kein Zusammenhang mit der Quotientenregel der Ableitung.
+  \end{achtung}
+};
+
+
+\end{tikzpicture}
 \section{Handschriftliche Ausführungen}
 \label{sec:Polynome_10} % Label fur den Verweis aus dem Inhaltsverzeichnis
 \includepdf[%

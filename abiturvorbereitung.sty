@@ -330,12 +330,104 @@ colframe=gray!85!black,fonttitle=\bfseries,
   warnnote,
   #1,
   overlay={
-    % "Achtung:" oben links, rot und größer
+    % "Achtung:" oben links
     \node[anchor=north west, inner sep=0pt]
       at ([xshift=2mm,yshift=-1mm]frame.north west)
-      {\warntitlefont\bfseries\color{red!80!black}\underline{\Large  Achtung:}};
+      {\warntitlefont\bfseries\color{red!80!black}\underline{\normalsize Achtung:}};
+
+    % =========================================================
+    % Klebestreifen (deine Positionen beibehalten, Optik verbessert)
+    % =========================================================
+
+    % oben links (deine Position: xshift=7mm, yshift auskommentiert)
+    \begin{scope}[shift={([xshift=3mm, yshift=-1mm]frame.north west)}, rotate=40]
+      % Hauptfläche
+      \filldraw[
+        rounded corners=0.6pt,
+        fill=red!38!white,
+        draw=brown!20!black,
+        line width=0.15pt,
+        fill opacity=0.55
+      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+
+      % Glanzkante
+      \fill[
+        rounded corners=0.4pt,
+        fill=white,
+        fill opacity=0.20
+      ] (-7.2mm,0.2mm) rectangle (7.2mm,1.5mm);
+
+      % feine Struktur (sehr dezent)
+      \draw[white, opacity=0.08, line width=0.5pt]
+        (-6.5mm,-1.1mm)--(6.8mm,-0.8mm)
+        (-5.8mm,0.0mm)--(6.0mm,0.2mm)
+        (-6.2mm,1.0mm)--(5.5mm,1.2mm);
+    \end{scope}
+
+    % oben rechts (deine Position: xshift=2mm, yshift=3mm)
+    \begin{scope}[shift={([xshift=-2mm,yshift=-3mm]frame.north east)}, rotate=-70]
+      \filldraw[
+        rounded corners=0.6pt,
+        fill=red!38!white,
+        draw=brown!20!black,
+        line width=0.15pt,
+        fill opacity=0.55
+      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+
+      \fill[
+        rounded corners=0.4pt,
+        fill=white,
+        fill opacity=0.20
+      ] (-7.2mm,0.2mm) rectangle (7.2mm,1.5mm);
+
+      \draw[white, opacity=0.08, line width=0.1pt]
+        (-6.4mm,-1.0mm)--(6.6mm,-0.8mm)
+        (-6.0mm,0.0mm)--(6.2mm,0.2mm)
+        (-5.6mm,1.1mm)--(5.8mm,1.2mm);
+    \end{scope}
+
+    % unten links (deine Position: xshift=7mm, yshift=3mm)
+    \begin{scope}[shift={([xshift=1mm,yshift=3mm]frame.south west)}, rotate=-75]
+      \filldraw[
+        rounded corners=0.6pt,
+        fill=red!38!white,
+        draw=brown!20!black,
+        line width=0.15pt,
+        fill opacity=0.55
+      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+
+      \fill[
+        rounded corners=0.4pt,
+        fill=white,
+        fill opacity=0.16
+      ] (-7.2mm,0.1mm) rectangle (7.2mm,1.3mm);
+
+      \draw[red, opacity=0.07, line width=0.1pt]
+        (-6.2mm,-1.0mm)--(6.5mm,-0.7mm)
+        (-5.7mm,0.0mm)--(6.1mm,0.2mm);
+    \end{scope}
+
+    % unten rechts (deine Position: xshift=3mm, yshift=1mm)
+    \begin{scope}[shift={([xshift=-1mm,yshift=3mm]frame.south east)}, rotate=75]
+      \filldraw[
+        rounded corners=0.6pt,
+        fill=red!38!white,
+        draw=brown!20!black,
+        line width=0.15pt,
+        fill opacity=0.55
+      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+
+      \fill[
+        rounded corners=0.4pt,
+        fill=white,
+        fill opacity=0.16
+      ] (-7.2mm,0.1mm) rectangle (7.2mm,1.3mm);
+
+      \draw[white, opacity=0.07, line width=0.1pt]
+        (-6.1mm,-1.0mm)--(6.6mm,-0.8mm)
+        (-5.8mm,0.1mm)--(5.9mm,0.2mm);
+    \end{scope}
   },
-  % Platz schaffen für die Überschrift im Overlay
   top=9mm,
-  fontupper=\warnfont\Large\color{black},
+  fontupper=\warnfont\small\color{black},
 }

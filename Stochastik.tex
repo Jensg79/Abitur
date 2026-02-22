@@ -129,7 +129,7 @@ Die Wahrscheinlichkeit für das Ereignis $A\cap B$ entspricht demjenigen Ereigni
 \section{Zufallsgrößen und deren Wahrscheinlichkeiten}
 \begin{defi}{Zufallsgrößen und Wahrscheinlichkeitsverteilung}{}\index{Zufallsgröße!Definition}
 Eine Funktion $X$, die jedem Ergebnis $\omega$ eines Ergebnisraumes $\Omega$ eine reelle Zahl $x$ zuordnet, heißt \textcolor{red}{Zufallsgröße\footnote{Zufallsgröße $\longrightarrow$ ZG}} X.\\
-Jeder Wert $x$ einer ZG $X$ tritt mit einer bestimmten Wahrscheinlichkeit $P(X=x)$ auf. Die Funktion, die jedem Wert $x$ einer ZG $X$ die Wahrscheinlichkeit $P(X=x)$ zuordnet, heißt \textcolor{red}{Wahrscheinlichkeitsverteilung} der ZG $X$.\\
+Jeder Wert $x$ einer Zufallsgröße $X$ tritt mit einer bestimmten Wahrscheinlichkeit $P(X=x)$ auf. Die Funktion, die jedem Wert $x$ einer ZG $X$ die Wahrscheinlichkeit $P(X=x)$ zuordnet, heißt \textcolor{red}{Wahrscheinlichkeitsverteilung} der Zufallsgröße $X$.\\
 
 Als Beispiel ist hier $P(X=4) = 0,2$ dargestellt.\\
 \begin{center}
@@ -194,24 +194,24 @@ Für eine kumulative Verteilungsfunktion \(F\) gilt:
 \end{b8d}
 \section{Erwartungswert und Varianz}
 \begin{defi}{Der Erwartungswert}{}\index{Zufallsgröße!Erwartungswert}
-Eine ZG nimmt die Werte $x_1, x_2,\ldots , x_n$ mit den Wahrscheinlichkeiten $P(X=x_1), P(X=x_2), \ldots, P(X=x_n)$ an.\\  Dann heißt der zu erwartende Mittelwert \[\mu =E(X) = \sum\limits_{i=1}^n x_i\cdot P(X=x_i)= x_1\cdot P(X=x_1) + x_2\cdot P(X=x_2) +\ldots + x_n \cdot P(X=x_n)\]
+Eine Zufallsgröße nimmt die Werte $x_1, x_2,\ldots , x_n$ mit den Wahrscheinlichkeiten $P(X=x_1), P(X=x_2), \ldots, P(X=x_n)$ an.\\  Dann heißt der zu erwartende Mittelwert \[\mu =E(X) = \sum\limits_{i=1}^n x_i\cdot P(X=x_i)= x_1\cdot P(X=x_1) + x_2\cdot P(X=x_2) +\ldots + x_n \cdot P(X=x_n)\]
     \textcolor{red}{Erwartungswert} von $X$. 
     \end{defi}
     \begin{bem}{Eigenschaften des Erwartungswertes}{}
         \begin{itemize}
-            \item Der Erwartungswert $\mu$ ist häufig \textcolor{red}{kein} Wert, den die ZG annimmt.
+            \item Der Erwartungswert $\mu$ ist häufig \textcolor{red}{kein} Wert, den die Zufallsgröße annimmt.
             \item Ein Spiel heißt \textcolor{red}{\textbf{fair}}, wenn der Erwartungswert des Gewinns eines Glückspiels für jeden Spieler \(0\) ist.
         \end{itemize}
     \end{bem}
     \begin{defi}{Die Varianz}{}\index{Zufallsgröße!Varianz}
-  Eine ZG mit $E(X) = \mu$ nehme die Werte $x_1, x_2,\ldots , x_n$ mit den Wahrscheinlichkeiten $P(X=x_1), P(X=x_2), \ldots, P(X=x_n)$ an. \\ 
+  Eine Zufallsgröße mit $E(X) = \mu$ nehme die Werte $x_1, x_2,\ldots , x_n$ mit den Wahrscheinlichkeiten $P(X=x_1), P(X=x_2), \ldots, P(X=x_n)$ an. \\ 
   Dann heißt die mittlere quadratische Abweichung von $\mu$ \textcolor{red}{Varianz} von $X$: \[Var(X) = \sum\limits_{i=1}^n \left(x_i - \mu\right)^2 \cdot P(X = x_i)= \left(x_1 - \mu\right)^2 \cdot P(X = x_1) + \ldots + \left(x_n - \mu\right)^2 \cdot P(X = x_n)\]
     \end{defi}
     \begin{bem}{Eigenschaften der Varianz}{}\index{Zufallsgröße!Varianz!Eigenschaften}
-       Die Werte einer ZG sind häufig Maßzahlen einer Größe. Folglich ist die Varianz von \(X\) die Maßzahl einer Größe, die im Quadrat gemessen wird. Da dies in der Praxis nicht sehr anschaulich ist, wird mit der Standardabweichung ein neues Maß eingeführt.  
+       Die Werte einer Zufallsgröße sind häufig Maßzahlen einer Größe. Folglich ist die Varianz von \(X\) die Maßzahl einer Größe, die im Quadrat gemessen wird. Da dies in der Praxis nicht sehr anschaulich ist, wird mit der Standardabweichung ein neues Maß eingeführt.  
     \end{bem}
     \begin{defi}{Die Standardabweichung}{}\index{Zufallsgröße!Standardabweichung}
-Die Standardabweichung $\sigma$ einer ZG $X$ bestimmt sich durch $\sigma = \sqrt{Var(X)}$
+Die Standardabweichung $\sigma$ einer Zufallsgröße $X$ bestimmt sich durch $\sigma = \sqrt{Var(X)}$
     \end{defi}
     \section{Kombinatorik}\index{Kombinatorik}
 \begin{enumerate}
@@ -249,7 +249,7 @@ Viele Zufallssituationen lassen sich als Urnenmodell beschreiben: Es gibt zwei A
 In einer Urne liegen S „Erfolgskugeln“ (z.,B. schwarz) und N-S „Nichterfolgskugeln“ (z.,B. weiß). Es werden n Kugeln ohne Zurücklegen gezogen.
 Für \(k\in\{0,1,\dots,n\}\) heißt
 \[P(X=k)=\frac{\binom{S}{k}\binom{N-S}{n-k}}{\binom{N}{n}}\]
-die \emph{hypergeometrische Wahrscheinlichkeit}, wobei die ZG \(X\) die Anzahl der gezogenen Erfolgskugeln ist.
+die \emph{hypergeometrische Wahrscheinlichkeit}, wobei die Zufallsgröße \(X\) die Anzahl der gezogenen Erfolgskugeln ist.
 \end{defi}
 \begin{bsp}{Sechs schwarze, vier weiße Kugeln; fünf auf einmal ziehen}{}
 In einer Urne liegen 6 schwarze und 4 weiße Kugeln, insgesamt also \(N=10\). Es werden \(n=5\) Kugeln ohne Zurücklegen gezogen. Gesucht ist die Wahrscheinlichkeit dafür, dass \emph{genau drei} schwarze Kugeln darunter sind \((k=3)\).
@@ -463,7 +463,7 @@ $\omega$ & $P(\omega)$ & $X=x$\\
    
 \end{center}
  \begin{bsp}{}{}
-Durch das obige Baumdiagramm ist folgendes Bernoulli-Experiment simuliert. \\ In einer Urne befinden sich \(19\) weiße und eine schwarze Kugel. Aus dieser Urne werden drei Kugeln \textbf{mit zurücklegen} gezogen und  \(1\) für eine weiße Kugel bzw. \(0\) für eine schwarze notiert. Das Zufallsexperiment kann damit durch eine Bernoulli-Kette der Länge \(3\) mit dem Parameter \(p=\dfrac{19}{20} = 0,95\) beschrieben werden. Die ZG \(X\) gibt die Anzahl der weißen Kugeln an. \\[0.2cm]
+Durch das obige Baumdiagramm ist folgendes Bernoulli-Experiment simuliert. \\ In einer Urne befinden sich \(19\) weiße und eine schwarze Kugel. Aus dieser Urne werden drei Kugeln \textbf{mit zurücklegen} gezogen und  \(1\) für eine weiße Kugel bzw. \(0\) für eine schwarze notiert. Das Zufallsexperiment kann damit durch eine Bernoulli-Kette der Länge \(3\) mit dem Parameter \(p=\dfrac{19}{20} = 0,95\) beschrieben werden. Die Zufallsgröße \(X\) gibt die Anzahl der weißen Kugeln an. \\[0.2cm]
 Aus der obigen Tabelle ist zu sehen, dass es 3  unterschiedliche Pfade für \(2\) Treffer, also \(X=2\),  gibt. Daraus ist leicht zu berechnen, dass \(P(X=2) = 3\cdot 0,95^2\cdot 0,05\) gilt.\\[0.2cm] Verallgemeinert kann man sehen, dass für die Anzahl der Pfade \(\binom{3}{k}\) gilt und sich die passende Wahrscheinlichkeit mit\\[0.2cm]  \(P(X=k) =\binom{3}{k} \cdot 0,95^k \cdot 0,05^{3-k} \)
 \end{bsp}
 \begin{satz}{Wahrscheinlichkeit in einer Bernoulli-Kette}{}\index{Zufallsgröße!Binomialverteilung!Wahrscheinlichkeit}
@@ -481,16 +481,16 @@ Aus der obigen Tabelle ist zu sehen, dass es 3  unterschiedliche Pfade für \(2\
 \end{defi}
 \subsection{Die kumulative Binomialverteilung}
 \index{Binomialverteilung!Kumulative}\index{Zufallsgröße!Binomialverteilung!Kumulative}
-Durch die Anwendung zur Berechnung der Wahrscheinlichkeiten innerhalb der Bernoulli-Kette ist es möglich, auch ohne ein Baumdiagramm die Wahrscheinlichkeit einzelner Äste zu berechnen. In vielen Aufgaben muss man allerdings sehr viele einzelne Wahrscheinlichkeiten berechnen und addiere. In diesen Fällen kann man die kumulative Binomialverteilung \(F(n;p;k)\) einer ZG \(X\) nutzen.
+Durch die Anwendung zur Berechnung der Wahrscheinlichkeiten innerhalb der Bernoulli-Kette ist es möglich, auch ohne ein Baumdiagramm die Wahrscheinlichkeit einzelner Äste zu berechnen. In vielen Aufgaben muss man allerdings sehr viele einzelne Wahrscheinlichkeiten berechnen und addiere. In diesen Fällen kann man die kumulative Binomialverteilung \(F(n;p;k)\) einer Zufallsgröße \(X\) nutzen.
 \begin{satz}{Die kumulative Binomialverteilung}{}
-Die kumulative Verteilung \(F(n;p;k)\) einer binomialverteilten ZG \(X\) ist damit\[F(n;p;k) = F^n_p(k) = P^n_p(X\leq k) = \sum\limits_{i=0}^k \binom{n}{i} \cdot p^{i}\cdot (1-p)^{n-i}\]
+Die kumulative Verteilung \(F(n;p;k)\) einer binomialverteilten Zufallsgröße \(X\) ist damit\[F(n;p;k) = F^n_p(k) = P^n_p(X\leq k) = \sum\limits_{i=0}^k \binom{n}{i} \cdot p^{i}\cdot (1-p)^{n-i}\]
 \end{satz}
 
 \subsection{Anwendung der kumulativen Verteilung}
 
 Häufig interessiert die Wahrscheinlichkeit, dass in einer Bernoulli-Kette mindestens ein Treffer auftritt. Das ist die Summe der Wahrscheinlichkeiten für einen Treffer, zwei Treffer, drei Treffer, \(\ldots\),  n Treffer. Diese Wahrscheinlichkeit lässt sich viel einfacher durch das \textit{Gegenereignis} \textbf{kein Treffer} berechnen.
 \begin{satz}{Mindestens 1 Treffer}{}\index{Binomialverteilung!Mindestens ein Treffer}
-    Die Wahrscheinlichkeit mindestens ein Treffer bei einer binomialverteilten ZG \(B(n,p)\) lässt sich mit der Gegenwahrscheinlichkeit kein Treffer sehr leicht berechnen. \[P_p^n(X\geq 1) = 1- P_p^n(X=0) = 1-q^n = 1- \left(1-p\right)^n\]
+    Die Wahrscheinlichkeit mindestens ein Treffer bei einer binomialverteilten Zufallsgröße \(B(n,p)\) lässt sich mit der Gegenwahrscheinlichkeit kein Treffer sehr leicht berechnen. \[P_p^n(X\geq 1) = 1- P_p^n(X=0) = 1-q^n = 1- \left(1-p\right)^n\]
 \end{satz}
 Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man entweder die Trefferwahrscheinlichkeit \(p\) oder die Kettenlänge \(n\) bestimmen muss. Da in der Fragestellung dreimal das Wort mindestens auftritt, nennt man solche Aufgaben 3-m-Aufgaben. 
 \begin{bem}{3-m-Aufgaben}{}\index{Binomialverteilung!3-m-Aufgaben}
@@ -676,12 +676,12 @@ also: „höchstens \(x\) Treffer“ (für jedes \(x\) aus der Liste).
 Werden aus einer großen Gesamtheit nur wenige Elemente ausgewählt, darf man die interessierenden Wahrscheinlichkeiten näherungsweise mit der Bernoulli'schen Formel berechnen.
     \end{b8d}
     \begin{merke}{Werte der Binomialverteilung}{}
-   Ist eine ZG \(X\) nach \(B(n,p)\) verteilt, so ist die Trefferanzahl \(k\) mit der größten Wahrscheinlichkeit entweder \begin{itemize}
+   Ist eine Zufallsgröße \(X\) nach \(B(n,p)\) verteilt, so ist die Trefferanzahl \(k\) mit der größten Wahrscheinlichkeit entweder \begin{itemize}
        \item \(k=E(X)\) wenn \(\mu = E(X)\) ganzzahlig ist
        \item bei der von \(\mu = E(X)\) aus gesehenen nächstkleineren oder nächstgrößeren Trefferanzahl, wenn \(E(X)\) nicht ganzzahlig ist.
    \end{itemize}
     \end{merke}
-    Im folgenden sollen einige Eigenschaften von Histogrammen betrachtet werden.
+    Im folgenden sollen einige Eigenschaften von Histogrammen \index{Zufallsgröße!Binomialverteilung!Histogramme}betrachtet werden.
 \begin{merke}{Eigenschaften spezieller Histogramme}{}
 Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit wachsenden \(n\) bei konstanten \(p\) flacher. Die Maximalwerte der Wahrscheinlichkeitsfunktionen nehmen dabei ab.
 \begin{center}
