@@ -4,6 +4,19 @@
 % --- Sprache/Fonts (LuaLaTeX) ---
 \RequirePackage[ngerman]{babel}
 \RequirePackage{fontspec}
+\newfontfamily\warnfont[
+  Path = Schriften/,
+  UprightFont = {Caveat-Regular.ttf},
+  BoldFont    = {Caveat-Bold.ttf},
+  Scale = 1.05
+]{Caveat}
+
+\newfontfamily\warntitlefont[
+  Path = Schriften/,
+  UprightFont = {Caveat-VariableFont_wght.ttf},
+  BoldFont    = {Caveat-Bold.ttf},
+  Scale = 1.05
+]{Caveat}
 \RequirePackage{marvosym}
 
 % --- Mathe & Layout ---
@@ -304,12 +317,6 @@ colframe=gray!85!black,fonttitle=\bfseries,
 
 % --- Handschrift-Fonts wählen (LuaLaTeX!) ---
 % Wenn die Schrift nicht existiert, nimmt TeX eine Standardschrift.
-\newfontfamily\warnfont{Comic Sans MS}[
-  Scale=1.05
-]
-\newfontfamily\warntitlefont{Comic Sans MS}[
-  Scale=1.15
-]
 
 % --- Box-Style definieren ---
 \tcbset{
