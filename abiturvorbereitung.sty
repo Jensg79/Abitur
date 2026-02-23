@@ -325,14 +325,14 @@ colframe=gray!85!black,fonttitle=\bfseries,
     colback=yellow!20,
     colframe=yellow!40!black,
     boxrule=0.4pt,
-    sharp corners,
-    left=6mm,right=6mm,top=4mm,bottom=4mm,
+    %sharp corners, 
+    left=3mm,right=6mm,top=2mm,bottom=4mm,
     boxsep=1mm,
-    before skip=6pt, after skip=6pt,
+    %before skip=6pt, after skip=6pt,
   }
 }
 
-% --- Umgebung: \begin{achtung} ... \end{achtung} ---
+% --- Umgebung: \begin{achtung} ... \end{achtung} 
 \newtcolorbox{achtung}[1][]{%
   warnnote,
   #1,
@@ -340,46 +340,75 @@ colframe=gray!85!black,fonttitle=\bfseries,
     % "Achtung:" oben links
     \node[anchor=north west, inner sep=0pt]
       at ([xshift=2mm,yshift=-1mm]frame.north west)
-      {\warntitlefont\bfseries\color{red!80!black}\underline{\normalsize Achtung:}};
+    {\warntitlefont\bfseries\color{red!80!black}\underline{\normalsize Achtung:}};
 
     % =========================================================
     % Klebestreifen (deine Positionen beibehalten, Optik verbessert)
     % =========================================================
 
     % oben links (deine Position: xshift=7mm, yshift auskommentiert)
-    \begin{scope}[shift={([xshift=3mm, yshift=-1mm]frame.north west)}, rotate=40]
-      % Hauptfläche
-      \filldraw[
-        rounded corners=0.6pt,
-        fill=red!38!white,
-        draw=brown!20!black,
-        line width=0.15pt,
-        fill opacity=0.55
-      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+ \begin{scope}[shift={([xshift=3mm, yshift=-1mm]frame.north west)}, rotate=40]
 
-      % Glanzkante
-      \fill[
-        rounded corners=0.4pt,
-        fill=white,
-        fill opacity=0.20
-      ] (-7.2mm,0.2mm) rectangle (7.2mm,1.5mm);
+  \filldraw[
+    fill=red!38!white,
+    draw=brown!20!black,
+    line width=0.15pt,
+    fill opacity=0.55
+  ]
+  % unten gerade-ish
+  (-8mm,-2.3mm) -- (8mm,-2.3mm)
+  % rechte Kante gezackt
+  -- (7.6mm,-1.6mm)
+  -- (8.2mm,-0.9mm)
+  -- (7.5mm,-0.2mm)
+  -- (8.1mm,0.6mm)
+  -- (7.6mm,1.5mm)
+  -- (8mm,2.3mm)
+  % oben gerade-ish
+  -- (-8mm,2.3mm)
+  % linke Kante gezackt
+  -- (-7.5mm,1.4mm)
+  -- (-8.2mm,0.7mm)
+  -- (-7.6mm,0.0mm)
+  -- (-8.1mm,-0.8mm)
+  -- (-7.4mm,-1.6mm)
+  -- cycle;
 
-      % feine Struktur (sehr dezent)
-      \draw[white, opacity=0.08, line width=0.5pt]
-        (-6.5mm,-1.1mm)--(6.8mm,-0.8mm)
-        (-5.8mm,0.0mm)--(6.0mm,0.2mm)
-        (-6.2mm,1.0mm)--(5.5mm,1.2mm);
-    \end{scope}
+  \fill[fill=white, fill opacity=0.20]
+    (-7.2mm,0.2mm) rectangle (7.2mm,1.5mm);
 
+  \draw[white, opacity=0.08, line width=0.5pt]
+    (-6.5mm,-1.1mm)--(6.8mm,-0.8mm)
+    (-5.8mm,0.0mm)--(6.0mm,0.2mm)
+    (-6.2mm,1.0mm)--(5.5mm,1.2mm);
+
+\end{scope}
     % oben rechts (deine Position: xshift=2mm, yshift=3mm)
     \begin{scope}[shift={([xshift=-2mm,yshift=-3mm]frame.north east)}, rotate=-70]
-      \filldraw[
-        rounded corners=0.6pt,
-        fill=red!38!white,
-        draw=brown!20!black,
-        line width=0.15pt,
-        fill opacity=0.55
-      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+  \filldraw[
+    fill=red!38!white,
+    draw=brown!20!black,
+    line width=0.15pt,
+    fill opacity=0.55
+  ]
+  % unten gerade-ish
+  (-8mm,-2.3mm) -- (8mm,-2.3mm)
+  % rechte Kante gezackt
+  -- (7.6mm,-1.6mm)
+  -- (8.2mm,-0.9mm)
+  -- (7.5mm,-0.2mm)
+  -- (8.1mm,0.6mm)
+  -- (7.6mm,1.5mm)
+  -- (8mm,2.3mm)
+  % oben gerade-ish
+  -- (-8mm,2.3mm)
+  % linke Kante gezackt
+  -- (-7.5mm,1.4mm)
+  -- (-8.2mm,0.7mm)
+  -- (-7.6mm,0.0mm)
+  -- (-8.1mm,-0.8mm)
+  -- (-7.4mm,-1.6mm)
+  -- cycle;
 
       \fill[
         rounded corners=0.4pt,
@@ -395,13 +424,30 @@ colframe=gray!85!black,fonttitle=\bfseries,
 
     % unten links (deine Position: xshift=7mm, yshift=3mm)
     \begin{scope}[shift={([xshift=1mm,yshift=3mm]frame.south west)}, rotate=-75]
-      \filldraw[
-        rounded corners=0.6pt,
-        fill=red!38!white,
-        draw=brown!20!black,
-        line width=0.15pt,
-        fill opacity=0.55
-      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+ \filldraw[
+    fill=red!38!white,
+    draw=brown!20!black,
+    line width=0.15pt,
+    fill opacity=0.55
+  ]
+  % unten gerade-ish
+  (-8mm,-2.3mm) -- (8mm,-2.3mm)
+  % rechte Kante gezackt
+  -- (7.6mm,-1.6mm)
+  -- (8.2mm,-0.9mm)
+  -- (7.5mm,-0.2mm)
+  -- (8.1mm,0.6mm)
+  -- (7.6mm,1.5mm)
+  -- (8mm,2.3mm)
+  % oben gerade-ish
+  -- (-8mm,2.3mm)
+  % linke Kante gezackt
+  -- (-7.5mm,1.4mm)
+  -- (-8.2mm,0.7mm)
+  -- (-7.6mm,0.0mm)
+  -- (-8.1mm,-0.8mm)
+  -- (-7.4mm,-1.6mm)
+  -- cycle;
 
       \fill[
         rounded corners=0.4pt,
@@ -417,12 +463,29 @@ colframe=gray!85!black,fonttitle=\bfseries,
     % unten rechts (deine Position: xshift=3mm, yshift=1mm)
     \begin{scope}[shift={([xshift=-1mm,yshift=3mm]frame.south east)}, rotate=75]
       \filldraw[
-        rounded corners=0.6pt,
-        fill=red!38!white,
-        draw=brown!20!black,
-        line width=0.15pt,
-        fill opacity=0.55
-      ] (-8mm,-2.3mm) rectangle (8mm,2.3mm);
+    fill=red!38!white,
+    draw=brown!20!black,
+    line width=0.15pt,
+    fill opacity=0.55
+  ]
+  % unten gerade-ish
+  (-8mm,-2.3mm) -- (8mm,-2.3mm)
+  % rechte Kante gezackt
+  -- (7.6mm,-1.6mm)
+  -- (8.2mm,-0.9mm)
+  -- (7.5mm,-0.2mm)
+  -- (8.1mm,0.6mm)
+  -- (7.6mm,1.5mm)
+  -- (8mm,2.3mm)
+  % oben gerade-ish
+  -- (-8mm,2.3mm)
+  % linke Kante gezackt
+  -- (-7.5mm,1.4mm)
+  -- (-8.2mm,0.7mm)
+  -- (-7.6mm,0.0mm)
+  -- (-8.1mm,-0.8mm)
+  -- (-7.4mm,-1.6mm)
+  -- cycle;
 
       \fill[
         rounded corners=0.4pt,
@@ -435,6 +498,6 @@ colframe=gray!85!black,fonttitle=\bfseries,
         (-5.8mm,0.1mm)--(5.9mm,0.2mm);
     \end{scope}
   },
-  top=9mm,
-  fontupper=\warnfont\small\color{black},
+  top=5mm,
+fontupper=\warnfont\small\color{black},
 }

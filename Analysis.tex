@@ -7,6 +7,7 @@ Die geometrische Deutung des Differenzenquotient \index{Änderungsrate!Differenz
 \begin{bsp}{Ein Beispiel für die mittlere Änderungsrate}{bspmaer}
 Gegeben sind die Punkte $P(3|4)$ und $Q(6|1)$ auf dem Graphen $G_f$ einer Funktion $f$. Die mittlere Änderungsrate bestimmt sich damit wie folgt: $$ \dfrac{\Delta y}{\Delta x} = \dfrac{4-1}{3-6} = \dfrac{3}{-3} = -1$$
 \end{bsp}
+
 \begin{bsp}{Graphische Darstellung der Sekantensteigung}{}
 Gegeben ist die Funktion $f(x) =\dfrac{1}{2}x^3-x^2-2x +1$ mit $\mathds{D}_f =\mathds{R}$ und die Punkte $P(1|-1,51)$ und $Q(3,3|1,48)$. Um die mittlere Änderungsrate zu bestimmen muss jetzt die Steigung der Sekante durch die Punkt $P$ und $Q$ berechnet werden.
 $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,51)}{3,3 -1} = \dfrac{2,99}{2,3} = \dfrac{13}{10} = 1,3 $$
@@ -33,6 +34,20 @@ $$m=\dfrac{\Delta y}{\Delta x} = \dfrac{y_2 -y_1}{x_2 -x_1} = \dfrac{1,48 -(-1,5
 \end{tikzpicture}
 \end{center}
 \end{bsp}
+\begin{tikzpicture}[remember picture, overlay]
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=6cm]current page.south east) {%
+  \begin{achtung}[width=5cm,height=3cm]
+Die mittlere Änderungsrate am Beispiel.
+  \end{achtung}
+};
+\end{tikzpicture}
 \end{subsection}
 \subsection{Definition der Ableitung}
 Die mittlere Änderungsrate beschreibt die durchschnittliche Steigung des Graphen einer Funktion zwischen zwei bestimmten Punkten. Die Ableitung realisiert den Übergang von der Sekante zur Tangente.
@@ -92,15 +107,30 @@ Gegeben ist der Graph $G_f$ einer Funktion $f$ und die beiden beliebigen Punkte 
             \draw[red, dashed] (2,0) -- (2,4);
             \draw[red, dashed] (0,4) -- (2,4);
             \draw[red, dashed] (1,0) -- (1,1);
-         \draw[color= red] (1.5,0.7) node[right] {$h$};
+         %\draw[color= red] (1.5,0.7) node[right] {$h$};
          \addplot[color= red,dashed, samples = 300, domain= 0.5:2.5]{3*x - 2};
-         \draw[red] (1.4,-0.5) node[right] {$\longleftarrow$};
+         \draw[red] (1.4,-0.3) node[right] {$\longleftarrow$};
          \draw[red] (1.3,-0.8) node[right] {$h\longrightarrow 0$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
  Das bedeutet, dass sich die beiden Punkten der Sekante beliebig genau annähern, ihr Abstand geht damit gegen Null ($h\rightarrow 0$). Somit wird aus der Sekante eine Tangente.
 \end{bsp}
+\begin{tikzpicture}[remember picture, overlay]
+
+% --- Der Hinweis-Kasten ---
+\node[
+name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+anchor=north east,
+rotate=-20,
+transform shape,
+inner sep=0pt
+] at ([xshift=-0.5cm,yshift=14cm]current page.south east) {%
+\begin{achtung}[width=5cm,height=3cm]
+Die graphische Darstellung der h-Methode an einem Beispiel!
+\end{achtung}
+};
+\end{tikzpicture}
 \index{Änderungsrate!lokale}
 \begin{bem*}{Tangentensteigung}{}
    Die Ableitung $f'(x_0)$ entspricht der Steigung der Tangente am Graphen von $f$ an der Stelle $x_0$. Dabei ist die Ableitung ein Maß dafür, wie stark sich die Funktionswerte in einer Umgebung um die Stelle $x_0$ ändern. \\
@@ -358,7 +388,7 @@ ytick={-3,-2,...,4},]
 \subsection{Ableitung ganzrationaler Funktionen}
 Die Ableitung von Funktionen mit der h-Methode ist für jede Funktion möglich. Allerdings wird das Ableiten damit schnell mühsam. Durch die Anwendung von Regeln zur Ableitung ganzrationaler Funktionen wird das Bilden der ersten Ableitung um einiges einfacher.\\
 \begin{merke*}{Ableitungsregel Potenzfunktionen}{}\index{Ableitungsregeln!Potenzfunktion}
-Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist differenzierbar und es gilt: $$f'(x) = n\cdot x^{n-1}$$
+Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist differenzierbar und es gilt: \[\highlightmath[red!65]{f'(x) = n\cdot x^{n-1}}\]
 \underline{Merkregel:} Der Term $x^n$ wird differenziert, indem man den Exponenten $n$ als Faktor voranstellt und dann den Exponenten um 1 verringert.
 \end{merke*}
 \begin{bsp}{Beispiele für das Ableiten von Potenzfunktionen}{}
@@ -368,6 +398,21 @@ Die Potenzfunktion $f$ mit $f(x) = x^n$ und natürlichen Exponenten $n$ ist diff
     \item $h(x) = x^{\pi} \ \longrightarrow h'(x) = \pi \cdot x^{\pi -1}$
 \end{itemize}
 \end{bsp} 
+\begin{tikzpicture}[remember picture, overlay]
+
+% --- Der Hinweis-Kasten ---
+\node[
+name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+anchor=north east,
+rotate=-20,
+transform shape,
+inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-4cm]current page.north east) {%
+\begin{achtung}[width=5cm,height=2.5cm]
+Ableitungsregeln müssen sitzen! Siehe für alle Regeln \ref{AbleitungAllgemein}!
+\end{achtung}
+};
+\end{tikzpicture}
 \begin{defi}{Die Normale}{}\index{Normale}
     Die Gerade, die im Berührpunkt auf der Tangente senkrecht steht, heißt Normale. Hierbei hängen die Steigung der Normalen und die Steigung der Tangente wie folgt zusammen $$m_{Normale} = -\dfrac{1}{m_{Tangente}}$$
 \end{defi}
@@ -472,7 +517,7 @@ X-\frac{f(X)}{f'(X)}.
 7) Wiederhole Schritte 4)--6) für \(x_3,x_4,\dots\)\\[8pt]
 
 \textbf{Abbruchkriterium (praxisnah):}\\
-Stoppe, wenn zwei aufeinanderfolgende Werte praktisch gleich sind, z.\,B.
+Stoppe, wenn zwei aufeinanderfolgende Werte praktisch gleich sind, z.\,B. \\
 \(\lvert x_{n+1}-x_n\rvert < 10^{-3}\) (oder strenger).\\[6pt]
 
 \textbf{Kontrolle:}\\
@@ -497,10 +542,39 @@ Start z.\,B. \(x_0=1\) in \(X\) speichern und dann iterieren.\\[4pt]
 \item Wenn die Werte springen oder zyklisch werden: anderen Startwert wählen.
 \end{itemize}
 \end{b8d}
+\begin{tikzpicture}[remember picture, overlay]
 
+% --- Der Hinweis-Kasten ---
+\node[
+name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+anchor=north east,
+rotate=-20,
+transform shape,
+inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-6cm]current page.north east) {%
+\begin{achtung}[width=5cm,height=2.5cm]
+Alternativ kann man den Taschenrechner auch mit \taste{ANS} programmieren.
+\end{achtung}
+};
+\end{tikzpicture}
 \end{section}
 \section{Kurvendiskussion}
  \subsection{Monotonie und Extrema}   
+ \begin{tikzpicture}[remember picture, overlay]
+
+% --- Der Hinweis-Kasten ---
+\node[
+name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+anchor=north east,
+rotate=-20,
+transform shape,
+inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-3cm]current page.north east) {%
+\begin{achtung}[width=5cm,height=2.5cm]
+Kurvendiskussion deckt \(\approx 50 \%\) des Abiturs ab!
+\end{achtung}
+};
+\end{tikzpicture}
  \begin{defi}{Monotonie}{}\index{Kurvendiskussion!Monotonie}\index{Monotonie}
  Es sei $f$ eine Funktion auf einem Intervall $I$ definiert. Gilt für alle $x_1, x_2 \in I$ mit $x_1<x_1:$
  \begin{equation*}
@@ -680,6 +754,36 @@ Berechnung der Lage der Extrempunkte:\\
         \end{axis}
     \end{tikzpicture}
 \end{b8d}
+\begin{tikzpicture}[remember picture, overlay]
+
+% --- Der Hinweis-Kasten ---
+\node[
+name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+anchor=north east,
+rotate=-20,
+transform shape,
+inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-5cm]current page.north east) {%
+\begin{achtung}[width=4cm,height=5cm]
+Graphisches differenzieren! Aufgabenstellung: Ordnen Sie dem Graphen der\\ Funktion den Graphen der Ableitung zu.
+\end{achtung}
+};
+\end{tikzpicture}
+\AddToHookNext{shipout/foreground}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[
+      name=warnbox,
+      anchor=north east,
+      rotate=-20,
+      transform shape,
+      inner sep=0pt
+    ] at ([xshift=-0.25cm,yshift=5cm]current page.south east) {%
+      \begin{achtung}[width=3.5cm,height=4cm]
+     Ausführliche \\ Monotonietabelle. Meistens reicht eine Vorzeichenuntersuchung der 1.Ableitung.
+      \end{achtung}
+    };
+  \end{tikzpicture}%
+}
 \begin{bsp}{Bestimmung der Monotonie und der Extrema II}{}
 Betrachtet wird die Funktion $f(x)= x^3-6x^2 +9x-2$ mit $\mathds{D}_f =\mathds{R}$ und der ersten Ableitung $f'(x)= 3x^2 -12x +9$
 \begin{center}$\begin{aligned}
@@ -869,6 +973,20 @@ Die ausführliche Kurvendiskussion besteht aus einer Reihe von analytischen Unte
 \end{enumerate}
 \end{merke}
 
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[
+      name=warnbox,
+      anchor=north east,
+      rotate=-10,
+      transform shape,
+      inner sep=0pt
+    ] at ([xshift=-1.5cm,yshift=-5cm]current page.north east) {%
+      \begin{achtung}[width=5cm,height=4cm]
+    Bei Leistungserhebungen müssen die einzelnen Schritte\\ nicht auswendig gelernt werden. Es wird immer angegeben, was gemacht werden soll.
+      \end{achtung}
+    };
+  \end{tikzpicture}%
+
 \begin{bsp}{Ausführliche Kurvendiskussion}{}
 Betrachtet wird die Funktion $f(x)= \dfrac{1}{16} x^4 +\dfrac{1}{4} x^3$ mit $\mathds{D}_f =\mathds{D}_{max}$ dem maximalen Definitionsbereich. Es soll für die Funktion eine vollständige Kurvendiskussion durchgeführt werden.
 \begin{enumerate}
@@ -1038,9 +1156,11 @@ Berechnung der Koordinaten:
     Die Potenzfunktion $f: x \longrightarrow x^n$  mit $\mathds{D}_f = \mathds{R}$ ist auf ganz $\mathds{R}$ stetig. Die Menge aller Stammfunktion der Potenzfunktion lautet damit: $$F(x)= \dfrac{1}{n+1} \cdot x^{n+1} + c .$$
     Die additive Konstante c mit $c\in\mathds{R}$ steht hierbei die absoluten Anteil der Potenzfunktion.
 \end{satz}
+
 \begin{b8d}{Die Menge der Stammfunktionen}{}\index{Stammfunktion!Menge aller Stammfunktionen}
 Durch die additive Konstante $c$ wird die Menge der Stammfunktionen beschrieben. Sollen also {\bfseries\textcolor{red}{alle}} Stammfunktionen angegeben werden, muss die Konstante $c$ stehts mit angegeben werden. Wird nur eine Stammfunktion verlangt, reicht es, dass nur ein Wert für $c$ eingesetzt wird.
 \end{b8d}
+
 \begin{bsp}{Beispiele der Stammfunktion}{}
 Für alle Konstanten $c$ gilt $c\in \mathds{R}$.
 \begin{itemize}
@@ -1050,6 +1170,21 @@ Für alle Konstanten $c$ gilt $c\in \mathds{R}$.
     \item $f(x) = x^2 +a^2 \hspace{0.2cm} \longrightarrow \hspace{0.2cm} F(x)= \dfrac{1}{3} \cdot x^3 + a^2 \cdot x + c$
 \end{itemize}
 \end{bsp}
+\begin{tikzpicture}[remember picture, overlay]
+
+% --- Der Hinweis-Kasten ---
+\node[
+name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+anchor=north east,
+rotate=-20,
+transform shape,
+inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-15cm]current page.north east) {%
+\begin{achtung}[width=5cm,height=3cm]
+Integrationsregeln müssen sitzen! Siehe für alle Regeln \ref{InteRegel}!
+\end{achtung}
+};
+\end{tikzpicture}
 \section{Funktionenscharen}\index{Funktionen!Funktionenscharen}
 Unter Funktionsscharen versteht man Funktion, die neben der \glqq normalen\grqq{} Variablen $x$ noch einen oder mehrere Parameter besitzen. Diese Parameter werden in der Kurvendiskussion als Zahlen interpretiert. 
 \begin{defi}{Definition von Funktionenscharen}{}
@@ -1098,9 +1233,26 @@ Betrachtet wird die Funktionenschar $f_a(x) = \dfrac{1}{8} \cdot (x^3 - 3a\cdot 
          x_{1/2} &= \pm \sqrt{3a-3a^2+12}
         \end{split}
 \end{equation*}
-An dieser Stelle muss eine Fallunterscheidung erfolgen. Hierbei wird untersucht, für welche Werte von $a$ der Wurzelterm keine, eine bzw. 2 Lösungen besitzt.
+An dieser Stelle muss eine \textcolor{red}{Fallunterscheidung} erfolgen. Hierbei wird untersucht, für welche Werte von $a$ der Wurzelterm keine, eine bzw. 2 Lösungen besitzt.
+
 \begin{enumerate}
+
     \item Eine Lösung genau dann wenn die Diskriminante  Null ist. Das bedeutet:
+   \AddToHookNext{shipout/foreground}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[
+      name=warnbox,
+      anchor=north east,
+      rotate=-20,
+      transform shape,
+      inner sep=0pt
+    ] at ([xshift=-0.25cm,yshift=8cm]current page.south east) {%
+      \begin{achtung}[width=3.5cm,height=4cm]
+     In vielen Fällen muss eine Fallunterscheidung\\ getroffen werden.
+      \end{achtung}
+    };
+  \end{tikzpicture}%
+}
     \begin{equation*}
     \begin{split}
          0 &= 3a-3a^2+12\\
@@ -1277,6 +1429,8 @@ xtick={-6,...,5}, ytick={-5,...,5}]
      \end{enumerate}
  \end{merke}
  In der Oberstufe werden gebrochen-rationale Funktionen meistens sowohl in der Bruch- als auch in der Summenform gegeben. Eine der typischen Aufgaben besteht dann darin, dass man die Äquivalenz der beiden Formen nachweist. Für die Polynomdivision siehe Anhang \ref{polynomdivision}  
+
+
  \begin{bsp}{Umwandlung der Formen einer gebrochen-rationalen Funktion}{}
 Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1}$ und $\mathds{D}_f = \mathds{R}\setminus\{-1; 1\}$. Im folgenden soll die Äquivalenz der beiden Formen gezeigt werden.
 \begin{enumerate}
@@ -1293,6 +1447,20 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
 \end{equation*}
 \end{enumerate}
 \end{bsp}
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[
+      name=warnbox,
+      anchor=north east,
+      rotate=-20,
+      transform shape,
+      inner sep=0pt
+    ] at ([xshift=-1cm,yshift=12cm]current page.south east) {%
+      \begin{achtung}[width=3.5cm,height=4cm]
+     Die Polynomdivision ist\\ allerdings nicht mehr Teil des Lehrplans.
+      \end{achtung}
+    };
+  \end{tikzpicture}%
+
  \subsubsection{Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen} \index{Funktionen!Gebrochen-rationale!Grenzwertbetrachtungen} 
  \begin{merke}{Untersuchung der Definitionslücke}{}
      Eine rationale Funktion \textcolor{red}{\textbf{kann}} Definitionslücken aufweisen. Diese sind dann die Nullstellen des Nenners.\\
@@ -1556,7 +1724,6 @@ Da die zweite Ableitung der Funktion keine Nullstelle besitzt, ändert sich das 
  \begin{b8d}{Definitionslücken}{}
 Während der Kurvendiskussion müssen die Definitionslücken beachtet werden. Das bedeutet, dass sowohl bei der Monotonietabelle als auch bei der Krümmungstabelle die Definitionslücke berücksichtigt werden müssen. An der Definitionslücke kann sich sowohl die Monotonie als auch die Krümmung ändern.
  \end{b8d}
-\newpage
   \subsection{Wurzelfunktionen}
 \subsubsection{Die Umkehrfunktion}
   Einfache Wurzelfunktionen können als Umkehrfunktion der quadratischen Funktion betrachtet werden. Hierbei ist es notwendig, dass die Umkehrfunktion und die notwendigen Bedingungen der Umkehrbarkeit definiert werden. \index{Funktionen!Wurzelfunktion!Umkehrfunktion}
@@ -1716,7 +1883,6 @@ Man verwendet entweder die Kettenregel mit der Wurzel als äußerer Funktion und
     \end{equation*}
 \end{enumerate}
  \end{bem}
- \newpage
  \subsection{Trigonometrische Funktionen}
 Allgemeine Betrachtungen zum Sinus und Kosinus findet man im Anhang \ref{SinCos}. 
  \begin{defi}{Ableitungen von Sinus und Kosinus}{}\index{Funktionen!Trigonometrische!Ableitung}
@@ -2387,8 +2553,8 @@ Damit liegt bei $x= \dfrac{5}{6}$ ein Hochpunkt und damit ein Maximum für das V
     \end{defi}
     \begin{b8d}{Folgerungen aus der Definition}{}
     \begin{description}
-    \item[i)] Fallen obere und untere Grenze zusammen, so ergibt sich für den Wert des Integrals \textcolor{red}{$\integral[limits-mode=limits,limits={a, a}]{f(x)} = 0$} 
-    \item[ii)] Den Wert des Integrals $\integral[limits-mode=limits,limits={a, c}]{f(x)}$ lässt sich Schrittweise angeben. Es gilt damit \\ \textcolor{red}{$\integral[limits-mode=limits,limits={a, c}]{f(x)} = \integral[limits-mode=limits,limits={a, b}]{f(x)} + \integral[limits-mode=limits,limits={b, c}] {f(x)}$ }für einen Wert $b$ mit \textcolor{red}{$a<b<c$}.
+    \item[i)] Fallen obere und untere Grenze zusammen, so ergibt sich für den Wert des Integrals \textcolor{red}{$\integral[limits-mode=limits,limits={a, a}]{f(x)} = 0$}
+    \item[ii)] Den Wert des Integrals $\integral[limits-mode=limits,limits={a, c}]{f(x)}$ lässt sich Schrittweise angeben. Es gilt damit \\ \textcolor{red}{$\integral[limits-mode=limits,limits={a, c}]{f(x)} = \integral[limits-mode=limits,limits={a, b}]{f(x)} + \integral[limits-mode=limits,limits={b, c}] {f(x)}$ } für einen Wert $b$ mit \textcolor{red}{$a<b<c$}.
     \item[iii)] Vertauscht man die Grenzen des Integrals ändert sich das Vorzeichen.\\ \textcolor{red}{ $\integral[limits-mode=limits,limits={a, b}] {f(x)} = - \integral[limits-mode=limits,limits={b, a}] {f(x)}$}. \textcolor{red}{rückwärts Integration}
     \end{description}
     \end{b8d}
@@ -2475,6 +2641,7 @@ Als Beispiel die Obersummen der Funktion $f(x) =x^2$ im Intervall $I=[0,3]$. \\
   \end{groupplot}
 \end{tikzpicture}    
     \end{bsp}
+    \newpage
 \section{Hauptsatz der Differential- und Integralrechnung} 
    \begin{defi}{Die Flächenbilanz und das bestimmte Integral}{}\index{Integral!Flächenbilanz}
        \begin{multicols}{2} Gegeben ist eine Funktion f, die auf dem Intervall $I=[a,b]$ integrierbar ist. Das bestimmte Integral $\integral[limits-mode=limits,limits={a, b}]{f(x)}$ gibt die  \textcolor{red}{Flächenbilanz} der Fläche an, die der Graph von $f$ mit der x-Achse zwischen der unteren Grenze $a$ und der oberen Grenze $b$ einschließt. Dabei werden Flächeninhalte oberhalb der x-Achse positiv und Flächeninhalte unterhalb der x-Achse negativ gewertet.\\
@@ -2797,7 +2964,7 @@ die Integralfunktion.
 \end{itemize}
 \end{b8d}
 \section{Integrationsregeln}
-\begin{defi}{Das unbestimmte Integral}{}\index{Integral!unbestimmtes Integral}
+\begin{defi}{Das unbestimmte Integral}{}\index{Integral!unbestimmtes Integral}\label{InteRegel}
 Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Funktion $F$ Stammfunktion von $f$, falls gilt $F'(x) = f(x) $ für alle $x\in I$. Das unbestimmte Integral von $f$ ist dann $\int f(x) dx = F(x) +c$ mit $c\in \mathds{R}$.
 \end{defi}
 \begin{merke}{Regeln zur Integration von Funktionen}{}\index{Integral!Regeln Integration}
