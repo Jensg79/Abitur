@@ -296,7 +296,7 @@ Mit den Basisvektoren ist man in der Lage, jeden Vektor durch eine Addition der 
 \begin{satz}{Ortsvektoren}{}\index{Vektoren!Ortsvektor}
 Jeder Punkt $P(p_1|p_2|p_3)$ mit $p_i \in \mathds{R}$ des dreidimensionalen Vektorraums lässt sich wie folgt in der Spaltenschreibweise schreiben:
 $$\vv{P} = \begin{pmatrix} p_1 \\ p_2 \\p_3 \end{pmatrix}.$$ 
-Dieser Vektor repräsentiert genau einen Pfeil der im Urpsrung des Koordinatensystems beginnt und an den Koordinaten des Punktes $P$ endet.\\ 
+Dieser Vektor repräsentiert genau einen Pfeil der im Ursprung des Koordinatensystems beginnt und an den Koordinaten des Punktes $P$ endet.\\ 
 Diesen Pfeil nennt man Ortsvektor des Punktes $P$.
 \end{satz}
 \begin{satz}{Verbindungsvektoren}{}
@@ -338,6 +338,20 @@ vector guide/.style={dashed,red}]
 \end{tikzpicture}
 \end{bsp*}
 Durch die Verwendung von Koordinaten in der Vektorgeometrie ist es möglich spezielle Punkte relativ einfach zu berechnen. So ist es jetzt möglich, dass man zum Beispiel eine den Mittelpunkt einer Strecke bestimmt oder eine Strecke zu verdoppeln.
+\begin{tikzpicture}[remember picture, overlay]
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-15cm]current page.north east) {%
+  \begin{achtung}[width=5.5cm,height=4cm]
+Spitze minus Hacke!\\ Es besteht ein Unterschied zwischen einem Ortsvektor und einem Verbindungsvektor!
+  \end{achtung}
+};
+\end{tikzpicture}
 \begin{b8d*}{Eigenschaften einer Strecke}{}
 Für den Ortsvektor $\vv{M}$ des Mittelpunktes der Strecke $\overline{AB}$ gilt: $$\vv{M} = \dfrac{1}{2}\left(\vv{A} + \vv{B}\right).$$
 Die Strecke $\overline{AB}$ lässt sich so, einfach in beliebig viele Teile einteilen. 
@@ -371,6 +385,7 @@ Die Strecken $\overline{AM_2}, \ \overline{M_2M_1}, \ \overline{M_1M_3}$ und $\o
 \end{center}
 \end{bsp*}
 Die Eigenschaften der Berechnung der Mittelpunkte lassen sich auch auf Flächen und Körper anwenden. So ist es jetzt möglich, den Schwerpunkt eines Dreiecks bzw. den Schwerpunkt einer dreiseitigen Pyramide zu bestimmen.
+\newpage
 \begin{merke}{Schwerpunkte bei Strecke, Dreieck und Pyramide}{}\index{Schwerpunkt!Strecke}\index{Schwerpunkt!Dreieck}
 \index{Schwerpunkt!Pyramide}
 
@@ -409,12 +424,28 @@ Gegeben sind die Punkte $A(2|3|-1)$ und $B(-2|2|1)$. Der Orstvektor des Punktes 
 \end{bsp}
 Durch die Einführung des Abstands zweier Punkte ist man jetzt in der Lage neues Strukturen im Raum zu definieren. 
 \begin{b8d}{Kugelgleichung}{}\index{Kugelgleichung}
-Alle Punkte, die von einem gegeben Punkt $M(m_1|m_2|m_3)$ die gleiche Entfernung $r$ haben, liegen auf einer Kugel um den Mittelpunkt $r$. Die Koordinaten aller dieser Punkte $X(x_1|x_2|x_3)$ genügen folgender Gleichung: $$(x_1-m_1)^2 + (x_2 -m_2)^2 + (x_3 -m_3 ^2) = r^2$$
+Alle Punkte, die von einem gegeben Punkt $M(m_1|m_2|m_3)$ die gleiche Entfernung $r$ haben, liegen auf einer Kugel um den Mittelpunkt $M$. Die Koordinaten aller dieser Punkte $X(x_1|x_2|x_3)$ genügen folgender Gleichung: $$(x_1-m_1)^2 + (x_2 -m_2)^2 + (x_3 -m_3)^2 = r^2$$
 \end{b8d}
 In der analytischen Geometrie ist es oft wichtig zu wissen, ob zwei Vektoren senkrecht aufeinander stehen. Diese Information ist mit Hilfe des Skalarprodukts bestimmbar.
+
 \begin{merke}{Das Skalarprodukt}{}\index{Vektoren!Skalarprodukt}
 Die Zahl $$\vv{a} \circ \vv{b} = \begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix} \circ \begin{pmatrix} b_1 \\b_2 \\b_3\end{pmatrix} = a_1\cdot b_1 + a_2\cdot b_2 + a_3\cdot b_3$$ heißt Skalarprodukt der Vektoren $\vv{a}$ und $\vv{b}$. 
 \end{merke}
+\begin{tikzpicture}[remember picture, overlay]
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-17cm]current page.north east) {%
+  \begin{achtung}[width=4.5cm,height=3.5cm]
+skalare Multiplikation: Vektor\\
+Skalarprodukt: reelle Zahl
+  \end{achtung}
+};
+\end{tikzpicture}
 Damit zwei Vektoren orthogonal bzw. senkrecht zueinander sind, muss für zwei Vektoren $\vv{a}$ und $\vv{b}$ folgende Gleichung gelten: $|\vv{a}|^2 + |\vv{b}|^2 = |\vv{b} -\vv{a}|^2$. Durch eine einfache Umformung der Gleichung folgt\\ $ a_1\cdot b_1 + a_2\cdot b_2 + a_3\cdot b_3 = 0$ und damit ergibt sich folgendes Kriterium.
 \begin{b8d}{Orthogonalität von zwei Vektoren}{} \index{Vektoren!Orthogonalität}
 Zwei vom Nullvektor verschiedene Vektoren $\vv{a}$ und $\vv{b}$ sind genau dann orthogonal zueinander, wenn ihr Skalarprodukt den Wert Null hat.
@@ -425,6 +456,75 @@ Der Winkel $\varphi$ zwischen zwei vom Nullvektor verschiedenen Vektoren $\vv{a}
 Die Größe des Winkels $\varphi$ bestimmt sich damit durch die Gleichung:
 $$\varphi = \arccos{(\dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|})} = \cos^{-1}{(\dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|})}$$
 \end{merke}
+\begin{satz}{Geometrische Deutung}{}
+    \begin{itemize}
+  \item Für \(0^\circ \le \varphi \le 90^\circ\) ist \(\cos(\varphi)\ge 0\):  
+  \(\vv{a}\circ\vv{b}\) ist \textbf{positiv} und entspricht dem Produkt aus \(|\vv{a}|\) und der Projektion von \(\vv{b}\) auf \(\vv{a}\).
+  \item Für \(90^\circ < \varphi \le 180^\circ\) ist \(\cos(\varphi)< 0\): 
+  \(\vv{a}\circ\vv{b}\) ist \textbf{negativ}.
+  \item Für \(\varphi=90^\circ\): \(\cos(\varphi)=0\Rightarrow \vv{a}\circ\vv{b} = 0\).
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}[scale=1.0, line cap=round, line join=round, >={Latex[length=2.4mm]}]
+
+% ---------- Links: 0° <= phi <= 90° ----------
+\begin{scope}
+  \node[anchor=west] at (-0.2,2.55) {\small \(0^\circ \le \varphi \le 90^\circ\) \ (\(\cos\varphi\ge 0\))};
+
+  % Punkte definieren
+  \coordinate (O) at (0,0);
+  \coordinate (Aax) at (3.6,0);      % Richtung von a
+  \coordinate (Bvec) at (2.2,1.9);   % Spitze von b
+  \coordinate (P) at (2.2,0);        % Projektion auf a
+
+  % a und b
+  \draw[blue!70, very thick, ->] (O) -- (Aax) node[below] {\(\vec a\)};
+  \draw[blue!70, very thick, ->] (O) -- (Bvec) node[above left=-1pt] {\(\vec b\)};
+
+  % Projektion (Lot)
+  \draw[red!70, dashed, thick] (Bvec) -- (P);
+  \fill[red!70] (P) circle (1.2pt);
+
+  % projizierte Strecke
+  \draw[green!60!black, thick] (O) -- (P);
+  \node[green!60!black] at ($(O)!0.5!(P)+(0,-0.35)$) {\(|\vv{b}|\cos\varphi\)};
+
+  % Winkel phi am Ursprung zwischen a-Richtung und b
+\pic[draw=green!60!black, thick, angle radius=10pt] {angle=Aax--O--Bvec};
+% Label separat (Position ggf. minimal anpassen)
+\node[green!60!black] at (0.55,0.25) {$\varphi$};
+\end{scope}
+
+% ---------- Rechts: 90° < phi <= 180° ----------
+\begin{scope}[xshift=8.2cm]
+  \node[anchor=west] at (-0.2,2.55) {\small \(90^\circ < \varphi \le 180^\circ\) \ (\(\cos\varphi< 0\))};
+
+  % Punkte definieren
+  \coordinate (O2) at (0,0);
+  \coordinate (Aax2) at (3.6,0);       % Richtung von a
+  \coordinate (Bvec2) at (-1.6,1.7);   % Spitze von b (stumpfer Winkel)
+  \coordinate (P2) at (-1.6,0);        % Projektion auf a
+
+  % a und b
+  \draw[blue!70, very thick, ->] (O2) -- (Aax2) node[below] {\(\vec a\)};
+  \draw[blue!70, very thick, ->] (O2) -- (Bvec2) node[above left=-1pt] {\(\vec b\)};
+
+  % Projektion (Lot)
+  \draw[red!70, dashed, thick] (Bvec2) -- (P2);
+  \fill[red!70] (P2) circle (1.2pt);
+
+  % projizierte Strecke (gerichtet nach links -> negativ)
+  \draw[green!60!black, thick] (O2) -- (P2);
+  \node[green!60!black] at ($(O2)!0.5!(P2)+(0,-0.35)$) {\(|\vv{b}|\cos\varphi\) (neg.)};
+
+  % Winkel phi
+\pic[draw=green!60!black, thick, angle radius=10pt] {angle=Aax2--O2--Bvec2};
+\node[green!60!black] at (0.55,0.25) {$\varphi$};
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+\end{satz}
 \begin{bsp}{Berechnung des Winkels zwischen zwei Vektoren}{}
 Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck festlegen. Berechne die Größe des Winkels $\alpha$.
 \begin{center}
@@ -730,6 +830,20 @@ Eine Gerade lässt sich entweder durch zwei Punkte oder einen Punkt und eine Ric
 \begin{defi}{Geraden in Paramterform}{}\index{Geraden!Geradengleichung}
  Jede Gerade \(g\) lässt sich durch eine Gleichung der Form: \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreiben. Hierbei ist \(\vv{OA} = \vv{A}\) der Ortsvektor eines beliebigen Punktes auf der Geraden \(g\) und \(\vv{u} \neq \vv{0}\) ein Richtungsvektor ist.  
 \end{defi}
+\begin{tikzpicture}[remember picture, overlay]
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-6.5cm]current page.north east) {%
+  \begin{achtung}[width=4.5cm,height=2.5cm]
+Der Vektor $\vv{X}$ steht für einen bel. Punkt auf der Geraden.
+  \end{achtung}
+};
+\end{tikzpicture}
 \begin{b8d}{Erläuterungen zur Geradengleichung}{}
 Bei der Geradengleichung \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreibt \(\vv{X}\) die Menge aller Ortsvektoren auf der Geraden \(g\). Ein Punkt \(\vv{X}\) liegt damit genau dann auf der Geraden \(g\), wenn es ein \(\lambda_1\) gibt, mit \(\vv{X} = \vv{A} + \lambda_1 \cdot \vv{u}\). Diese Art von Geradengleichung nennt man Parameterform der Geraden \(g\) mit dem \textcolor{red}{\textbf{Aufpunkt}} \(A\) und dem \textcolor{red}{\textbf{Richtungsvektor}} \(\vv{u}\).
 \end{b8d}

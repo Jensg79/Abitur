@@ -1495,6 +1495,7 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
     \end{axis}
 \end{tikzpicture}
 \end{center}
+
      \item Gegeben ist die Funktion f mit $f(x) = \dfrac{(x-1)}{(x-1)(x+2)}$ mit $\mathds{D}_f = \mathds{R}\setminus\{-2, 1\}$. Durch Termumformungen ist es möglich, die Definitionslücke bei $x=1$ zu heben. Dadurch ändert sich zwar der Term allerdings bleiben die Definitionslücke bei $x= 1$ und $x=-2$ erhalten. $$f(x) = \dfrac{\cancel{(x-1)}}{\cancel{(x-1)}(x+2)} = \dfrac{1}{x+2}.$$
      \item Gegeben ist die Funktion h mit $h(x) = \dfrac{1}{x+2}$ mit $\mathds{D}_h = \mathds{R}\setminus\{-2\}$. Bei dieser Funktion kann die Definitionslücke nicht behoben werden. Um zu entscheiden, ob eine Polstelle mit oder ohne VZW vorliegt, muss eine Grenzwertbetrachtung an der Definintionslücke durchgeführt werden.
      \begin{equation*}
@@ -1529,6 +1530,7 @@ Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^3}{x^2-1} = x+ \dfrac{x}{x^2-1
 \end{center}
  \end{enumerate}
  \end{bsp}
+
  \begin{merke}{Schräge Asymptoten}{}
     Nähert sich der Graph einer rationalen Funktion $f$ für $x\longrightarrow \infty$ und für  $x\longrightarrow -\infty$ immer an eine Gerade $y=m\cdot x +t$ an, so nennt man diese Gerade eine Asymptote.
     \begin{enumerate}
@@ -3015,6 +3017,70 @@ Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Fu
       \item[c)] $\integral{\dfrac{1}{x}} = \ln{|x|} + c$  
     \end{description}
     \end{bsp}
+         \begin{b8d}{Stammfunktion der Logarithmusfunktion}{}
+   Wir suchen die Stammfunktion von $\ln(x)$.
+$$
+F(x) = \int \ln(x)\,dx
+$$
+Da der Logarithmus nicht direkt integrierbar ist, verwenden wir die Regel der \textbf{partiellen Integration}:
+$$
+\int u\,dv = u\cdot v - \int v\,du
+$$
+Wir wählen:
+$$
+u = \ln(x) \quad \Rightarrow \quad du = \frac{1}{x}\,dx
+$$
+$$
+dv = dx \quad \Rightarrow \quad v = x
+$$
+
+Einsetzen in die Formel ergibt:
+$$
+\int \ln(x)\,dx = x\ln(x) - \int x \cdot \frac{1}{x}\,dx
+$$
+$$
+= x\ln(x) - \int 1\,dx
+$$
+$$
+= x\ln(x) - x + C
+$$
+\textbf{Ergebnis:}
+$$
+F(x) = x\ln(x) - x + C
+$$
+
+\bigskip
+\textbf{Merksatz:}
+\emph{Die Stammfunktion von $\ln(x)$ erhält man durch partielle Integration. \\ 
+Es gilt:}
+$\int \ln(x)\,dx = x\ln(x) - x + C \hspace{0.5cm} \text{und damit ist }
+F(x) = x\cdot\ln(x) - x + C$ 
+\end{b8d}
+\begin{merke}{Verallgemeinerung}{}
+    \[
+\int \ln(ax+b)\,dx
+= \frac{ax+b}{a}\ln(\!\bigl|ax+b\bigr|)
+-\frac{ax+b}{a}
++ C
+\qquad (a\neq 0)
+\]
+Der Logarithmus ist nur definiert für
+\[
+ax+b > 0.
+\]
+In Stammfunktionen schreibt man deshalb meist \(\ln|ax+b|\).
+\end{merke}
+\begin{bsp}{Anwendung}{}
+   Für \(a=2\) und \(b=3\) erhält man:
+\[
+\int \ln(2x+3)\,dx
+=
+\frac{2x+3}{2}\ln\!\bigl|2x+3\bigr|
+-\frac{2x+3}{2}
++ C
+\] 
+\end{bsp}
+
 \section{Flächenberechnungen mit dem Integral}
 \subsection{Fläche zwischen Kurve und x-Achse}
 \begin{defi}{Flächeminhalt}{}\index{Integral!Flächenberechnung}
@@ -3079,6 +3145,73 @@ Es sei $f$ eine, auf einem Intervall $I$ definierte Funktion. Dann heißt die Fu
     Die Stellen $x_1 = - 2$ und $x_2 = 1$ sind die Nullstellen des Graphen $G_f$ von f. Dadurch muss für die Bestimmung der Fläche das Integral in aufgeteilt werden.\\[0.25cm]
     $ A_G =  \left\lvert\integral[limits-mode=limits,limits={-3, -2}]{f(x)} \right\rvert + \integral[limits-mode=limits,limits={-2, 1}]{f(x)} + \left\lvert\integral[limits-mode=limits,limits={1, 2}]{f(x)}\right\rvert =\left\lvert A_1\right\rvert + A_2 + \left\lvert A_3\right\rvert $
 \end{defi}
+\begin{b8d}{Definitionslücke}{}\index{Integral!Definitionslücke}
+Bei der Berechnung des bestimmten Integrals bzw. der Flächenbilanz muss auf die Definitionslücken geachtet werden. An den Definitionslücken ist jede Funktion \textbf{\textcolor{red}{nicht integrierbar}}. Das bedeutet, dass \textbf{\textcolor{blue}{niemals}} über die Definitionslücke integriert werden darf.
+\end{b8d}
+\begin{bsp}{Die Funktion $f(x) = \dfrac{1}{x}$ }{}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
+  width=12cm,   % feste Breite
+  height=8cm,   % feste Höhe
+  scale only axis,
+  axis lines=middle,
+  xmin=-3.3, xmax=3.3,
+  ymin=-6.3, ymax=6.3,
+  samples=400,
+  xlabel={$x$}, ylabel={$y$},
+  ticklabel style={font=\small},
+  label style={font=\small},
+  clip=true
+]
+  
+% Kurve
+\addplot[blue, thick, domain=-3:-0.1] {1/x};
+\addplot[blue, thick, domain=0.1:3] {1/x};
+
+% Füllung links
+\addplot[
+  fill=orange!40,
+  fill opacity=0.5,
+  draw=none,
+  domain=-2:-0.01
+] {1/x} \closedcycle;
+
+% Füllung rechts
+\addplot[
+  fill=teal!40,
+  fill opacity=0.5,
+  draw=none,
+  domain=0.01:2
+] {1/x} \closedcycle;
+
+% Optionale Hilfslinien für Integrationsgrenzen
+\draw[very thick,dashed, gray] (axis cs:-2,0) -- (axis cs:-2,{1/(-2)});
+\draw[very thick, dashed, gray] (axis cs:2,0) -- (axis cs:2,{1/(2)});
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+ Das Integral $\integral[limits-mode=limits,limits={-2, 2}]{\dfrac{1}{x}}$ der Funktion f mit $f(x) = \dfrac{1}{x}$ und\\ $\mathds{D}_f= \mathds{R}\setminus\{0\}$ ist nicht einfach berechenbar da im Intervall die Definitionslücke $x=0$ liegt. Es ergibt sich für die einzelnen Integrale: 
+ $$\lim\limits_{b\longrightarrow 0^-} \integral[limits-mode=limits,limits={-2, b}]{\dfrac{1}{x}} = -\infty$$
+ und 
+ $$\lim\limits_{a\longrightarrow 0^+} \integral[limits-mode=limits,limits={a, 2}]{\dfrac{1}{x}} = \infty.$$
+
+\end{bsp}
+\begin{tikzpicture}[remember picture, overlay]
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-4cm]current page.north east) {%
+  \begin{achtung}[width=5cm,height=2cm]
+Definitionslücke!
+  \end{achtung}
+};
+\end{tikzpicture}
 \subsection{Fläche zwischen Kurven}
 \begin{merke}{Fläche zwischen Kurven}{}\index{Integral!Fläche zwischen Kurven}
     Der Inhalt A einer \textbf{\textcolor{blue}{Fläche, die im Intervall $I=[a,b]$ von dem Graphen zweier Funktionen $f$ und $g$ begrenzt wird}}, wobei $f(x)\geq g(x)$ bzw. $g(x)\geq f(x)$ gelten muss, berechnet sich mit: $$A= \left\lvert\integral[limits-mode=limits,limits={a, b}]{(f(x) - g(x))} \right\rvert$$
@@ -3091,7 +3224,7 @@ Bei der Berechnung des \textbf{\textcolor{blue}{Inhalts der Fläche zwischen den
 \end{enumerate}
 \begin{center}\begin{tikzpicture}
 \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
-  width=14cm, height=9cm,
+  width=14cm, height=12cm,
   axis lines=middle,
   axis line style={-stealth},
   xlabel={$x$}, ylabel={$y$},
@@ -3142,104 +3275,27 @@ Bei der Berechnung des \textbf{\textcolor{blue}{Inhalts der Fläche zwischen den
 \end{center}
 $$A_g = \left\lvert\integral[limits-mode=limits,limits={-2, 0}]{(f(x) - g(x))}   \right\rvert + \left\lvert\integral[limits-mode=limits,limits={0, 2}]{(f(x) - g(x))}   \right\rvert$$
  \end{b8d}
-     \begin{b8d}{Stammfunktion der Logarithmusfunktion}{}
-   Wir suchen die Stammfunktion von $\ln(x)$.
-$$
-F(x) = \int \ln(x)\,dx
-$$
-Da der Logarithmus nicht direkt integrierbar ist, verwenden wir die Regel der \textbf{partiellen Integration}:
-$$
-\int u\,dv = u\cdot v - \int v\,du
-$$
-Wir wählen:
-$$
-u = \ln(x) \quad \Rightarrow \quad du = \frac{1}{x}\,dx
-$$
-$$
-dv = dx \quad \Rightarrow \quad v = x
-$$
-
-Einsetzen in die Formel ergibt:
-$$
-\int \ln(x)\,dx = x\ln(x) - \int x \cdot \frac{1}{x}\,dx
-$$
-$$
-= x\ln(x) - \int 1\,dx
-$$
-$$
-= x\ln(x) - x + C
-$$
-\textbf{Ergebnis:}
-$$
-F(x) = x\ln(x) - x + C
-$$
-
-\bigskip
-\textbf{Merksatz:}
-\emph{Die Stammfunktion von $\ln(x)$ erhält man durch partielle Integration. \\ 
-Es gilt:}
-$\int \ln(x)\,dx = x\ln(x) - x + C \hspace{0.5cm} \text{und damit ist }
-F(x) = x\cdot\ln(x) - x + C$ 
-\end{b8d}
-\begin{b8d}{Definitionslücke}{}\index{Integral!Definitionslücke}
-Bei der Berechnung des bestimmten Integrals bzw. der Flächenbilanz muss auf die Definitionslücken geachtet werden. An den Definitionslücken ist jede Funktion \textbf{\textcolor{red}{nicht integrierbar}}. Das bedeutet, dass \textbf{\textcolor{blue}{niemals}} über die Definitionslücke integriert werden darf.
-\end{b8d}
-\begin{bsp}{Die Funktion $f(x) = \dfrac{1}{x}$ }{}
-\begin{tikzpicture}
-\begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
-  width=10cm,   % feste Breite
-  height=8cm,   % feste Höhe
-  scale only axis,
-  axis lines=middle,
-  xmin=-3.3, xmax=3.3,
-  ymin=-6.3, ymax=6.3,
-  samples=400,
-  xlabel={$x$}, ylabel={$y$},
-  ticklabel style={font=\small},
-  label style={font=\small},
-  clip=true
-]
-  
-% Kurve
-\addplot[blue, thick, domain=-3:-0.1] {1/x};
-\addplot[blue, thick, domain=0.1:3] {1/x};
-
-% Füllung links
-\addplot[
-  fill=orange!40,
-  fill opacity=0.5,
-  draw=none,
-  domain=-2:-0.01
-] {1/x} \closedcycle;
-
-% Füllung rechts
-\addplot[
-  fill=teal!40,
-  fill opacity=0.5,
-  draw=none,
-  domain=0.01:2
-] {1/x} \closedcycle;
-
-% Optionale Hilfslinien für Integrationsgrenzen
-\draw[very thick,dashed, gray] (axis cs:-2,0) -- (axis cs:-2,{1/(-2)});
-\draw[very thick, dashed, gray] (axis cs:2,0) -- (axis cs:2,{1/(2)});
-
-\end{axis}
+\begin{tikzpicture}[remember picture, overlay]
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=12cm]current page.south east) {%
+  \begin{achtung}[width=5cm,height=4cm]
+Bei der Berechnung der Fläche ist es egal, welche Funktion man von welcher abzieht. Durch den Betrag bekommt man immer die richtige Fläche.
+  \end{achtung}
+};
 \end{tikzpicture}
 
- Das Integral $\integral[limits-mode=limits,limits={-2, 2}]{\dfrac{1}{x}}$ der Funktion f mit $f(x) = \dfrac{1}{x}$ und\\ $\mathds{D}_f= \mathds{R}\setminus\{0\}$ ist nicht einfach berechenbar da im Intervall die Definitionslücke $x=0$ liegt. Es ergibt sich für die einzelnen Integrale: 
- $$\lim\limits_{b\longrightarrow 0^-} \integral[limits-mode=limits,limits={-2, b}]{\dfrac{1}{x}} = -\infty$$
- und 
- $$\lim\limits_{a\longrightarrow 0^+} \integral[limits-mode=limits,limits={a, 2}]{\dfrac{1}{x}} = \infty.$$
-
-\end{bsp}
  \section{Das uneigentliche Integral}
 In den vorangegangenen Abschnitten wurden nur Integrale in abgeschlossenen Intervallen betrachten. Es wurden Flächenbilanzen bzw. Flächen unter Kurven in begrenzten Bereichen bestimmt. Im folgenden wird mithilfe der Integration untersucht, ob auch \glqq ins Unendlich reichende \grqq Flächen einen endlichen Flächeninhalt haben können. Hierfür wird aus
 $$
 \highlightmath{\integral[limits-mode=limits,limits={1, \infty}]{\dfrac{2}{x^2}}=\lim\limits_{a\longrightarrow \infty} \integral[limits-mode=limits,limits={1, a}]{\dfrac{2}{x^2}}}$$
 \begin{bsp}{Berechnung uneigentliches Integral}{}
-\begin{multicols}{2}
-
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=10cm,   % feste Breite
@@ -3274,17 +3330,17 @@ $$
     {$\textcolor{red}{\xlongrightarrow{\;a\;} \infty}$};
 \end{axis}
 \end{tikzpicture}
+\end{center}
 Berechnung des uneigentlichen Integrals $$\integral[limits-mode=limits,limits={1, \infty}]{\dfrac{2}{x^2}} = \lim \limits_{a \longrightarrow\infty}\integral[limits-mode=limits,limits={1, a}]{\dfrac{2}{x^2}}= \lim \limits_{a \longrightarrow\infty} \left[-2x^{-1}\right]_1^a $$ daraus folgt für die Differenz
 $$\lim \limits_{a \longrightarrow\infty} -\dfrac{2}{a} - \left(-\dfrac{2}{1}\right) = \lim \limits_{a \longrightarrow\infty} -\dfrac{2}{a} +2 = 0^-+2 = 2. $$
 Damit hat die ins unendliche reichende Fläche einen endlichen Flächeninhalt. 
-\end{multicols}
 \end{bsp}
 \begin{defi}{Das uneigentliche Integral}{}
     Existiert für eine im Intervall $I= \left[a; \infty \right[$ bzw. $I = \left]a;b \right]$ definierte Funktion $f$ $$\lim\limits_{z\longrightarrow \infty} \integral[limits-mode=limits,limits={a, z}]{f(x)} \hspace{0.5cm} \text{bzw.} \hspace{0.5cm} \lim\limits_{z\longrightarrow a} \integral[limits-mode=limits,limits={z, b}]{f(x)}$$ 
     so nennt man diesen Grenzwert das \textbf{\textcolor{red}{uneigentliche Integral}} über dem betreffenden Intervall.
 \end{defi}
 \begin{bsp}{Berechnung uneigentliches Integral}{}
-\begin{multicols}{2}
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}[ticklabel style={fill=none},   every tick label/.append style={fill=none},
   width=10cm,   % feste Breite
@@ -3320,12 +3376,12 @@ Damit hat die ins unendliche reichende Fläche einen endlichen Flächeninhalt.
 {\;z\;}}$};
 \end{axis}
 \end{tikzpicture}
-
+\end{center}
 Berechnung des uneigentlichen Integrals $$\integral[limits-mode=limits,limits={0, 1}]{\dfrac{2}{x^2}} = \lim \limits_{z \longrightarrow 0}\integral[limits-mode=limits,limits={z, 1}]{\dfrac{2}{x^2}}= \lim \limits_{z \longrightarrow 0} \left[-2x^{-1}\right]_z^1 $$ daraus folgt für die Differenz
 $$
 \highlightmath{\integral[limits-mode=limits,limits={1, \infty}]{\dfrac{2}{x^2}}=\lim\limits_{a\longrightarrow \infty} \integral[limits-mode=limits,limits={1, a}]{\dfrac{2}{x^2}}}$$
 Damit hat die eng begrenzte Fläche einen unendlichen Flächeninhalt. 
-\end{multicols}
+
 \end{bsp}
 \begin{rechnung}{}{}
    Untersuchungen am Beispiel: \\[0.3cm]$f(x)= x+\dfrac{1}{4\sqrt{x}}$ \hspace{0.3cm} mit \hspace{0.3cm} $\mathds{D}= \mathds{R}^+$ \\[0.3cm] $a) A(z) = \lim\limits_{z \longrightarrow 0}\integral[limits-mode=limits,limits={z, 1}]{x+\dfrac{1}{4\sqrt{x}}} = \lim\limits_{z \longrightarrow 0}\left[\dfrac{1}{2}x^2 + \dfrac{1}{2} \sqrt{x}\right]_z^1 = \lim\limits_{z \longrightarrow 0} \left(1-\dfrac{1}{2}z^2 - \dfrac{1}{2}\sqrt{z}\right)= 1$\\[0.3cm] Damit hat die Fläche für $z\longrightarrow 0$ den Wert $1$\\[0.3cm] b) $A(b) = \lim\limits_{b \longrightarrow \infty}\integral[limits-mode=limits,limits={1, b}]{\left(x-(x+\dfrac{1}{4\sqrt{x}})\right)} = \lim\limits_{b \longrightarrow \infty}\integral[limits-mode=limits,limits={1, b}]{\dfrac{1}{4\sqrt{x}}} =\lim\limits_{b \longrightarrow \infty}  \left[\dfrac{1}{2} \sqrt{b}\right]_1^b $  \\[0.3cm] $=\lim\limits_{b \longrightarrow \infty} \dfrac{1}{2} \sqrt{b} -\dfrac{1}{2} = \infty$
