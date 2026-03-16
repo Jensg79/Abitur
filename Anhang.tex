@@ -665,6 +665,7 @@ f(x)=x^2 \quad \text{mit} \quad x\in[1,3]\). Innerhalb des Intervalls existieren
 \end{center}
 \end{multicols}
    \end{bsp}
+
    \begin{b8d}{Vorgehen bei Extremwertproblemen}{}
 Bei einer Untersuchung auf absolute Extremwerte im Intervall \( [a,b] \) gilt:
 \begin{enumerate}[leftmargin=1.5em]
@@ -674,7 +675,21 @@ Bei einer Untersuchung auf absolute Extremwerte im Intervall \( [a,b] \) gilt:
     \item alle Funktionswerte vergleichen.
 \end{enumerate}
    \end{b8d}
+   \begin{tikzpicture}[remember picture, overlay]
 
+% --- Der Hinweis-Kasten ---
+\node[
+  name=warnbox,            % <- Name, damit wir die Ecken referenzieren können
+  anchor=north east,
+  rotate=-20,
+  transform shape,
+  inner sep=0pt
+] at ([xshift=-0.5cm,yshift=-14cm]current page.north east) {%
+  \begin{achtung}[width=5cm,height=2cm]
+Immer an die Randextrema denken!
+  \end{achtung}
+};
+\end{tikzpicture}
 \section{Handschriftliche Ausführungen}
 \label{sec:Polynome_10} % Label fur den Verweis aus dem Inhaltsverzeichnis
 \includepdf[%
