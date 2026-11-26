@@ -1,30 +1,35 @@
 \section{Wiederholung der Wahrscheinlichkeitsbegriffe}
 \begin{merke}{Grundbegriffe der Wahrscheinlichkeit}{}
-    Ein Ereignis A ist eine Teilmenge der Ergebnisraumes $\Omega$.\\
+    Ein Ereignis A ist eine Teilmenge des Ergebnisraumes $\Omega$.\\
     Ein Ereignis A tritt ein, wenn das Versuchsergebnis $\omega$ in A enthalten ist, also wenn gilt: $\omega \in A$.\\
     Alle Elemente von $\Omega$, die nicht zum Ereignis A gehören, fasst man unter dem Namen Gegenereignis $\Bar{A}$ von $A$ zusammen. Damit ist $\Bar{A} = \Omega \setminus A$.
 \end{merke}
 \begin{b8d}{Mengenalgebra}{}
     \begin{itemize}
         \item Schnittmenge $A\cap B$: Menge der gemeinsamen Ergebnisse von A und B
-        \item Vereinigungsmenge $A\cup B$: Menge der Ergebnisse die sowohl in A als auch in B liegen.
+        \item Vereinigungsmenge $A\cup B$: Menge der Ergebnisse, die in A oder in B (oder in beiden) liegen.
     \end{itemize}
 \end{b8d}
 \begin{merke}{Unvereinbar}{}
 Zwei Ereignisse A und B heißen unvereinbar, wenn $A\cap B = \{ \}$.
 \end{merke}
 \section{Axiomatischer Aufbau der Wahrscheinlichkeit}
-Der axiomatische Aufbau der Wahrscheinlichkeitsrechnung geht auf den russischen Mathematiker Kolmogoroff zurück. Hierbei wird versucht, die gesamte Stochastik mit möglichst wenigen Annahmen zu beschreiben. Die sogenannten Axiome sind hierbei Grundannahmen die weder bewiesen noch widerlegt werden können. Hierbei wird die Berechnung der Wahrscheinlichkeit durch eine Funktion $P$ beschrieben.\\
-\begin{defi}{}{Grundaxiome der Stochastik}
-    Eine Funktion $P$, die jedem Ereignis A eine Wahrscheinlichkeit $P(A)$ zuordnet nennt man Wahrscheinlichkeitsverteilung genau dann wenn sie folgende Eigenschaften erfüllt.
+Der axiomatische Aufbau der Wahrscheinlichkeitsrechnung geht auf den russischen Mathematiker Kolmogoroff zurück. Hierbei wird versucht, die gesamte Stochastik mit möglichst wenigen Annahmen zu beschreiben. Die sogenannten Axiome sind hierbei Grundannahmen, die weder bewiesen noch widerlegt werden können. Hierbei wird die Berechnung der Wahrscheinlichkeit durch eine Funktion $P$ beschrieben.\\
+\begin{defi}{Grundaxiome der Stochastik}{}
+    Eine Funktion $P$, die jedem Ereignis A eine Wahrscheinlichkeit $P(A)$ zuordnet, nennt man Wahrscheinlichkeitsverteilung genau dann, wenn sie folgende Eigenschaften erfüllt:
+    \begin{enumerate}
+        \item $P(A)\geq 0$ für jedes Ereignis $A$ (Nichtnegativität),
+        \item $P(\Omega) = 1$ (Normierung),
+        \item $P(A\cup B) = P(A) + P(B)$ für unvereinbare Ereignisse $A$ und $B$, also $A\cap B = \{\}$ (Additivität).
+    \end{enumerate}
 \end{defi}
 \section{Bedingte Wahrscheinlichkeit}\index{Wahrscheinlichkeit!bedingte Wahrscheinlichkeit}
 Wahrscheinlichkeiten von Ereignissen können sich verändern, wenn bereits andere Ereignisse eingetreten sind. Um diesen Einfluss zu untersuchen, wird der Begriff der bedingten Wahrscheinlichkeit eingeführt.
 \begin{defi}{Die bedingte Wahrscheinlichkeit}{}
 \index{Bedingte Wahrscheinlichkeit}
-   Die Wahrscheinlichkeit eines Ereignisses B unter der Bedingung, dass das Ereignis A bereits eingetreten ist lässt sich durch folgende Zusammenhang berechnen: $$P_A(B) = \dfrac{P(A\cap B)}{P(A)}$$   
+   Die Wahrscheinlichkeit eines Ereignisses B unter der Bedingung, dass das Ereignis A bereits eingetreten ist, lässt sich für $P(A)>0$ durch folgenden Zusammenhang berechnen: $$P_A(B) = \dfrac{P(A\cap B)}{P(A)}$$   
 \end{defi}
-Durch die Betrachtung eines zweistufigen Baumdiagramms ist es möglich, die Definition für die bedingte Wahrsheinlichkeit zu zeigen.
+Durch die Betrachtung eines zweistufigen Baumdiagramms ist es möglich, die Definition für die bedingte Wahrscheinlichkeit zu zeigen.
 \begin{merke*}{Die Herleitung der bedingten Wahrscheinlichkeit}{}
 \begin{multicols}{2}
 \scalebox{0.65}{
@@ -63,10 +68,10 @@ Durch die Betrachtung eines zweistufigen Baumdiagramms ist es möglich, die Defi
 } child {
       node[bag] {$\Bar{B}$} % beschriftet Knoten 1 in zweiter Ebene mit A
       edge from parent
-      node[right]  {$P_{\Bar{A}}(B)$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
+      node[right]  {$P_{\Bar{A}}(\Bar{B})$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
     }
     edge from parent
-    node[right]  {$P(A)$} % beschriftet Verbindung zu Knoten 1 (Ebene 1) mit w
+    node[right]  {$P(\Bar{A})$} % beschriftet Verbindung zu Knoten 1 (Ebene 1) mit w
   };
 \end{tikzpicture}}
 
@@ -76,8 +81,8 @@ Nach der ersten Pfadregel berechnet sich die Wahrscheinlichkeit $P(A\cap B)$ dur
 \begin{bsp}{Beispiel für eine bedingte Wahrscheinlichkeit}{}
 Für einen Laplace-Würfel sind folgende Ereignisse gegeben:\\
 \begin{enumerate}
-    \item Ereignis A: Die geworfenen Augenzahl ist durch drei teilbar.
-    \item Ereignis B: Die geworfene Augenzahl liegt zwischen 1 und 4.
+    \item Ereignis A: Die geworfene Augenzahl ist durch drei teilbar.
+    \item Ereignis B: Die geworfene Augenzahl ist höchstens 4.
 \end{enumerate}
 Nun soll die Wahrscheinlichkeit von A unter der Bedingung B bestimmt werden.\\
 \emph{Es wird also die Wahrscheinlichkeit dafür gesucht, dass die gewürfelte Zahl durch drei teilbar ist unter der Bedingung, dass sie zwischen 1 und 4 liegt.}\\[0.5cm]
@@ -118,13 +123,13 @@ Für die Wahrscheinlichkeiten gilt damit folgendes: $$P(A) = \dfrac{2}{6} \hspac
 } child {
       node[bag] {$\Bar{A}$} % beschriftet Knoten 1 in zweiter Ebene mit A
       edge from parent
-      node[right]  {$P_{\Bar{B}}(A)$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
+      node[right]  {$P_{\Bar{B}}(\Bar{A})$} % beschriftet Verbindung zu Knoten 1 (Ebene 2) mit i
     }
     edge from parent
     node[right]  {$P(\Bar{B})$} % beschriftet Verbindung zu Knoten 1 (Ebene 1) mit w
   };
 \end{tikzpicture}}\\
-Die Wahrscheinlichkeit für das Ereignis $A\cap B$ entspricht demjenigen Ereignis, dass sowohl B als auch A eintritt. Das entspricht der Menge die nur aus der Augenzahl 3 besteht und damit der Wahrscheinlichkeit $P(A\cap B) = \dfrac{1}{6}$. Aus dem Baumdiagramm folgt damit: $$P(A\cap B) = P(B) \cdot P_{B}(A)$$ und dadurch $$P_{B}(A) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{\dfrac{1}{6}}{\dfrac{4}{6}}= \dfrac{1}{6} \cdot \dfrac{6}{4} = \dfrac{1}{4} $$.
+Die Wahrscheinlichkeit für das Ereignis $A\cap B$ entspricht demjenigen Ereignis, dass sowohl B als auch A eintritt. Das entspricht der Menge die nur aus der Augenzahl 3 besteht und damit der Wahrscheinlichkeit $P(A\cap B) = \dfrac{1}{6}$. Aus dem Baumdiagramm folgt damit: $$P(A\cap B) = P(B) \cdot P_{B}(A)$$ und dadurch $$P_{B}(A) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{\dfrac{1}{6}}{\dfrac{4}{6}}= \dfrac{1}{6} \cdot \dfrac{6}{4} = \dfrac{1}{4}. $$
 \end{bsp}
 \section{Zufallsgrößen und deren Wahrscheinlichkeiten}
 \begin{defi}{Zufallsgrößen und Wahrscheinlichkeitsverteilung}{}\index{Zufallsgröße!Definition}
@@ -156,26 +161,26 @@ Als Beispiel ist hier $P(X=4) = 0,2$ dargestellt.\\
 \draw[->] (-2.2,3) -- (5,3) node[right] {$x$};
 \foreach \x in {-2,-1,0,1,2,3,4}
   \draw (\x,2.9) -- (\x,3.1) node[below=2pt] {\small \x};
-\node[blue] at (4.8,3.4) {Wertemenge $W$};
+\node[blue, anchor=west] at (5.0,2.55) {Wertemenge $W$};
 
 % Grüner Pfeil: Zufallsgröße X
 \draw[->, thick, green!60!black] (0.5,4.2) to[bend left=30] (4,3.1);
-\node[green!50!black] at (1.5,3.4) {Zufallsgröße $X$};
+\node[green!50!black, anchor=west] at (4.7,4.0) {Zufallsgröße $X$};
 
 % P(X = x)-Achse
 \draw[->] (-0.1,1.5) -- (3.6,1.5) node[anchor=west] {$P(X = x)$};
 
 % Tick-Marken und Beschriftungen
-\foreach \i/\label in {0/0, 1/0.2,  3/0.6, 5/1} {
+\foreach \i/\label in {0/0, 1/0{,}2,  3/0{,}6, 5/1} {
   \draw (\i*0.6 + 0.3,1.5) -- ++(0,-0.1); % Markierung
-  \node at (\i*0.6 + 0.3,1.2) {\label};   % Beschriftung
+  \node[font=\scriptsize] at (\i*0.6 + 0.3,1.2) {\label};   % Beschriftung
 }
 
 % Roter Pfeil: zweifach gebogen und zeigt exakt auf 0.2 (bei x=0.9, y=1.5)
 \draw[->, thick, red]
   (4,2.9) .. controls (5.2,2.3) and (1.4,1.9) .. (0.9,1.5);
 
-\node[red] at (3.4,2.3) {Wahrscheinlichkeitsverteilung};
+\node[red, anchor=west] at (4.9,2.0) {Wahrscheinlichkeitsverteilung};
 \end{tikzpicture}  
     
 \end{center}
@@ -186,10 +191,10 @@ Die Funktion F, die bei gegebener Zufallsgröße \(X\) jeder reellen Zahl \(x\) 
 \begin{b8d}{Eigenschaften der kumulativen Verteilung}{}\index{Zufallsgröße!Kumulative Verteilung!Eigenschaften}
 Für eine kumulative Verteilungsfunktion \(F\) gilt:
 \begin{itemize}
-    \item \(\lim\limits_{x\longrightarrow -\infty} F(x) = 0\) und \(\lim\limits_{x\longrightarrow \infty} F(x) = 1\)\textbf{}
+    \item \(\lim\limits_{x\longrightarrow -\infty} F(x) = 0\) und \(\lim\limits_{x\longrightarrow \infty} F(x) = 1\)
     \item Die Funktion \(F\) ist monoton steigend in \(\mathds{R}\)
-    \item Der Graph von \(F\) springt bei \(x\), wenn \(P(X\leq x) \neq 0\) ist. Die Höhe des Sprungs beträgt \(P(X=x)\)
-    \item Die Wahrscheinlichkeit \(P(a<X\leq b)\), dass die Zufallsgröße \(X\) einen Wert \(x\) aus dem Intervall \(a<X\leq b\) annimmt, kann als Differenz \(F(b) - F(a)\) berechnet werden.
+    \item Der Graph von \(F\) springt bei \(x\), wenn \(P(X= x) \neq 0\) ist. Die Höhe des Sprungs beträgt \(P(X=x)\)
+    \item Die Wahrscheinlichkeit \(P(a<X\leq b)\), dass die Zufallsgröße \(X\) einen Wert \(x\) aus dem Intervall \(]a;b]\) annimmt, kann als Differenz \(F(b) - F(a)\) berechnet werden.
 \end{itemize}
 \end{b8d}
 \section{Erwartungswert und Varianz}
@@ -200,7 +205,7 @@ Eine Zufallsgröße nimmt die Werte $x_1, x_2,\ldots , x_n$ mit den Wahrscheinli
     \begin{bem}{Eigenschaften des Erwartungswertes}{}
         \begin{itemize}
             \item Der Erwartungswert $\mu$ ist häufig \textcolor{red}{kein} Wert, den die Zufallsgröße annimmt.
-            \item Ein Spiel heißt \textcolor{red}{\textbf{fair}}, wenn der Erwartungswert des Gewinns eines Glückspiels für jeden Spieler \(0\) ist.
+            \item Ein Spiel heißt \textcolor{red}{\textbf{fair}}, wenn der Erwartungswert des Gewinns eines Glücksspiels für jeden Spieler \(0\) ist.
         \end{itemize}
     \end{bem}
     \begin{defi}{Die Varianz}{}\index{Zufallsgröße!Varianz}
@@ -216,7 +221,7 @@ Die Standardabweichung $\sigma$ einer Zufallsgröße $X$ bestimmt sich durch $\s
     \section{Kombinatorik}\index{Kombinatorik}
 \begin{enumerate}
     \item Permutation als  Anordnung von $n$ Objekten in einer bestimmten Reihenfolge $\longrightarrow n! = n\cdot ( n-1) \cdot (n-2)\cdot \ldots \cdot 3\cdot  2\cdot 1$
-    \item Unterscheidungsmöglichkeiten in einem Urnenexperimentes: Man zieht aus einer Menge mit $n$ Elementen $k-$Elemente heraus\\
+    \item Unterscheidungsmöglichkeiten in einem Urnenexperiment: Man zieht aus einer Menge mit $n$ Elementen $k$ Elemente heraus\\
     \begin{center}
    \begin{tabular}{|c||c|c|}
     \hline
@@ -243,11 +248,11 @@ Eigenschaften des Binomialkoeffizienten
 \end{b8d}
 \section{Hypergeometrische Verteilung}
 \begin{bem}{Urnenmodell und „Ziehen mit einem Griff“}{}\index{Urnenmodell}
-Viele Zufallssituationen lassen sich als Urnenmodell beschreiben: Es gibt zwei Arten von Objekten (z.,B. „schwarz/weiß“) und man zieht mehrere auf einmal, also \emph{ohne Zurücklegen}. Dann ist nicht die Reihenfolge entscheidend, sondern nur, \emph{wie viele} Objekte einer Art im Ergebnis liegen. Genau hier taucht der Binomialkoeffizient als Zählwerkzeug auf. Das Standardmodell dahinter heißt \emph{hypergeometrische Verteilung}.\index{Hypergeometrische Verteilung}
+Viele Zufallssituationen lassen sich als Urnenmodell beschreiben: Es gibt zwei Arten von Objekten (z.\,B. „schwarz/weiß“) und man zieht mehrere auf einmal, also \emph{ohne Zurücklegen}. Dann ist nicht die Reihenfolge entscheidend, sondern nur, \emph{wie viele} Objekte einer Art im Ergebnis liegen. Genau hier taucht der Binomialkoeffizient als Zählwerkzeug auf. Das Standardmodell dahinter heißt \emph{hypergeometrische Verteilung}.\index{Hypergeometrische Verteilung}
 \end{bem}
 \begin{defi}{Hypergeometrische Wahrscheinlichkeit}{}\index{Hypergeometrische Verteilung!Wahrscheinlichkeitsverteilung}
-In einer Urne liegen S „Erfolgskugeln“ (z.,B. schwarz) und N-S „Nichterfolgskugeln“ (z.,B. weiß). Es werden n Kugeln ohne Zurücklegen gezogen.
-Für \(k\in\{0,1,\dots,n\}\) heißt
+In einer Urne liegen S „Erfolgskugeln“ (z.\,B. schwarz) und N-S „Nichterfolgskugeln“ (z.\,B. weiß). Es werden n Kugeln ohne Zurücklegen gezogen.
+Für \(k\in\{0;1;\dots;n\}\) heißt
 \[P(X=k)=\frac{\binom{S}{k}\binom{N-S}{n-k}}{\binom{N}{n}}\]
 die \emph{hypergeometrische Wahrscheinlichkeit}, wobei die Zufallsgröße \(X\) die Anzahl der gezogenen Erfolgskugeln ist.
 \end{defi}
@@ -261,7 +266,7 @@ Alle 5-Auswahlen aus 10 Kugeln sind gleich wahrscheinlich:\begin{itemize}
     \item  Anzahl an Möglichkeiten 2 der 4 weißen auszuwählen \(\longrightarrow\binom{4}{2} \) 
 \end{itemize}
 Damit\\
-\(P(X=5)=\frac{\binom{6}{3}\binom{4}{2}}{\binom{10}{5}}
+\(P(X=3)=\frac{\binom{6}{3}\binom{4}{2}}{\binom{10}{5}}
 =\frac{20\cdot 6}{252}
 =\frac{120}{252}
 =\frac{10}{21}\).
@@ -274,7 +279,7 @@ Das Vorgehen ist sofort verallgemeinerbar: \(\binom{N}{n}\) zählt alle gleich w
     Ein Zufallsexperiment mit genau zwei Ergebnissen heißt \textbf{Bernoulli-Experiment}. Die Wahrscheinlichkeit für einen Treffer wird mit \(p\), die für eine Niete mit \(q\) bezeichnet, wobei \(q=1-p\) gilt.\\
     Ein Zufallsexperiment, das aus \(n\) unabhängigen Durchführungen desselben Bernoulli-Experiments besteht, heißt \textbf{Bernoulli-Kette} der Länge \(n\) mit dem Parameter \(p\).
     \end{defi}
-    Die Wahrscheinlichkeit der Ergebnisse einer Bernoulli-Kette können bei kleinen Längen mithilfe eines Baumdiagramms bestimmt werden.
+    Die Wahrscheinlichkeiten der Ergebnisse einer Bernoulli-Kette können bei kleinen Längen mithilfe eines Baumdiagramms bestimmt werden.
     \begin{center}
 \tikzstyle{level 1}=[level distance=2.5cm, sibling distance=8cm]
 \tikzstyle{level 2}=[level distance=2.5cm, sibling distance=4cm]
@@ -356,9 +361,9 @@ child {
 
 \end{tikzpicture}}
     \end{center}
-    Die Abbildung zeigt das Baumdiagramm einer Bernoulli-Kette der Länge 3 mit \(1\) als Treffer und \(0\) als Niete sowie der Trefferwahrscheinlichkeit \(P(1) = p\). Da die einzelnen Bernoulli-Experimente unabhängig sind, wiederholen sich sich die Wahrscheinlichkeiten an den Ästen an jeder Stufe des Baumdiagramms.
+    Die Abbildung zeigt das Baumdiagramm einer Bernoulli-Kette der Länge 3 mit \(1\) als Treffer und \(0\) als Niete sowie der Trefferwahrscheinlichkeit \(P(1) = p\). Da die einzelnen Bernoulli-Experimente unabhängig sind, wiederholen sich die Wahrscheinlichkeiten an den Ästen an jeder Stufe des Baumdiagramms.
 \begin{bsp}{Beispiel Bernoulli-Kette der Länge 3}{}\index{Bernoulli-Kette}
- Für die Wahrscheinlichkeit des Ergebnisses \glqq Nur im 3. Versuch ein Treffer\grqq\ ergibt sich durch die Pfadregel\\ \(P(001) = (1-p)\cdot (1-p) \cdot p = \left(1-p\right)^2 \cdot p\). \\ Für das Ergebnis \glqq Mindestens zwei Treffer\grqq\ kann man daraus folgern\\ \(P((110); (011);(011);(111)) = 3 \cdot P(110) + P(111) = 3\cdot p^2 \cdot \left(1-p\right) + p^3\). 
+ Für die Wahrscheinlichkeit des Ergebnisses \glqq Nur im 3. Versuch ein Treffer\grqq\ ergibt sich durch die Pfadregel\\ \(P(001) = (1-p)\cdot (1-p) \cdot p = \left(1-p\right)^2 \cdot p\). \\ Für das Ergebnis \glqq Mindestens zwei Treffer\grqq\ kann man daraus folgern\\ \(P(\{110;101;011;111\}) = 3 \cdot P(110) + P(111) = 3\cdot p^2 \cdot \left(1-p\right) + p^3\). 
 \end{bsp}
 \section{Die Binomialverteilung}\index{Zufallsgröße!Binomialverteilung}
 Bei einer Bernoulli-Kette der Länge \(n\) besteht ein konkretes Ergebnis aus einer Folge von insgesamt \(n\) Nullen und Einsen. Oft ist aber nur die Anzahl der Treffer bei der Berechnung der Wahrscheinlichkeit von Interesse.  Gibt die Zufallsgröße \(X\) die Anzahl der Treffer einer Bernoulli-Kette der Länge \(n\) an, so kann \(X\) die Werte \(0;1;2;3; \ldots ; n\) annehmen. 
@@ -393,7 +398,7 @@ child {
   child {
     node (AnB) [bag] {$0$}
     child {
-      node (AnBB) [bag] {$0$}
+      node (AnBB) [bag] {$1$}
       edge from parent node[left] {$0,95$}
     }
     child {
@@ -407,9 +412,9 @@ child {
   child {
   node (nA) [bag] {$0$}
   child {
-    node (nAB) [bag] {$0$}
+    node (nAB) [bag] {$1$}
     child {
-      node (nABB) [bag] {$0$}
+      node (nABB) [bag] {$1$}
       edge from parent node[left] {$0,95$}
     }
     child {
@@ -421,7 +426,7 @@ child {
   child {
     node (nAnB) [bag] {$0$}
     child {
-      node (nAnBB) [bag] {$0$}
+      node (nAnBB) [bag] {$1$}
       edge from parent node[left] {$0,95$}
     }
     child {
@@ -463,15 +468,15 @@ $\omega$ & $P(\omega)$ & $X=x$\\
    
 \end{center}
  \begin{bsp}{}{}
-Durch das obige Baumdiagramm ist folgendes Bernoulli-Experiment simuliert. \\ In einer Urne befinden sich \(19\) weiße und eine schwarze Kugel. Aus dieser Urne werden drei Kugeln \textbf{mit zurücklegen} gezogen und  \(1\) für eine weiße Kugel bzw. \(0\) für eine schwarze notiert. Das Zufallsexperiment kann damit durch eine Bernoulli-Kette der Länge \(3\) mit dem Parameter \(p=\dfrac{19}{20} = 0,95\) beschrieben werden. Die Zufallsgröße \(X\) gibt die Anzahl der weißen Kugeln an. \\[0.2cm]
-Aus der obigen Tabelle ist zu sehen, dass es 3  unterschiedliche Pfade für \(2\) Treffer, also \(X=2\),  gibt. Daraus ist leicht zu berechnen, dass \(P(X=2) = 3\cdot 0,95^2\cdot 0,05\) gilt.\\[0.2cm] Verallgemeinert kann man sehen, dass für die Anzahl der Pfade \(\binom{3}{k}\) gilt und sich die passende Wahrscheinlichkeit mit\\[0.2cm]  \(P(X=k) =\binom{3}{k} \cdot 0,95^k \cdot 0,05^{3-k} \)
+Durch das obige Baumdiagramm ist folgendes Bernoulli-Experiment simuliert. \\ In einer Urne befinden sich \(19\) weiße und eine schwarze Kugel. Aus dieser Urne werden drei Kugeln \textbf{mit Zurücklegen} gezogen und  \(1\) für eine weiße Kugel bzw. \(0\) für eine schwarze notiert. Das Zufallsexperiment kann damit durch eine Bernoulli-Kette der Länge \(3\) mit dem Parameter \(p=\dfrac{19}{20} = 0,95\) beschrieben werden. Die Zufallsgröße \(X\) gibt die Anzahl der weißen Kugeln an. \\[0.2cm]
+Aus der obigen Tabelle ist zu sehen, dass es 3  unterschiedliche Pfade für \(2\) Treffer, also \(X=2\),  gibt. Daraus ist leicht zu berechnen, dass \(P(X=2) = 3\cdot 0,95^2\cdot 0,05\) gilt.\\[0.2cm] Verallgemeinert kann man sehen, dass für die Anzahl der Pfade \(\binom{3}{k}\) gilt und sich die passende Wahrscheinlichkeit mit\\[0.2cm]  \(P(X=k) =\binom{3}{k} \cdot 0{,}95^k \cdot 0{,}05^{3-k} \) berechnen lässt.
 \end{bsp}
 \begin{satz}{Wahrscheinlichkeit in einer Bernoulli-Kette}{}\index{Zufallsgröße!Binomialverteilung!Wahrscheinlichkeit}
     Gegeben ist eine Bernoulli-Kette der Länge \(n\) mit \(n \in \mathds{N}\setminus\{0\}\) und der Trefferwahrscheinlichkeit \(p\). Die Zufallsgröße \(X\) gibt die Anzahl der Treffer an. \\[0.2cm]
     Dann beträgt die Wahrscheinlichkeit für genau \(k\) Treffer mit \(k\in\{0;1;2;3;\ldots ; n\}\) \\ \(P(X=k) = \binom{n}{k}\cdot p^k \cdot \left(1-p\right)^{n-k}\)
 \end{satz}
 \begin{defi}{Die Binomialverteilung}{}\index{Zufallsgröße!Binomialverteilung}
- Eine Zufallsgröße \(X\) heißt binomialverteilt nach \(P^n_p(X=k) = B(n,p)\) oder \(B(n,p)\)-verteilt, wenn gilt:
+ Eine Zufallsgröße \(X\) heißt binomialverteilt oder \(B(n;p)\)-verteilt, wenn gilt:
  \begin{itemize}
     \item \(n\) ist die Länge der Bernoulli-Kette
     \item \(p\) ist die Trefferwahrscheinlichkeit
@@ -481,7 +486,7 @@ Aus der obigen Tabelle ist zu sehen, dass es 3  unterschiedliche Pfade für \(2\
 \end{defi}
 \subsection{Die kumulative Binomialverteilung}
 \index{Binomialverteilung!Kumulative}\index{Zufallsgröße!Binomialverteilung!Kumulative}
-Durch die Anwendung zur Berechnung der Wahrscheinlichkeiten innerhalb der Bernoulli-Kette ist es möglich, auch ohne ein Baumdiagramm die Wahrscheinlichkeit einzelner Äste zu berechnen. In vielen Aufgaben muss man allerdings sehr viele einzelne Wahrscheinlichkeiten berechnen und addiere. In diesen Fällen kann man die kumulative Binomialverteilung \(F(n;p;k)\) einer Zufallsgröße \(X\) nutzen.
+Mit der Formel für die Wahrscheinlichkeit in einer Bernoulli-Kette ist es möglich, auch ohne ein Baumdiagramm die Wahrscheinlichkeit einzelner Äste zu berechnen. In vielen Aufgaben muss man allerdings sehr viele einzelne Wahrscheinlichkeiten berechnen und addieren. In diesen Fällen kann man die kumulative Binomialverteilung \(F(n;p;k)\) einer Zufallsgröße \(X\) nutzen.
 \begin{satz}{Die kumulative Binomialverteilung}{}
 Die kumulative Verteilung \(F(n;p;k)\) einer binomialverteilten Zufallsgröße \(X\) ist damit\[F(n;p;k) = F^n_p(k) = P^n_p(X\leq k) = \sum\limits_{i=0}^k \binom{n}{i} \cdot p^{i}\cdot (1-p)^{n-i}\]
 \end{satz}
@@ -490,7 +495,7 @@ Die kumulative Verteilung \(F(n;p;k)\) einer binomialverteilten Zufallsgröße \
 
 Häufig interessiert die Wahrscheinlichkeit, dass in einer Bernoulli-Kette mindestens ein Treffer auftritt. Das ist die Summe der Wahrscheinlichkeiten für einen Treffer, zwei Treffer, drei Treffer, \(\ldots\),  n Treffer. Diese Wahrscheinlichkeit lässt sich viel einfacher durch das \textit{Gegenereignis} \textbf{kein Treffer} berechnen.
 \begin{satz}{Mindestens 1 Treffer}{}\index{Binomialverteilung!Mindestens ein Treffer}
-    Die Wahrscheinlichkeit mindestens ein Treffer bei einer binomialverteilten Zufallsgröße \(B(n,p)\) lässt sich mit der Gegenwahrscheinlichkeit kein Treffer sehr leicht berechnen. \[P_p^n(X\geq 1) = 1- P_p^n(X=0) = 1-q^n = 1- \left(1-p\right)^n\]
+    Die Wahrscheinlichkeit für mindestens einen Treffer bei einer \(B(n;p)\)-verteilten Zufallsgröße lässt sich mit der Gegenwahrscheinlichkeit kein Treffer sehr leicht berechnen. \[P_p^n(X\geq 1) = 1- P_p^n(X=0) = 1-q^n = 1- \left(1-p\right)^n\]
 \end{satz}
 Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man entweder die Trefferwahrscheinlichkeit \(p\) oder die Kettenlänge \(n\) bestimmen muss. Da in der Fragestellung dreimal das Wort mindestens auftritt, nennt man solche Aufgaben 3-m-Aufgaben. 
 \begin{bem}{3-m-Aufgaben}{}\index{Binomialverteilung!3-m-Aufgaben}
@@ -503,25 +508,25 @@ Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man e
         \begin{split}
             P^5_p(X\geq 1) &\geq 0,9\\
             1-P^5_p(X=0)&\geq 0,9\\
-            1-(1-p)^5 &\geq 0,9 \hspace{0.3cm}|\hspace{0.1cm} -1\\
-            -(1-p)^5 &\geq -0,1 \hspace{0.3cm}|\hspace{0.1cm} \cdot(-1)\\
-            (1-p)^5 &\leq 0,1 \hspace{0.3cm}|\hspace{0.1cm} \sqrt[5]{\hspace{0.5cm}}\\ 
-            1-p &\leq \sqrt[5]{0,1} \hspace{0.3cm}|\hspace{0.1cm} -1 \\
-            -p &\leq \sqrt[5]{0,1} -1 \hspace{0.3cm}|\hspace{0.1cm} \cdot (-1)\\
+            1-(1-p)^5 &\geq 0,9 \,|\, -1\\
+            -(1-p)^5 &\geq -0,1 \,|\, \cdot(-1)\\
+            (1-p)^5 &\leq 0,1 \,|\, \sqrt[5]{\hspace{0.5cm}}\\ 
+            1-p &\leq \sqrt[5]{0,1} \,|\, -1 \\
+            -p &\leq \sqrt[5]{0,1} -1 \,|\, \cdot (-1)\\
             p&\geq 1-\sqrt[5]{0,1} \approx 0,3690\\ &\approx 37\%
         \end{split}
     \end{equation*}
     Die Wahrscheinlichkeit für einen Helmträger muss damit mindestens \(37\%\) betragen.
     \item \textbf{Mindest-Anzahl an Versuchen $n$ bei gegebenem $p$}\\
-    Die Wahrscheinlichkeit, dass ein Radfahrer einen Helm trägt, ist \(60\%\). Wie viele Radfahrer muss man \textbf{midenstens} betrachten, damit sich darunter mit einer Wahrscheinlichkeit von \textbf{mindestens} \(99,9\%\) \textbf{mindestens} ein Helmträger befindet. 
+    Die Wahrscheinlichkeit, dass ein Radfahrer einen Helm trägt, ist \(60\%\). Wie viele Radfahrer muss man \textbf{mindestens} betrachten, damit sich darunter mit einer Wahrscheinlichkeit von \textbf{mindestens} \(99,9\%\) \textbf{mindestens} ein Helmträger befindet? 
     \begin{equation*}
         \begin{split}
             P^n_{0,6}(X\geq 1) &\geq 0,999\\
             1-P^n_{0,6}(X=0)&\geq 0,999\\
-            1-(0,4)^n &\geq 0,999 \hspace{0.3cm}|\hspace{0.1cm} -1\\
-            -(0,4)^n &\geq -0,001 \hspace{0.3cm}|\hspace{0.1cm} \cdot (-1)\\
-            (0,4)^n &\leq 0,001\hspace{0.3cm}|\hspace{0.1cm} \ln{(\hspace{0.3cm})}\\
-            n\cdot \ln{(0,4)} &\leq \ln{(0,001)}\hspace{0.3cm}|\hspace{0.1cm} : \ln{(0,4)}\\
+            1-(0,4)^n &\geq 0,999 \,|\, -1\\
+            -(0,4)^n &\geq -0,001 \,|\, \cdot (-1)\\
+            (0,4)^n &\leq 0,001\,|\, \ln{(\hspace{0.3cm})}\\
+            n\cdot \ln{(0,4)} &\leq \ln{(0,001)}\,|\, : \ln{(0,4)}\\
            n&\geq \frac{\ln{(0,001)}}{\ln{(0,4)}} \approx 7,5
         \end{split}
     \end{equation*}
@@ -535,9 +540,9 @@ Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man e
     
 \begin{tabular}{p{0.94\linewidth}}
 \hline
-\textbf{Typische Aufgabenformulierungen bei }$X\sim\mathrm{Bin}(n,p)$\\[6pt]
+\textbf{Typische Aufgabenformulierungen bei }$X\sim B(n;p)$\\[6pt]
 
-\textbf{Der Rechner liefert:}\qquad \(\mathrm{Binomial\;CD}(x;N,p)=P^n_p(X\le x)\)\\[6pt]
+\textbf{Der Rechner liefert:}\qquad \(\mathrm{Binomial\;CD}(x;N,p)=P^n_p(X\le x)\) \quad (Am Rechner steht \(N\) für die Kettenlänge \(n\).)\\[6pt]
 
 \textbf{So übersetzt du Texte in Casio-Eingaben:}\\[4pt]
 \(\boxed{P^n_p(X\le x)}\) \quad „\textbf{höchstens} \(x\) Treffer“ \quad\(\Rightarrow\)\quad direkt \(\mathrm{CD}(x)\)\\[4pt]
@@ -560,7 +565,9 @@ Häufig tauchen in diesem Zusammenhang auch Fragestellungen auf, bei denen man e
 \end{center}
 
 \end{bem}
-\subsection{Taschenrechner Anleitungen}\index{Zufallsgröße!Binomialverteilung!Taschenrechner}
+\subsection{Taschenrechner-Anleitungen}\index{Zufallsgröße!Binomialverteilung!Taschenrechner}
+\noindent\textit{Hinweis: Die folgenden Tastenfolgen beziehen sich auf einen Casio-Rechner. Die Menüführung unterscheidet sich je nach Modell; bitte am eigenen Modell prüfen.}
+
 \begin{b8d}{Berechnung der kumulativen Binomialverteilung}{}
 \begin{center}
 \begin{tabular}{p{0.94\linewidth}}
@@ -582,7 +589,7 @@ Zuerst \(\;x\) (Wert der Zufallsgröße) \(\rightarrow\) dann \(\;N\) (Kettenlä
 \]
 Also: „höchstens \(x\) Treffer“.
 \end{b8d}
-\begin{b8d}{Berechnung der Wahrscheinlichkeit in den Taschenrechner}{}
+\begin{b8d}{Berechnung der Wahrscheinlichkeit mit dem Taschenrechner}{}
 \begin{center}
 \begin{tabular}{p{0.94\linewidth}}
 \hline
@@ -665,7 +672,7 @@ also: „höchstens \(x\) Treffer“ (für jedes \(x\) aus der Liste).
 \subsection{Erwartungswert und Varianz einer binomialverteilten Zufallsgröße}
     \begin{defi}{Erwartungswert und Varianz}{}\index{Binomialverteilung!Erwartungswert}\index{Zufallsgröße!Binomialverteilung!Erwartungswert}\index{Binomialverteilung!Varianz}\index{Zufallsgröße!Binomialverteilung!Varianz}\index{Zufallsgröße!Binomialverteilung!Standardabweichung}
 \index{Binomialverteilung!Standardabweichung}
-     Gegeben ist eine Bernoulli-Kette der Länge \(n\) mit der Trefferwahrscheinlichkeit \(p\). Für die Zufallsgröße \(X\) \glqq Anzahl der Treffer\grqq gilt:
+     Gegeben ist eine Bernoulli-Kette der Länge \(n\) mit der Trefferwahrscheinlichkeit \(p\). Für die Zufallsgröße \(X\) \glqq Anzahl der Treffer\grqq{} gilt:
      \begin{description}
          \item[Erwartungswert:] \(E(X) = \mu = n\cdot p\)
          \item[Varianz:] \(Var(X) = n\cdot p \cdot q = n\cdot p\cdot \left(1-p\right)\)
@@ -676,14 +683,14 @@ also: „höchstens \(x\) Treffer“ (für jedes \(x\) aus der Liste).
 Werden aus einer großen Gesamtheit nur wenige Elemente ausgewählt, darf man die interessierenden Wahrscheinlichkeiten näherungsweise mit der Bernoulli'schen Formel berechnen.
     \end{b8d}
     \begin{merke}{Werte der Binomialverteilung}{}
-   Ist eine Zufallsgröße \(X\) nach \(B(n,p)\) verteilt, so ist die Trefferanzahl \(k\) mit der größten Wahrscheinlichkeit entweder \begin{itemize}
+   Ist eine Zufallsgröße \(X\) nach \(B(n;p)\) verteilt, so ist die Trefferanzahl \(k\) mit der größten Wahrscheinlichkeit entweder \begin{itemize}
        \item \(k=E(X)\) wenn \(\mu = E(X)\) ganzzahlig ist
        \item bei der von \(\mu = E(X)\) aus gesehenen nächstkleineren oder nächstgrößeren Trefferanzahl, wenn \(E(X)\) nicht ganzzahlig ist.
    \end{itemize}
     \end{merke}
-    Im folgenden sollen einige Eigenschaften von Histogrammen \index{Zufallsgröße!Binomialverteilung!Histogramme}betrachtet werden.
+    Im Folgenden sollen einige Eigenschaften von Histogrammen \index{Zufallsgröße!Binomialverteilung!Histogramme}betrachtet werden.
 \begin{merke}{Eigenschaften spezieller Histogramme}{}
-Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit wachsenden \(n\) bei konstanten \(p\) flacher. Die Maximalwerte der Wahrscheinlichkeitsfunktionen nehmen dabei ab.
+Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit wachsendem \(n\) bei konstantem \(p\) flacher. Die Maximalwerte der Wahrscheinlichkeitsfunktionen nehmen dabei ab.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -722,8 +729,8 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 ] coordinates {
 (0,3.405062891602e-04) (1,4.161743534180e-03) (2,2.288958943799e-02)
 (3,7.460310631641e-02) (4,1.595677551768e-01) (5,2.340327075926e-01)
-(6,2.383666466221e-01) (7,1.664782928789e-01) (8,7.630255090287e-02)
-(9,2.073839288667e-02) (10,2.533130864807e-03)
+(6,2.383666466221e-01) (7,1.664782928789e-01) (8,7.630255090283e-02)
+(9,2.072414962793e-02) (10,2.532951621191e-03)
 };
 
 % --- Blau: n=25 (mitte) ---
@@ -736,13 +743,13 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 ] coordinates {
 (0,2.139502727067e-09) (1,6.537369443816e-08) (2,9.588141850930e-07)
 (3,8.984444030686e-06) (4,6.039542931739e-05) (5,3.100298704959e-04)
-(6,1.263084657576e-03) (7,4.190233229102e-03) (8,1.152314138006e-02)
-(9,2.679109158213e-02) (10,5.363061978689e-02) (11,9.385358452706e-02)
-(12,1.443278114166e-01) (13,1.556666446329e-01) (14,1.583058314819e-01)
-(15,1.486833168391e-01) (16,1.291322265485e-01) (17,1.037885036175e-01)
-(18,7.737292251874e-02) (19,5.332604071422e-02) (20,3.392111682760e-02)
-(21,1.989544725336e-02) (22,1.071298565905e-02) (23,5.268563930338e-03)
-(24,2.327492408795e-03) (25,9.030732935249e-04)
+(6,1.263084657576e-03) (7,4.190233229102e-03) (8,1.152314138003e-02)
+(9,2.660280787735e-02) (10,5.202326873793e-02) (11,8.670544789655e-02)
+(12,1.236355460747e-01) (13,1.511101118691e-01) (14,1.583058314819e-01)
+(15,1.418889304393e-01) (16,1.083873774189e-01) (17,7.013300891814e-02)
+(18,3.809694311603e-02) (19,1.715476385926e-02) (20,6.290080081730e-03)
+(21,1.830446584630e-03) (22,4.067659076956e-04) (23,6.484673890800e-05)
+(24,6.604760444333e-06) (25,3.228993995007e-07)
 };
 
 % --- Gelb: n=50 (rechts) --- 0..43
@@ -755,19 +762,19 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 ] coordinates {
 (0,4.577471919127e-18) (1,2.797343950578e-16) (2,8.376491052008e-15)
 (3,1.638069361282e-13) (4,2.352449610507e-12) (5,2.645198895370e-11)
-(6,2.424765654089e-10) (7,1.862835835840e-09) (8,1.223779653266e-08)
-(9,6.957704488573e-08) (10,3.457455229566e-07) (11,1.512097737294e-06)
-(12,5.888739044035e-06) (13,2.050145894573e-05) (14,6.412956415267e-05)
-(15,1.810861503205e-04) (16,4.626793529058e-04) (17,1.073910878399e-03)
-(18,2.271048246375e-03) (19,4.398739101699e-03) (20,7.830287955527e-03)
-(21,1.284362607477e-02) (22,1.945572778681e-02) (23,2.731558614495e-02)
-(24,3.552606519526e-02) (25,4.264569668514e-02) (26,4.707618577724e-02)
-(27,4.818435257137e-02) (28,4.542397744353e-02) (29,3.944961173520e-02)
-(30,3.145575126674e-02) (31,2.292890609299e-02) (32,1.520479883054e-02)
-(33,9.106127079757e-03) (34,4.872997754300e-03) (35,2.317316433465e-03)
-(36,9.699947136467e-04) (37,3.521674544089e-04) (38,1.088928391264e-04)
-(39,2.803555173398e-05) (40,5.830407006133e-06) (41,9.504771420140e-07)
-(42,1.173267994881e-07) (43,1.032423762219e-08)
+(6,2.424765654089e-10) (7,1.862835835840e-09) (8,1.223779653267e-08)
+(9,6.980076540857e-08) (10,3.497793911030e-07) (11,1.554575071569e-06)
+(12,6.175117645398e-06) (13,2.206153141689e-05) (14,7.126224830694e-05)
+(15,2.090359283670e-04) (16,5.588807807035e-04) (17,1.366153019497e-03)
+(18,3.061194728874e-03) (19,6.301406693355e-03) (20,1.193766490241e-02)
+(21,2.084354189310e-02) (22,3.358126193888e-02) (23,4.996632211196e-02)
+(24,6.870369290394e-02) (25,8.733002742457e-02) (26,1.026314424861e-01)
+(27,1.115008264047e-01) (28,1.119432900015e-01) (29,1.037941616106e-01)
+(30,8.880167160020e-02) (31,7.002282348403e-02) (32,5.081517398667e-02)
+(33,3.387678265778e-02) (34,2.070247829087e-02) (35,1.156709898156e-02)
+(36,5.890652259129e-03) (37,2.724205549267e-03) (38,1.139068402179e-03)
+(39,4.283676042382e-04) (40,1.439791114245e-04) (41,4.292060232167e-05)
+(42,1.124111013187e-05) (43,2.556118066161e-06)
 };
 
 % Beschriftungen
@@ -787,7 +794,7 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) werden mit
 \end{axis}
 \end{tikzpicture}
 \end{center}
-Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschieben sich mit wachsenden \(p\) bei konstantem \(n\) nach rechts.
+Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschieben sich mit wachsendem \(p\) bei konstantem \(n\) nach rechts.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -824,15 +831,15 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschiebe
   line width=0.4pt,
   opacity=0.90
 ] coordinates {
-(0,3.777893186295e-03) (1,2.361183241434e-02) (2,7.083549724302e-02)
-(3,1.353132491640e-01) (4,1.827829863714e-01) (5,1.960151025272e-01)
-(6,1.666128371482e-01) (7,1.144296494291e-01) (8,6.555951494659e-02)
-(9,3.182279512562e-02) (10,1.323281580224e-02) (11,4.771338282880e-03)
-(12,1.491043213400e-03) (13,4.065581400002e-04) (14,9.680908095241e-05)
-(15,2.016856036527e-05) (16,3.682515427899e-06) (17,5.892024684638e-07)
-(18,8.188923173108e-08) (19,9.941744420951e-09) (20,1.043383264199e-09)
-(21,9.441262506834e-11) (22,7.090946380126e-12) (23,4.205212669704e-13)
-(24,1.752171945710e-14) (25,3.502753248000e-16)
+(0,3.777893186296e-03) (1,2.361183241435e-02) (2,7.083549724304e-02)
+(3,1.357680363825e-01) (4,1.866810500259e-01) (5,1.960151025272e-01)
+(6,1.633459187727e-01) (7,1.108418734529e-01) (8,6.234855381726e-02)
+(9,2.944237263593e-02) (10,1.177694905437e-02) (11,4.014868995808e-03)
+(12,1.171003457111e-03) (13,2.927508642777e-04) (14,6.273232805950e-05)
+(15,1.150092681091e-05) (16,1.797019814205e-06) (17,2.378408577624e-07)
+(18,2.642676197360e-08) (19,2.434043865989e-09) (20,1.825532899492e-10)
+(21,1.086626725888e-11) (22,4.939212390400e-13) (23,1.610612736000e-14)
+(24,3.355443200000e-16) (25,3.355443200000e-18)
 };
 
 % --- p = 0,5 (blau) mitte ---
@@ -843,13 +850,13 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschiebe
   opacity=0.85
 ] coordinates {
 (0,2.980232238770e-08) (1,7.450580596924e-07) (2,8.940696716309e-06)
-(3,6.854534149170e-05) (4,3.770993232727e-04) (5,1.583814620972e-03)
-(6,5.279382169247e-03) (7,1.437395811081e-02) (8,3.233140945435e-02)
-(9,6.087416887283e-02) (10,9.739867001772e-02) (11,1.329527327418e-01)
-(12,1.549810171127e-01) (13,1.549810171127e-01) (14,1.329527327418e-01)
-(15,9.739867001772e-02) (16,6.087416887283e-02) (17,3.233140945435e-02)
-(18,1.437395811081e-02) (19,5.279382169247e-03) (20,1.583814620972e-03)
-(21,3.770993232727e-04) (22,6.854534149170e-05) (23,8.940696716309e-06)
+(3,6.854534149170e-05) (4,3.769993782043e-04) (5,1.583397388458e-03)
+(6,5.277991294861e-03) (7,1.432597637177e-02) (8,3.223344683647e-02)
+(9,6.088539958000e-02) (10,9.741663932800e-02) (11,1.328408718109e-01)
+(12,1.549810171127e-01) (13,1.549810171127e-01) (14,1.328408718109e-01)
+(15,9.741663932800e-02) (16,6.088539958000e-02) (17,3.223344683647e-02)
+(18,1.432597637177e-02) (19,5.277991294861e-03) (20,1.583397388458e-03)
+(21,3.769993782043e-04) (22,6.854534149170e-05) (23,8.940696716309e-06)
 (24,7.450580596924e-07) (25,2.980232238770e-08)
 };
 
@@ -860,15 +867,15 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschiebe
   line width=0.4pt,
   opacity=0.85
 ] coordinates {
-(0,3.502753248000e-16) (1,1.752171945710e-14) (2,4.205212669704e-13)
-(3,7.090946380126e-12) (4,9.441262506834e-11) (5,1.043383264199e-09)
-(6,9.941744420951e-09) (7,8.188923173108e-08) (8,5.892024684638e-07)
-(9,3.682515427899e-06) (10,2.016856036527e-05) (11,9.680908095241e-05)
-(12,4.065581400002e-04) (13,1.491043213400e-03) (14,4.771338282880e-03)
-(15,1.323281580224e-02) (16,3.182279512562e-02) (17,6.555951494659e-02)
-(18,1.144296494291e-01) (19,1.666128371482e-01) (20,1.960151025272e-01)
-(21,1.827829863714e-01) (22,1.353132491640e-01) (23,7.083549724302e-02)
-(24,2.361183241434e-02) (25,3.777893186295e-03)
+(0,3.355443200000e-18) (1,3.355443200000e-16) (2,1.610612736000e-14)
+(3,4.939212390400e-13) (4,1.086626725888e-11) (5,1.825532899492e-10)
+(6,2.434043865989e-09) (7,2.642676197360e-08) (8,2.378408577624e-07)
+(9,1.797019814205e-06) (10,1.150092681091e-05) (11,6.273232805950e-05)
+(12,2.927508642777e-04) (13,1.171003457111e-03) (14,4.014868995808e-03)
+(15,1.177694905437e-02) (16,2.944237263593e-02) (17,6.234855381726e-02)
+(18,1.108418734529e-01) (19,1.633459187727e-01) (20,1.960151025272e-01)
+(21,1.866810500259e-01) (22,1.357680363825e-01) (23,7.083549724304e-02)
+(24,2.361183241435e-02) (25,3.777893186296e-03)
 };
 
 % ----- Beschriftungen -----
@@ -888,12 +895,12 @@ Die Histogramme einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) verschiebe
 \end{axis}
 \end{tikzpicture}
 \end{center}
-Wenn \(n\) konstant ist, dann nehmen die Maximalwerte der Wahrscheinlichkeitsfunktion bei \(p=0.5\) ihr Minimum an.
+Wenn \(n\) konstant ist, dann nehmen die Maximalwerte der Wahrscheinlichkeitsfunktion bei \(p=0{,}5\) ihr Minimum an.
 \end{merke}
 \begin{b8d}{Symmetrie der Histogramme}{}
 \begin{multicols}{2}
 
-Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(p=0.5\) achsensymetrisch.
+Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(p=0{,}5\) achsensymmetrisch zur Geraden \(k=\dfrac{n}{2}\).
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -931,18 +938,18 @@ Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(
   opacity=0.9
 ] coordinates {
 (0,2.980232238770e-08) (1,7.450580596924e-07) (2,8.940696716309e-06)
-(3,6.854534149170e-05) (4,3.770993232727e-04) (5,1.583814620972e-03)
-(6,5.279382169247e-03) (7,1.437395811081e-02) (8,3.233140945435e-02)
-(9,6.087416887283e-02) (10,9.739867001772e-02) (11,1.329527327418e-01)
-(12,1.549810171127e-01) (13,1.549810171127e-01) (14,1.329527327418e-01)
-(15,9.739867001772e-02) (16,6.087416887283e-02) (17,3.233140945435e-02)
-(18,1.437395811081e-02) (19,5.279382169247e-03) (20,1.583814620972e-03)
-(21,3.770993232727e-04) (22,6.854534149170e-05) (23,8.940696716309e-06)
+(3,6.854534149170e-05) (4,3.769993782043e-04) (5,1.583397388458e-03)
+(6,5.277991294861e-03) (7,1.432597637177e-02) (8,3.223344683647e-02)
+(9,6.088539958000e-02) (10,9.741663932800e-02) (11,1.328408718109e-01)
+(12,1.549810171127e-01) (13,1.549810171127e-01) (14,1.328408718109e-01)
+(15,9.741663932800e-02) (16,6.088539958000e-02) (17,3.223344683647e-02)
+(18,1.432597637177e-02) (19,5.277991294861e-03) (20,1.583397388458e-03)
+(21,3.769993782043e-04) (22,6.854534149170e-05) (23,8.940696716309e-06)
 (24,7.450580596924e-07) (25,2.980232238770e-08)
 };
 
 % Beschriftungen wie im Bild
-\node[anchor=west] at (rel axis cs:0.25,1.05) {\textcolor{blue}{$\mathrm{B}(n;\,0{,}5;\,k)$}};
+\node[anchor=west] at (rel axis cs:0.25,1.05) {\textcolor{blue}{$\mathrm{B}(25;\,0{,}5;\,k)$}};
 \node[anchor=west] at (rel axis cs:1.01,0.08) {$k$};
 
 \end{axis}
@@ -986,15 +993,15 @@ Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(
   line width=0.4pt,
   opacity=0.9
 ] coordinates {
-(0,3.777893186295e-03) (1,2.361183241434e-02) (2,7.083549724302e-02)
-(3,1.353132491640e-01) (4,1.827829863714e-01) (5,1.960151025272e-01)
-(6,1.666128371482e-01) (7,1.144296494291e-01) (8,6.555951494659e-02)
-(9,3.182279512562e-02) (10,1.323281580224e-02) (11,4.771338282880e-03)
-(12,1.491043213400e-03) (13,4.065581400002e-04) (14,9.680908095241e-05)
-(15,2.016856036527e-05) (16,3.682515427899e-06) (17,5.892024684638e-07)
-(18,8.188923173108e-08) (19,9.941744420951e-09) (20,1.043383264199e-09)
-(21,9.441262506834e-11) (22,7.090946380126e-12) (23,4.205212669704e-13)
-(24,1.752171945710e-14) (25,3.502753248000e-16)
+(0,3.777893186296e-03) (1,2.361183241435e-02) (2,7.083549724304e-02)
+(3,1.357680363825e-01) (4,1.866810500259e-01) (5,1.960151025272e-01)
+(6,1.633459187727e-01) (7,1.108418734529e-01) (8,6.234855381726e-02)
+(9,2.944237263593e-02) (10,1.177694905437e-02) (11,4.014868995808e-03)
+(12,1.171003457111e-03) (13,2.927508642777e-04) (14,6.273232805950e-05)
+(15,1.150092681091e-05) (16,1.797019814205e-06) (17,2.378408577624e-07)
+(18,2.642676197360e-08) (19,2.434043865989e-09) (20,1.825532899492e-10)
+(21,1.086626725888e-11) (22,4.939212390400e-13) (23,1.610612736000e-14)
+(24,3.355443200000e-16) (25,3.355443200000e-18)
 };
 
 % --- Balken: B(25; 0,8; k) (rot) ---
@@ -1004,15 +1011,15 @@ Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(
   line width=0.4pt,
   opacity=0.9
 ] coordinates {
-(0,3.502753248000e-16) (1,1.752171945710e-14) (2,4.205212669704e-13)
-(3,7.090946380126e-12) (4,9.441262506834e-11) (5,1.043383264199e-09)
-(6,9.941744420951e-09) (7,8.188923173108e-08) (8,5.892024684638e-07)
-(9,3.682515427899e-06) (10,2.016856036527e-05) (11,9.680908095241e-05)
-(12,4.065581400002e-04) (13,1.491043213400e-03) (14,4.771338282880e-03)
-(15,1.323281580224e-02) (16,3.182279512562e-02) (17,6.555951494659e-02)
-(18,1.144296494291e-01) (19,1.666128371482e-01) (20,1.960151025272e-01)
-(21,1.827829863714e-01) (22,1.353132491640e-01) (23,7.083549724302e-02)
-(24,2.361183241434e-02) (25,3.777893186295e-03)
+(0,3.355443200000e-18) (1,3.355443200000e-16) (2,1.610612736000e-14)
+(3,4.939212390400e-13) (4,1.086626725888e-11) (5,1.825532899492e-10)
+(6,2.434043865989e-09) (7,2.642676197360e-08) (8,2.378408577624e-07)
+(9,1.797019814205e-06) (10,1.150092681091e-05) (11,6.273232805950e-05)
+(12,2.927508642777e-04) (13,1.171003457111e-03) (14,4.014868995808e-03)
+(15,1.177694905437e-02) (16,2.944237263593e-02) (17,6.234855381726e-02)
+(18,1.108418734529e-01) (19,1.633459187727e-01) (20,1.960151025272e-01)
+(21,1.866810500259e-01) (22,1.357680363825e-01) (23,7.083549724304e-02)
+(24,2.361183241435e-02) (25,3.777893186296e-03)
 };
 
 % --- gestrichelte Trennlinie (wie im Bild, zwischen 12 und 13) ---
@@ -1032,9 +1039,9 @@ Das Histogramm einer nach \(B(n;p)\) verteilten Zufallsgröße \(X\) ist für \(
 \end{multicols}
 \end{b8d}
 \newpage
-\subsection{\(\sigma\) - Umgebung}
-\begin{defi}{\(\sigma\) - Umgebung}{}\index{Binomialverteilung!Sigma-Umgebung} \index{Zufallsgröße!Sigma-Umgebung}
-Die \textbf{Die \( \sigma\)-Umgebung} beschreibt einen „typischen Bereich“ um den Erwartungswert \(\mu\).\\
+\subsection{\texorpdfstring{\(\sigma\)}{Sigma}-Umgebung}
+\begin{defi}{\(\sigma\)-Umgebung}{}\index{Binomialverteilung!Sigma-Umgebung} \index{Zufallsgröße!Sigma-Umgebung}
+Die \textbf{\( \sigma\)-Umgebung} beschreibt einen „typischen Bereich“ um den Erwartungswert \(\mu\).\\
 Man nimmt den Erwartungswert und geht \textbf{eine Standardabweichung \(\sigma\)} nach links und nach rechts.
 
 \[
@@ -1046,12 +1053,12 @@ Allgemeiner: Die \textbf{\(k\sigma\)-Umgebung} ist der Bereich, der \textbf{\(k\
 U_{k}=[\,\mu-k\sigma,\;\mu+k\sigma\,]\quad (k>0).
 \]
 
-Für \(X\sim\mathrm{Bin}(n,p)\) gilt also:
+Für \(X\sim B(n;p)\) gilt also:
 \[
 U_{k}=\Bigl[\,np-k\sqrt{np(1-p)},\;np+k\sqrt{np(1-p)}\,\Bigr].
 \]    
 \end{defi}
-\begin{b8d}{Bedeutung der \(\sigma\) - Umgebung}{}
+\begin{b8d}{Bedeutung der \(\sigma\)-Umgebung}{}
 Werte \textbf{in der Sigma-Umgebung} sind „nicht überraschend“, weil sie in der normalen Streuung liegen.\\
 Werte \textbf{weit außerhalb} (z.\,B. außerhalb von \(2\sigma\) oder \(3\sigma\)) sind eher \textbf{auffällig}.\\
 \vspace{2mm}
@@ -1159,7 +1166,7 @@ Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen.
 \end{tikzpicture}
 \end{center}
 
-\textbf{Interpretation:} Z.\,B. liegen ca. $36\%$ der Tropfenpositionen im Bereich $[40,60)$ cm.
+\textbf{Interpretation:} Z.\,B. liegen ca. $36\%$ der Tropfenpositionen im Bereich $[40;60[$ cm.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -1185,7 +1192,7 @@ Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen.
 \end{tikzpicture}
 \end{center}
 
-\textbf{Merke:} Die Balken werden schmaler (kleineres $b$). Die Höhen ändern sich, weil die Anteile jetzt auf kleinere Intervalle verteilt werden.
+\textbf{Merke:} Die Balken werden schmaler (kleinere Klassenbreite $b$). Die Höhen ändern sich, weil die Anteile jetzt auf kleinere Intervalle verteilt werden.
 
 
 \begin{center}
@@ -1217,7 +1224,7 @@ Die folgenden Histogramme zeigen \textbf{relative Häufigkeiten} in Intervallen.
 \end{bsp}
 Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinlichkeiten als Balken zuzuordnen. Bei stetigen Zufallsgrößen rechnet man deshalb mit \textbf{Intervallen}.
 \begin{defi}{Stetige Zufallsgrößen}{}
-    Eine Zufallsgröße, die aus einem Intervall jede reelle Zahl als Wert annehmen kann, bezeichnet man als \textbf{\textcolor{red}{stetig}}. Ihr Wertemenge besteht somit aus einem Intervall.
+    Eine Zufallsgröße, die aus einem Intervall jede reelle Zahl als Wert annehmen kann, bezeichnet man als \textbf{\textcolor{red}{stetig}}. Ihre Wertemenge besteht somit aus einem Intervall.
 \end{defi}
 \begin{defi}{Dichtefunktion}{}\index{Zufallsgröße!Stetige!Dichtefunktion}\label{EigenStetigeZG}
 
@@ -1226,7 +1233,7 @@ Bei stetigen Zufallsgrößen macht es keinen Sinn, einzelnen Punkten Wahrscheinl
         \item \(f(x)\geq 0\) für alle \(x\in \mathds{R}\) und
         \item \(\integral[limits-mode=limits,limits={-\infty, \infty}]{f(x)} =1\)
     \end{enumerate}
-    Eine reelwertige Zufallsgröße \(X\) heißt \textbf{stetig} mit der Dichtefunktion \(f\), wenn für alle \(r,s \in I\) mit \(r\leq s\) gilt: \[P(r\leq X \leq s) =\integral[limits-mode=limits,limits={-\infty, \infty}]{f(x)}  \]
+    Eine reellwertige Zufallsgröße \(X\) heißt \textbf{stetig} mit der Dichtefunktion \(f\), wenn für alle \(r,s \in \mathds{R}\) mit \(r\leq s\) gilt: \[P(r\leq X \leq s) =\integral[limits-mode=limits,limits={r, s}]{f(x)}  \]
 
 % --- Dichtefunktion (hier: "Glocke"). Du kannst die Formel ändern. ---
 \pgfmathdeclarefunction{dens}{1}{%
@@ -1358,7 +1365,7 @@ Rechnen mit der Dichtefunktion
 \[
 f(x)=
 \begin{cases}
-\displaystyle 0.3\left(\frac{x}{100}\right)^2\left(1-\frac{x}{100}\right)^2 & 0\le x\le 100,\\[0.6em]
+\displaystyle 0{,}3\left(\frac{x}{100}\right)^2\left(1-\frac{x}{100}\right)^2 & 0\le x\le 100,\\[0.6em]
 0 & \text{sonst.}
 \end{cases}
 \]
@@ -1376,8 +1383,8 @@ Zuerst quadrieren und ausmultiplizieren:
 \]
 Dann gilt für $0\le x\le 100$:
 \[
-f(x)=0.3\cdot\frac{x^2}{10000}\left(1-\frac{x}{50}+\frac{x^2}{10000}\right)
-=0.3\left(\frac{x^2}{10000}-\frac{x^3}{500000}+\frac{x^4}{100000000}\right).
+f(x)=0{,}3\cdot\frac{x^2}{10000}\left(1-\frac{x}{50}+\frac{x^2}{10000}\right)
+=0{,}3\left(\frac{x^2}{10000}-\frac{x^3}{500000}+\frac{x^4}{100000000}\right).
 \]
 Also:
 \[
@@ -1392,14 +1399,14 @@ Nun integrieren wir auf $[0,100]$:
 \]
 \[
 =
-\left[\,10^{-5}x^3-1.5\cdot10^{-7}x^4+6\cdot10^{-10}x^5\,\right]_{0}^{100}.
+\left[\,10^{-5}x^3-1{,}5\cdot10^{-7}x^4+6\cdot10^{-10}x^5\,\right]_{0}^{100}.
 \]
 
 Einsetzen von $x=100$ (und bei $x=0$ ergibt sich $0$):
 \[
-10^{-5}\cdot 100^3-1.5\cdot10^{-7}\cdot 100^4+6\cdot10^{-10}\cdot 100^5
+10^{-5}\cdot 100^3-1{,}5\cdot10^{-7}\cdot 100^4+6\cdot10^{-10}\cdot 100^5
 =
-10^{-5}\cdot 10^6-1.5\cdot10^{-7}\cdot 10^8+6\cdot10^{-10}\cdot 10^{10}
+10^{-5}\cdot 10^6-1{,}5\cdot10^{-7}\cdot 10^8+6\cdot10^{-10}\cdot 10^{10}
 \]
 \[
 =10-15+6=1.
@@ -1415,36 +1422,36 @@ P(40\le X\le 60)=\int_{40}^{60} f(x)\,dx
 \]
 \[
 =
-\left[\,10^{-5}x^3-1.5\cdot10^{-7}x^4+6\cdot10^{-10}x^5\,\right]_{40}^{60}.
+\left[\,10^{-5}x^3-1{,}5\cdot10^{-7}x^4+6\cdot10^{-10}x^5\,\right]_{40}^{60}.
 \]
 
-Wir berechnen $F(60)$ und $F(40)$:
+Mit der Stammfunktion $F(x)=10^{-5}x^3-1{,}5\cdot10^{-7}x^4+6\cdot10^{-10}x^5$ berechnen wir $F(60)$ und $F(40)$:
 
 \medskip
 \textbf{$F(60)$:}\quad
 $60^3=216000,\;60^4=12960000,\;60^5=777600000$.
 \[
-F(60)=10^{-5}\cdot216000-1.5\cdot10^{-7}\cdot12960000+6\cdot10^{-10}\cdot777600000
+F(60)=10^{-5}\cdot216000-1{,}5\cdot10^{-7}\cdot12960000+6\cdot10^{-10}\cdot777600000
 \]
 \[
-=2.16-1.944+0.46656=0.68256.
+=2{,}16-1{,}944+0{,}46656=0{,}68256.
 \]
 
 \textbf{$F(40)$:}\quad
 $40^3=64000,\;40^4=2560000,\;40^5=102400000$.
 \[
-F(40)=10^{-5}\cdot64000-1.5\cdot10^{-7}\cdot2560000+6\cdot10^{-10}\cdot102400000
+F(40)=10^{-5}\cdot64000-1{,}5\cdot10^{-7}\cdot2560000+6\cdot10^{-10}\cdot102400000
 \]
 \[
-=0.64-0.384+0.06144=0.31744.
+=0{,}64-0{,}384+0{,}06144=0{,}31744.
 \]
 
 Damit:
 \[
-P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
+P(40\le X\le 60)=F(60)-F(40)=0{,}68256-0{,}31744=0{,}36512.
 \]
 \[
-\boxed{P(40\le X\le 60)\approx 0.36512\approx 36.5\%.}
+\boxed{P(40\le X\le 60)\approx 0{,}36512\approx 36{,}5\%.}
 \]
 \end{bsp}
 \begin{defi}{Erwartungswert, Varianz und Standardabweichung}{}\index{Zufallsgröße!Stetige!Erwartungswert}\index{Zufallsgröße!Stetige!Varianz}\index{Zufallsgröße!Stetige!Standardabweichung}
@@ -1457,20 +1464,20 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 \end{defi}
     \subsection{Die Gauß'sche Glockenkurve}\index{Zufallsgröße!Stetige!Gauß'sche Glockenfunktion}
     \begin{defi}{Die Gauß'sche Glockenfunktion}{}
-        Jede Funktion der Funktionenschar \[\varphi_{\mu, \sigma} : x\mapsto \dfrac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\dfrac{\left(x-\mu\right)^2}{2\sigma^2}}\] mit \(\mu \in \mathds{R}\) und \(\sigma \in \mathds{R}^+\) bezeichnet man als eine Gauß'sche Glockenfunktion.\\
+        Jede Funktion der Funktionenschar \[\varphi_{\mu;\sigma} : x\mapsto \dfrac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\dfrac{\left(x-\mu\right)^2}{2\sigma^2}}\] mit \(\mu \in \mathds{R}\) und \(\sigma \in \mathds{R}^+\) bezeichnet man als eine Gauß'sche Glockenfunktion.\\
         Für die Werte \(\mu =0\) und \(\sigma =1\) ergibt sich die Funktion \[\varphi_{0,1}: x \mapsto \dfrac{1}{\sqrt{2\pi}} \cdot e^{-\dfrac{x^2}{2}}\]
     \end{defi}
-    \begin{satz}{Eigenschaften der Scharfunktion \(\varphi_{\mu, \sigma}\)}{}\label{EigenschaftGauss}
-        Jede Scharfunktion \(\varphi_{\mu, \sigma}\) besitzt folgende Eigenschaften:
+    \begin{satz}{Eigenschaften der Scharfunktion \(\varphi_{\mu;\sigma}\)}{}\label{EigenschaftGauss}
+        Jede Scharfunktion \(\varphi_{\mu;\sigma}\) besitzt folgende Eigenschaften:
         \begin{enumerate}
-            \item \(\varphi_{\mu, \sigma} > 0\) für \( x\in \mathds{R}\)
-            \item \(G_{\varphi_{\mu, \sigma}}\) ist achsensymmetrisch zur Geraden mit der Gleichung \(x= \mu\)
-            \item \(\lim\limits_{x \longrightarrow \pm \infty}\varphi_{\mu, \sigma} =0\)
-            \item \(G_{\varphi_{\mu, \sigma}}\) wächst im Intervall \(\left] -\infty; \mu \right]\) und fällt im Intervall \(\left[ \mu; \infty \right[\) 
-            \item \label{NormExtrem}\(G_{\varphi_{\mu, \sigma}}\) hat als Extrempunkt nur den Hochpunkt \(H(\mu |\varphi_{\mu, \sigma}(\mu))\) mit \(\varphi_{\mu, \sigma}(\mu)) = \dfrac{1}{\sigma \sqrt{2\pi}}\)
-            \item \label{WendeNorm}\(G_{\varphi_{\mu, \sigma}}\) hat die Wendepunkte \(W_{1,2} (\mu \pm \sigma|\varphi_{\mu, \sigma}(\mu \pm \sigma)))\) mit \( \varphi_{\mu, \sigma}(\mu \pm \sigma)) = \dfrac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}}\)
-            \item \(\integral[limits-mode=limits,limits={-\infty, \infty}]{\varphi_{\mu, \sigma}(x)} =1\)
-            \item Die Integralfunktion \(\Phi_{\mu, \sigma}\) von \(\varphi_{\mu, \sigma}(x)\) mit \(\Phi_{\mu, \sigma} = \integral[limits-mode=limits,limits={-\infty, x}, variable={t}]{\varphi_{\mu, \sigma}(t)}\) kann \textcolor{red}{\textbf{nicht}} mithilfe elementarer Funktionen angegeben werden. Der Graph \(\Phi_{\mu, \sigma}\) ist punktsymmetrisch zu \(P(\mu|0,5)\) und streng monoton wachsend.
+            \item \(\varphi_{\mu;\sigma}(x) > 0\) für \( x\in \mathds{R}\)
+            \item \(G_{\varphi_{\mu;\sigma}}\) ist achsensymmetrisch zur Geraden mit der Gleichung \(x= \mu\)
+            \item \(\lim\limits_{x \longrightarrow \pm \infty}\varphi_{\mu;\sigma}(x) =0\)
+            \item \(G_{\varphi_{\mu;\sigma}}\) wächst im Intervall \(\left] -\infty; \mu \right]\) und fällt im Intervall \(\left[ \mu; \infty \right[\) 
+            \item \label{NormExtrem}\(G_{\varphi_{\mu;\sigma}}\) hat als Extrempunkt nur den Hochpunkt \(H(\mu |\varphi_{\mu;\sigma}(\mu))\) mit \(\varphi_{\mu;\sigma}(\mu) = \dfrac{1}{\sigma \sqrt{2\pi}}\)
+            \item \label{WendeNorm}\(G_{\varphi_{\mu;\sigma}}\) hat die Wendepunkte \(W_{1,2} (\mu \pm \sigma|\varphi_{\mu;\sigma}(\mu \pm \sigma))\) mit \( \varphi_{\mu;\sigma}(\mu \pm \sigma) = \dfrac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}}\)
+            \item \(\integral[limits-mode=limits,limits={-\infty, \infty}]{\varphi_{\mu;\sigma}(x)} =1\)
+            \item Die Integralfunktion \(\Phi_{\mu;\sigma}\) von \(\varphi_{\mu;\sigma}(x)\) mit \(\Phi_{\mu;\sigma}(x) = \integral[limits-mode=limits,limits={-\infty, x}, variable={t}]{\varphi_{\mu;\sigma}(t)}\) kann \textcolor{red}{\textbf{nicht}} mithilfe elementarer Funktionen angegeben werden. Der Graph von \(\Phi_{\mu;\sigma}\) ist punktsymmetrisch zu \(P(\mu|0,5)\) und streng monoton wachsend.
         \end{enumerate}    
         \end{satz}
 
@@ -1480,7 +1487,7 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 
 % -------- Achse 1 (links): Dichten --------
 \begin{axis}[
-  width=14cm,
+  width=0.6\linewidth,
   height=8.5cm,
   xmin=-4, xmax=4,
   domain=-4:4,
@@ -1492,7 +1499,7 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
   xlabel={$x$},
   ylabel={Dichte $\varphi(x)$ (linke Achse)},
   ymin=0,
-  legend style={draw=none, fill=none, at={(0.02,0.98)}, anchor=north west},
+  legend style={draw=none, fill=none, at={(0.5,-0.18)}, anchor=north, legend columns=2, font=\footnotesize},
   tick align=outside
 ]
 
@@ -1508,20 +1515,20 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 
 % Legendeneinträge für die CDF-Stile (damit alles in *einer* Legende steht)
 \addlegendimage{very thick, dash dot}
-\addlegendentry{\textcolor{black}{CDF $\mu=0,\ \sigma=1$}}
+\addlegendentry{\textcolor{black}{$\Phi$ mit $\mu=0,\ \sigma=1$}}
 
-\addlegendimage{very thick, densely dashed}
-\addlegendentry{\textcolor{red}{CDF $\mu=0,\ \sigma=0{,}5$}}
+\addlegendimage{very thick, densely dashed, red}
+\addlegendentry{\textcolor{red}{$\Phi$ mit $\mu=0,\ \sigma=0{,}5$}}
 
-\addlegendimage{very thick, densely dotted}
-\addlegendentry{\textcolor{green}{CDF $\mu=1,\ \sigma=1{,}2$}}
+\addlegendimage{very thick, densely dotted, green}
+\addlegendentry{\textcolor{green}{$\Phi$ mit $\mu=1,\ \sigma=1{,}2$}}
 
 \end{axis}
 
 % -------- Achse 2 (rechts): Verteilungsfunktionen --------
 % (gleicher x-Bereich, zweite y-Achse rechts; dadurch "ein" Koordinatensystem mit zwei Skalen)
 \begin{axis}[
-  width=14cm,
+  width=0.6\linewidth,
   height=8.5cm,
   xmin=-4, xmax=4,
   domain=-4:4,
@@ -1634,11 +1641,11 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 % -----------------------------
 % Beschriftungen (nah am Original)
 % -----------------------------
-\node[red] at (axis cs:1.3,0.76) {$G_{\varphi_{\mu;\sigma}}$};
+\node[red] at (axis cs:1.3,0.76) {$G_{\Phi_{\mu;\sigma}}$};
 \node[blue] at (axis cs:4.6,0.10) {$\varphi_{\mu;\sigma}$};
 
 \node[thick,red] at (axis cs:2.9,1.08)
-  {$P(\mu+\sigma)=\Phi_{\mu;\sigma}(\mu+\sigma)$};
+  {$P(X\leq\mu+\sigma)=\Phi_{\mu;\sigma}(\mu+\sigma)$};
 
 \node[green!60!black] at (axis cs:3.65,0.63)
   {$\Phi_{\mu;\sigma}(\mu+\sigma)$};
@@ -1747,23 +1754,23 @@ P(40\le X\le 60)=F(60)-F(40)=0.68256-0.31744=0.36512.
 \end{center}
    \begin{itemize}
        \item Ablesen von \(\mu\) aus dem Graphen \(\longleftrightarrow \mu = 1\)
-       \item Mit Satz \ref{EigenschaftGauss} und der Eigenschaft \(H(\mu| \varphi_{\mu, \sigma} (\mu))\) kann \(\mu\) abgelesen werden und \(\sigma \) berechnet werden
-       \item Es gilt \(\varphi_{\mu, \sigma} (\mu) = \dfrac{1}{\sigma\sqrt{2\pi}} \longleftrightarrow 0,26 \approx \dfrac{1}{\sigma\sqrt{2\pi}}\)
+       \item Mit Satz \ref{EigenschaftGauss} und der Eigenschaft \(H(\mu| \varphi_{\mu;\sigma} (\mu))\) kann \(\mu\) abgelesen werden und \(\sigma \) berechnet werden
+       \item Es gilt \(\varphi_{\mu;\sigma} (\mu) = \dfrac{1}{\sigma\sqrt{2\pi}} \longleftrightarrow 0,26 \approx \dfrac{1}{\sigma\sqrt{2\pi}}\)
        \item \(\sigma \approx \dfrac{1}{0,26\cdot \sqrt{2\pi}} \approx 1,5\)
    \end{itemize}
 
 \end{bsp}
 \subsection{Die Normalverteilung}
 \begin{defi}{Die Normalverteilung}{}\index{Zufallsgröße!Stetige!Normalverteilung}\label{NormZG}
-    Eine Zufallsgröße \(X\) heißt \textcolor{red}{\textbf{normalverteilt}} mit dem Parameter \(\textbf{\mu}\) (Erwartungswert) und \(\textbf{\sigma}\) (Standardabweichung), wenn ihre Dichtefunktion eine Gauß'sche Glockenfunktion \(\varphi_{\mu, \sigma}\) ist. \\
-    Die Wahrscheinlichkeit dafür, dass \(X\) Werte aus dem Intervall \([a;b]\) mit \(a<b\) und \(a,b \in \mathds{R}\) annimmt, ist \(P(a\leq X\leq b) = \integral[limits-mode=limits,limits={a, b}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (b) - \Phi_{\mu, \sigma} (a)\).
+    Eine Zufallsgröße \(X\) heißt \textcolor{red}{\textbf{normalverteilt}} mit den Parametern \(\boldsymbol{\mu}\) (Erwartungswert) und \(\boldsymbol{\sigma}\) (Standardabweichung), wenn ihre Dichtefunktion eine Gauß'sche Glockenfunktion \(\varphi_{\mu;\sigma}\) ist. \\
+    Die Wahrscheinlichkeit dafür, dass \(X\) Werte aus dem Intervall \([a;b]\) mit \(a<b\) und \(a,b \in \mathds{R}\) annimmt, ist \(P(a\leq X\leq b) = \integral[limits-mode=limits,limits={a, b}]{\varphi_{\mu;\sigma}} =\Phi_{\mu;\sigma} (b) - \Phi_{\mu;\sigma} (a)\).
 \end{defi}
 \begin{b8d}{Bezeichnungen}{}
-Ist die Zufallsgröße \(X\) normalverteilt so spricht man von  \(N_{\mu, \sigma}\)-verteilt. Für die Werte \(\mu =0\) und \(\sigma = 1\) spricht man von einer Standardnormalverteilung.
+Ist die Zufallsgröße \(X\) normalverteilt, so nennt man \(X\) \(N_{\mu;\sigma}\)-verteilt. Für die Werte \(\mu =0\) und \(\sigma = 1\) spricht man von einer Standardnormalverteilung.
 \end{b8d}
-Da die Zufallsgröße \(X\) eine \(N_{\mu, \sigma}\)-verteilte ist und damit eine stetige Zufallsgröße, gelten die entsprechenden Eigenschaften aus \ref{EigenStetigeZG} und  \ref{EigenschaftGauss}.
+Da die Zufallsgröße \(X\) \(N_{\mu;\sigma}\)-verteilt und damit eine stetige Zufallsgröße, gelten die entsprechenden Eigenschaften aus \ref{EigenStetigeZG} und  \ref{EigenschaftGauss}.
 \begin{bem}{Wiederholung}{}
-    Da \(\varphi_{\mu, \sigma}\) eine Dichtefunktion der Zufallsgröße \(X\) ist gilt:
+    Da \(\varphi_{\mu;\sigma}\) eine Dichtefunktion der Zufallsgröße \(X\) ist, gilt:
     \begin{enumerate}
         \item \(P(X=x)=0\) die Wahrscheinlichkeit eines einzelnen Wertes ist 0
         \item \(P(a\leq X\leq b) = P(a\leq X<b) = P(a<X\leq b) = P(a<X<b)\)
@@ -1790,12 +1797,13 @@ dann \(\;\mu\) (Erwartungswert).\\
 \textbf{Was rechnet Normal PD hier?} In diesem Modus liefert der Rechner die
 \textcolor{red}{\textbf{\emph{Wahrscheinlichkeitsdichte}}} der Normalverteilung an der Stelle \(x\):
 \[
-\boxed{\text{Normal PD}(x;\mu,\sigma)=\varphi_{\mu, \sigma}(x)}
+\boxed{\text{Normal PD}(x;\mu,\sigma)=\varphi_{\mu;\sigma}(x)}
 \]
 \textbf{Wichtig (typischer Denkfehler):} Das Ergebnis ist \textcolor{red}{\textbf{\emph{keine Wahrscheinlichkeit}}}.
 Wahrscheinlichkeiten bekommst du erst über \textbf{Normal CD} (Flächen unter der Kurve).
 \end{b8d}
 
+\noindent\textit{Hinweis: Die folgenden Tastenfolgen beziehen sich auf einen Casio-Rechner. Die Menüführung unterscheidet sich je nach Modell; bitte am eigenen Modell prüfen.}
 \begin{b8d}{Berechnung der kumulativen Normalverteilung (Normal CD)}{}\index{Normalverteilung!Taschenrechner!kumulativ}
 \begin{center}
 \begin{tabular}{p{0.94\linewidth}}
@@ -1816,18 +1824,18 @@ dann \(\;\mu\) (Erwartungswert).\\
 
 \noindent
 \textbf{Was rechnet Normal CD hier?} Der Rechner liefert \textcolor{red}{\textbf{\emph{die Wahrscheinlichkeit}}}, dass
-eine normalverteilte Zufallsvariable \(X\sim \mathcal{N}(\mu,\sigma)\) im Intervall liegt:
+eine normalverteilte Zufallsvariable \(X\) mit \(X\sim N_{\mu;\sigma}\) im Intervall liegt:
 \[
-\boxed{\text{Normal CD}(\text{Lower},\text{Upper};\mu,\sigma)=P(\text{Lower}\le X\le \text{Upper}) = \Phi_{\mu, \sigma} (\text{Upper}) - \Phi_{\mu, \sigma} (\text{Lower})}
+\boxed{\text{Normal CD}(\text{Lower},\text{Upper};\mu,\sigma)=P(\text{Lower}\le X\le \text{Upper}) = \Phi_{\mu;\sigma} (\text{Upper}) - \Phi_{\mu;\sigma} (\text{Lower})}
 \]
 
 \medskip
 \noindent
 \textbf{Standardfälle (die du ständig brauchst):}
 \begin{itemize}
-\item \(\;P(X\le x)\): Setze \(\text{Upper}=x\) und \(\text{Lower}\) ``sehr klein''.\\
+\item \(\;P(X\le x)\): Setze \(\text{Upper}=x\) und \(\text{Lower}\) \glqq sehr klein\grqq{}.\\
 \hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Lower}=-1\cdot 10^{99}\) (oder ähnlich extrem negativ).
-\item \(\;P(X\ge x)\): Setze \(\text{Lower}=x\) und \(\text{Upper}\) ``sehr groß''.\\
+\item \(\;P(X\ge x)\): Setze \(\text{Lower}=x\) und \(\text{Upper}\) \glqq sehr groß\grqq{}.\\
 \hspace*{1.5em}\(\rightarrow\) Praktisch am TR: \(\text{Upper}=1\cdot 10^{99}\) (oder ähnlich extrem positiv).
 \item \(\;P(a\le X\le b)\): Setze \(\text{Lower}=a\), \(\text{Upper}=b\).
 
@@ -1838,7 +1846,7 @@ eine normalverteilte Zufallsvariable \(X\sim \mathcal{N}(\mu,\sigma)\) im Interv
 Der häufigste Fehler ist, \(\sigma\) (Standardabweichung) mit \(\sigma^2\) (Varianz) zu verwechseln.
 Wenn deine Ergebnisse „komisch“ aussehen: genau da zuerst hinschauen.
 \end{b8d}
-\subsubsection{Erkennungsmerkmale eine Normalverteilung}
+\subsubsection{Erkennungsmerkmale einer Normalverteilung}
 %%%%%
 \textbf{Kernidee:} Normalverteilung passt oft bei \textbf{stetigen Messgrößen}, wenn \textbf{viele kleine, unabhängige Einflüsse} zusammenwirken und die Werte \textbf{ungefähr symmetrisch} um einen Mittelwert liegen.
 
@@ -1901,7 +1909,10 @@ Checke zusätzlich: Grenzen/Ausreißer.};
 \draw[arrow] (continuous) -- node[midway, left]{\small Nein} (notnormal2);
 \draw[arrow] (continuous) -- node[midway, right]{\small Ja} (mechanism);
 
-\draw[arrow] (mechanism) -- (shape);
+\node[box, left=12mm of mechanism] (notnormal3) {\textbf{Eher nicht normal.}\\
+Andere Modelle prüfen.};
+\draw[arrow] (mechanism) -- node[midway, right]{\small Ja} (shape);
+\draw[arrow] (mechanism) -- node[midway, above]{\small Nein} (notnormal3);
 \draw[arrow] (shape) -- node[midway, left]{\small Nein} (skew);
 \draw[arrow] (shape) -- node[midway, right]{\small Ja} (normalok);
 
@@ -1973,10 +1984,10 @@ oft \textbf{rechtsschief} (klein geht, aber nach oben langer Schwanz) \(\Rightar
 \item \textbf{Einkommen:} \\
 stark rechtsschief, viele Ausreißer \(\Rightarrow\) Normalverteilung \textbf{unrealistisch}.
 \end{enumerate}
-\subsection{\(\sigma\)-Regeln}
-Eine normalverteilte Zufallsgröße \(X\) mit der Dichtefunktion \(\varphi_{\mu, \sigma}\) hat nach Definition \ref{NormZG} den Erwartungswert \(\mu\) und die Standardabweichung \(\sigma\). Nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{NormExtrem} hat \(\varphi_{\mu, \sigma}\) das Maximum bei \(\mu\) mit dem Funktionswert \(\varphi_{\mu, \sigma}(\mu) = \dfrac{1}{\sigma\sqrt{2\pi}}\). Der Wendepunkt liegt nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{WendeNorm} bei \(x= \mu \pm \sigma\). Die Wahrscheinlichkeit dafür, dass Werte in diesem, zu \(\mu \) symmetrischen, Intervall liegen ist 
-\[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu, \sigma}} =\Phi_{\mu, \sigma} (\mu + \sigma) - \Phi_{\mu, \sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\). Der Nachweis dafür ergibt sich aus Überlegungen am Graphen der Dichtefunktion.\\
-Wird diese Überlegung verallgemeinert ergibt sich für das Integral \[\integral[limits-mode=limits,limits={\mu - k\cdot\sigma , \mu + k\cdot\sigma}]{\varphi_{\mu, \sigma}}\hspace{0.2cm} \text{mit} \hspace{0.2cm} k\in \mathds{R}^+\] nur eine Abhängigkeit vom Parameter \(k\). 
+\subsection{\texorpdfstring{\(\sigma\)}{Sigma}-Regeln}
+Eine normalverteilte Zufallsgröße \(X\) mit der Dichtefunktion \(\varphi_{\mu;\sigma}\) hat nach Definition \ref{NormZG} den Erwartungswert \(\mu\) und die Standardabweichung \(\sigma\). Nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{NormExtrem} hat \(\varphi_{\mu;\sigma}\) das Maximum bei \(\mu\) mit dem Funktionswert \(\varphi_{\mu;\sigma}(\mu) = \dfrac{1}{\sigma\sqrt{2\pi}}\). Die Wendepunkte liegen nach dem Satz \ref{EigenschaftGauss} und der Eigenschaft \ref{WendeNorm} bei \(x= \mu \pm \sigma\). Die Wahrscheinlichkeit dafür, dass Werte in diesem zu \(\mu \) symmetrischen Intervall liegen, ist 
+\[\integral[limits-mode=limits,limits={\mu - \sigma , \mu + \sigma}]{\varphi_{\mu;\sigma}} =\Phi_{\mu;\sigma} (\mu + \sigma) - \Phi_{\mu;\sigma} (\mu - \sigma) = 0,683\ldots\] unabhängig von der Wahl der Parameter \(\mu\) und \(\sigma\). Der Nachweis dafür ergibt sich mit der Substitution \(z=\frac{x-\mu}{\sigma}\), die das Integral auf die Standardnormalverteilung zurückführt.\\
+Wird diese Überlegung verallgemeinert, ergibt sich für das Integral \[\integral[limits-mode=limits,limits={\mu - k\cdot\sigma , \mu + k\cdot\sigma}]{\varphi_{\mu;\sigma}}\hspace{0.2cm} \text{mit} \hspace{0.2cm} k\in \mathds{R}^+\] nur eine Abhängigkeit vom Parameter \(k\). 
 
 \begin{merke}{Die Sigma Intervalle}{}
 \index{Zufallsgröße!Stetige!Sigma-Regeln}Durch die Analyse der normalverteilten Zufallsgrößen lassen sich die folgenden Intervalle bestimmen. 
@@ -2016,68 +2027,68 @@ Wird diese Überlegung verallgemeinert ergibt sich für das Integral \[\integral
   \draw[-{Latex[length=3mm]}, thick] (0,0) -- (11,0) node[below right] {\(x\)};
   \draw[-{Latex[length=3mm]}, thick] (0,0) -- (0,4.5) node[left] {\(y\)};
 
-  % Parameter: μ=5, σ=1 (nur zur Skizze)
-  \def\mu{5}
+  % Parameter: mu=5, sigma=1,5 (nur zur Skizze)
+  \def\MU{5}
   \def\s{1.5}
 
   % Fläche + Kurve
   \fill[curvefill, opacity=0.55]
     (0.6,0) --
     plot[smooth, samples=160, domain=0.6:9.4]
-      (\x, {4.0*exp(-0.5*((\x-\mu)/\s)^2)}) --
+      (\x, {4.0*exp(-0.5*((\x-\MU)/\s)^2)}) --
     (9.4,0) -- cycle;
 
   \draw[thick]
     plot[smooth, samples=160, domain=0.2:10.4]
-      (\x, {4.0*exp(-0.5*((\x-\mu)/\s)^2)});
+      (\x, {4.0*exp(-0.5*((\x-\MU)/\s)^2)});
 
   % gestrichelte Linie bei μ
-  \draw[gray, dashed, thick] (\mu,0) -- (\mu,4.2);
-  \node[below] at (\mu,0) {\(\mu\)};
+  \draw[gray, dashed, thick] (\MU,0) -- (\MU,4.2);
+  \node[below] at (\MU,0) {\(\mu\)};
 
   % Hilfslinien bei μ±kσ
   \foreach \k/\col in {1/sig1,2/sig2,3/sig3}{
-    \draw[\col, dashed, thick] ({\mu-\k*\s},0) -- ({\mu-\k*\s},{4.0*exp(-0.5*(\k)^2)});
-    \draw[\col, dashed, thick] ({\mu+\k*\s},0) -- ({\mu+\k*\s},{4.0*exp(-0.5*(\k)^2)});
+    \draw[\col, dashed, thick] ({\MU-\k*\s},0) -- ({\MU-\k*\s},{4.0*exp(-0.5*(\k)^2)});
+    \draw[\col, dashed, thick] ({\MU+\k*\s},0) -- ({\MU+\k*\s},{4.0*exp(-0.5*(\k)^2)});
   }
 
   % obere Klammern: 1σ links/rechts
   \draw[sig1, thick, decorate, decoration={brace, amplitude=5pt}]
-    ({\mu-\s},4.05) -- (\mu,4.05) node[midway, yshift=14pt] {\(1\sigma\)};
+    ({\MU-\s},4.05) -- (\MU,4.05) node[midway, yshift=14pt] {\(1\sigma\)};
   \draw[sig1, thick, decorate, decoration={brace, amplitude=5pt}]
-    (\mu,4.05) -- ({\mu+\s},4.05) node[midway, yshift=14pt] {\(1\sigma\)};
+    (\MU,4.05) -- ({\MU+\s},4.05) node[midway, yshift=14pt] {\(1\sigma\)};
 
   % 2σ und 3σ (eine Klammer über dem Bauch)
   \draw[sig2, thick, decorate, decoration={brace, amplitude=5pt}]
-    ({\mu-2*\s},3.25) -- ({\mu+2*\s},3.25) node[midway, yshift=14pt] {\(2\sigma\)};
+    ({\MU-2*\s},3.25) -- ({\MU+2*\s},3.25) node[pos=0.12, yshift=12pt] {\(2\sigma\)};
   \draw[sig3, thick, decorate, decoration={brace, amplitude=5pt}]
-    ({\mu-3*\s},2.45) -- ({\mu+3*\s},2.45) node[midway, yshift=14pt] {\(3\sigma\)};
+    ({\MU-3*\s},2.45) -- ({\MU+3*\s},2.45) node[pos=0.12, yshift=12pt] {\(3\sigma\)};
 
   % Prozentangaben innen
-  \node[sig2] at ({\mu-1.5*\s},0.5) {\(13{,}55\%\)};
-  \node[sig1] at ({\mu-0.5*\s},0.75) {\(34{,}15\%\)};
-  \node[sig1] at ({\mu+0.5*\s},0.75) {\(34{,}15\%\)};
-  \node[sig2] at ({\mu+1.5*\s},0.5) {\(13{,}55\%\)};
-  \node[sig3] at ({\mu-2.65*\s},0.45) {\small \(2{,}15\%\)};
-  \node[sig3] at ({\mu+2.65*\s},0.45) {\(2{,}15\%\)};
+  \node[sig2] at ({\MU-1.5*\s},0.5) {\(13{,}55\%\)};
+  \node[sig1] at ({\MU-0.5*\s},0.75) {\(34{,}15\%\)};
+  \node[sig1] at ({\MU+0.5*\s},0.75) {\(34{,}15\%\)};
+  \node[sig2] at ({\MU+1.5*\s},0.5) {\(13{,}55\%\)};
+  \node[sig3] at ({\MU-2.65*\s},0.45) {\small \(2{,}15\%\)};
+  \node[sig3] at ({\MU+2.65*\s},0.45) {\(2{,}15\%\)};
 
   % Klammern unten: 68.3 / 95.4 / 99.7
   \draw[sig1, very thick, decorate, decoration={brace, amplitude=6pt, mirror}]
-    ({\mu-\s},-0.10) -- ({\mu+\s},-0.10) node[midway, yshift=-16pt] {\(68{,}3\%\)};
+    ({\MU-\s},-0.10) -- ({\MU+\s},-0.10) node[midway, yshift=-16pt] {\(68{,}3\%\)};
   \draw[sig2, very thick, decorate, decoration={brace, amplitude=6pt, mirror}]
-    ({\mu-2*\s},-0.8) -- ({\mu+2*\s},-0.8) node[midway, yshift=-16pt] {\(95{,}4\%\)};
+    ({\MU-2*\s},-0.8) -- ({\MU+2*\s},-0.8) node[midway, yshift=-16pt] {\(95{,}4\%\)};
   \draw[sig3, very thick, decorate, decoration={brace, amplitude=6pt, mirror}]
-    ({\mu-3*\s},-1.5) -- ({\mu+3*\s},-1.5) node[midway, yshift=-16pt] {\(99{,}7\%\)};
+    ({\MU-3*\s},-1.5) -- ({\MU+3*\s},-1.5) node[midway, yshift=-16pt] {\(99{,}7\%\)};
 
   % Label rechts
-  \node[right] at (9.6,0.35) {\(G_{\mu;\sigma}\)};
+  \node[right] at (9.6,0.35) {\(G_{\varphi_{\mu;\sigma}}\)};
 \end{tikzpicture}
 \end{center}
 \end{merke}
 \begin{b8d}{Weitere Wahrscheinlichkeiten}{}
 Aufgrund der Symmetrie der Glockenkurve zum Erwartungswert lassen sich mithilfe der Sigma-Regeln weitere Wahrscheinlichkeiten bestimmen.
 \begin{enumerate}
-    \item \(P(X\geq \mu + \sigma)\) ergibt sich aus den Überlegungen, dass \(P(X\geq \mu) \approx 0{,}5 \) und \\ \(P(\mu \leq X \leq \mu + \sigma) \approx \dfrac{1}{2}\cdot 0{,}683 = 0{,}3415\) wie folgt:
+    \item \(P(X\geq \mu + \sigma)\) ergibt sich aus den Überlegungen, dass \(P(X\geq \mu) = 0{,}5 \) und \\ \(P(\mu \leq X \leq \mu + \sigma) \approx \dfrac{1}{2}\cdot 0{,}683 = 0{,}3415\) wie folgt:
     \[P(X\geq \mu + \sigma) \approx 0{,}5 - 0{,}3415 = 0{,}1585\]
     \item \(P(\mu -2\sigma \leq X \leq \mu -\sigma) \approx \dfrac{1}{2} \cdot \left( 0{,}954 - 0{,}683 \right) = 0{,}1355  \)
 \end{enumerate}
@@ -2093,7 +2104,7 @@ Aufgrund der Symmetrie der Glockenkurve zum Erwartungswert lassen sich mithilfe 
     Lösungen:
     \begin{description}
         \item[a)] Aus der Angabe entnimmt man die Werte \(\mu = 200\) und \(\sigma = 75\). Damit kann man festhalten \(P(\mu-2\sigma \leq X \leq \mu+2\sigma) = P(200 - 2\cdot 75 \leq X\leq 200 + 2\cdot 75)\approx 0{,}954\) damit ist \[I=\left[50;350\right]\] 
-        \item[b)] \(P(\mu-1{,}64\sigma \leq X\leq \mu+1{,}64\sigma) \approx 0{,}900\) damit folgt für \\ \(P(\mu-1{,}64\sigma \leq X \leq \mu) \approx \frac{1}{2} \cdot 0{,}900 = 0{,}450\) damit ist \(P(\mu-1{,}64\sigma \leq X) \approx 0{,}050\) also ist \[I_1=\left[-\infty; \mu-1{,}64\sigma\right] = \left[-\infty;200- 1{,}64 \cdot 75\right] = \left[-\infty; 77\right]\] bzw. \[I_2 = \left[\mu+1{,}64\sigma; \infty\right] = \left[200 + 1{,}64 \cdot 75; \infty\right] = \left[323; \infty\right]\]
+        \item[b)] \(P(\mu-1{,}64\sigma \leq X\leq \mu+1{,}64\sigma) \approx 0{,}900\) damit folgt für \\ \(P(\mu-1{,}64\sigma \leq X \leq \mu) \approx \frac{1}{2} \cdot 0{,}900 = 0{,}450\) damit ist \(P(X\leq\mu-1{,}64\sigma) \approx 0{,}5-0{,}450 = 0{,}050\) also ist \[I_1=\left]-\infty; \mu-1{,}64\sigma\right] = \left]-\infty;200- 1{,}64 \cdot 75\right] = \left]-\infty; 77\right]\] bzw. \[I_2 = \left[\mu+1{,}64\sigma; \infty\right[ = \left[200 + 1{,}64 \cdot 75; \infty\right[ = \left[323; \infty\right[\]
     
     \end{description}
 \end{rechnung}

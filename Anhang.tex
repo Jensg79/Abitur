@@ -1,15 +1,15 @@
 \section{Darstellungsformen von Polynomen}\index{Polynome}
 \begin{itemize}
-    \item Nullstellenform: Hierbei sind $x_1, x_2, \cdots x_n$ die Nullstellen des Polynoms\footnote{Es gilt damit für alle $x_i$ folgende Gleichung $f(x_i) = 0$} $$f(x) = a\cdot (x-x_1)\cdot (x-x_2) \cdots (x-x_n)$$
-    Dies Darstellung gilt nur, \textcolor{red}{wenn alle} Nullstellen reelle Zahlen sind. Der Vorfaktor $a$ muss dann noch durch einen Punkt, der keine Nullstelle ist, extra bestimmt werden.
-    \item Scheitelpunktform: Hierbei ist $SP(x_s|y_s)$ der Scheitelpunkt des Graphen der quadratischen Funktion $$f(x) = a\cdot (x-x_s)^2 +y_s$$ diese Darstellung gilt auch für die kubische Funktion $$f(x) = a\cdot (x-x_{\footnotesize{W}})^3 +y_{\footnotesize{W}}$$ 
-    \item allgemeine Form eines Polynoms vom Grad $n$: $$f(x) = a_n\cdot x^n + a_{n-1}\cdot x^{n-1} \cdots a_2\cdot x^2 + a_1\cdot x^1 + a_0 = \sum\limits_{i=0}^{n} a_i\cdot x^i$$ hierbei gilt $a_n \in \mathds{R}\setminus \left(0\right)$ und $a_i \in \mathds{R}$
+    \item Nullstellenform: Hierbei sind $x_1, x_2, \ldots, x_n$ die Nullstellen des Polynoms\footnote{Es gilt damit für alle $x_i$ folgende Gleichung $f(x_i) = 0$} $$f(x) = a\cdot (x-x_1)\cdot (x-x_2) \cdots (x-x_n)$$
+    Diese Darstellung gilt nur, \textcolor{red}{wenn alle} Nullstellen reelle Zahlen sind. Der Vorfaktor $a$ muss dann noch durch einen Punkt, der keine Nullstelle ist, extra bestimmt werden.
+    \item Scheitelpunktform: Hierbei ist $SP(x_s|y_s)$ der Scheitelpunkt des Graphen der quadratischen Funktion $$f(x) = a\cdot (x-x_s)^2 +y_s$$ eine entsprechende Darstellung gibt es für kubische Funktionen, deren Graph einen Terrassenpunkt $W(x_{\mathrm{W}}|y_{\mathrm{W}})$ besitzt: $$f(x) = a\cdot (x-x_{\mathrm{W}})^3 +y_{\mathrm{W}}$$ 
+    \item allgemeine Form eines Polynoms vom Grad $n$: $$f(x) = a_n\cdot x^n + a_{n-1}\cdot x^{n-1} + \ldots + a_2\cdot x^2 + a_1\cdot x^1 + a_0 = \sum\limits_{i=0}^{n} a_i\cdot x^i$$ hierbei gilt $a_n \in \mathds{R}\setminus \{0\}$ und $a_i \in \mathds{R}$
 \end{itemize}
 \section{Polynomdivision}\index{Polynomdivision}
-Die Polynomdivision wird eingesetzt um entweder den Grad eines Polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln. 
+Die Polynomdivision wird eingesetzt, um entweder den Grad eines Polynoms zu verringern oder die Bruchform einer gebrochenrationalen Funktion in die Summenform umzuwandeln. 
 \subsection{Polynomdivision zur Faktorisierung der Nullstellen}\index{Polynomdivision!Faktorisierung}\label{polynomdivision}
-    Bei einem Polynom wird die Polynomdivision angewendet um die faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt der Nullstellen darstellen kann.\\
-    Es gilt folgender Zusammenhang: $$f(x) = x^3-6x^2-x+6 =  \polyfactorize{x^3-6x^2-x+6}.$$ Aus dieser Darstellung folgt, dass die Funktion $f$ die Nullstellen $x_1 = -1, x_2 = 1$ und $x_3= 6$ hat. Um die Polynomdivision durchführen zu können, muss man als erstes eine Nullstelle kennen und dann das Polynom durch diese Nullstelle teilen. Nach der Division erhält man jeweils eine neues Polynom geringeren Grades. Dieses Polynom muss dann wieder mit der Polynomdivision vom Grad reduziert werden.
+    Bei einem Polynom wird die Polynomdivision angewendet, um die faktorisierte Darstellung des Polynoms zu erzeugen. Als Beispiel wird hier die Funktion $f(x) = x^3-6x^2-x+6$ verwendet. Hierbei ist es Ziel, dass man das Polynom als Produkt von Linearfaktoren darstellen kann.\\
+    Es gilt folgender Zusammenhang: $$f(x) = x^3-6x^2-x+6 =  \polyfactorize{x^3-6x^2-x+6}.$$ Aus dieser Darstellung folgt, dass die Funktion $f$ die Nullstellen $x_1 = -1, x_2 = 1$ und $x_3= 6$ hat. Um die Polynomdivision durchführen zu können, muss man als erstes eine Nullstelle kennen und dann das Polynom durch den zugehörigen Linearfaktor $(x-x_0)$ teilen. Nach der Division erhält man jeweils ein neues Polynom geringeren Grades. Dieses Polynom muss dann wieder mit der Polynomdivision vom Grad reduziert werden.
     \begin{bsp}{Die Polynomdivision bei Polynomen}{} 
 Man rät die Nullstelle $x=1$ und führt jetzt die Polynomdivision durch:\\
  \polylongdiv{x^3- 6x^2 - x +6}{x-1}\\
@@ -36,19 +36,19 @@ Man rät die Nullstelle $x=1$ und führt jetzt die Polynomdivision durch:\\
 \end{b8d}
 \subsection{Polynomdivision bei gebrochenrationalen Funktionen}\index{Polynomdivision!gebrochenrationale Funktionen}\label{polynomdivisionBruch}
 Die zweite Anwendung der Polynomdivision besteht in der Umwandlung der Bruchform in die Summenform der ganzrationalen Funktionen. Hierbei wird die Polynomdivision durchgeführt indem man den Zähler der Funktion durch seinen Nenner dividiert.
-\begin{bsp}{Polynomdivision ganzrationaler Funktionen}{}
+\begin{bsp}{Polynomdivision gebrochen-rationaler Funktionen}{}
 Gegeben ist die Funktion $$f(x)=\dfrac{x^2+x-2}{2x-4}$$ mit $\mathds{D}_f=\mathds{R}\setminus \left\{ 2 \right\}$. Durch die Polynomdivision soll die Bruchform in die Summenform überführt werden.\\
 \polylongdiv{x^2+x-2}{2x-4}\\
 Damit lautet die Summenform wie folgt:
 $$f(x)=\dfrac{x^2+x-2}{2x-4} = \dfrac{1}{2} x +\dfrac{3}{2} +\dfrac{4}{2x-4} $$
 \end{bsp}
 \section{Symmetrie} \index{Symmetrie}
-Die Untersuchung der Symmetrie erfolgt für Funktionen immer nach dem selben Muster. Es wird im allgemeinen Untersucht, ob entweder \begin{equation}\label{f(x)}
+Die Untersuchung der Symmetrie erfolgt für Funktionen immer nach demselben Muster. Bei symmetrischem Definitionsbereich $\mathds{D}_f$ wird im Allgemeinen untersucht, ob für alle $x\in\mathds{D}_f$ entweder \begin{equation}\label{f(x)}
     f(-x) = f(x)
 \end{equation} oder 
 \begin{equation} \label{-f(x)}
 f(-x) = -f(x) 
-\end{equation} gilt. Für die Gleichung \ref{f(x)} ist der Graph der Funktion $f$ achsensymmetrisch zur y-Achse. Für die Gleichung \ref{-f(x)} ist der Graph der Funktion $f$ punktsymmetrisch zum Ursprung. Gilt keine der beiden Gleichungen kann keine Aussage zur Symmetrie zur y-Achse bzw. zum Ursprung getroffen werden. 
+\end{equation} gilt. Für die Gleichung \eqref{f(x)} ist der Graph der Funktion $f$ achsensymmetrisch zur y-Achse. Für die Gleichung \eqref{-f(x)} ist der Graph der Funktion $f$ punktsymmetrisch zum Ursprung. Gilt keine der beiden Gleichungen, kann keine Aussage zur Symmetrie zur y-Achse bzw. zum Ursprung getroffen werden. 
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[xmin= -4.1, xmax = 4, ymin= -15.1, ymax= 20.5,
@@ -67,8 +67,8 @@ f(-x) = -f(x)
         \end{axis}
     \end{tikzpicture}  
 \end{center}
-\section{Übersicht von Ableitungsregeln mit Beispielen} \index{Ableitung! Übersicht} \label{AbleitungAllgemein}
-\subsection{Allgemeine Ableitungsregeln}\index{Ableitungsregeln! Allgemeine Ableitungsregln}2
+\section{Übersicht von Ableitungsregeln mit Beispielen} \index{Ableitung!Übersicht} \label{AbleitungAllgemein}
+\subsection{Allgemeine Ableitungsregeln}\index{Ableitungsregeln!Allgemeine Ableitungsregeln}
 \begin{merke}{Allgemeine Ableitungsregeln}{}
 \begin{multicols}{2}
 \begin{itemize}
@@ -95,7 +95,7 @@ f(-x) = -f(x)
 \end{itemize}    
 \end{multicols}
 \end{merke}
-\subsection{Ableitungsregeln von Funktionen}\index{Ableitungsregeln! Funktionen}
+\subsection{Ableitungsregeln von Funktionen}\index{Ableitungsregeln!Funktionen}
 \begin{defi}{Ableitungsfunktionen}{}\phantomsection\label{AbleitungEFunktion}
 \begin{multicols}{2}
 \begin{itemize}
@@ -116,8 +116,8 @@ f(-x) = -f(x)
 	\end{gather*}     
         \item Ableitung des Quotienten von zwei Funktionen:
     \begin{gather*} 
-	f(x) = \dfrac{u(x)}{v(x)}  \\
-	f'(x) = \dfrac{u'(x)\cdot v(x) - u(x) \cdot v'(x)}{(v(x)^2)}
+	f(x) = \dfrac{u(x)}{v(x)} \text{ mit } v(x)\neq 0  \\
+	f'(x) = \dfrac{u'(x)\cdot v(x) - u(x) \cdot v'(x)}{(v(x))^2}
 	\end{gather*} 
          \item Ableitung einer verketteten Funktion:
 
@@ -129,7 +129,7 @@ f(-x) = -f(x)
 \end{itemize}   
 \end{multicols}
 \end{defi}
-\subsection{Ableitung von Grundfunktionen}\index{Ableitungsregeln! Grundfunktionen}
+\subsection{Ableitung von Grundfunktionen}\index{Ableitungsregeln!Grundfunktionen}
 \begin{merke}{Ableitungen von Grundfunktionen}{}
 \begin{itemize}
  \item Trigonometrische Funktionen:
@@ -150,33 +150,33 @@ f(-x) = -f(x)
 	\end{gather*}
  \item Quadratwurzel
  \begin{gather*} 
-	f(x) = \sqrt{x} = x^{\frac{1}{2}}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}\setminus \{0\} \\
+	f(x) = \sqrt{x} = x^{\frac{1}{2}}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}^+ \\
  f'(x) = \dfrac{1}{2} \cdot x^{-\frac{1}{2} }= \dfrac{1}{2\cdot \sqrt{x}} 
  \end{gather*}
   \item allgemeine Wurzel
  \begin{gather*} 
-	f(x) = \sqrt[n]{x} = x^{\frac{1}{n}}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}\setminus \{0\}  \hspace{0.2cm} \text{und} \hspace{0.2cm} n\in \mathds{N} \\
- f'(x) = \dfrac{1}{n} \cdot x^{ \frac{1}{n} - 1}= \dfrac{1}{n\cdot \sqrt[n-1]{x}} 
+	f(x) = \sqrt[n]{x} = x^{\frac{1}{n}}   \hspace{0.2cm} \text{mit} \hspace{0.2cm} x\in \mathds{R}^+  \hspace{0.2cm} \text{und} \hspace{0.2cm} n\in \mathds{N},\ n\geq 2 \\
+ f'(x) = \dfrac{1}{n} \cdot x^{ \frac{1}{n} - 1}= \dfrac{1}{n\cdot \sqrt[n]{x^{n-1}}} 
  \end{gather*}
 \end{itemize}
 \end{merke}
-\subsection{Beispiele der Ableitungsregeln}\index{Ableitungsregeln! Beispiele}\label{Ableitungen}
-\begin{bsp}{Beispiele für die Ableitungsregln}{}
+\subsection{Beispiele der Ableitungsregeln}\index{Ableitungsregeln!Beispiele}\label{Ableitungen}
+\begin{bsp}{Beispiele für die Ableitungsregeln}{}
 \begin{enumerate}
     \item $f(x) = 5 \longrightarrow f'(x) = 0$
     \item $f(x) = -3x +7 \longrightarrow f'(x) = -3 $
     \item $f(x) = x^6 \longrightarrow f'(x) = 6\cdot x^5$
     \item $f(x) = -2x^4+2x-1 \longrightarrow f'(x) = -2\cdot 4\cdot x^3 + 2 = -8\cdot x^3 +2$
-    \item $f(x) = e^x \cdot (4x^3 -3) \longrightarrow f(x) = e^x \cdot (4x^3-3) + e^x \cdot (12x^2)$
+    \item $f(x) = e^x \cdot (4x^3 -3) \longrightarrow f'(x) = e^x \cdot (4x^3-3) + e^x \cdot (12x^2)$
     \item $f(x) = \dfrac{-x^4+ 2x^3 + 5 }{(2x-1)} \longrightarrow f'(x) = \dfrac{(2x-1)\cdot (-4x^3+6x^2) - (-x^4 +2x^3 + 5)\cdot 2 }{(2x-1)^2}$ \\[0.2cm]
     Als Eselsbrücke kann man sich folgenden Zusammenhang merken: \\[0.2cm]
-    $f(x) = \dfrac{N}{Z} \longrightarrow f'(x) = \dfrac{{N}{\cdot {AZ} -{}Z}\cdot {AN}}{{N}^2}$ oder\\[0.2cm]  {\bfseries\color{red}N}enner mal {\bfseries\color{red}A}bleitung {\bfseries\color{red}Z}ähler - {\bfseries\color{red}Z}ähler mal {\bfseries\color{red}A}bleitung {\bfseries\color{red}N}enner geteilt durch {\bfseries\color{red}N}enner im Quadrat
+    $f(x) = \dfrac{Z}{N} \longrightarrow f'(x) = \dfrac{N\cdot AZ - Z\cdot AN}{N^2}$ oder\\[0.2cm]  {\bfseries\color{red}N}enner mal {\bfseries\color{red}A}bleitung {\bfseries\color{red}Z}ähler - {\bfseries\color{red}Z}ähler mal {\bfseries\color{red}A}bleitung {\bfseries\color{red}N}enner geteilt durch {\bfseries\color{red}N}enner im Quadrat
     \item $f(x)= e^{2x^5-x^3+2 }\longrightarrow f'(x) = e^{2x^5-x^3 + 2} \cdot (10x^4 -3x^2)$
 \end{enumerate}
 \end{bsp}
 \section{Elementare gebrochen-rationale Funktionen} \index{Funktionen!Gebrochen-rationale!allgemeine Betrachtungen}
 \subsection{Allgemeine Betrachtungen}
-\label{elemgebrat}In der Jahrgangsstufe 8 wurden bereits einfache gebrochen-rationale Funktionen betrachtet. Diese Funktionen gehorchten dem Term der Form $$f: x\longrightarrow \dfrac{a}{x+b} +c$$ mit $a \in \mathds{R}\setminus\{0\}$ und $b,c\in\mathds{R}$. Hierbei wird durch die Untersuchung von Graphen klar, dass die Parameter $b,c$ eine Verschiebung des Graphen der Funktion $g$ mit $g:x\longrightarrow \dfrac{a}{x}$ in x- bzw. in y-Richtung realisieren. Die Einführung der Parameter $b,c$ als Asymptoten des Graphen $G_f$ erfolgt daran anschließend. 
+\label{elemgebrat}In der Jahrgangsstufe 8 wurden bereits einfache gebrochen-rationale Funktionen betrachtet. Diese Funktionen gehorchten dem Term der Form $$f: x\mapsto \dfrac{a}{x+b} +c$$ mit $a \in \mathds{R}\setminus\{0\}$ und $b,c\in\mathds{R}$. Hierbei wird durch die Untersuchung von Graphen klar, dass die Parameter $b,c$ eine Verschiebung des Graphen der Funktion $g$ mit $g:x\mapsto \dfrac{a}{x}$ in x- bzw. in y-Richtung realisieren. Daran anschließend erkennt man, dass die Geraden $x=-b$ und $y=c$ die Asymptoten des Graphen $G_f$ sind. 
 \begin{bsp}{Elementare gebrochen-rationale Funktionen}{}
 Am Beispiel der Funktion $f(x) = \dfrac{-2}{x+4} - 2$ mit $\mathds{D}_f = \mathds{R}\setminus\{-4\}$ sollen beispielhaft diese Überlegungen durchgeführt werden. Die Definitionslücke ergibt sich aus der Nullstelle des Nennerpolynoms $n(x) = x+4$. 
  \begin{equation*}
@@ -185,12 +185,12 @@ Am Beispiel der Funktion $f(x) = \dfrac{-2}{x+4} - 2$ mit $\mathds{D}_f = \mathd
         x&=-4 
        \end{split}
 \end{equation*}
-Hierbei ergibt sich aus der Definitionslücke die senkrechte Asymptote. Die waagerechte Asymptote ergibt sich aus dem additiven Parameter $-2$ da die Funktionswerte sich beliebig genau diesem Wert annähern ihn aber nie annehmen. Allgemeinere Betrachtungen des Graphen sind durch die linearen Transformationen \ref{lintrans} erklärbar
+Hierbei ergibt sich aus der Definitionslücke die senkrechte Asymptote. Die waagerechte Asymptote ergibt sich aus dem additiven Parameter $-2$, da die Funktionswerte sich beliebig genau diesem Wert annähern, ihn aber nie annehmen. Allgemeinere Betrachtungen des Graphen sind durch die linearen Transformationen \ref{lintrans} erklärbar.
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[domain=-9.1:4.1, restrict y to domain=-5:5, axis x line=center, axis y line=center,%
 xtick={-9,...,4}, ytick={-5,...,5}]
-        \addplot[mark=none  plot[samples=300,smooth]{-2/(x+4) -2};
+        \addplot[mark=none, samples=300, smooth]{-2/(x+4) -2};
         \addplot[line width=1pt,mark=none, color=red, dashed]  plot[samples=300,smooth]{-2-0*x};
         \draw [line width=1pt, color = blue, dashed] (-4,-5) -- (-4,5);
         \draw (-7,-1)   node [above] {$G_{f}$};
@@ -201,23 +201,23 @@ xtick={-9,...,4}, ytick={-5,...,5}]
 \end{center}
 \end{bsp}
 \subsection{Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen} \index{Funktionen!Gebrochen-rationale!Grenzwertbetrachtungen} \label{Fallgebrochenrational}
-Die Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen kann über die Auswertung von Zähler- und Nennergrad erfolgen. Hierbei versteht man unter dem Grad eines Polynoms den höchsten vorkommenden Exponenten. Man unterscheidet dabei 4 mögliche Fälle.
+Die Grenzwertbetrachtungen bei gebrochen-rationalen Funktionen können über die Auswertung von Zähler- und Nennergrad erfolgen. Hierbei versteht man unter dem Grad eines Polynoms den höchsten vorkommenden Exponenten. Man unterscheidet dabei 4 mögliche Fälle.
 \begin{merke}{Fallunterscheidungen}{}
-Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D}_f = \mathds{D}_{\text{max}}$ hängt vom Grad der Polynome des Zähler als auch des Nenners ab.
+Die Art der Asymptote einer gebrochen-rationalen Funktion $f(x)=\dfrac{Z(x)}{N(x)}$ mit $\mathds{D}_f = \mathds{D}_{\text{max}}$ hängt sowohl vom Grad des Zählers als auch vom Grad des Nenners ab.
 \begin{enumerate}
     \item Grad des Zählerpolynoms $<$ Grad des Nennerpolynoms\\
     Durch Grenzwertbetrachtungen kann nachgewiesen werden, dass die x-Achse die waagerechte Asymptote ist. Daraus folgt $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow -\infty} f(x) = 0$$
-\item  Grad des Zählerpolynoms $=$ Grad des Nennerpolynoms\\ Bei Grenzwertuntersuchungen findet man eine waagerechte Asymptote die parallel zur x-Achse verläuft. Hierbei ergibt sich die waagerechte Asymptote aus dem Quotienten der Vorfaktoren der größten Exponenten.\\ Als Beispiel wird die Funktion $f(x)= \dfrac{2x^2}{3x^2-x+1}$, hierbei folgt aus der Grenzwertbetrachtung: $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow \infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$ und $$\lim_{x\longrightarrow -\infty} f(x) = \lim_{x\longrightarrow -\infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$
+\item  Grad des Zählerpolynoms $=$ Grad des Nennerpolynoms\\ Bei Grenzwertuntersuchungen findet man eine waagerechte Asymptote, die parallel zur x-Achse verläuft. Hierbei ergibt sich die waagerechte Asymptote aus dem Quotienten der Vorfaktoren der größten Exponenten.\\ Als Beispiel wird die Funktion $f(x)= \dfrac{2x^2}{3x^2-x+1}$ betrachtet. Aus der Grenzwertbetrachtung folgt: $$\lim_{x\longrightarrow \infty} f(x) = \lim_{x\longrightarrow \infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$ und $$\lim_{x\longrightarrow -\infty} f(x) = \lim_{x\longrightarrow -\infty} \dfrac{2x^2}{3x^2-x+1} = \dfrac{2}{3}$$
 \item Grad des Zählerpolynoms $=$ Grad des Nennerpolynoms +1\\
 In diesem Fall existiert eine schräge Asymptote. Diese ist direkt aus der Summenform ablesbar. \\ Als Beispiel wird die Funktion $f(x)= \dfrac{x^2+1,5x}{2x-1} = \dfrac{1}{2}x+1+\dfrac{1}{2x-1}$ betrachtet. Die schräge Asymptote hat damit die Gleichung $y= \dfrac{1}{2}x+1$.
 \item Grad des Zählerpolynoms $>$ Grad des Nennerpolynoms +1\\
-Für diesen Fall ergibt sich eine Näherungskurve vom Grad $n\geq 2$. Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
+Für diesen Fall ergibt sich eine Näherungskurve, deren Grad gleich Zählergrad minus Nennergrad ist (also mindestens 2). Die Funktion\\ $f(x) = x^2+2+\dfrac{1}{x^4+5}$ mit der Näherungskurve $y= x^2+2$ dient hier als Beispiel.
 \end{enumerate}
 \end{merke}
 \section{Die Betragsfunktion}\index{Funktionen!Betragsfunktion}
-Wird der Betrag bei einer Funktion angewendet ändert sich der Graph der Funktion in aller Regel. Hierbei hängt die Transformation des Graphen von Position der Betragsfunktion ab.
+Wird der Betrag bei einer Funktion angewendet, ändert sich der Graph der Funktion in aller Regel. Hierbei hängt die Transformation des Graphen von der Position der Betragsfunktion ab.
 \begin{bsp*}{Einfache Betragsfunktion}{}
-Betrachtet werden die Funktion $f$ und $g$ mit den Funktionstermen $f(x) = 3x+2$ und \\ $g(x) = |3x+2|$. Hierbei erkennt man, dass der Graph $G_g$ der Funktion $g$ in der Nullstelle an der $x-Achse$ gespiegelt wurde.
+Betrachtet werden die Funktionen $f$ und $g$ mit den Funktionstermen $f(x) = 3x+2$ und \\ $g(x) = |3x+2|$. Hierbei erkennt man, dass beim Graphen $G_g$ der Teil von $G_f$ mit negativen Funktionswerten (also für $x<-\tfrac{2}{3}$) an der $x$-Achse gespiegelt wurde.
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[xmin= -4.1, xmax = 4.1, ymin= -5, ymax= 5,
@@ -228,7 +228,7 @@ Betrachtet werden die Funktion $f$ und $g$ mit den Funktionstermen $f(x) = 3x+2$
         ytick={-5, ..., 5},
         xlabel = $x$,
         ylabel=$y$]
-        \addplot[mark=none  plot[samples=300,smooth]{3*x+2};
+        \addplot[mark=none, samples=300, smooth]{3*x+2};
         \addplot[line width=1pt,mark=none, color=red,restrict x to domain=-0.666666:4]  plot[samples=300,smooth]{3*x+2};
          \addplot[line width=1pt,mark=none, color=red,restrict x to domain=-4:-0.666666]  plot[samples=300,smooth]{-3*x-2};
         \draw (-2,-3)   node [above] {$G_{f}$};
@@ -240,9 +240,9 @@ Betrachtet werden die Funktion $f$ und $g$ mit den Funktionstermen $f(x) = 3x+2$
 
 \begin{b8d}{Lineare Transformationen mithilfe des Betrags}{}\index{Funktionen!Betragsfunktion!lineare Transformationen}
 \label{ltbf}
-Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen ergeben sich unterschiedliche Graphen. Diese Graphen haben allerdings gemeinsam, dass die Nicht-Differenzierbarkeit an bestimmten Stellen sich nicht ändert. Es wird im folgenden die Funktion $f(x) = x\cdot(x-2) = x^2-2x$ betrachtet.
+Wird eine Funktion Transformationen in Form des Betrags unterworfen, ergeben sich unterschiedliche Graphen. Dabei können Knickstellen entstehen, an denen der Graph nicht differenzierbar ist. Es wird im Folgenden die Funktion $f(x) = x\cdot(x-2) = x^2-2x$ betrachtet.
 \begin{enumerate}
-    \item $f(x):$ Der Orginalgraph ist eine nach oben geöffnete Parabel mit den Nullstellen $x_1 = 0$ und $x_2 = 2$.
+    \item $f(x):$ Der Originalgraph ist eine nach oben geöffnete Parabel mit den Nullstellen $x_1 = 0$ und $x_2 = 2$.
     \begin{center}
         \begin{tikzpicture}[scale=0.75]
     \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -1.6, ymax= 3.1,
@@ -254,11 +254,11 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
         xlabel = $x$,
         ylabel=$y$]
         \addplot[line width=1pt,mark=none, color=red]  plot[samples=300,smooth]{x^2-2*x};  
-        \draw[red] (-1.5,2)   node [above] {$G_{g}$};       
+        \draw[red] (-1.5,2)   node [above] {$G_{f}$};       
     \end{axis}
 \end{tikzpicture}
     \end{center}
-    \item $g_1(x) = |f(x)|:$ Hierbei ändert sich an den positiven Funktionswerten nichts. Die Punkte mit negativen Funktionswerten werden an der $x-Achse$ gespiegelt. Die Spiegelung erfolgt damit an den Nullstellen.
+    \item $g_1(x) = |f(x)|:$ Hierbei ändert sich an den positiven Funktionswerten nichts. Die Punkte mit negativen Funktionswerten werden an der $x$-Achse gespiegelt. Das betrifft hier den Teil des Graphen zwischen den Nullstellen.
     \begin{center}
         \begin{tikzpicture}[scale=0.75]
     \begin{axis}[xmin= -2.1, xmax = 4.1, ymin= -0.5, ymax= 3.1,
@@ -276,7 +276,7 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
     \end{axis}
 \end{tikzpicture}
     \end{center}
-    \item $g_2(x) = f(|x|):$ Der im positive Teil der $x-Achse$ liegende Graaph wird an der $y-Achse$ gespiegelt. 
+    \item $g_2(x) = f(|x|):$ Der über dem positiven Teil der $x$-Achse liegende Graph wird an der $y$-Achse gespiegelt. 
     \begin{center}
         \begin{tikzpicture}[scale=0.75]
     \begin{axis}[xmin= -3.6, xmax = 3.6, ymin= -1.3, ymax= 3.1,
@@ -293,7 +293,7 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
     \end{axis}
 \end{tikzpicture}
     \end{center}
-    \item $g_3(x) = |f(|x|)|:$ Wird sowohl der Betrag der $x-Werte$ als auch der Betrag der Funktionswerte gebildet, werden zunächst die Punkte mit positiven $x-Werten$ an der $y-Achse$ gespiegelt um anschließend die Punkte mit negativen Funktionswerten an der $x-Achse$ zu spiegeln.
+    \item $g_3(x) = |f(|x|)|:$ Wird sowohl der Betrag der $x$-Werte als auch der Betrag der Funktionswerte gebildet, werden zunächst die Punkte mit positiven $x$-Werten an der $y$-Achse gespiegelt, um anschließend die Punkte mit negativen Funktionswerten an der $x$-Achse zu spiegeln.
     \begin{center}
         \begin{tikzpicture}[scale=0.75]
     \begin{axis}[xmin= -3.6, xmax = 3.6, ymin= -0.5, ymax= 3.1,
@@ -314,8 +314,8 @@ Wird eine Funktion linaren Transformationnen in Form des Betrags unterworfen erg
     \end{center}
 \end{enumerate} 
 \end{b8d}
-\section{Allgemeine Betrachtung Trigonometrischer Zusammenhänge} \index{Funktionen!Trigonometrische! allgemeine Betrachtungen} \label{SinCos}
-Die trigonometrischenZusammenhänge ergeben sich aus Betrachtungen am Einheitskreis mit darin einbeschriebenen rechtwinkligen Dreiecken. 
+\section{Allgemeine Betrachtung Trigonometrischer Zusammenhänge} \index{Funktionen!Trigonometrische!allgemeine Betrachtungen} \label{SinCos}
+Die trigonometrischen Zusammenhänge ergeben sich aus Betrachtungen am Einheitskreis mit darin einbeschriebenen rechtwinkligen Dreiecken. 
 
 \begin{center}
 
@@ -373,12 +373,12 @@ Die trigonometrischenZusammenhänge ergeben sich aus Betrachtungen am Einheitskr
   \draw[xshift=1.85cm] node [right,text width=6cm,style=information text]
     {
       Der {\color{anglecolor} Winkel $\alpha$} ist im Beispiel $30^\circ$  ($\pi/6$ im Bogenmaß). Der {\color{sincolor}Sinus von
-        $\alpha$}, welche der Länge der roten Linie entspricht, ist
+        $\alpha$}, welcher der Länge der roten Linie entspricht, ist
       \[
       {\color{sincolor} \sin \alpha} = 1/2.
       \]
       Durch den Satz des Pythagoras erhält man ${\color{coscolor}\cos^2 \alpha} +
-      {\color{sincolor}\sin^2\alpha} =1$. Dadurch ergibt sich für die Länge der blauen Linie, welcher dem {\color{coscolor}Kosinus von $\alpha$} entspricht, 
+      {\color{sincolor}\sin^2\alpha} =1$. Dadurch ergibt sich für die Länge der blauen Linie, welche dem {\color{coscolor}Kosinus von $\alpha$} entspricht, 
       \[
       {\color{coscolor}\cos\alpha} = \sqrt{1 - 1/4} = \textstyle
       \frac{1}{2} \sqrt 3.
@@ -392,7 +392,7 @@ Die trigonometrischenZusammenhänge ergeben sich aus Betrachtungen am Einheitskr
 \end{tikzpicture}
 \end{center}
 \subsection{Sinus und Kosinus als Funktionen}
-Erfolgt der Übergang vom Gradmaß (Winkel in $^{\circ}$) in das Bogenmaß (entsprechnende Länge des Kreisbogens) ist es möglich eine Funktion mit reellen Definitionsbereich zu definieren.
+Erfolgt der Übergang vom Gradmaß (Winkel in $^{\circ}$) in das Bogenmaß (entsprechende Länge des Kreisbogens), ist es möglich, eine Funktion mit reellem Definitionsbereich zu definieren.
 Beim Übergang von Sinus und Kosinus auf das Bogenmaß und beliebige Winkel ergibt sich die entsprechende Funktion.
 \begin{b8d}{Die Sinus- und Kosinusfunktion}{}
  Die Funktion $f$ mit  $f(x) = \sin{(x)}$ mit $\mathds{D}_f = \mathds{R}$ und $\mathds{W}_f = [-1;1]$ nennt man Sinusfunktion.\\
@@ -425,7 +425,7 @@ Beim Übergang von Sinus und Kosinus auf das Bogenmaß und beliebige Winkel ergi
 \end{axis}
 \end{tikzpicture} 
 \end{center}
-Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich ein einzelner Abschnitt wieder und wieder wiederholt. Man kann auch sagen, dass sich die Funktionswerte ($y$) im selben Abstand wiederholen. Die kleinste Periode der Kurven entspricht einer Wellenbewegung oberhalb und unterhalb der x-Achse. In der oberen Abbildung erkennt man, dass die kleinste Periode über die Länge von $2\pi$ geht.
+Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich ein einzelner Abschnitt immer wieder wiederholt. Man kann auch sagen, dass sich die Funktionswerte ($y$) im selben Abstand wiederholen. Die kleinste Periode der Kurven entspricht einer Wellenbewegung oberhalb und unterhalb der x-Achse. In der oberen Abbildung erkennt man, dass die kleinste Periode über die Länge von $2\pi$ geht.
 \end{b8d}
 \label{GraphSinCos}
 \begin{merke}{Eigenschaften der Sinus- und Kosinuskurve}{} \phantomsection\label{SinCosEigenschaften}
@@ -433,26 +433,26 @@ Die Sinuskurve und die Kosinuskurve verlaufen periodisch, das heißt, dass sich 
     \begin{enumerate}
         \item Sinusfunktion
     \begin{itemize}
-        \item Die Nullstellen der Sinuskurve liegen bei allen ganzzahligen Vielfachen von $\pi$. $$x_{0} = k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
-        \item Die relativen Maxima liegen bei $$x_{Max} = \dfrac{\pi}{2} + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
-        \item Die relativen Minima liegen bei $$x_{Min} = \dfrac{3}{2}\cdot \pi + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+        \item Die Nullstellen der Sinuskurve liegen bei allen ganzzahligen Vielfachen von $\pi$. $$x_{0} = k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{Z}$$
+        \item Die relativen Maxima liegen bei $$x_{Max} = \dfrac{\pi}{2} + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{Z}$$
+        \item Die relativen Minima liegen bei $$x_{Min} = \dfrac{3}{2}\cdot \pi + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{Z}$$
     \end{itemize}
     \item Kosinuskurve
     \begin{itemize}
-        \item Die Nullstellen der Kosinuskurve liegen bei allen ganzzahligen Vielfachen von $\dfrac{\pi}{2}$. $$x_{0} = \dfrac{\pi}{2}+ k \cdot \pi\hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
-        \item Die relativen Maxima liegen bei $$x_{Max} = k\cdot 2\cdot\pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
-        \item Die relativen Minima liegen bei $$x_{Min} =  \pi + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{N}$$
+        \item Die Nullstellen der Kosinuskurve liegen bei allen ungeradzahligen Vielfachen von $\dfrac{\pi}{2}$. $$x_{0} = \dfrac{\pi}{2}+ k \cdot \pi\hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{Z}$$
+        \item Die relativen Maxima liegen bei $$x_{Max} = k\cdot 2\cdot\pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{Z}$$
+        \item Die relativen Minima liegen bei $$x_{Min} =  \pi + 2\cdot k\cdot \pi \hspace{0.5cm} \text{mit} \hspace{0.5cm} k\in \mathds{Z}$$
     \end{itemize}
         \end{enumerate}
-Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve eine um $\dfrac{\pi}{2}$ verschobene Sinuskurve.
+Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve eine um $\dfrac{\pi}{2}$ nach links verschobene Sinuskurve: $\cos(x) = \sin\left(x+\dfrac{\pi}{2}\right)$.
 \end{merke}
 \subsection{Die allgemeine Sinusfunktion}
 \begin{b8d}{Die allgemeine Sinusfunktion}{}\index{Funktionen!Trigonometrische!allgemeiner Sinus} \label{SinCosAllgFunkt}
-    Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x - c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} b,c,d \in \mathds{R}$$
+    Die allgemeine Sinusfunktion lautet $$f(x)= a\cdot \sin{(b\cdot (x - c))}+d \hspace{0.25cm} \text{mit} \hspace{0.25cm} a,b\in \mathds{R}\setminus\{0\} \hspace{0.25cm} \text{und} \hspace{0.25cm} c,d \in \mathds{R}$$
     Die vier Parameter verändern die Sinuskurve wie folgt:
     \begin{itemize}
-        \item Der Parameter a ändert die Amplitute, also die maximale Auslenkung der Kurve
-        \item Der Parameter b streckt bzw. staucht die Kurve in Richtung der x-Achse. Durch den Faktor b wird damit die Periode $p$ verändert $p = \dfrac{2\cdot \pi}{b}$
+        \item Der Parameter a ändert die Amplitude $|a|$, also die maximale Auslenkung der Kurve
+        \item Der Parameter b streckt bzw. staucht die Kurve in Richtung der x-Achse. Durch den Faktor b wird damit die Periode $p$ verändert $p = \dfrac{2\cdot \pi}{|b|}$
         \item Der Parameter c verschiebt die Kurve in Richtung der x-Achse.
         \item Der Parameter d verschiebt die Kurve in Richtung der y-Achse.
     \end{itemize}
@@ -476,14 +476,14 @@ Wie man anhand dieser Zusammenstellung leicht sehen kann, ist die Kosinuskurve e
 \addplot[samples=300,domain=-180:360]{1.5*sin(2*x)-0.5};
 %\addplot[red,thick,samples=300,domain=-180:360]{cos(x)};
 
-\draw (240,-2.6)   node [above] {$f(x)= 1.5\cdot \sin{(2\cdot x) -0,5}$};
+\draw (240,-2.6)   node [above] {$f(x)= 1{,}5\cdot \sin{(2\cdot x)} -0{,}5$};
 \end{axis}
 \end{tikzpicture} 
 \end{center}
 \section{Potenz- und Logarithmengesetze}
-Um mit den $e$- und  $\ln$-Funktionen arbeiten zu können müssen die Potenz- und Logarithmengesetze beherrscht werden.
+Um mit den $e$- und  $\ln$-Funktionen arbeiten zu können, müssen die Potenz- und Logarithmengesetze beherrscht werden.
 \subsection{Potenzgesetze}
-Um mit Potenzen zu rechnen gibt es einige wichtige Gesetzmäßigkeiten.
+Um mit Potenzen zu rechnen, gibt es einige wichtige Gesetzmäßigkeiten.
 \begin{merke}{Die Potenzgesetze}{} \index{Potenzgesetze}
 \begin{itemize}
     \item $a^0 = 1$ für alle $a\in \mathds{R}\setminus\{0\}$
@@ -491,22 +491,22 @@ Um mit Potenzen zu rechnen gibt es einige wichtige Gesetzmäßigkeiten.
     \item $a^{-n} = \dfrac{1}{a^n}$ für alle $a>0$ und $n \in \mathds{R}$
     \item $a^n \cdot a^m = a^{n+m}$ für alle $a>0$ und $n,m \in \mathds{R}$
     \item $a^n : a^m = \dfrac{a^n}{a^m} = a^{n-m}$ für alle $a>0$ und $n,m \in \mathds{R}$
-    \item $(a\cdot b)^n = a^n \cdot b^n$ für alle $a,b>0$ und $n,m \in \mathds{R}$
-    \item $\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$ für alle $a,b>0$ und $n,m \in \mathds{R}$
+    \item $(a\cdot b)^n = a^n \cdot b^n$ für alle $a,b>0$ und $n \in \mathds{R}$
+    \item $\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$ für alle $a,b>0$ und $n \in \mathds{R}$
     \item $ \left( a^n \right)^m = a^{n\cdot m}$ für alle $a>0$ und $n,m \in \mathds{R}$
-    \item $a^{\frac{n}{m}} = \sqrt[m]{a^m} = \left( \sqrt[n]{a}\right)^m$ für alle $a>0$ und $n,m \in \mathds{N}$
+    \item $a^{\frac{n}{m}} = \sqrt[m]{a^n} = \left( \sqrt[m]{a}\right)^n$ für alle $a>0$ und $n,m \in \mathds{N}$
 \end{itemize}
 \end{merke}
 \subsection{Logarithmengesetze}\index{Logarithmus}
-In der Mathematik bezeichnte der Logarithmus den Exponenten mit dem die Basis potenziert werden muss um eine bestimmte Zahl zu erhalten. Es gilt damit also folgender Zusammenhang $$a^n = b \Leftrightarrow n = \log_a (b)$$
-Der Logarithmus ist nur für Zahlen $a,b>0$ mit $a,b\in\mathds{R}$ definiert. Um Logarithmen vereinfachen zu können gelten einige grundlegende Regeln. 
+In der Mathematik bezeichnet der Logarithmus den Exponenten, mit dem die Basis potenziert werden muss, um eine bestimmte Zahl zu erhalten. Es gilt damit also folgender Zusammenhang $$a^n = b \Leftrightarrow n = \log_a (b)$$
+Der Logarithmus $\log_a(b)$ ist nur für Zahlen $a,b>0$ mit $a\neq 1$ und $a,b\in\mathds{R}$ definiert. Um Logarithmen vereinfachen zu können, gelten einige grundlegende Regeln. 
 \begin{merke}{Logarithmenregeln}{}\index{Logarithmus!Rechenregeln}
-Für folgende Umformungen gilt $a,b,x,y > 0$ für die Basen $a,b$ gilt zusätzlich $a,b \neq 1$.
+Für folgende Umformungen gilt $a,b,x,y > 0$; für die Basen $a,b$ gilt zusätzlich $a,b \neq 1$.
 \begin{itemize}
     \item Produktregel: $\log_a{(x\cdot y)} = \log_a{(x)} + \log_a{(y)}$
     \item Quotientenregel: $\log_a{\left(\dfrac{x}{y}\right)}= \log_a{(x)} -\log_a{(y)}$
-    \item Exponetenregel: $\log_a{(x^r)} = r\cdot \log_a{(x)}$ mit $r\in \mathds{R}$
-    \item Kettenregel: $\log_a{\left(\dfrac{1}{x}\right)} = -1\cdot\log_a{(x)}$
+    \item Exponentenregel: $\log_a{(x^r)} = r\cdot \log_a{(x)}$ mit $r\in \mathds{R}$
+    \item Kehrwertregel: $\log_a{\left(\dfrac{1}{x}\right)} = -1\cdot\log_a{(x)}$
     \item Basisumrechnung: $\log_a{(x)} = \dfrac{\log_b{(x)}}{\log_b{(a)}}$
 \end{itemize}
 \end{merke}
@@ -525,7 +525,7 @@ In der Mathematik ist es häufig notwendig, dass man Exponentialgleichungen lös
     \item $c\cdot a^n = b\cdot d^m$
     \item $a^n=a^m$
 \end{enumerate}
-Anhand von Beispiele sollen die drei Fälle besprochen werden.
+Anhand von Beispielen sollen die drei Fälle besprochen werden.
 \begin{bsp}{Exponentialgleichung 1}{}
 Gegeben ist die Gleichung $6\cdot 1,4^x = 9$.
 \begin{equation*}
@@ -548,7 +548,7 @@ Gegeben ist die Gleichung $2\cdot 1,2^{2x} = 5\cdot 2^{-x}$.
           x\cdot \left(2\cdot \ln{(1,2)} + \ln{(2)} \right) &= \ln{(\frac{5}{2})}\\
           x\cdot \ln{(1,2^2 \cdot 2)}&= \ln{(\frac{5}{2})}\\
            x\cdot \ln{(2,88)}&= \ln{(\frac{5}{2})}\hspace{0.5cm}| :\ln{(2,88)}\\
-           x&= \dfrac{\ln{(\frac{5}{2})}}{\ln{(2,88)}} \approx 0.87
+           x&= \dfrac{\ln{(\frac{5}{2})}}{\ln{(2,88)}} \approx 0{,}87
     \end{split}
 \end{equation*}
 \end{bsp}
@@ -563,10 +563,10 @@ Gegeben ist die Gleichung $2^{3x} =2^{\frac{1}{2}x-3}$.
     \end{split}
 \end{equation*}
 \end{bsp}
-Bei einigen Gleichungen lohnt sich die Substitution zum lösen. hierbei wird die Gleichung auf eine Gleichung zurückgeführt, die einfacher zu lösen ist.
-\begin{bsp}{Substitution bei Logarithmen}{}
+Bei einigen Gleichungen lohnt sich die Substitution zum Lösen. Hierbei wird die Gleichung auf eine Gleichung zurückgeführt, die einfacher zu lösen ist.
+\begin{bsp}{Substitution bei Exponentialgleichungen}{}
 \mbox{\index{Logarithmus!Substitution}}
-Gegeben ist die Gleichung $5^{2x} -2\cdot 5^x -8 =0$. Diese Gleichung kann vereinfacht werden, indem man \, $5^x$ mit dem Parameter $u$ substituiert.
+Gegeben ist die Gleichung $5^{2x} -2\cdot 5^x -8 =0$. Diese Gleichung kann vereinfacht werden, indem man $5^x$ mit dem Parameter $u$ substituiert.
 \begin{equation*}
     \begin{split}
      5^{2x} -2\cdot 5^x -8 &=0\\
@@ -580,7 +580,7 @@ Gegeben ist die Gleichung $5^{2x} -2\cdot 5^x -8 =0$. Diese Gleichung kann verei
         u_2 &= -2 
     \end{split}
 \end{equation*}
-Durch die Substitution wurden die beiden rechnerischen Lösungen $u_1$ und $u_2$ gefunden. Diese Müssen jetzt rücksubstituiert werden. Für $u_1$ ergibt sich damit folgendes
+Durch die Substitution wurden die beiden rechnerischen Lösungen $u_1$ und $u_2$ gefunden. Diese müssen jetzt rücksubstituiert werden. Für $u_1$ ergibt sich damit folgendes
 \begin{equation*}
     \begin{split}
 u_1&=4\\
@@ -593,15 +593,15 @@ x&= \dfrac{\ln{(4)} }{\ln{(5)} } \approx 0,86
 Für den Wert $u_2 = -2$ kann keine Lösung gefunden werden, da $5^x > 0$ für alle Werte von $x$ ist. Damit ist $5^x= -2$ nicht lösbar.\\
 Aus diesen Rechnungen folgt damit, dass nur $x=\dfrac{\ln{(4)}}{\ln{(5)}}$ die Gleichung $5^{2x} -2\cdot 5^x -8 =0$ löst.
 \end{bsp}
-\section{Grenzwertbestimmung nach L´Hospital}
-\index{Grenzwerte!L´Hospital}
-Mit der Regel von L´Hospital lassen sich Grenzwerte von Funktionen, die sich als Quotient zweier gegen Null konvergierender oder bestimmt divergierender Funktionen schreiben lassen, mithilfe der ersten Ableitungen dieser Funktionen berechnen.\\
-Durch die Regel von L´Hospital ist es möglich, den Grenzwert von zwei Funktionen selbst dann noch zu bestimmen, wenn deren Grenzwert beim Erreichen der betreffenden Grenze einen unbestimmten Ausdruck der Form $\dfrac{0}{0}$ bzw. $\pm\dfrac{\infty}{\infty}$ liefert.
+\section{Grenzwertbestimmung nach L'Hospital}
+\index{Grenzwerte!L'Hospital}
+Mit der Regel von L'Hospital lassen sich Grenzwerte von Funktionen, die sich als Quotient zweier gegen Null konvergierender oder bestimmt divergierender Funktionen schreiben lassen, mithilfe der ersten Ableitungen dieser Funktionen berechnen.\\
+Durch die Regel von L'Hospital ist es möglich, den Grenzwert des Quotienten zweier Funktionen selbst dann noch zu bestimmen, wenn deren Grenzwert beim Erreichen der betreffenden Grenze einen unbestimmten Ausdruck der Form $\dfrac{0}{0}$ bzw. $\pm\dfrac{\infty}{\infty}$ liefert.
 \label{sec:L_Hospital} % Label für den Verweis aus dem Inhaltsverzeichnis
 \begin{merke}{Erläuterung zur Regel von L'Hospital}{}
-Erreicht der Grenzwert einer Funktion \(f\) einen unbestimmten Ausdruck der Form \(\dfrac{0}{0}\), \(\dfrac{\infty}{\infty}\) oder \(0 \cdot \infty\) ist dieser Grenzwert in vielen Fällen trotzdem berechenbar.\\
+Erreicht der Grenzwert einer Funktion \(f\) einen unbestimmten Ausdruck der Form \(\dfrac{0}{0}\), \(\dfrac{\infty}{\infty}\) oder \(0 \cdot \infty\), ist dieser Grenzwert in vielen Fällen trotzdem berechenbar. Ein Ausdruck der Form \(0\cdot\infty\) muss dazu zuerst in einen Quotienten umgeformt werden.\\
 Die Regel von L'Hospital lautet in diesen Fällen: \\
-    Existiert der Grenzwert \[\lim\limits _{x\longrightarrow x_0} f(x) = \lim\limits _{x\longrightarrow x_0} \dfrac{z'(x)}{n'(x)}\] so ist dieser sogleich der Grenzwert des Terms \[f(x) = \dfrac{z(x)}{n(x)}\] wobei hier \(z'(x)\) und \(n'(x)\) jeweils die 1. Ableitungen der Funktionen \(z(x)\) und \(n(x)\) sind.
+    Es sei \(f(x) = \dfrac{z(x)}{n(x)}\), wobei \(z\) und \(n\) in einer Umgebung von \(x_0\) differenzierbar sind und dort \(n'(x)\neq 0\) gilt. Liefert \(\lim\limits_{x\longrightarrow x_0} f(x)\) einen Ausdruck der Form \(\dfrac{0}{0}\) oder \(\dfrac{\infty}{\infty}\) und existiert der Grenzwert \(\lim\limits _{x\longrightarrow x_0} \dfrac{z'(x)}{n'(x)}\), so gilt \[\lim\limits _{x\longrightarrow x_0} \dfrac{z(x)}{n(x)} = \lim\limits _{x\longrightarrow x_0} \dfrac{z'(x)}{n'(x)}.\] Dabei sind \(z'(x)\) und \(n'(x)\) jeweils die 1. Ableitungen der Funktionen \(z(x)\) und \(n(x)\).
 
 \end{merke}
 \begin{tikzpicture}[remember picture, overlay]
@@ -615,24 +615,24 @@ Die Regel von L'Hospital lautet in diesen Fällen: \\
   inner sep=0pt
 ] at ([xshift=-0.5cm,yshift=-6cm]current page.north east) {%
   \begin{achtung}[width=5cm,height=4cm]
-Bei der Anwendung der Regel von L'Hospital besteht kein Zusammenhang mit der Quotientenregel der Ableitung.
+Die Regel von L'Hospital\\ hat nichts mit der\\ Quotientenregel der\\ Ableitung zu tun.
   \end{achtung}
 };
 \end{tikzpicture}
 \section{Extremwertprobleme}\index{Extremwertprobleme} 
-   In vielen Anwendungssituationen sind Extremwerte einer Funktion gesucht, wobei erst eine Modellfunktion, zur Beschreibung des Problems, bestimmt werden muss. Zum lösen von Extremwertproblemen ist ein einfaches systematisches Vorgehen sehr sinnvoll.  
+   In vielen Anwendungssituationen sind Extremwerte einer Funktion gesucht, wobei erst eine Modellfunktion zur Beschreibung des Problems bestimmt werden muss. Zum Lösen von Extremwertproblemen ist ein einfaches systematisches Vorgehen sehr sinnvoll.  
    \begin{defi}{Extremwertprobleme}{}
 Vorgehen beim Lösen von \textbf{\textcolor{red}{Extremwertproblemen}}:
 \begin{enumerate}
     \item Beschreiben der zu maximierenden bzw. minimierenden Größe durch einen Term. Dieser Term kann mehrere Variablen enthalten.
     \item Formulierung von Nebenbedingungen zum Beschreiben der Abhängigkeiten zwischen den Variablen.
-    \item Bestimmen der \textbf{\textcolor{red}{Zielfunktion}}, diese ist nur noch von einer variablen abhängig.
-    \item Untersuchen der Zielfunktion auf \textbf{\textcolor{red}{Extremwerte}} und \textbf{\textcolor{red}{Formulierung}} des Ergebnisses. Hierfür sind gegebenfalls auch die Randextrema zu berücksichtigen.
+    \item Bestimmen der \textbf{\textcolor{red}{Zielfunktion}}, diese ist nur noch von einer Variablen abhängig.
+    \item Untersuchen der Zielfunktion auf \textbf{\textcolor{red}{Extremwerte}} und \textbf{\textcolor{red}{Formulierung}} des Ergebnisses. Hierfür sind gegebenenfalls auch die Randextrema zu berücksichtigen.
 \end{enumerate}
    \end{defi}
    \begin{merke}{Randextrema}{}
     Ein \textbf{Randextremum} ist ein \textbf{Maximum} oder \textbf{Minimum} einer Funktion, das \textbf{an einem Randpunkt des betrachteten Definitionsbereichs} liegt.\\
-    Bei Extremwertaufgaben auf einem abgeschlossenen Intervall \( [a,b] \) m\"ussen immer
+    Bei Extremwertaufgaben auf einem abgeschlossenen Intervall \( [a;b] \) m\"ussen immer
 \begin{itemize}[leftmargin=1.5em]
     \item die kritischen Stellen im Inneren des Intervalls und
     \item die Randpunkte \(a\) und \(b\)
@@ -642,7 +642,7 @@ untersucht werden.
    \begin{bsp}{}{}
    \begin{multicols}{2}
        Gegeben ist die Funktion \(
-f(x)=x^2 \quad \text{mit} \quad x\in[1,3]\). Innerhalb des Intervalls existieren keine Extrempunkte. Allerdings gilt für die Stellen am Rand des Intervalls:
+f(x)=x^2 \quad \text{mit} \quad x\in[1;3]\). Innerhalb des Intervalls existieren keine Extrempunkte. Allerdings gilt für die Stellen am Rand des Intervalls:
 \(f(1)=1, \quad f(3)=9\). Da \(x=1\) und \(x=3\) Randpunkte des Intervalls sind, liegen hier Randextrema vor:
 \begin{itemize}[leftmargin=1.5em]
     \item \(f(1)=1\) ist das \textbf{Minimum},
@@ -653,8 +653,8 @@ f(x)=x^2 \quad \text{mit} \quad x\in[1,3]\). Innerhalb des Intervalls existieren
     \draw[->] (0,0) -- (4.2,0) node[right] {\(x\)};
     \draw[->] (0,0) -- (0,10.5) node[above] {\(f(x)\)};    \draw[domain=1:3,smooth,variable=\x,thick] plot ({\x},{\x*\x});
 
-    \filldraw (1,1) circle (2pt) node[below left] {\((1,1)\)};
-    \filldraw (3,9) circle (2pt) node[right] {\((3,9)\)};
+    \filldraw (1,1) circle (2pt) node[below left] {\((1|1)\)};
+    \filldraw (3,9) circle (2pt) node[right] {\((3|9)\)};
 
     \draw[dashed] (1,0) -- (1,1);
     \draw[dashed] (3,0) -- (3,9);
@@ -667,7 +667,7 @@ f(x)=x^2 \quad \text{mit} \quad x\in[1,3]\). Innerhalb des Intervalls existieren
    \end{bsp}
 
    \begin{b8d}{Vorgehen bei Extremwertproblemen}{}
-Bei einer Untersuchung auf absolute Extremwerte im Intervall \( [a,b] \) gilt:
+Bei einer Untersuchung auf absolute Extremwerte im Intervall \( [a;b] \) gilt:
 \begin{enumerate}[leftmargin=1.5em]
     \item Ableitung bilden,
     \item kritische Stellen im Inneren bestimmen,
@@ -698,7 +698,7 @@ scale=0.9,%
 noautoscale=false,%
 fitpaper=true,%
 addtotoc={%
-  4,% einzubindende Seite aus dem PDF-Dokument
+  1,% Seite der PDF, auf die der Verzeichniseintrag zeigt
   subsection,% Abschnitt
   2,% Tiefe im Inhaltsverzeichnis
   Polynome,%
@@ -715,7 +715,7 @@ scale=0.9,%
 noautoscale=false,%
 fitpaper=true,%
 addtotoc={%
-  3,% einzubindende Seite aus dem PDF-Dokument
+  1,% Seite der PDF, auf die der Verzeichniseintrag zeigt
   subsection,% Abschnitt
   2,% Tiefe im Inhaltsverzeichnis
   Exponentialfunktionen und Logarithmus,%
@@ -732,7 +732,7 @@ scale=0.9,%
 noautoscale=false,%
 fitpaper=true,%
 addtotoc={%
-  6,% einzubindende Seite aus dem PDF-Dokument
+  1,% Seite der PDF, auf die der Verzeichniseintrag zeigt
   subsection,% Abschnitt
   2,% Tiefe im Inhaltsverzeichnis
   Beispiele Kurvendiskussion,%

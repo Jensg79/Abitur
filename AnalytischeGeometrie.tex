@@ -1,7 +1,7 @@
 \section{Vektoren}
 \subsection{Definition von Vektoren}
 \begin{defi}{Vektoren}{}\index{Vektoren!Definition}
-Die Menge aller parallelen, gleich langen und gleich gerichteten Pfeile nennt man Vektor. Jeder Pfeil ist der Repräsentant des Vektors.
+Die Menge aller parallelen, gleich langen und gleich gerichteten Pfeile nennt man Vektor. Jeder dieser Pfeile ist ein Repräsentant des Vektors.
 \begin{center}
 
 \begin{tikzpicture}[x=.5cm, y=.5cm,domain=-9:9,smooth, cross/.style={draw, cross out,
@@ -27,10 +27,10 @@ Die Menge aller parallelen, gleich langen und gleich gerichteten Pfeile nennt ma
 \draw[thick, ->] (g) node[right]{} -- (h) node[left]{};
 \end{tikzpicture}
 \end{center}
-Alle drei Pfeile sind Repräsentanten des selben Vektors.
+Alle vier Pfeile sind Repräsentanten desselben Vektors.
 \end{defi}
 \begin{merke}{Bezeichnungen}{}\index{Vektoren!Bezeichnung}
-Vektoren werden mit kleinen lateinischen Buchstaben und einem Pfeil gekennzeichnet $\vec{u}$. Verläuft ein Repräsentant eines Vektors von einem Punkt z.B. $P$ zu einem zweiten Punkt z.B. $Q$, so bezeichnet man alle Repräsentanten mit $\vv{PQ}$.
+Vektoren werden mit kleinen lateinischen Buchstaben und einem Pfeil gekennzeichnet $\vv{u}$. Verläuft ein Repräsentant eines Vektors von einem Punkt z.B. $P$ zu einem zweiten Punkt z.B. $Q$, so bezeichnet man alle Repräsentanten mit $\vv{PQ}$.
 \begin{center}
 
 \begin{tikzpicture}[x=.5cm, y=.5cm,domain=-9:9,smooth, cross/.style={draw, cross out,
@@ -45,7 +45,7 @@ Vektoren werden mit kleinen lateinischen Buchstaben und einem Pfeil gekennzeichn
 \end{center}
 \end{merke}
 \begin{satz}{Vektoraddition}{}\phantomsection\label{vekadd}\index{Vektoren!Addition}
-Bei der Addition von zwei Vektoren wird an den Endpunkt eines Repräsentanten des ersten Vektors $\vv{a}$ der Beginn eines Repräsentanten des zweiten Vektors $\vv{b}$ gesetzt. Der Pfeil des Summenvektors $\vv{c} = \vv{a} + \vv{b}$ ergibt sich durch den Pfeil der am Anfangspunkt des Vektors $\vv{a}$ beginnt und am Endpunkt des Vektors $\vv{b}$ endet.\\
+Bei der Addition von zwei Vektoren wird an den Endpunkt eines Repräsentanten des ersten Vektors $\vv{a}$ der Beginn eines Repräsentanten des zweiten Vektors $\vv{b}$ gesetzt. Der Pfeil des Summenvektors $\vv{c} = \vv{a} + \vv{b}$ ergibt sich durch den Pfeil, der am Anfangspunkt des Vektors $\vv{a}$ beginnt und am Endpunkt des Vektors $\vv{b}$ endet.\\
 Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer einen, der an der \glqq richtigen\grqq{} Stelle für eine Addition liegt.
 \begin{center}
  
@@ -66,9 +66,6 @@ Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer eine
 \end{center}
 \end{satz}
 \begin{satz}{Kommutativgesetz der Vektoraddition}{}\phantomsection\label{komuvekadd}
-  Wie aus der Zeichnung bei Satz \ref{vekadd} leicht ersichtlich ist, ist die Addition von Vektoren kommutativ. Es gilt also: $$\vv{a} + \vv{b} = \vv{b} +\vv{a}$$ 
-\end{satz}
-\begin{satz}{Kommutativgesetz der Vektoraddition}{}
   Wie aus der Zeichnung bei Satz \ref{vekadd} leicht ersichtlich ist, ist die Addition von Vektoren kommutativ. Es gilt also: $$\vv{a} + \vv{b} = \vv{b} +\vv{a}$$ 
 \end{satz}
 
@@ -92,24 +89,24 @@ Da es für einen Vektor unendlich viele Repräsentanten gibt, gibt es immer eine
     \draw[->, black, arrows={-latex}]  (A) -- (D) node[sloped,midway,above=-0.1cm] {$ \vv{a} + \vv{b} $};
     \draw[->,  black,   arrows={-latex}]  (D) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{c}$};
     \draw[->,  black,   arrows={-latex}]  (A) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{a} + \vv{b} + \vv{c}$};
-     \draw[->,  black,   arrows={-latex}]  (B) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{a} + (\vv{b} + \vv{c})$};
+     \draw[->,  black,   arrows={-latex}]  (B) -- (E) node[sloped,midway,above=-0.1cm] {$\vv{b} + \vv{c}$};
 \end{tikzpicture}
 \end{center}
 \end{satz}
 \begin{b8d}{Besondere Vektoren}{}\index{Vektoren!Nullvektor}\index{Vektoren!Gegenvektor}
 Bei der Rechnung mit Vektoren gibt es zwei besondere Vektoren zu betrachten. Hierbei handelt es sich um den sogenannten Nullvektor und den Gegenvektor.\\
-Der Nullvektor $\vv{o}$ ist derjenige Vektor, der die Länge Null hat und bei dem sich bei er Addition mit anderen Vektoren nichts ändert. Es gilt: $$\vv{a} +\vv{o} = \vv{o} +\vv{a} = \vv{a}$$
-Der Gegenvektor $-\vv{a}$ ist derjenige Vektor, der genauso lang wie der Vektor $\vv{a}$ ist allerdings entgegengerichtet. Für den Gegenvektor $-\vv{a}$ und den Vektor $\vv{a}$ gilt: $$\vv{a} +( -\vv{a} ) =\vv{a}-\vv{a}= \vv{o}$$
+Der Nullvektor $\vv{o}$ ist derjenige Vektor, der die Länge Null hat und bei dem sich bei der Addition mit anderen Vektoren nichts ändert. Es gilt: $$\vv{a} +\vv{o} = \vv{o} +\vv{a} = \vv{a}$$
+Der Gegenvektor $-\vv{a}$ ist derjenige Vektor, der genauso lang wie der Vektor $\vv{a}$, allerdings entgegengerichtet ist. Für den Gegenvektor $-\vv{a}$ und den Vektor $\vv{a}$ gilt: $$\vv{a} +( -\vv{a} ) =\vv{a}-\vv{a}= \vv{o}$$
 \end{b8d}
 \begin{bem}{Vektorkette}{}\index{Vektoren!Vektorkette}
-Werden mehrere Vektoren addiert so werden die jeweiligen Repräsentanten aneinandergereiht und das Ergebnis nennt man dann Vektorkette.
+Werden mehrere Vektoren addiert, so werden die jeweiligen Repräsentanten aneinandergereiht und das Ergebnis nennt man dann Vektorkette.
 \end{bem}
 \subsection{Vektor und Skalar}
 \begin{merke}{Skalar}{}\index{Vektoren!Skalar}
    In der Analytischen Geometrie versteht man unter einem Skalar eine beliebige reelle Zahl. 
 \end{merke}
 \begin{defi}{Skalare Multiplikation}{}\index{Vektoren!Skalare Multiplikation}
-Ein Vektor kann mit einer reellen Zahl durch eine Multiplikation verknüpft werden. Der Vektor $\lambda \cdot \vv{u}$ ist $|\lambda|$-mal so lang wie der Vektor $\vv{u}$. Dabei gilt für dis Zahl $\lambda$ folgendes $\lambda \in \mathds{R}$.\\
+Ein Vektor kann mit einer reellen Zahl durch eine Multiplikation verknüpft werden. Der Vektor $\lambda \cdot \vv{u}$ ist $|\lambda|$-mal so lang wie der Vektor $\vv{u}$. Dabei gilt für die Zahl $\lambda$: $\lambda \in \mathds{R}$.\\
 Für $\lambda > 0$ hat der Vektor $\lambda \cdot \vv{u}$ die gleiche Richtung wie der Vektor $\vv{u}$.\\
 Für $\lambda < 0$ hat der Vektor $\lambda \cdot \vv{u}$ die entgegengesetzte Richtung wie der Vektor  $\vv{u}$.\\
 \begin{center}
@@ -124,8 +121,8 @@ Für $\lambda < 0$ hat der Vektor $\lambda \cdot \vv{u}$ die entgegengesetzte Ri
 \end{tikzpicture}
 \end{center}
 \end{defi}
-\begin{satz}{Rechenregeln für das Skalarprodukt}{}\index{Vektoren!Skalare Multiplikation}
-Die Skalare Multiplikation folgt zwei Gesetzmäßigkeiten. dabei gilt $\lambda, \mu \in \mathds{R}$:
+\begin{satz}{Rechenregeln für die Multiplikation eines Vektors mit einer Zahl}{}\index{Vektoren!Skalare Multiplikation}
+Die skalare Multiplikation folgt drei Gesetzmäßigkeiten. Dabei gilt $\lambda, \mu \in \mathds{R}$:
 \begin{itemize}
     \item Assoziativgesetz: $\lambda \cdot \left(\mu \cdot \vv{u}\right) =\left( \mu \cdot \lambda \right)\vv{u}$
     \item Distributivgesetz 1: $\lambda \cdot \left(\vv{u} + \vv{v}\right) =\lambda \cdot \vv{u} + \lambda \cdot \vv{v} $
@@ -133,7 +130,7 @@ Die Skalare Multiplikation folgt zwei Gesetzmäßigkeiten. dabei gilt $\lambda, 
 \end{itemize}
 \end{satz}
 \begin{bem}{}{}
-Beim aufstellen einer Vektorkette versucht man den Anfangs- und Endpunkt eines Vektors durch bekannte Vektoren zu verbinden. Der Vektor $\vv{AB}$ beginnt im Punkt $A$ und endet im Punkt $B$.
+Beim Aufstellen einer Vektorkette versucht man, den Anfangs- und Endpunkt eines Vektors durch bekannte Vektoren zu verbinden. Der Vektor $\vv{AB}$ beginnt im Punkt $A$ und endet im Punkt $B$.
 
 \end{bem}
 \begin{bsp}{Vektorkette}{}
@@ -174,8 +171,7 @@ Folgende Aufgaben sind typisch für Vektorketten
         \item $\vv{BS}, \vv{CS}$ und $\vv{DS}$ sind gleich lang wie $\vv{c}$
         \item aber nicht \textcolor{red}{parallel} zu $\vv{c}$
     \end{itemize}
-    \item Drücke die Vektoren $\vv{BS}, \vv{CS}, \vv{DS}$ und $\vv{AF}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{
-    c}$ aus.
+    \item Stellen Sie die Vektoren $\vv{BS}, \vv{CS}, \vv{DS}$ und $\vv{AF}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{c}$ dar.
     \begin{itemize}
         \item $\vv{BS}$
         \begin{itemize}
@@ -184,7 +180,7 @@ Folgende Aufgaben sind typisch für Vektorketten
         \end{itemize}       
         \item $\vv{CS}$ 
         \begin{itemize}
-            \item[$\circ$] Der Vektor $\vv{BC}$ ist ein Repräsentatnt des Vektors $\vv{b}$ 
+            \item[$\circ$] Der Vektor $\vv{BC}$ ist ein Repräsentant des Vektors $\vv{b}$ 
             \item[$\circ$] $\vv{CS} = -\vv{b} - \vv{a} + \vv{c} = \vv{c} - \vv{a} -\vv{b}$
         \end{itemize}
         \item $\vv{DS}$ 
@@ -193,16 +189,15 @@ Folgende Aufgaben sind typisch für Vektorketten
         \end{itemize}
          \item $\vv{AF}$ 
          \begin{itemize}
-             \item[$\circ$] Der Punkt $F$ liegt in der Mitte des Vektors $\vv{AC}$
+             \item[$\circ$] Der Punkt $F$ ist der Mittelpunkt der Strecke $\overline{AC}$
              \item[$\circ$] $\vv{AC} = \vv{a} + \vv{b}$
              \item[$\circ$] $\vv{AF} = \dfrac{1}{2} \left(\vv{a} + \vv{b} \right)$
          \end{itemize}
     \end{itemize}
     \end{enumerate}
- In der Pyramide ist $M$ der Mittelpunkt der Seitenkante $\vv{BS}$ und $N$ der Mittelpunkt der Seitenkante  $\vv{CS}$.  
+ In der Pyramide ist $M$ der Mittelpunkt der Seitenkante $\overline{BS}$ und $N$ der Mittelpunkt der Seitenkante $\overline{CS}$.  
       \begin{enumerate}
-        \item[3.] Drücke den Vektor $\vv{FN}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{
-    c}$ aus.
+        \item[3.] Stellen Sie den Vektor $\vv{FN}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{c}$ dar.
     \end{enumerate}
    \begin{multicols}{2}
     \begin{tikzpicture}[font=\boldmath, scale=0.8]\large
@@ -244,7 +239,8 @@ Folgende Aufgaben sind typisch für Vektorketten
                 \vv{FN} &= \vv{FC} + \vv{CN}\\
                 &=\vv{AF} + \dfrac{1}{2} \vv{CS}\\
                 &= \dfrac{1}{2} \left(\vv{a} + \vv{b} \right) + \dfrac{1}{2}\left(\vv{c} - \vv{a} -\vv{b}\right)\\
-                &=\dfrac{1}{2} \vv{a} + \dfrac{1}{2} \vv{b} + \dfrac{1}{2} \vv{c} - \dfrac{1}{2} \vv{a} -\dfrac{1}{2} \vv{b} \\
+                &=\dfrac{1}{2} \vv{a} + \dfrac{1}{2} \vv{b} + \dfrac{1}{2} \vv{c}\\
+                &\quad - \dfrac{1}{2} \vv{a} -\dfrac{1}{2} \vv{b} \\
                 &= \dfrac{1}{2}\vv{c}
             \end{split}
         \end{equation*}
@@ -255,48 +251,49 @@ Folgende Aufgaben sind typisch für Vektorketten
        \item[$\circ$] Daraus folgt, dass der Vektor $\vv{FN}$ parallel und gleichgerichtet zum Vektor $\vv{c}$ aber nur halb so lang ist.
    \end{itemize}
    \begin{enumerate}
-    \item[4.] Drücke den Vektor $\vv{MN}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{
-    c}$ aus.
+    \item[4.] Stellen Sie den Vektor $\vv{MN}$ mithilfe der Vektoren $\vv{a}, \vv{b}$ und $\vv{c}$ dar.
     \begin{multicols}{2}
     \begin{itemize}
         \item[$\circ$] Vektorkette von $M$ über $B, C$ zum Punkt $N$.
      \begin{equation*}
             \begin{split}
                 \vv{MN} &= - \dfrac{1}{2}\vv{BS} + \vv{BC} + \dfrac{1}{2} \vv{CS}\\
-                &= -\dfrac{1}{2} \left( \vv{c} - \vv{a}\right) +\vv{b} + \dfrac{1}{2} \left(\vv{c} - \vv{a} -\vv{b}\right)\\
-                &= -\dfrac{1}{2} \vv{c} +\dfrac{1}{2} \vv{a} +\vv{b} + \dfrac{1}{2} \vv{c} - \dfrac{1}{2}\vv{a} -\dfrac{1}{2}\vv{b}\\
+                &= -\dfrac{1}{2} \left( \vv{c} - \vv{a}\right) +\vv{b}\\
+                &\quad + \dfrac{1}{2} \left(\vv{c} - \vv{a} -\vv{b}\right)\\
+                &= -\dfrac{1}{2} \vv{c} +\dfrac{1}{2} \vv{a} +\vv{b}\\
+                &\quad + \dfrac{1}{2} \vv{c} - \dfrac{1}{2}\vv{a} -\dfrac{1}{2}\vv{b}\\
                 &= \dfrac{1}{2} \vv{b}
             \end{split}
         \end{equation*}  
-        \item[$\circ$] Damit folgt, das die Mittellinie $\overline{MN}$ parallel, gleichgerichtet aber nur halb so lang wie der Vektor $\vv{b}$ ist.
+        \item[$\circ$] Damit folgt, dass die Mittellinie $\overline{MN}$ parallel, gleichgerichtet aber nur halb so lang wie der Vektor $\vv{b}$ ist.
     \end{itemize}
     \end{multicols}
 \end{enumerate}
 \end{bsp}
 \section{Der Vektorraum}
 \begin{defi}{Der Vektorraum}{}\index{Vektoren!Vektorraum}
-    Die Menge aller Vektoren, in der die Gesetze der Addition von Vektoren und deren Multiplikation mit Skalaren gelten, nennt man Vektorraum. Die Basis des Vektorraums setzt sich aus der minimalen Anzahl von Vektoren zusammen die man braucht, um alle anderen Vektoren darstellen zu können. Die Anzahl dieser Vektoren bildet die Dimension des Vektorraums.
+    Die Menge aller Vektoren, in der die Gesetze der Addition von Vektoren und deren Multiplikation mit Skalaren gelten, nennt man Vektorraum. Die Basis des Vektorraums setzt sich aus der minimalen Anzahl von Vektoren zusammen, die man braucht, um alle anderen Vektoren darstellen zu können. Die Anzahl dieser Vektoren bildet die Dimension des Vektorraums.
 \end{defi}
 \begin{merke}{Das orthonormale Koordinatensystem}{}\index{Vektoren!orthonormales Koordinatensystem}
-    Das zweidimensionale und das dreidimensionale Koordinatensystem der Schulgeometrie ist ein orthonormales Koordinatensystem. Das bedeutet, die Basis besteht aus 2 bzw. 3 Vektoren der Länge eins welche paarweise senkrecht aufeinander stehen. Man bezeichnet diese Vektoren mit $\vv{e}_1, \vv{e}_2, \vv{e}_3$. 
+    Das zweidimensionale und das dreidimensionale Koordinatensystem der Schulgeometrie sind orthonormale Koordinatensysteme. Das bedeutet, die Basis besteht aus 2 bzw. 3 Vektoren der Länge eins, welche paarweise senkrecht aufeinander stehen. Man bezeichnet diese Vektoren mit $\vv{e}_1, \vv{e}_2, \vv{e}_3$. 
 \end{merke}
 \begin{b8d}{Die Basisvektoren}{}\index{Vektoren!Basisvektoren}
-Für die Basisvektoren $e_1, e_2$ und $e_3$ gilt folgende Darstellung:\\
+Für die Basisvektoren $\vv{e}_1, \vv{e}_2$ und $\vv{e}_3$ gilt folgende Darstellung:\\
 $$\vv{e}_1 =\begin{pmatrix} 1 \\ 0 \\0 \end{pmatrix}, 
 \vv{e}_2 =\begin{pmatrix} 0 \\ 1 \\0 \end{pmatrix}, 
 \vv{e}_3 =\begin{pmatrix} 0 \\ 0 \\1 \end{pmatrix}$$
-Mit den Basisvektoren ist man in der Lage, jeden Vektor durch eine Addition der Basisvektoren darzustellen. Diese Darstellung bezeichnet man als Spaltendarstellung der Vektoren. Der Vektor $\vv{a}$ hat damit die Darstellung $\vv{a} = \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} = a_1\cdot \vv{e}_1 + a_2 \cdot \vv{e}_2 + a_3\cdot \vv{e}_3$ mit $a_1, a_2, a_3 \in \mathds{R}$. Die reellen Zahlen $a_i$ nennt man Koordinanten des Vektors $\vv{a}$.  
+Mit den Basisvektoren ist man in der Lage, jeden Vektor als Linearkombination der Basisvektoren darzustellen. Diese Darstellung bezeichnet man als Spaltendarstellung der Vektoren. Der Vektor $\vv{a}$ hat damit die Darstellung $\vv{a} = \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} = a_1\cdot \vv{e}_1 + a_2 \cdot \vv{e}_2 + a_3\cdot \vv{e}_3$ mit $a_1, a_2, a_3 \in \mathds{R}$. Die reellen Zahlen $a_i$ nennt man Koordinaten des Vektors $\vv{a}$.  
 \end{b8d}
 \begin{bem}{Rechnungen mit Vektoren}{}
 \begin{itemize}
-    \item Addition von Vektoren in der Spaltenschreibweise: Die Vektoren der $\vv{a}$ und $\vv{b}$ werden wie folgt addiert: $$\vv{a} + \vv{b} = \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\b_3 \end{pmatrix} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\a_3 + b_3 \end{pmatrix}$$ dabei gilt $a_i, b_i \in \mathds{R}$.
+    \item Addition von Vektoren in der Spaltenschreibweise: Die Vektoren $\vv{a}$ und $\vv{b}$ werden wie folgt addiert: $$\vv{a} + \vv{b} = \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\b_3 \end{pmatrix} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\a_3 + b_3 \end{pmatrix}$$ dabei gilt $a_i, b_i \in \mathds{R}$.
     \item Multiplikation eines Vektors mit einem Skalar: Ein Vektor wird mit einem Skalar wie folgt multipliziert $$\lambda \cdot \vv{a} = \lambda \cdot \begin{pmatrix} a_1 \\ a_2 \\a_3 \end{pmatrix} = \begin{pmatrix} \lambda \cdot a_1 \\ \lambda \cdot a_2 \\\lambda \cdot a_3 \end{pmatrix}$$ mit $\lambda , a_i \in \mathds{R}$.
 \end{itemize}
 \end{bem}
 \begin{satz}{Ortsvektoren}{}\index{Vektoren!Ortsvektor}
-Jeder Punkt $P(p_1|p_2|p_3)$ mit $p_i \in \mathds{R}$ des dreidimensionalen Vektorraums lässt sich wie folgt in der Spaltenschreibweise schreiben:
+Jeder Punkt $P(p_1|p_2|p_3)$ mit $p_i \in \mathds{R}$ des dreidimensionalen Raums lässt sich durch seinen Ortsvektor in der Spaltenschreibweise beschreiben:
 $$\vv{P} = \begin{pmatrix} p_1 \\ p_2 \\p_3 \end{pmatrix}.$$ 
-Dieser Vektor repräsentiert genau einen Pfeil der im Ursprung des Koordinatensystems beginnt und an den Koordinaten des Punktes $P$ endet.\\ 
+Zu diesem Vektor gehört genau ein Pfeil, der im Ursprung des Koordinatensystems beginnt und an den Koordinaten des Punktes $P$ endet.\\ 
 Diesen Pfeil nennt man Ortsvektor des Punktes $P$.
 \end{satz}
 \begin{satz}{Verbindungsvektoren}{}
@@ -306,7 +303,7 @@ für alle $a_i, b_i \in \mathds{R}$.
 \end{satz}
 \begin{bsp*}{Orts- und Verbindungsvektor}{}
 
-Gegeben sind die Punkte $P,R$ und $S$ im euklidischen Koordinatensystem. Die Punkte haben folgende Koordinaten: $P(2|3|2), R(3|3|0)$ und $S(0|4|2)$. Damit ergeben sich die die Ortsvektoren:
+Gegeben sind die Punkte $P,R$ und $S$ im euklidischen Koordinatensystem. Die Punkte haben folgende Koordinaten: $P(2|3|2), R(3|3|0)$ und $S(0|4|2)$. Damit ergeben sich die Ortsvektoren:
 $$\vv{P} = \begin{pmatrix} 2 \\ 3 \\2 \end{pmatrix}, \vv{R} = \begin{pmatrix} 3 \\ 3 \\0 \end{pmatrix}, \vv{S}=\begin{pmatrix} 0 \\4 \\2 \end{pmatrix}.$$ Die Koordinaten des Verbindungsvektors berechnen sich damit wie folgt:
 $$\vv{RS} = \vv{S} - \vv{R} = \begin{pmatrix} 0 \\4 \\2 \end{pmatrix} - \begin{pmatrix} 3 \\ 3 \\0 \end{pmatrix}=  \begin{pmatrix} -3 \\ 1 \\2 \end{pmatrix}$$
 \tdplotsetmaincoords{70}{120}
@@ -337,7 +334,7 @@ vector guide/.style={dashed,red}]
 \draw[blue] (0,1,0.6)   node [above] {$\vv{P}$};
 \end{tikzpicture}
 \end{bsp*}
-Durch die Verwendung von Koordinaten in der Vektorgeometrie ist es möglich spezielle Punkte relativ einfach zu berechnen. So ist es jetzt möglich, dass man zum Beispiel eine den Mittelpunkt einer Strecke bestimmt oder eine Strecke zu verdoppeln.
+Durch die Verwendung von Koordinaten in der Vektorgeometrie ist es möglich, spezielle Punkte relativ einfach zu berechnen. So kann man jetzt zum Beispiel den Mittelpunkt einer Strecke bestimmen oder eine Strecke verdoppeln.
 \begin{tikzpicture}[remember picture, overlay]
 % --- Der Hinweis-Kasten ---
 \node[
@@ -354,15 +351,15 @@ Spitze minus Hacke!\\ Es besteht ein Unterschied zwischen einem Ortsvektor und e
 \end{tikzpicture}
 \begin{b8d*}{Eigenschaften einer Strecke}{}
 Für den Ortsvektor $\vv{M}$ des Mittelpunktes der Strecke $\overline{AB}$ gilt: $$\vv{M} = \dfrac{1}{2}\left(\vv{A} + \vv{B}\right).$$
-Die Strecke $\overline{AB}$ lässt sich so, einfach in beliebig viele Teile einteilen. 
+Durch fortgesetztes Halbieren lässt sich die Strecke $\overline{AB}$ so einfach in $2, 4, 8, \ldots$ (allgemein $2^k$) gleich lange Teile einteilen. 
 \end{b8d*}
 \begin{bsp*}{Teilungen einer Strecke}{}
-Die Punkte $A$ und $B$ mit den Koordinaten $\vv{A} = \begin{pmatrix} 4 \\0 \\2 \end{pmatrix}$ und $\vv{B}= \begin{pmatrix} -2 \\3 \\5 \end{pmatrix}$ bestimmen eine Strecke $\overline{AB}$. Um die Strecke in vier gleich große Teile einzuteilen bestimmt man als erstes den Mittelpunkt. $$\vv{M_1}=\dfrac{1}{2}\left(\vv{A} + \vv{B}\right) = \dfrac{1}{2}\left( \begin{pmatrix} 4 \\0 \\2 \end{pmatrix} +  \begin{pmatrix} -2 \\3 \\5 \end{pmatrix} \right)= \dfrac{1}{2}\begin{pmatrix} 2 \\3 \\7 \end{pmatrix} = \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix}. $$ 
+Die Punkte $A$ und $B$ mit den Koordinaten $\vv{A} = \begin{pmatrix} 4 \\0 \\2 \end{pmatrix}$ und $\vv{B}= \begin{pmatrix} -2 \\3 \\5 \end{pmatrix}$ bestimmen eine Strecke $\overline{AB}$. Um die Strecke in vier gleich große Teile einzuteilen, bestimmt man als Erstes den Mittelpunkt. $$\vv{M_1}=\dfrac{1}{2}\left(\vv{A} + \vv{B}\right) = \dfrac{1}{2}\left( \begin{pmatrix} 4 \\0 \\2 \end{pmatrix} +  \begin{pmatrix} -2 \\3 \\5 \end{pmatrix} \right)= \dfrac{1}{2}\begin{pmatrix} 2 \\3 \\7 \end{pmatrix} = \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix}. $$ 
 Anschließend werden die Mittelpunkte der Strecken $\overline{AM_1}$ und $\overline{M_1B}$ berechnet.
 $$\vv{M_2} = \dfrac{1}{2}\left(\vv{A} + \vv{M_1}\right) =  \dfrac{1}{2} \left( \begin{pmatrix} 4 \\0 \\2 \end{pmatrix}  + \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix} \right) = \dfrac{1}{2} \begin{pmatrix} 5 \\1,5 \\5,5 \end{pmatrix} = \begin{pmatrix} 2,5 \\0,75 \\2,75 \end{pmatrix}$$
 $$\vv{M_3} = \dfrac{1}{2}\left(\vv{M_1} + \vv{B}\right) =  \dfrac{1}{2} \left( \begin{pmatrix} 1 \\1,5 \\3,5 \end{pmatrix} +   \begin{pmatrix} -2 \\3 \\5 \end{pmatrix} \right) = \dfrac{1}{2} \begin{pmatrix} -1 \\4,5 \\8,5 \end{pmatrix} =  \begin{pmatrix} -0,5 \\2,25 \\4,25 \end{pmatrix}$$
-Durch die Berechnung der Punkte ergeben sich 4 gleich große Teilstücke. \\
-Die Strecken $\overline{AM_2}, \ \overline{M_2M_1}, \ \overline{M_1M_3}$ und $\overline{M_3B}.$
+Durch die Berechnung der Punkte ergeben sich vier gleich lange Teilstrecken: \\
+$\overline{AM_2}, \ \overline{M_2M_1}, \ \overline{M_1M_3}$ und $\overline{M_3B}$.
 \begin{center}
  
 \begin{tikzpicture}[font=\boldmath]
@@ -400,31 +397,31 @@ Mithilfe dieser Übersicht ist es möglich, die Ortskoordinaten des Schwerpunkts
      \hline
      Schwerpunkt einer Strecke & $\vv{S_{AB}} = \dfrac{1}{2}(\vv{A} + \vv{B})$ & 1:1\\[0.2cm]
      \hline
-     Schwerpunkt eines Dreiecks &$ \vv{S_{ABC}} = \dfrac{1}{3} (\vv{A} + \vv{B} + \vv{C})$ & 1:2\\[0.2cm]
+     Schwerpunkt eines Dreiecks &$ \vv{S_{ABC}} = \dfrac{1}{3} (\vv{A} + \vv{B} + \vv{C})$ & 2:1\\[0.2cm]
      \hline
-     Schwerpunkt einer Pyramide & $\vv{S_{ABCD}} = \dfrac{1}{4}(\vv{A} + \vv{B} +\vv{C} + \vv{D})$ & 1:3\\[0.2cm]
+     Schwerpunkt eines Tetraeders & $\vv{S_{ABCD}} = \dfrac{1}{4}(\vv{A} + \vv{B} +\vv{C} + \vv{D})$ & 3:1\\[0.2cm]
      \hline
 \end{tabular}
 \egroup
 \end{center}
-Das Teilverhältnis gibt an, in welchem Verhältnis der Schwerpunkt die einzelnen Teilstrecke unterteilt. So entstehen, zum Beispiel bei der Teilung einer Strecke, zwei gleich lange Teilstrecken.
+Das Teilverhältnis gibt an, in welchem Verhältnis der Schwerpunkt die Schwerlinien (beim Dreieck die Seitenhalbierenden, beim Tetraeder die Verbindungen einer Ecke mit dem Schwerpunkt der gegenüberliegenden Seitenfläche) teilt, jeweils von der Ecke aus gemessen. Bei einer Strecke entstehen zum Beispiel zwei gleich lange Teilstrecken.
 \end{merke}
 \section{Skalar- und Vektorprodukt}
 \subsection{Das Skalarprodukt}
-Um die Abstände im Raum berechnen zu können wird die Länge eines Vektors definiert.
+Um Abstände im Raum berechnen zu können, wird die Länge eines Vektors definiert.
 \begin{defi}{Der Betrag eines Vektors}{}
 Gegeben ist der Vektor $\vv{a}$ durch die Koordinaten $\vv{a} = \begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix}$. Der Betrag des Vektors entspricht der Länge eines Repräsentanten des Vektors. Hierbei berechnet sich die Länge wie folgt: $$|\vv{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$$
 \end{defi}
 Mit dem Betrag eines Vektors kann jetzt der Abstand zweier Punkte berechnet werden.
 \begin{merke}{Abstand zweier Punkte}{}\index{Abstand zweier Punkte}
-Durch die Berechnung des Betrags ist es möglich die Entfernung zweier Punkte im Raum zu berechnen. Dadurch haben die Punkte $A(a_1|a_2|a_3)$ und $B(b_1|b_2|b_3)$ die Entfernung: $$|\vv{AB}|=|\vec{B} - \vv{A}| = | \begin{pmatrix} b_1 \\b_2 \\b_3\end{pmatrix} -\begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix}| = |\begin{pmatrix} b_1 - a_1 \\b_2 - a_2 \\b_3- a_3\end{pmatrix}| =\sqrt{(b_1-a_1)^2+ (b_2-a_2)^2 + (b_3-a_3)^2}$$
+Durch die Berechnung des Betrags ist es möglich, die Entfernung zweier Punkte im Raum zu berechnen. Dadurch haben die Punkte $A(a_1|a_2|a_3)$ und $B(b_1|b_2|b_3)$ die Entfernung: $$|\vv{AB}|=|\vv{B} - \vv{A}| = | \begin{pmatrix} b_1 \\b_2 \\b_3\end{pmatrix} -\begin{pmatrix} a_1 \\a_2 \\a_3\end{pmatrix}| = |\begin{pmatrix} b_1 - a_1 \\b_2 - a_2 \\b_3- a_3\end{pmatrix}| =\sqrt{(b_1-a_1)^2+ (b_2-a_2)^2 + (b_3-a_3)^2}$$
 \end{merke}
 \begin{bsp}{Berechnung von Längen}{}
-Gegeben sind die Punkte $A(2|3|-1)$ und $B(-2|2|1)$. Der Orstvektor des Punktes $A$ hat damit die Länge $$|\vv{A}| = \sqrt{2^2 +3^2 +(-1)^2} = \sqrt{14}\ [LE]$$ und die Punkte $A$ und $B$ haben damit den Abstand $$|\vv{AB}| = |\begin{pmatrix} -2 \\2 \\1\end{pmatrix} - \begin{pmatrix} 2 \\3 \\-1\end{pmatrix}| = |\begin{pmatrix} -4 \\-1 \\2\end{pmatrix}| = \sqrt{(-4)^2 +(-1)^2 + (2)^2} = \sqrt{21} \ [LE]$$
+Gegeben sind die Punkte $A(2|3|-1)$ und $B(-2|2|1)$. Der Ortsvektor des Punktes $A$ hat damit die Länge $$|\vv{A}| = \sqrt{2^2 +3^2 +(-1)^2} = \sqrt{14}\ [LE]$$ und die Punkte $A$ und $B$ haben damit den Abstand $$|\vv{AB}| = |\begin{pmatrix} -2 \\2 \\1\end{pmatrix} - \begin{pmatrix} 2 \\3 \\-1\end{pmatrix}| = |\begin{pmatrix} -4 \\-1 \\2\end{pmatrix}| = \sqrt{(-4)^2 +(-1)^2 + (2)^2} = \sqrt{21} \ [LE]$$
 \end{bsp}
-Durch die Einführung des Abstands zweier Punkte ist man jetzt in der Lage neues Strukturen im Raum zu definieren. 
+Durch die Einführung des Abstands zweier Punkte ist man jetzt in der Lage, neue Strukturen im Raum zu definieren. 
 \begin{b8d}{Kugelgleichung}{}\index{Kugelgleichung}
-Alle Punkte, die von einem gegeben Punkt $M(m_1|m_2|m_3)$ die gleiche Entfernung $r$ haben, liegen auf einer Kugel um den Mittelpunkt $M$. Die Koordinaten aller dieser Punkte $X(x_1|x_2|x_3)$ genügen folgender Gleichung: $$(x_1-m_1)^2 + (x_2 -m_2)^2 + (x_3 -m_3)^2 = r^2$$
+Alle Punkte, die von einem gegebenen Punkt $M(m_1|m_2|m_3)$ die gleiche Entfernung $r$ haben, liegen auf einer Kugel um den Mittelpunkt $M$. Die Koordinaten aller dieser Punkte $X(x_1|x_2|x_3)$ genügen folgender Gleichung: $$(x_1-m_1)^2 + (x_2 -m_2)^2 + (x_3 -m_3)^2 = r^2$$
 \end{b8d}
 In der analytischen Geometrie ist es oft wichtig zu wissen, ob zwei Vektoren senkrecht aufeinander stehen. Diese Information ist mit Hilfe des Skalarprodukts bestimmbar.
 
@@ -458,7 +455,7 @@ $$\varphi = \arccos{(\dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|})} = \c
 \end{merke}
 \begin{satz}{Geometrische Deutung}{}\index{Vektoren!Skalarprodukt!Geometrische Deutung}
     \begin{itemize}
-  \item Für \(0^\circ \le \varphi \le 90^\circ\) ist \(\cos(\varphi)\ge 0\):  
+  \item Für \(0^\circ \le \varphi < 90^\circ\) ist \(\cos(\varphi)> 0\):  
   \(\vv{a}\circ\vv{b}\) ist \textbf{positiv} und entspricht dem Produkt aus \(|\vv{a}|\) und der Projektion von \(\vv{b}\) auf \(\vv{a}\).
   \item Für \(90^\circ < \varphi \le 180^\circ\) ist \(\cos(\varphi)< 0\): 
   \(\vv{a}\circ\vv{b}\) ist \textbf{negativ}.
@@ -526,7 +523,7 @@ $$\varphi = \arccos{(\dfrac{\vv{a} \circ \vv{b}}{|\vv{a}| \cdot |\vv{b}|})} = \c
 \end{center}
 \end{satz}
 \begin{bsp}{Berechnung des Winkels zwischen zwei Vektoren}{}
-Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck festlegen. Berechne die Größe des Winkels $\alpha$.
+Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck festlegen. Berechnen Sie die Größe des Winkels $\alpha$.
 \begin{center}
 \begin{tikzpicture}
   \draw
@@ -540,7 +537,7 @@ Gegeben sind die Punkte $A(7|-3|4), B(2|2|4)$ und $C(2|-3|-1)$ die ein Dreieck f
     (0.4,0.2) coordinate (wink) node[right] {$\alpha$};
 \end{tikzpicture}
 \end{center}
-Vorgehen zum berechnen des Winkels $\alpha$:
+Vorgehen zum Berechnen des Winkels $\alpha$:
 \begin{enumerate}
     \item Bestimmung der Vektoren $\vv{a} = \vv{AB}$ und $\vv{b} = \vv{AC}$.
     \begin{equation*}
@@ -563,7 +560,7 @@ Vorgehen zum berechnen des Winkels $\alpha$:
     \item Berechnung der Beträge der Vektoren $\vv{a}$ und $\vv{b}$.
     \begin{equation*}
         \begin{split}
-            |\vv{a}| & = |\begin{pmatrix} -5 \\0\\-5\end{pmatrix}| =  \sqrt{(-5)^2 + (5)^2 + 0^2}  = \sqrt{25+25} = \sqrt{50} = 5\cdot \sqrt{2}\\
+            |\vv{a}| & = |\begin{pmatrix} -5 \\5\\0\end{pmatrix}| =  \sqrt{(-5)^2 + 5^2 + 0^2}  = \sqrt{25+25} = \sqrt{50} = 5\cdot \sqrt{2}\\
             |\vv{b}| &= |\begin{pmatrix} -5 \\0\\-5\end{pmatrix} |= \sqrt{(-5)^2 + 0^2 + (-5)^2} = \sqrt{25+25}= \sqrt{50} = 5\cdot \sqrt{2}
             \end{split}
             \end{equation*}
@@ -579,27 +576,27 @@ Vorgehen zum berechnen des Winkels $\alpha$:
 \end{bsp}
 \subsection{Das Vektorprodukt}
 \index{Vektoren!Vektorprodukt}
-Das Vektorprodukt ist anders als das Skalarprodukt ein Vektor und keine Zahl. Gekennzeichnet wird das Vektorprodukt durch $\times$ statt durch das Multiplikationszeichen $\cdot$. \\
+Das Vektorprodukt ist anders als das Skalarprodukt ein Vektor und keine Zahl. Gekennzeichnet wird das Vektorprodukt durch $\times$ statt durch das Zeichen $\circ$ des Skalarprodukts. \\
 \begin{b8d*}{Vektorprodukt und Skalarprodukt}{}
 Dadurch ergibt sich folgende Regel:\\
 Bei der Schreibweise $\vv{a} \times\vv{b}$ ergibt sich ein Vektor $\vv{c}$,\\
-bei der Schreibweise $\vv{a} \cdot \vv{b}$ ergibt sich eine Zahl $c\in \mathds{R}$.
+bei der Schreibweise $\vv{a} \circ \vv{b}$ ergibt sich eine Zahl $c\in \mathds{R}$.
 \end{b8d*}
 Das Vektorprodukt $\vv{a} \times \vv{b}$ aus den beiden Vektoren $\vv{a}$ und $\vv{b}$ ist ein Vektor, der die folgenden Eigenschaften besitzt.
 \begin{merke}{Eigenschaften des Vektorprodukts}{}
    \begin{enumerate}
-       \item $\vv{a} \times \vv{b} = 0$, falls der Vektor $\vv{a}$ bzw. der Vektor $\vv{b}$ der Nullvektor ist.
-       \item $\vv{a} \times \vv{b} = 0$, falls der Vektor $\vv{a}$ und der Vektor $\vv{b}$ parallel zueinander sind.
+       \item $\vv{a} \times \vv{b} = \vv{o}$, falls der Vektor $\vv{a}$ oder der Vektor $\vv{b}$ der Nullvektor ist.
+       \item $\vv{a} \times \vv{b} = \vv{o}$, falls der Vektor $\vv{a}$ und der Vektor $\vv{b}$ parallel zueinander sind.
        \item Der Betrag des Vektorprodukts gibt den Flächeninhalt des durch die Vektoren $\vv{a} $ und $\vv{b}$ aufgespannten Parallelogramms wieder. Es gilt damit $$F_P=|\vv{a} \times \vv{b} |.$$
-       \item Der Flächeninhalt des durch drei Punkte aufgestellten Dreiecks berechnet sich durch den halben Betrag des Vektorprodukts: $$F_{\text{Dreieck}} = \dfrac{1}{2} |\vv{a} \times \vv{b}|$$
-       \item Der resultierende Vektor $\vv{c} $ steht senkrecht sowohl auf dem Vektoren $\vv{a} $ als auch auf dem Vektor $\vv{b}$.
+       \item Der Flächeninhalt des von den Vektoren $\vv{a}$ und $\vv{b}$ aufgespannten Dreiecks berechnet sich durch den halben Betrag des Vektorprodukts: $$F_{\text{Dreieck}} = \dfrac{1}{2} |\vv{a} \times \vv{b}|$$
+       \item Der resultierende Vektor $\vv{c} $ steht senkrecht sowohl auf dem Vektor $\vv{a} $ als auch auf dem Vektor $\vv{b}$.
    \end{enumerate} 
 \end{merke}
 \begin{defi*}{Berechnung des Vektorprodukts}{}
-Aus zwei Vektoren $\vv{a}\neq 0$ und $\vv{b} \neq 0$ ergibt sich der Vektor durch das Vektorprodukt wie folgt: $$\vv{a} \times \vv{b} = \begin{pmatrix} a_1 \\a_2\\a_3\end{pmatrix} \times \begin{pmatrix} b_1 \\b_2\\b_3\end{pmatrix} = \begin{pmatrix} a_2\cdot b_3 - a_3\cdot b_2 \\a_3\cdot b_1 - a_1\cdot b_3\\a_1\cdot b_2 - a_2\cdot b_1\end{pmatrix}$$
+Aus zwei Vektoren $\vv{a}$ und $\vv{b}$ ergibt sich der Vektor durch das Vektorprodukt wie folgt: $$\vv{a} \times \vv{b} = \begin{pmatrix} a_1 \\a_2\\a_3\end{pmatrix} \times \begin{pmatrix} b_1 \\b_2\\b_3\end{pmatrix} = \begin{pmatrix} a_2\cdot b_3 - a_3\cdot b_2 \\a_3\cdot b_1 - a_1\cdot b_3\\a_1\cdot b_2 - a_2\cdot b_1\end{pmatrix}$$
 \end{defi*}
 \begin{b8d*}{Berechnung des Vektorprodukts}{}
-    Bei der Berechnung des Vektorprodukts ist es möglich die obige Variante benutzen oder eine vereinfachte Variante buntzen. Bei dieser Verkürzten Variante werden unter jeden Vektor jeweils die $x_1$ und $x_2$ Koordinaten des Vektors nochmals notiert und die erste Zeile der Vektoren durchgestrichen. Anschließend werden dann die Koordinaten über kreuz multipliziert und dann entsprechende subtrahiert.
+    Bei der Berechnung des Vektorprodukts ist es möglich, die obige Variante oder eine vereinfachte Variante zu benutzen. Bei dieser verkürzten Variante werden unter jeden Vektor jeweils die $x_1$- und $x_2$-Koordinaten des Vektors nochmals notiert und die erste Zeile der Vektoren durchgestrichen. Anschließend werden dann die Koordinaten über Kreuz multipliziert und dann entsprechend subtrahiert.
 \[
 \begin{array}[t]{@{}c@{}}
 \vv{c}=\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} \\ a_1 \\ a_2
@@ -664,7 +661,7 @@ Gegeben sind die Punkte $A(3|3|3), B(4|5|6)$ und $C(7|8|9)$. Durch die Bestimmun
 \end{bsp}
 \subsection{Das Spatprodukt}
 \index{Vektoren!Spatprodukt}
-Ein Spat ist ein geometrischer Körper, der sechs Parallelogramme als Seitenflächen besitzt. Die gegenüberliegende Parallelogramme sind immer kongruent zueinander und liegen in parallelen Ebenen.\\
+Ein Spat ist ein geometrischer Körper, der sechs Parallelogramme als Seitenflächen besitzt. Die gegenüberliegenden Seitenflächen sind immer kongruent zueinander und liegen in parallelen Ebenen.\\
 Unter dem Spatprodukt versteht man das Skalarprodukt eines Vektors mit dem Vektorprodukt zweier weiterer Vektoren.
 \begin{defi}{Das Spatprodukt}{}
 Spannen die Vektoren $\vv{a}, \vv{b}$ und $\vv{c}$ einen Spat bzw. eine dreiseitige Pyramide auf, ist das Volumen:
@@ -689,7 +686,7 @@ Die Vektoren $\vv{a} = \begin{pmatrix} 1\\2\\3
 
 \begin{b8d*}{Berechnung der Determinante}{}
 \index{Vektoren!Determinante}
-    Das Spatprodukt lässt sich alternativ durch die Berechnung der sogenannten Determinante bestimmen. Die Determinante bestimmt sich durch das notieren der drei erzeugenden Vektoren in folgendes Schema:
+    Das Spatprodukt lässt sich alternativ durch die Berechnung der sogenannten Determinante bestimmen. Die Determinante bestimmt sich durch das Notieren der drei erzeugenden Vektoren in folgendem Schema:
 \[
 \det(\vv{a}, \vv{b}, \vv{c})
 %
@@ -815,20 +812,20 @@ Aus der Determinante folgt damit für das Volumen folgende Rechnung:
 \end{bsp}
 \section{Lineare Abhängigkeit und Unabhängigkeit}\index{Vektoren!Lineare Abhängigkeit}\index{Vektoren!Lineare Unabhängigkeit}
 \begin{b8d}{Linearkombination}{}\index{Vektoren!Linearkombination}
-Einen Term \(r\cdot \vv{a} + s\cdot \vv{b} + t \cdot \vv{c}\) mit \(r,s,t \in \mathds{R}\) bezeichnet man als Linearkombination der Vektoren \(\vv{a}, \vv{b}\) und \(\vv{c}\)
+Einen Term \(r\cdot \vv{a} + s\cdot \vv{b} + t \cdot \vv{c}\) mit \(r,s,t \in \mathds{R}\) bezeichnet man als Linearkombination der Vektoren \(\vv{a}, \vv{b}\) und \(\vv{c}\).
 \end{b8d}
 \begin{defi}{Lineare Abhängigkeit}{}
    Die Vektoren \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) heißen \textcolor{red}{\textbf{linear abhängig}}, wenn mindestens einer dieser Vektoren als Linearkombination der anderen Vektoren darstellbar ist.\\
-   Andernfalls nennt man die Vektoren \textcolor{red}{\textbf{linear unabhängig}}, d.h.: Die Vektoren 
+   Andernfalls nennt man die Vektoren \textcolor{red}{\textbf{linear unabhängig}}, d.\,h.: Die Vektoren 
    \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) sind linear unabhängig, wenn keiner dieser Vektoren als Linearkombination der anderen darstellbar ist.
 \end{defi}
 \begin{satz}{Nullvektor}{}
-    Die Vektoren \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) sind genau dann linear unabhängig, wenn sich der Nullvektor \(\vv{0}\)aus diesen nur trivial als Linearkombination darstellen lässt. d.h. wenn für \(r_i \in \mathds{R}\) gilt: Aus \(r_1\vv{a_1} + r_2\vv{a_2} + \ldots + r_n\vv{a_n} = \vv{0}\) folgt \(r_1=r_2 = \ldots = r_n=0\).
+    Die Vektoren \(\vv{a_1}, \vv{a_2}, \ldots , \vv{a_n}\) sind genau dann linear unabhängig, wenn sich der Nullvektor \(\vv{o}\) aus diesen nur trivial als Linearkombination darstellen lässt, d.\,h., wenn für \(r_i \in \mathds{R}\) gilt: Aus \(r_1\vv{a_1} + r_2\vv{a_2} + \ldots + r_n\vv{a_n} = \vv{o}\) folgt \(r_1=r_2 = \ldots = r_n=0\).
 \end{satz}
 \section{Geraden im Raum}
-Eine Gerade lässt sich entweder durch zwei Punkte oder einen Punkt und eine Richtung beschreiben. Um die Richtung einer Geraden festzulegen genügt es in der Ebene die Steigung \(m\) anzugeben. Im 3-dim. Raum wird die Richtung durch einen Vektor markiert.
-\begin{defi}{Geraden in Paramterform}{}\index{Geraden!Geradengleichung}
- Jede Gerade \(g\) lässt sich durch eine Gleichung der Form: \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreiben. Hierbei ist \(\vv{OA} = \vv{A}\) der Ortsvektor eines beliebigen Punktes auf der Geraden \(g\) und \(\vv{u} \neq \vv{0}\) ein Richtungsvektor ist.  
+Eine Gerade lässt sich entweder durch zwei Punkte oder einen Punkt und eine Richtung beschreiben. Um die Richtung einer Geraden festzulegen, genügt es in der Ebene die Steigung \(m\) anzugeben. Im 3-dim. Raum wird die Richtung durch einen Vektor markiert.
+\begin{defi}{Geraden in Parameterform}{}\index{Geraden!Geradengleichung}
+ Jede Gerade \(g\) lässt sich durch eine Gleichung der Form: \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreiben. Hierbei ist \(\vv{OA} = \vv{A}\) der Ortsvektor eines beliebigen Punktes auf der Geraden \(g\) und \(\vv{u} \neq \vv{o}\) ein Richtungsvektor.  
 \end{defi}
 \begin{tikzpicture}[remember picture, overlay]
 % --- Der Hinweis-Kasten ---
@@ -845,7 +842,7 @@ Der Vektor $\vv{X}$ steht für einen bel. Punkt auf der Geraden.
 };
 \end{tikzpicture}
 \begin{b8d}{Erläuterungen zur Geradengleichung}{}
-Bei der Geradengleichung \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreibt \(\vv{X}\) die Menge aller Ortsvektoren auf der Geraden \(g\). Ein Punkt \(\vv{X}\) liegt damit genau dann auf der Geraden \(g\), wenn es ein \(\lambda_1\) gibt, mit \(\vv{X} = \vv{A} + \lambda_1 \cdot \vv{u}\). Diese Art von Geradengleichung nennt man Parameterform der Geraden \(g\) mit dem \textcolor{red}{\textbf{Aufpunkt}} \(A\) und dem \textcolor{red}{\textbf{Richtungsvektor}} \(\vv{u}\).
+Bei der Geradengleichung \[g: \vv{X} = \vv{OA} + \lambda \cdot \vv{u} \quad (\lambda \in \mathds{R})\] beschreibt \(\vv{X}\) die Menge aller Ortsvektoren auf der Geraden \(g\). Ein Punkt \(X\) mit dem Ortsvektor \(\vv{X}\) liegt damit genau dann auf der Geraden \(g\), wenn es ein \(\lambda_1\) gibt, mit \(\vv{X} = \vv{A} + \lambda_1 \cdot \vv{u}\). Diese Art von Geradengleichung nennt man Parameterform der Geraden \(g\) mit dem \textcolor{red}{\textbf{Aufpunkt}} \(A\) und dem \textcolor{red}{\textbf{Richtungsvektor}} \(\vv{u}\).
 \end{b8d}
 \subsection{Spurpunkte mit den Koordinatenebenen}\index{Geraden!Spurpunkte}
     \begin{merke}{Berechnung der Spurpunkte}{}
@@ -862,7 +859,7 @@ Ebene parallel (oder liegt ganz in ihr).
         3\\4\\-10
     \end{pmatrix} + \lambda \begin{pmatrix}
         -1\\3\\-5
-    \end{pmatrix}\) es sollen die Spurpunkte mit den Koordinatenebenen bestimmt werden.
+    \end{pmatrix}\). Es sollen die Spurpunkte mit den Koordinatenebenen bestimmt werden.
     \begin{enumerate}
         \item Spurpunkt mit der \(x_1- x_2\)- Ebene \(S_{1/2}\) 
         \[
@@ -918,11 +915,11 @@ Ebene parallel (oder liegt ganz in ihr).
         \end{pmatrix} +3 \begin{pmatrix}
             -1\\3\\-5
         \end{pmatrix} = \begin{pmatrix}
-           0\\10\\-25
+           0\\13\\-25
         \end{pmatrix}\)
     \end{enumerate}
 \end{bsp}
-\subsection{Lagebeziehung Gerade Gerade}\index{Geraden!LagebeziehungGerade Gerade}
+\subsection{Lagebeziehung Gerade Gerade}\index{Geraden!Lagebeziehung Gerade Gerade}
 \begin{merke}{Gegenseitige Lage von Geraden im Raum}{}
 Zur Untersuchung der \textcolor{red}{\textbf{gegenseitigen Lage der Geraden}} \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) und \(h: \vv{X} =\vv{B} + \mu \vv{v} \) kann man folgendermaßen vorgehen:\\
 \scalebox{0.75}{
@@ -993,10 +990,10 @@ Die folgende tabellarische Übersicht zeigt die möglichen \textcolor{blue}{\tex
 \subsection{Winkel zwischen Geraden}\index{Geraden!Schnittwinkel}
 \begin{merke}{Winkel zwischen Geraden}{} 
     An einer Geradenkreuzung treten vier Winkel auf. Jeweils zwei dieser Winkel sind Scheitelwinkel und damit gleich groß. Als \textcolor{red}{\textbf{Schnittwinkel}} \(\varphi\) zweier Geraden bezeichnet man den \textit{nicht stumpfen Winkel}. Damit hat \(\varphi\) also höchstens \(90^{\circ}\). \\
-    Damit gilt für den Winkel \(\varphi\) der sich schneidenden  Geraden \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) und \(h: \vv{X} =\vv{B} + \mu \vv{v} \) folgender Zusammenhang:\[\cos{(\varphi)} = \left| \dfrac{\vv{u}\circ \vv{v}}{|\vv{u}\cdot \vv{v}|}\right|\]
+    Damit gilt für den Winkel \(\varphi\) der sich schneidenden  Geraden \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) und \(h: \vv{X} =\vv{B} + \mu \vv{v} \) folgender Zusammenhang:\[\cos{(\varphi)} = \left| \dfrac{\vv{u}\circ \vv{v}}{|\vv{u}| \cdot |\vv{v}|}\right|\]
 \end{merke}
 \begin{bsp}{Schnittwinkel}{}
- Gegeben sind die Gerade \(g\) und \(h\) mit folgenden Gleichungen:\[g: \vv{X}= \begin{pmatrix}
+ Gegeben sind die Geraden \(g\) und \(h\) mit folgenden Gleichungen:\[g: \vv{X}= \begin{pmatrix}
           1\\2\\3
       \end{pmatrix} + \lambda \begin{pmatrix}
           -1\\1\\2
@@ -1033,7 +1030,7 @@ Ein Punkt \(X\) liegt damit genau dann in \(E\), wenn es Werte für die Paramete
     Eine Ebene lässt sich festlegen durch:
     \begin{itemize}
         \item drei Punkte, die nicht alle auf einer Geraden liegen,
-        \item eine Gerade und ein Punkt der nicht auf der Geraden liegt,
+        \item eine Gerade und einen Punkt, der nicht auf der Geraden liegt,
         \item zwei sich schneidende Geraden,
         \item zwei echt parallele Geraden.
     \end{itemize}
@@ -1042,9 +1039,9 @@ Ein Punkt \(X\) liegt damit genau dann in \(E\), wenn es Werte für die Paramete
     Um die Lage einer Ebene im Koordinatensystem zu veranschaulichen, bestimmt man, falls vorhanden, die Schnittpunkte mit den einzelnen Koordinatenachsen und zeichnet die entsprechenden Schnittgeraden der Ebene mit den Koordinatenebenen, die \textcolor{red}{\textbf{Spurgeraden}} der Ebene.  
     \end{b8d}
     \subsection{Normalen- und Koordinatenform der Ebene}\index{Ebene!Normalenform}
-    Neben der Parameterform der Ebene gibt es noch zwei andere Darstellungsformen.  Die Ebene \(E:\vv{X} = \vv{A} + \lambda \vv{u} + \mu\vv{u}\) ist durch einen Aufpunkt und zwei Richtungsvektoren eindeutig festgelegt.  
+    Neben der Parameterform der Ebene gibt es noch zwei andere Darstellungsformen.  Die Ebene \(E:\vv{X} = \vv{A} + \lambda \vv{u} + \mu\vv{v}\) ist durch einen Aufpunkt und zwei Richtungsvektoren eindeutig festgelegt.  
     \begin{defi}{Die Normalenform der Ebene}{}
-eine Ebene \(E\) ist durch einen Aufpunkt \(A\) und einen Normalenvektor \(\vv{n}\) festgelegt. Durch die Gleichung \[E: \vv{n}\circ\left( \vv{X} - \vv{A}\right) =0\] ist die Ebene eindeutig beschrieben. Diese Darstellung der Ebene nennt man Normalenform der Ebene.      
+Eine Ebene \(E\) ist durch einen Aufpunkt \(A\) und einen Normalenvektor \(\vv{n}\) festgelegt. Durch die Gleichung \[E: \vv{n}\circ\left( \vv{X} - \vv{A}\right) =0\] ist die Ebene eindeutig beschrieben. Diese Darstellung der Ebene nennt man Normalenform der Ebene.      
     \end{defi}
 \begin{merke}{Der Normalenvektor}{}
 Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{X} - \vv{A}\right) =0\] berechnet sich als Vektorprodukt der beiden Richtungsvektoren \(\vv{u}\) und \(\vv{v}\). Es gilt also \[\vv{n} = \vv{u} \times \vv{v}\] 
@@ -1085,7 +1082,7 @@ Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{
           \end{description}
 \end{bsp}
 \begin{merke}{Von der Koordinatenform in die Parameterform}{}
-    Um eine Ebenengleichung von der Koordinatenform in die Parameterform umzuwandeln braucht man neben einem Punkt auf der Ebene noch zwei linear unabhängige Vektoren als Richtungsvektoren. Als Beispiel soll die Ebene\\ \(E: -40\cdot x_1 + 1\cdot x_2 -22\cdot x_3 +148=0\) verwendet werden.
+    Um eine Ebenengleichung von der Koordinatenform in die Parameterform umzuwandeln, braucht man neben einem Punkt auf der Ebene noch zwei linear unabhängige Vektoren als Richtungsvektoren. Als Beispiel soll die Ebene\\ \(E: -40\cdot x_1 + 1\cdot x_2 -22\cdot x_3 +148=0\) verwendet werden.
     \begin{description}
         \item[Punkt auf der Ebene:]  Setze zwei beliebige Koordinaten gleich Null
         \begin{itemize}
@@ -1097,11 +1094,11 @@ Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{
             \end{pmatrix}\)
         \end{itemize}
         \item[Richtungsvektoren festlegen:] Gegeben ist der Normalenvektor \(\vv{n} = \begin{pmatrix}
-          -40\\1\\-22\end{pmatrix}\) als Richtungsvektoren können dann alle dazu senkrechten linear unabhängige Vektoren genutzt werden. 
+          -40\\1\\-22\end{pmatrix}\). Als Richtungsvektoren können dann zwei dazu senkrechte, linear unabhängige Vektoren genutzt werden. 
         \begin{itemize}
             \item Setze eine Koordinate gleich 0 
-            \item Vertausche die beiden andern Koordinaten
-            \item Ändere bei einem der beiden Koordinaten das Vorzeichen
+            \item Vertausche die beiden anderen Koordinaten
+            \item Ändere bei einer der beiden Koordinaten das Vorzeichen
             \item  Wiederhole das ganze mit anderen Koordinaten
         \end{itemize}
         \item[Durchführung am Beispiel] 
@@ -1114,7 +1111,7 @@ Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{
   \matrix (m) [matrix of math nodes,
                left delimiter=(, right delimiter=),
                row sep=2pt] { 
-    -40\\
+    0\\
     1\\
     -22\\
   };
@@ -1153,23 +1150,24 @@ Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{
 \end{merke}
 \section{Lagebeziehung Gerade Ebene}
 \begin{defi}{Lagebeziehung Gerade-Ebene}{LageBezGeEbe}
-    Für die gegenseitige Lage einer Gerade \(g\) mit \[g: \vv{X} = \vv{A} + \lambda \vv{u}\] und einer Ebene \(E\) mit \[E: n_1\cdot x_1 + n_2\cdot x_2 +n_3\cdot x_3 -c = 0\] kann eine der folgenden drei Fälle vorliegen.
+    Für die gegenseitige Lage einer Gerade \(g\) mit \[g: \vv{X} = \vv{A} + \lambda \vv{u}\] und einer Ebene \(E\) mit \[E: n_1\cdot x_1 + n_2\cdot x_2 +n_3\cdot x_3 -c = 0\] kann einer der folgenden drei Fälle vorliegen.
     \begin{enumerate}
         \item Die Gerade \(g\) und die Ebene \(E\) sind \textbf{echt parallel} zueinander.
         \item Die Gerade \(g\) \textbf{liegt in} der Ebene \(E\).
-        \item Die Gerade \(g\) und die Ebene \(E\) \textbf{schneiden sich in genau einem Punkt} \(P\). Mit \(P \in g\) und \(P\in E\).
+        \item Die Gerade \(g\) und die Ebene \(E\) \textbf{schneiden sich in genau einem Punkt} \(P\). Dabei gilt \(P \in g\) und \(P\in E\).
      \end{enumerate}
 \end{defi}
 \begin{satz}{Entscheidung der gegenseitigen Lage}{}
- Um zu entscheiden wie eine Gerade und eine Ebene zueinander liegen, untersucht man die Lage des Normalenvektors \(\vv{n}\) der Ebene \(E: n_1\cdot x_1 + n_2\cdot x_2 +n_3\cdot x_3 -c = 0\) zum Richtungsvektor \(\vv{u}\) der Geraden \(g:\vv{X} = \vv{A} + \lambda \vv{u}\).
+ Um zu entscheiden, wie eine Gerade und eine Ebene zueinander liegen, untersucht man die Lage des Normalenvektors \(\vv{n}\) der Ebene \(E: n_1\cdot x_1 + n_2\cdot x_2 +n_3\cdot x_3 -c = 0\) zum Richtungsvektor \(\vv{u}\) der Geraden \(g:\vv{X} = \vv{A} + \lambda \vv{u}\).
  \begin{enumerate}
-     \item \(E \parallel g\): Die Gerade \(g\) ist genau dann parallel zur Ebene \(E\), wenn \(\vv{u} \perp \vv{n}\) und \(\vv{A}\notin E\). 
-     \item \(g\in E\):Die Gerade \(g\) liegt genau dann in der Ebene \(E\), wenn \(\vv{u} \perp \vv{n}\) und \(\vv{A}\in E\).
-    \item \(g\cap E = \vv{P}\): Die Gerade \(g\) schneidet genau dann die Ebene \(E\) in einem Punkt \(\vv{P}\), wenn \(\vv{u}\nparallel \vv{n}\) ist. Gilt zusätzlich noch, dass \(\vv{u}\parallel \vv{n}\) ist, dann steht die Gerade senkrecht auf der Ebene. 
+     \item \(E \parallel g\): Die Gerade \(g\) ist genau dann parallel zur Ebene \(E\), wenn \(\vv{u} \perp \vv{n}\) und \(A\notin E\). 
+     \item \(g\subset E\): Die Gerade \(g\) liegt genau dann in der Ebene \(E\), wenn \(\vv{u} \perp \vv{n}\) und \(A\in E\).
+    \item \(g\cap E = \{P\}\): Die Gerade \(g\) schneidet genau dann die Ebene \(E\) in einem Punkt \(P\), wenn \(\vv{u}\circ \vv{n} \neq 0\) ist, \(\vv{u}\) also nicht senkrecht auf \(\vv{n}\) steht. Gilt zusätzlich noch, dass \(\vv{u}\parallel \vv{n}\) ist, dann steht die Gerade senkrecht auf der Ebene. 
  \end{enumerate}
 \end{satz}
 \section{Lagebeziehung Ebene Ebene}
 \begin{center}
+\begin{adjustbox}{max width=\linewidth}
    \begin{tikzpicture}[
   font=\sffamily,
   >=Latex,
@@ -1280,10 +1278,6 @@ Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{
   \draw[nred]  ($(M3)+(0.1,0.1)$) -- ++(0,2.55) node[smalllab, right] {$\vec n_1$};
   \draw[nblue] ($(M3)+(-0.3,0.4)$) -- ++(-1.25,0.55) node[smalllab, left] {$\vec n_2$};
 
-  % gestrichelte rote Hilfslinie + Punkt S
-  \draw[red!80!black, dashed, line width=1.0pt] ($(M3)+(0.1,0.05)$) -- ++(0,-1.2);
-  \fill[green!60!black] ($(M3)+(0.1,-0.55)$) circle (1.4pt);
-  \node[smalllab, text=green!50!black] at ($(M3)+(0.35,-0.55)$) {$S$};
 \end{scope}
 
 % ============================================================
@@ -1294,12 +1288,13 @@ Der Normalenvektor \(\vv{n}\) der Ebenengleichung    \[E: \vv{n}\circ\left( \vv{
 \node[lab] at ({(\xC+\xD)/2}, {(\yPic+\yBot)/2}) {$E_1,\,E_2$ schneiden sich in einer Geraden.};
 
 \end{tikzpicture}
+\end{adjustbox}
 \end{center}
    \begin{merke}{Lagebeziehungen von Ebenen}{}
-Untersucht man die Lage von zwei Ebenen \(E_1\) und \(E_2\) zueinander, so betrachtet man die Normalenvektoren \(n_1\) und \(n_2\) der beiden Ebenen. Hierbei können sich drei unterschiedliche Fälle ergeben.
+Untersucht man die Lage von zwei Ebenen \(E_1\) und \(E_2\) zueinander, so betrachtet man die Normalenvektoren \(\vv{n}_1\) und \(\vv{n}_2\) der beiden Ebenen. Hierbei können sich drei unterschiedliche Fälle ergeben.
 \begin{enumerate}
     \item Die Ebene \(E_1\) ist echt parallel zur Ebene \(E_2 \longrightarrow\) \(E_1 \parallel E_2\)
-    \item Die Ebene \(E_1\) ist identisch mit der Ebene \(E_2 \longrightarrow\) \(E_1 \equiv E_2\)
+    \item Die Ebene \(E_1\) ist identisch mit der Ebene \(E_2 \longrightarrow\) \(E_1 = E_2\)
     \item Die  Ebene \(E_1\) schneidet die Ebene \(E_2 \) in einer Geraden \( g \longrightarrow E_1 \cap E_2 = g\)
 \end{enumerate}
 \begin{center}
@@ -1342,19 +1337,19 @@ Untersucht man die Lage von zwei Ebenen \(E_1\) und \(E_2\) zueinander, so betra
   q/.style={font=\sffamily\large}
 ]
 
-\node[title,q] (Q1) {Sind die Normalenvektoren $\vec n$ und $\vec m$ linear abh\"angig?};
+\node[title,q] (Q1) {Sind die Normalenvektoren $\vec n_1$ und $\vec n_2$ linear abh\"angig?};
 
-\node[ybox, below left=15mm and 35mm of Q1] (P) {$E\parallel F$};
+\node[ybox, below left=15mm and 35mm of Q1] (P) {$E_1\parallel E_2$};
 
 \node[bignote, below right=15mm and 22mm of Q1] (R) {%
-$E$ und $F$ schneiden sich in einer Geraden.\\
+$E_1$ und $E_2$ schneiden sich in einer Geraden.\\
 Um eine Gleichung der Schnittgeraden zu bestimmen, ist es zweckm\"a\ss ig, eine Ebene in Normalen- oder
 Koordinatenform und die andere in Parameterform zu \"uberf\"uhren.};
 
-\node[lab, below=12mm of P] (Q2) {Haben $E$ und $F$ gemeinsame Punkte?};
+\node[lab, below=12mm of P] (Q2) {Haben $E_1$ und $E_2$ gemeinsame Punkte?};
 
-\node[yboxsmall, below left=10mm and 22mm of Q2] (EQ) {$E\parallel F$ und $E \equiv F$};
-\node[yboxsmall, below right=10mm and 22mm of Q2] (NEQ) {$E\parallel F$ und $E \neq F$};
+\node[yboxsmall, below left=10mm and 22mm of Q2] (EQ) {$E_1 = E_2$};
+\node[yboxsmall, below right=10mm and 22mm of Q2] (NEQ) {$E_1\parallel E_2$ und $E_1 \neq E_2$};
 
 \draw[thick] (Q1.south) -- node[lab, midway, above, yshift=0.5mm] {\textbf{ja}} (P.north);
 \draw[thick] (Q1.south) -- node[lab, midway, above, yshift=0.5mm] {\textbf{nein}} (R.north);
@@ -1380,14 +1375,14 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
 \end{merke}
 \section{Abstände im Raum}
 \subsection{Abstand Punkt Gerade}
-    \begin{merke}{Abstand Punkte Gerade}{}
-        Um den Abstand eines Punktes \(P\) von einer Geraden \(g\) mit \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) zu bestimmen kann man wie folgt vorgehen.
+    \begin{merke}{Abstand Punkt Gerade}{}
+        Um den Abstand eines Punktes \(P\) von einer Geraden \(g\) mit \(g:\vv{X} = \vv{A} + \lambda \vv{u}\) zu bestimmen, kann man wie folgt vorgehen.
         \begin{enumerate}
             \item Aufstellen des allgemeinen Geradenpunktes \(\vv{X}\)
             \item Aufstellen des Vektors \(\vv{PX}\).
             \item Berechnung des Parameters so, dass \(\vv{PX} \circ \vv{u} =0\).
             \item Mit dem Parameter \(\lambda\) den Vektor von \(\vv{P}\) zum Lotfußpunkt \(\vv{F}\) bestimmen.
-            \item Der Abstand des Punktes \(P\) von der Geraden \(g\) ergibt sich dann als Länge des Vektors \(\vv{PF}\) also \(d(P,g) = |\vv{PF}|\)
+            \item Der Abstand des Punktes \(P\) von der Geraden \(g\) ergibt sich dann als Länge des Vektors \(\vv{PF}\) also \(d(P;g) = |\vv{PF}|\)
         \end{enumerate}
     \end{merke}
     \begin{bsp}{Abstand Punkt Gerade}{}\index{Geraden!Abstand!Punkt Gerade}
@@ -1406,7 +1401,7 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
 \coordinate (G1) at (-4,-2);      % linkes Ende der Geraden g
 \coordinate (G2) at ( 4, 2);      % rechtes Ende der Geraden g
 \coordinate (F)  at ( 1, 0.5);    % Punkt F auf g
-\coordinate (P)  at ( 0.2, 3.2);  % Punkt P oberhalb
+\coordinate (P)  at (-0.35, 3.2); % Punkt P oberhalb, PF senkrecht zu g
 
 % Punkt auf g links (roter Schnittpunkt)
 \coordinate (A)  at (-2,-1);      % liegt auf g (bei dieser Wahl)
@@ -1427,21 +1422,19 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
 \node[above right] at (P) {$P$};
 \node[below] at (F) {$F$};
 
-% --- Rote Linie von P nach A mit Pfeil nach unten und zusätzlicher Verlängerung ---
-\draw[red, line width=1.2pt, ->] (P) -- (A);
+% --- allgemeiner Geradenpunkt X und Vektor PX (gestrichelt) ---
+\draw[gray, dashed, line width=1pt, ->] (P) -- (A) node[midway, left] {$\vv{PX}$};
+\fill (A) circle (1.5pt) node[below right] {$X$};
+% --- Lotvektor PF (senkrecht auf g) ---
 \draw[blue, line width=1.2pt, ->] (P) -- (F);
-
-% Rote Kreuze (oben bei P und unten bei A, plus ein zweites unten wie in der Skizze)
-\xmark{P}{0.12}
-\xmark{A}{0.12}
-\coordinate (A2) at (-2.25,-1.35);
-\xmark{A2}{0.10}
+\pic[draw, angle radius=0.3cm] {right angle=P--F--G2};
+\fill (P) circle (1.5pt);
 
 \end{tikzpicture}
 \end{center}
         Gegeben ist der Punkt \(P\) mit \(\vv{P} = \begin{pmatrix}
             4\\1\\5
-        \end{pmatrix}\) und die Geraden \(g\) mit \(g:\vv{X} = \begin{pmatrix}
+        \end{pmatrix}\) und die Gerade \(g\) mit \(g:\vv{X} = \begin{pmatrix}
             3\\2\\1
         \end{pmatrix} + \lambda \begin{pmatrix}
             1\\2\\-2
@@ -1460,13 +1453,13 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
             -1+\lambda\\1+2\lambda\\-4-2\lambda
         \end{pmatrix} \circ \begin{pmatrix}
             1\\2\\-2
-        \end{pmatrix} = 1\cdot(-1+\lambda )+2\cdot(1+2\lambda) -2\cdot (-4-2\lambda) = 9\lambda +9 = 0 \longrightarrow \lambda = -1\]
-        \item Vektor \(\vv{PF}\), durch einsetzen von \(\lambda =-1\) in \(\vv{PX}\), bilden.\[\vv{PF} = \begin{pmatrix}
+        \end{pmatrix} \]\[ = 1\cdot(-1+\lambda )+2\cdot(1+2\lambda) -2\cdot (-4-2\lambda) = 9\lambda +9 = 0 \longrightarrow \lambda = -1\]
+        \item Vektor \(\vv{PF}\) durch Einsetzen von \(\lambda =-1\) in \(\vv{PX}\), bilden.\[\vv{PF} = \begin{pmatrix}
             -1-1\\1+2\cdot (-1)\\-4-2\cdot (-1)
         \end{pmatrix} = \begin{pmatrix}
             -2\\-1\\-2
         \end{pmatrix}\] 
-        \item Damit ist der Abstand \(d(P,g)\)  des Punktes \(P\) von der Geraden \(g\) wie folgt, \(d(P,g) = |\vv{PF}| = \sqrt{9} = 3[LE]\)
+        \item Damit ist der Abstand \(d(P;g)\)  des Punktes \(P\) von der Geraden \(g\) wie folgt, \(d(P;g) = |\vv{PF}| = \sqrt{9} = 3\ [LE]\)
     \end{enumerate}
     \end{bsp}
     \begin{bem}{Alternative Methode}{}
@@ -1552,7 +1545,7 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
 
 \end{tikzpicture}
     \end{center}
-        Um den Abstand eines Punktes \(P\) von einer geraden \(g\) zu berechnen, ist kann man folgendermaßen vorgehen:
+        Um den Abstand eines Punktes \(P\) von einer Geraden \(g\) zu berechnen, kann man folgendermaßen vorgehen:
         \begin{enumerate}
             \item Aufstellen einer Ebene \(E\), die den Punkt \(P\) enthält und senkrecht zur Geraden \(g\) verläuft.
             \begin{itemize}
@@ -1561,7 +1554,7 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
             \end{itemize}
             \item Berechnung der Koordinaten des Schnittpunktes \(F\) der Geraden \(g\) mit der Ebene \(E\)
             \item Aufstellen des Verbindungsvektors \(\vv{PF}\) und Berechnung der Länge von \(\vv{PF}\) durch \(\left|\vv{PF}\right|\)
-            \item Der Abstand \(d(P,g)\) des Punktes \(P\) von der Geraden \(g\) entspricht der Länge des Vektors \(\vv{PF}\)
+            \item Der Abstand \(d(P;g)\) des Punktes \(P\) von der Geraden \(g\) entspricht der Länge des Vektors \(\vv{PF}\)
         \end{enumerate}
     \end{bem}
     \subsection{Abstand paralleler Geraden}
@@ -1570,7 +1563,7 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
     \end{merke}
 \subsection{Abstand windschiefer Geraden}
 \begin{merke}{Abstand windschiefer Geraden}{}\index{Geraden!Abstand!Windschiefe Gerade}
-    Der Abstand \(d(g,h)\) windschiefer Geraden \(g\) mit \(g:\vv{X} = \vv{A} + \lambda \vv{u} \) und \(h\) mit \(h:\vv{X} = \vv{B} + \mu \vv{v}\) wird wie folgt berechnet. \[\highlightmath[red!65]{d(g,h) = |\left(\vv{A} - \vv{B}\right)\circ \vv{n_0}|}.\] Hierbei gelten für \(\vv{n_0}\) folgende Bedingungen 
+    Der Abstand \(d(g;h)\) windschiefer Geraden \(g\) mit \(g:\vv{X} = \vv{A} + \lambda \vv{u} \) und \(h\) mit \(h:\vv{X} = \vv{B} + \mu \vv{v}\) wird wie folgt berechnet. \[\highlightmath[red!65]{d(g;h) = |\left(\vv{A} - \vv{B}\right)\circ \vv{n_0}|}.\] Hierbei gelten für \(\vv{n_0}\) folgende Bedingungen 
     \begin{multicols}{3}
 \begin{enumerate}
     \item \(|\vv{n_0}| =1\)
@@ -1599,16 +1592,16 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
     \end{pmatrix} = \begin{pmatrix}
         -2\\-2\\1
     \end{pmatrix}\]
-    \item erzeugen des Vektors \(\vv{n_0}\) durch Normierung von \(\vv{n}\)
+    \item Bestimmung des Einheitsvektors \(\vv{n_0}\) durch Normierung von \(\vv{n}\)
     \[|\vv{n}| = \sqrt{9} =3 \longrightarrow \vv{n_0} = \dfrac{1}{3}\cdot \vv{n} = \dfrac{1}{3}\cdot \begin{pmatrix}
         -2\\-2\\1
     \end{pmatrix} = \begin{pmatrix}
         -\frac{2}{3}\\-\frac{2}{3}\\ \frac{1}{3}
     \end{pmatrix}\]
-    \item Berechnung des Abstandes durch  \(d(g,h) = |\left(\vv{A} - \vv{B}\right)\circ \vv{n_0}| = |\vv{AB}\circ \vv{n_0}|\)
-    \[\vv{AB} = \begin{pmatrix}
+    \item Berechnung des Abstandes durch  \(d(g;h) = |\left(\vv{A} - \vv{B}\right)\circ \vv{n_0}| = |\vv{BA}\circ \vv{n_0}|\)
+    \[\vv{BA} = \begin{pmatrix}
         0\\3\\-1
-    \end{pmatrix} \hspace{0.5cm}\longrightarrow\hspace{0.5cm} d(g,h) = \left|\begin{pmatrix}
+    \end{pmatrix} \hspace{0.5cm}\longrightarrow\hspace{0.5cm} d(g;h) = \left|\begin{pmatrix}
         0\\3\\-1
     \end{pmatrix} \circ \begin{pmatrix}
         -\frac{2}{3}\\-\frac{2}{3}\\ \frac{1}{3}
@@ -1617,27 +1610,27 @@ Der Schnittwinkel \(\varphi\) zwischen zwei Ebenen mit den Normalenvektoren \(\v
 \end{bsp}
 \subsection{Abstand Punkt Ebene}
 \begin{defi}{Hesse'sche Normalenform der Ebene}{}\index{Ebene!Hesse'sche Normalenform}
-    Gegeben ist die Koordinatenform der Ebene \(E\) durch \(E:n_1x_1 +n_2x_2+n_3x_3-c=0\) die zu dieser Ebene gehörende normierte Koordinatenform \(\highlightmath{E: \dfrac{1}{|\vv{n}|}\cdot \left(n_1x_1+n_2x_2+n_3x_3-c\right) =0}\) nennt man die Hesse'sche Normalenform. Hierbei wird der Normalenvektor auf die Länge \(1\) normiert.  
+    Gegeben ist die Koordinatenform der Ebene \(E\) durch \(E:n_1x_1 +n_2x_2+n_3x_3-c=0\). Die zu dieser Ebene gehörende normierte Koordinatenform \(\highlightmath{E: \dfrac{1}{|\vv{n}|}\cdot \left(n_1x_1+n_2x_2+n_3x_3-c\right) =0}\) nennt man die Hesse'sche Normalenform. Hierbei wird der Normalenvektor auf die Länge \(1\) normiert.  
 \end{defi}
-\begin{merke}{Abstand Punkte Ebene}{}\index{Ebene!Abstand Punkt Ebene}
-    Die Berechnung des Abstandes eines Punktes \(P\) von einer Ebene \(E\) erfolgt durch das einsetzen des Punktes in die Hesse'sche Normalenform. Damit ergibt sich \[\highlightmath[red!65]{d(P,E)= \left|\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right)\right|}\]
+\begin{merke}{Abstand Punkt Ebene}{}\index{Ebene!Abstand Punkt Ebene}
+    Die Berechnung des Abstandes eines Punktes \(P\) von einer Ebene \(E\) erfolgt durch das Einsetzen des Punktes in die Hesse'sche Normalenform. Damit ergibt sich \[\highlightmath[red!65]{d(P;E)= \left|\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right)\right|}\]
 \end{merke} 
-\begin{bsp}{Abstand Punkte Ebene}{}
-   Gegeben ist die Ebene \(E\) durch \(E:x_1+2x_2+2x_3-6=0\) und der Punkte \(P\) mit \(\vv{P}= \begin{pmatrix}
+\begin{bsp}{Abstand Punkt Ebene}{}
+   Gegeben ist die Ebene \(E\) durch \(E:x_1+2x_2+2x_3-6=0\) und der Punkt \(P\) mit \(\vv{P}= \begin{pmatrix}
        3\\4\\5
-   \end{pmatrix}\). Es soll der Abstand \(d(P,E)\) des Punktes \(P\) von der Ebene \(E\) berechnet werden.
+   \end{pmatrix}\). Es soll der Abstand \(d(P;E)\) des Punktes \(P\) von der Ebene \(E\) berechnet werden.
    \begin{enumerate}
        \item Aufstellen der Hesse'schen Normalenform \[\vv{n} = \begin{pmatrix}
         1\\2\\2
        \end{pmatrix} \hspace{0.25cm}\longrightarrow \hspace{0.25cm} \left|\vv{n}\right| = \sqrt{1+4+4} = \sqrt{9} =3\hspace{0.25cm}\longrightarrow \hspace{0.25cm} E:\dfrac{1}{3}\left(x_1+2x_2+2x_3-6\right)=0\]
-       \item Einsetzen des Punktes in die Hesse'sche Normalenform \[d(P,E) = \left|\dfrac{1}{3}\left(1\cdot 3 +2\cdot 4 + 2\cdot 5 - 6\right)\right| = \left|\dfrac{1}{3}\left(3+8+10-6\right)\right|= \left|\dfrac{1}{3}\cdot 15\right| =5 \hspace{0.15cm} [LE]\]
+       \item Einsetzen des Punktes in die Hesse'sche Normalenform \[d(P;E) = \left|\dfrac{1}{3}\left(1\cdot 3 +2\cdot 4 + 2\cdot 5 - 6\right)\right| = \left|\dfrac{1}{3}\left(3+8+10-6\right)\right|= \left|\dfrac{1}{3}\cdot 15\right| =5 \hspace{0.15cm} [LE]\]
    \end{enumerate}
 \end{bsp}
 \begin{b8d}{Halbräume}{}\index{Ebene!Halbräume}
 Durch eine Ebene wird der 3-dimensionale Raum in 2 Halbräume eingeteilt.
 \begin{itemize}
-    \item Ist der Wert \(\highlightmath{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) > 0}\) dann liegt der Punkt \(P\) im \highlightmath{positiven} Halbraum, also in Richtung des Normalenvektors.
-    \item Ist der Wert \(\highlightmath[blue!35]{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) < 0}\) dann liegt der Punkt \(P\) im \highlightmath[blue!35]{negativen} Halbraum, also in entgegengesetzter Richtung des Normalenvektors.
+    \item Ist der Wert \(\highlightmath{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) > 0}\), dann liegt der Punkt \(P\) im \highlightmath{positiven} Halbraum, also in Richtung des Normalenvektors.
+    \item Ist der Wert \(\highlightmath[blue!35]{\dfrac{1}{|\vv{n}|}\left(n_1p_1+n_2p_2+n_3p_3-c\right) < 0}\), dann liegt der Punkt \(P\) im \highlightmath[blue!35]{negativen} Halbraum, also in entgegengesetzter Richtung des Normalenvektors.
 \end{itemize}
 \end{b8d}
 \section{Anwendungen}
@@ -1647,31 +1640,31 @@ Gegeben sei eine Kugel mit Mittelpunkt \(M(m_1|m_2|m_3)\) und Radius \(R\), sowi
 Schneidet die Ebene die Kugel, entsteht ein \textbf{Kreis} (Schnittkreis).
 \subsubsection*{Der Abstand \(d\) von \(M\) zur Ebene \(E\)}
 \begin{itemize}
-\item Sei \(d(M,E)\) der \textbf{senkrechte Abstand} des Kugelmittelpunkts zur Ebene.
+\item Sei \(d(M;E)\) der \textbf{senkrechte Abstand} des Kugelmittelpunkts zur Ebene.
 \item Dann gilt:
 \[
 \begin{array}{rcl}
-d(M,E)>R &\Rightarrow& \text{kein Schnitt (Ebene zu weit weg)}\\
-d(M,E)=R &\Rightarrow& \text{Berührung (Schnittkreis hat Radius }0\text{)}\\
-d(M,E)<R &\Rightarrow& \text{Schnittkreis entsteht}
+d(M;E)>R &\Rightarrow& \text{kein Schnitt (Ebene zu weit weg)}\\
+d(M;E)=R &\Rightarrow& \text{Berührung (Schnittkreis hat Radius }0\text{)}\\
+d(M;E)<R &\Rightarrow& \text{Schnittkreis entsteht}
 \end{array}
 \]
 \end{itemize}
 \end{merke}
 \subsubsection*{Mittelpunkt des Schnittkreises}
-Der Mittelpunkt des Schnittkreises ist der \textbf{Lotfuß} \(F\) vom Mittelpunkt des Kreises \(M\) auf die Ebene \(E\),
+Der Mittelpunkt des Schnittkreises ist der \textbf{Lotfuß} \(F\) vom Mittelpunkt \(M\) der Kugel auf die Ebene \(E\),
 also der Punkt, an dem die Senkrechte durch \(M\) die Ebene trifft.
 \begin{merke}{Berechnung des Lotfußpunktes}{}
  Um den \textbf{Lotfußpunkt} zu bestimmen, stellt man die Gerade \(g\) so auf, dass der \textbf{Aufpunkt} der Geraden der Punkt \(M\) ist und man als \textbf{Richtungsvektor} den \textbf{Normalenvektor} der Ebene \(E\) benutzt. \\
  Mit dieser Geraden wird dann der \textbf{Schnittpunkt der Geraden mit der Ebene} berechnet. Dieser Punkt ist dann der \textbf{Lotfußpunkt}.
 \end{merke}
 \begin{bem}{Aufstellen der Lotgeraden}{}\index{Lotgerade}
-    Gegeben ist der Kreis \(k\) durch \(\left(x_1-m_1\right)^2 + \left(x_2-m_2\right)^2 + \left(x_3-m_3\right)^2 = R^2\) mit dem Mittelpunkt \(M(m_1|m_2|m_3)\) und dem Radiu \(R\) und die Ebene \(E: n_1x_1 +n_2x_2+n_3x_3-c=0\). Die Lotgerade lautet damit wie folgt: \[l:\vv{X} = \vv{M} + \lambda \vv{n} = \begin{pmatrix}
+    Gegeben ist die Kugel \(k\) durch \(\left(x_1-m_1\right)^2 + \left(x_2-m_2\right)^2 + \left(x_3-m_3\right)^2 = R^2\) mit dem Mittelpunkt \(M(m_1|m_2|m_3)\) und dem Radius \(R\) und die Ebene \(E: n_1x_1 +n_2x_2+n_3x_3-c=0\). Die Lotgerade lautet damit wie folgt: \[l:\vv{X} = \vv{M} + \lambda \vv{n} = \begin{pmatrix}
         m_1\\m_2\\m_3
     \end{pmatrix} + \lambda \begin{pmatrix}
         n_1\\n_2\\n_3
     \end{pmatrix}.\]
-    Der Lotfußpunkt wird dann durch das Einsetzen der Gerade \(l\) in die Ebene \(E\) bestimmt.
+    Der Lotfußpunkt wird dann durch das Einsetzen der Geraden \(l\) in die Ebene \(E\) bestimmt.
 \end{bem}
 
 \begin{b8d}{Radius des Schnittkreises}{}
@@ -1692,11 +1685,11 @@ r=\sqrt{R^2-d^2}.
 
 
 \subsubsection*{Abstand Punkt–Ebene }
-Ist \(E: n_1x_1+n_2x_2+n_3x_3 -c =0\) und \(M(m_1,m_2,m_3)\), dann ist
+Ist \(E: n_1x_1+n_2x_2+n_3x_3 -c =0\) und \(M(m_1|m_2|m_3)\), dann ist
 \[
-d=\frac{|n_1m_1+n_2m_2+n_3m_3 -c|}{\sqrt{n_1^2 +n_2^2 + n_3^2}}.
+d=\frac{|n_1m_1+n_2m_2+n_3m_3 -c|}{\sqrt{n_1^2 +n_2^2 + n_3^2}}
 \]
-der Abstand des Mittelpunktes \(M\) von der Ebene \(M\). 
+der Abstand des Mittelpunktes \(M\) von der Ebene \(E\). 
 \bigskip
 \end{multicols}
 \begin{center}
@@ -1750,14 +1743,14 @@ der Abstand des Mittelpunktes \(M\) von der Ebene \(M\).
 \begin{rechnung}{Berechnung des Schnittkreises}{}
 Gegeben ist die Kugel \(k\) mit dem Mittelpunkt \(M(1|2|3)\) und dem Radius \(R=5\) und die Ebene \(E:2x_1-2x_2+x_3+8=0\). 
     \begin{enumerate}
-        \item Nachweis, dass der Kreis die Ebene schneidet durch Berechnung des Abstandes von \(M\) von der Ebene \(E\).
+        \item Nachweis, dass die Kugel die Ebene schneidet, durch Berechnung des Abstandes von \(M\) von der Ebene \(E\).
         \begin{itemize}
             \item Länge des Normalenvektors: \(\vv{n} = \begin{pmatrix}
                 2\\-2\\1
             \end{pmatrix} \longrightarrow \left|\vv{n}\right| = \sqrt{2^2 + (-2)^2 +1^2} = \sqrt{9} = 3\)
-            \item aufstellen der HNF: \(E: \dfrac{1}{3} \cdot \left(2x_1-2x_2+x_3+8\right)=0\)
-            \item Berechnung des Abstandes durch einsetzen von \(M\) in die HNF\\ \(d(M;E) =\left| \dfrac{1}{3} \cdot \left(2\cdot 1 -2\cdot 2 +1\cdot 3 +8\right)\right| = \left|\dfrac{1}{3} \cdot 9\right| = 3 [LE]\)
-            \item \(k\) schneidet \(E\) da \(d(M;E) = 3 < 5 = R\)
+            \item Aufstellen der HNF: \(E: \dfrac{1}{3} \cdot \left(2x_1-2x_2+x_3+8\right)=0\)
+            \item Berechnung des Abstandes durch Einsetzen von \(M\) in die HNF\\ \(d(M;E) =\left| \dfrac{1}{3} \cdot \left(2\cdot 1 -2\cdot 2 +1\cdot 3 +8\right)\right| = \left|\dfrac{1}{3} \cdot 9\right| = 3 [LE]\)
+            \item \(k\) schneidet \(E\), da \(d(M;E) = 3 < 5 = R\)
         \end{itemize}
         \item Berechnung des Radius \(r\) des Schnittkreises
         \begin{itemize}
@@ -1771,7 +1764,7 @@ Gegeben ist die Kugel \(k\) mit dem Mittelpunkt \(M(1|2|3)\) und dem Radius \(R=
             \end{pmatrix} + \lambda \begin{pmatrix}
                 2\\-2\\1
             \end{pmatrix}\)
-            \item  einsetzen in \(E\)\\ \(2x_1-2x_2+x_3+8 =0 \longrightarrow 2(1+2\lambda)-2(2-2\lambda)+(3+\lambda) +8 =0\)\\ \(9\lambda +9 =0\)\\ \( \lambda =-1\)
+            \item  Einsetzen in \(E\)\\ \(2x_1-2x_2+x_3+8 =0 \longrightarrow 2(1+2\lambda)-2(2-2\lambda)+(3+\lambda) +8 =0\)\\ \(9\lambda +9 =0\)\\ \( \lambda =-1\)
             \item Berechnung von \(\vv{F} = \vv{M}+ \left(-1\right)\cdot \vv{n} = \begin{pmatrix}
                 1\\2\\3
             \end{pmatrix} + \left(-1\right)\cdot\begin{pmatrix}
@@ -1781,16 +1774,16 @@ Gegeben ist die Kugel \(k\) mit dem Mittelpunkt \(M(1|2|3)\) und dem Radius \(R=
             \end{pmatrix}\)
         \end{itemize}
     \end{enumerate}
-    Mit der Angabe des Radius \(r\) des Mittelpunktes \(F\) des Kreises \(k\) ist der Kreis ausreichend bestimmt. \end{rechnung}
+    Mit der Angabe des Radius \(r\) und des Mittelpunktes \(F\) ist der Schnittkreis von \(k\) und \(E\) eindeutig bestimmt. \end{rechnung}
  \subsection{Spiegelung eines Punktes an einer Ebene}\index{Anwendung!Analytische Geometrie!Spiegelung an einer Ebene}
  Eine weitere typische Anwendung ist die Berechnung von Spiegelpunkten zu einer gegebenen Ebene \(E\) mit der Angabe des Lotfußpunktes \(F\).
  \begin{merke}{Spiegelung eines Punktes an einer Ebene}{}
-  Um die Koordinaten des Spiegelpunktes \(P'\) zu eine gegebenen Punkt \(P\) und einer Ebene \(E\) bestimmen zu können, muss man eine Lotgerade aufstellen und diese dann mit der Ebene schneiden. \\
+  Um die Koordinaten des Spiegelpunktes \(P'\) zu einem gegebenen Punkt \(P\) und einer Ebene \(E\) bestimmen zu können, muss man eine Lotgerade aufstellen und diese dann mit der Ebene schneiden. \\
 Gegeben sei die Ebene \(E\) in \textbf{Koordinatenform}
 \[
 E:\ n_1x_1+n_2x_2 + n_3x_3=c
 \]
-und ein Punkt $P(p_1,p_2,p_3)$, der an $E$ gespiegelt werden soll.
+und ein Punkt $P(p_1|p_2|p_3)$, der an $E$ gespiegelt werden soll.
 Der Normalenvektor der Ebene ist
 \[
 \vv{n}=\begin{pmatrix}n_1\\ n_2\\ n_3\end{pmatrix}.
@@ -1815,7 +1808,7 @@ n_1(p_1+\lambda n_1)+n_2(p_2+\lambda n_2)+n_3(p_3+\lambda n_3)=c
 \[
 \Longrightarrow\ \lambda_0=\frac{c-(n_1p_1+n_2p_2+n_3p_3)}{n_1^2+n_2^2+n_3^2}.
 \]
-Dann ist der Lotfußpunkt $F(f_1,f_2,f_3)$ mit
+Dann ist der Lotfußpunkt $F(f_1|f_2|f_3)$ mit
 \[
 \vv{F} =\begin{pmatrix}f_1\\f_2\\f_3\end{pmatrix}
 =
