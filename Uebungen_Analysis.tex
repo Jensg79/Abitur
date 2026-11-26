@@ -1,0 +1,264 @@
+% =====================================================================
+% Übungskapitel zu Kapitel 1 (Analysis) – steht direkt hinter Analysis.tex
+% Nummerierung: Ü 1.n ; Lösungen folgen in einem späteren Schritt.
+% =====================================================================
+\Uebungskapitel{Übungen zur Analysis}
+
+\Uebungsabschnitt{Lokales und globales Differenzieren}
+
+\begin{uebung}*{Änderungsrate und h-Methode}
+Gegeben ist die Funktion $f$ mit $f(x) = x^2-2x+3$ und $\mathds{D}_f = \mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Berechnen Sie die mittlere Änderungsrate von $f$ im Intervall $[1;4]$.
+  \item Bestimmen Sie $f'(2)$ mithilfe der h-Methode.
+  \item Bestimmen Sie die Stelle $x_0$, an der die Tangente an $G_f$ parallel zur Sekante aus Teilaufgabe a) verläuft.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Stetigkeit und Differenzierbarkeit}
+\begin{enumerate}[label=\alph*)]
+  \item Gegeben ist die Funktion $f$ mit $f(x) = |x-3|+1$ und $\mathds{D}_f = \mathds{R}$. Untersuchen Sie mithilfe der h-Methode, ob $f$ an der Stelle $x_0 = 3$ differenzierbar ist, und beschreiben Sie die Bedeutung Ihres Ergebnisses für den Graphen $G_f$.
+  \item Begründen Sie, dass $f$ an der Stelle $x_0 = 3$ stetig ist.
+  \item Gegeben ist die Funktion $g$ mit
+  $$g(x)= \begin{cases}
+              x^2 & \text{für}\hspace{0.5cm} x\leq 2\\
+              a\cdot x+b & \text{für}\hspace{0.5cm}  x> 2
+         \end{cases}\qquad a,b\in\mathds{R}.$$
+  Bestimmen Sie $a$ und $b$ so, dass $g$ an der Stelle $x_0=2$ stetig und differenzierbar ist.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Lineare Transformation}
+\begin{enumerate}[label=\alph*)]
+  \item Beschreiben Sie, wie der Graph der Funktion $g$ mit $g(x) = -2\cdot(x+1)^2+3$ aus der Normalparabel $y=x^2$ hervorgeht.
+  \item Der Graph der Funktion $f$ mit $f(x) = \sqrt{x}$ wird zuerst an der $y$-Achse gespiegelt und anschließend um $2$ in Richtung der $y$-Achse nach oben verschoben. Geben Sie einen Funktionsterm des entstehenden Graphen sowie dessen Definitionsbereich an.
+  \item Der Graph der Funktion $h$ mit $h(x) = \sin{(x)}$ wird in Richtung der $x$-Achse mit dem Faktor $\dfrac{1}{2}$ gestaucht. Geben Sie einen zugehörigen Funktionsterm sowie die Periode des neuen Graphen an.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Newton-Verfahren}
+Gegeben ist die Funktion $f$ mit $f(x) = x^3+x-1$ und $\mathds{D}_f = \mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Begründen Sie, dass $f$ genau eine Nullstelle besitzt und dass diese im Intervall $[0;1]$ liegt.
+  \item Führen Sie ausgehend vom Startwert $x_0 = 1$ zwei Schritte des Newton-Verfahrens durch. Geben Sie $x_1$ und $x_2$ auf vier Nachkommastellen gerundet an.
+  \item Für die Funktion $g$ mit $g(x)= x^3-3x$ soll eine Nullstelle mit dem Newton-Verfahren bestimmt werden. Erläutern Sie, warum der Startwert $x_0 = 1$ dafür ungeeignet ist.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Kurvendiskussion}
+
+\begin{uebung}*{Tangente und Normale}
+Gegeben ist die Funktion $f$ mit $f(x) = x^3-3x^2+4$ und $\mathds{D}_f = \mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie die Gleichung der Tangente an $G_f$ im Punkt $P(1|f(1))$.
+  \item Bestimmen Sie die Gleichung der Normalen an $G_f$ im Punkt $P$.
+  \item Ermitteln Sie die Koordinaten aller Punkte von $G_f$, in denen die Tangente parallel zur Geraden mit der Gleichung $y = 9x$ verläuft.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Monotonie, Extrema und Krümmung}
+Gegeben ist die Funktion $f$ mit $f(x) = x^3-6x^2+9x$ und $\mathds{D}_f = \mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie die Nullstellen von $f$ und geben Sie deren Vielfachheit an.
+  \item Untersuchen Sie das Monotonieverhalten von $G_f$ mithilfe einer Monotonietabelle und bestimmen Sie Art und Koordinaten der Extrempunkte.
+  \item Bestimmen Sie das Krümmungsverhalten von $G_f$ sowie die Koordinaten des Wendepunkts.
+  \item Bestimmen Sie die Gleichung der Wendetangente.
+  \item Skizzieren Sie $G_f$ unter Verwendung der bisherigen Ergebnisse im Bereich $-0{,}5\leq x\leq 4{,}5$.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Ausführliche Kurvendiskussion}
+Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{1}{4}x^4-x^3$ und $\mathds{D}_f = \mathds{D}_{\text{max}}$.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie $\mathds{D}_{\text{max}}$ an und untersuchen Sie $G_f$ auf Symmetrie zum Koordinatensystem.
+  \item Untersuchen Sie das Verhalten von $f$ an den Rändern des Definitionsbereichs und bestimmen Sie die gemeinsamen Punkte von $G_f$ mit den Koordinatenachsen.
+  \item Bestimmen Sie Art und Lage aller Punkte von $G_f$ mit waagrechter Tangente. Begründen Sie insbesondere, dass im Ursprung ein Terrassenpunkt vorliegt.
+  \item Bestimmen Sie die Wendepunkte von $G_f$.
+  \item Geben Sie die Wertemenge von $f$ an und skizzieren Sie $G_f$.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Graph der Ableitungsfunktion}
+Die Abbildung zeigt den Graphen $G_{f'}$ der Ableitungsfunktion $f'$ einer in $\mathds{R}$ definierten ganzrationalen Funktion $f$. Der Graph $G_{f'}$ ist eine Parabel mit den Nullstellen $x=-1$ und $x=3$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[ticklabel style={fill=none}, every tick label/.append style={fill=none},
+        xmin=-2.5, xmax=4.5, ymin=-2.5, ymax=4,
+        axis lines = middle,
+        x=1cm, y=1cm,
+        xtick={-2,-1,...,4},
+        ytick={-2,-1,...,3},
+        xlabel = $x$,
+        ylabel = $y$]
+  \addplot[color=black, thick, samples=200, domain=-2.2:4.2]{0.5*(x+1)*(x-3)};
+  \draw[color=black] (4,2.6) node[left] {$G_{f'}$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie die Extremstellen von $f$ an und entscheiden Sie jeweils über die Art des Extremums. Begründen Sie Ihre Antwort.
+  \item Geben Sie die Wendestelle von $f$ an und begründen Sie Ihre Angabe mithilfe des Graphen.
+  \item Entscheiden Sie, ob $f(3) < f(0)$ gilt, und begründen Sie Ihre Entscheidung.
+  \item Skizzieren Sie einen möglichen Graphen von $f$ mit $f(0)=0$.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Stammfunktion}
+
+\begin{uebung}*{Stammfunktionen ganzrationaler Funktionen}
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie jeweils eine Stammfunktion an:
+  \[f(x) = 3x^2-4x+1,\qquad g(x) = \dfrac{1}{2}x^5 - x,\qquad h(x) = a^2x^3+2a \text{ mit } a\in\mathds{R}\]
+  \item Bestimmen Sie diejenige Stammfunktion $F$ von $f$ mit $f(x) = 6x^2-2$, deren Graph durch den Punkt $P(1|3)$ verläuft.
+  \item Begründen Sie, dass mit einer Stammfunktion $F$ von $f$ auch jede Funktion $G$ mit $G(x) = F(x)+c$ und $c\in\mathds{R}$ eine Stammfunktion von $f$ ist, und beschreiben Sie, wie die Graphen von $F$ und $G$ zueinander liegen.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Funktionenscharen}
+
+\begin{uebung}*{Funktionenschar und Ortskurve}
+Gegeben ist die Funktionenschar $f_k$ mit $f_k(x) = x^3-k\cdot x$, $\mathds{D}_{f_k} = \mathds{R}$ und $k\in\mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Untersuchen Sie in Abhängigkeit von $k$ die Anzahl der Nullstellen von $f_k$.
+  \item Zeigen Sie, dass jeder Graph $G_{f_k}$ den Ursprung als Wendepunkt besitzt, und geben Sie die Steigung der Wendetangente in Abhängigkeit von $k$ an.
+  \item Bestimmen Sie für $k>0$ die Extremstellen von $f_k$ und entscheiden Sie über die Art der Extrema.
+  \item Bestimmen Sie eine Gleichung der Ortskurve, auf der die Hochpunkte aller Graphen $G_{f_k}$ mit $k>0$ liegen.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Untersuchung von speziellen Funktionen}
+
+\begin{uebung}*{Gebrochen-rationale Funktion}
+Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{x^2-4x+3}{x-2}$ und $\mathds{D}_f = \mathds{D}_{\text{max}}$.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie $\mathds{D}_{\text{max}}$ an und bestimmen Sie die Nullstellen von $f$.
+  \item Zeigen Sie, dass $f(x) = x-2-\dfrac{1}{x-2}$ gilt.
+  \item Untersuchen Sie das Verhalten von $f$ an der Definitionslücke sowie für $x\longrightarrow\pm\infty$ und geben Sie die Gleichungen aller Asymptoten von $G_f$ an.
+  \item Zeigen Sie, dass $G_f$ in jedem Teilintervall des Definitionsbereichs streng monoton wachsend ist.
+  \item Begründen Sie, dass $G_f$ keinen Wendepunkt besitzt, obwohl sich das Krümmungsverhalten an der Stelle $x=2$ ändert.
+  \item Skizzieren Sie $G_f$ zusammen mit seinen Asymptoten.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Definitionslücken}
+Gegeben ist die Funktion $g$ mit $g(x) = \dfrac{x^2-1}{x^2+x}$ und $\mathds{D}_g = \mathds{D}_{\text{max}}$.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie die Definitionslücken von $g$ und untersuchen Sie, ob es sich jeweils um eine Polstelle (mit oder ohne Vorzeichenwechsel) handelt oder ob die Definitionslücke durch Kürzen behoben werden kann.
+  \item Geben Sie die Gleichung der waagrechten Asymptote von $G_g$ an und begründen Sie Ihre Angabe.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Umkehrfunktion und Wurzelfunktionen}
+\begin{enumerate}[label=\alph*)]
+  \item Gegeben ist die Funktion $f$ mit $f(x) = (x-1)^2+2$ und $\mathds{D}_f = [1;\infty[$. Begründen Sie, dass $f$ umkehrbar ist, und bestimmen Sie einen Term der Umkehrfunktion $f^{-1}$ sowie deren Definitions- und Wertemenge.
+  \item Der Graph der Funktion $g$ mit $g(x) = \sqrt{9-(x-2)^2}$ ist ein Halbkreis. Geben Sie den Mittelpunkt und den Radius des Halbkreises sowie $\mathds{D}_{\text{max}}$ von $g$ an.
+  \item Gegeben ist die Funktion $h$ mit $h(x) = \sqrt{4x+1}$ und $\mathds{D}_h = \left[-\dfrac{1}{4};\infty\right[$. Bestimmen Sie die Gleichung der Tangente an $G_h$ im Punkt $Q(2|h(2))$.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Trigonometrische Funktion}
+Gegeben ist die Funktion $f$ mit $f(x) = 2\cos{(2x)}+1$ und $\mathds{D}_f = [0;\pi]$.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie die Amplitude, die Periode und die Wertemenge von $f$ an.
+  \item Bestimmen Sie die Nullstellen von $f$.
+  \item Bestimmen Sie Art und Lage der Extrempunkte von $G_f$ (einschließlich der Randpunkte).
+  \item Bestimmen Sie die Gleichung der Tangente an $G_f$ an der Stelle $x=\dfrac{\pi}{4}$.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Exponentialfunktion}
+Gegeben ist die Funktion $f$ mit $f(x) = (x+1)\cdot e^{-x}$ und $\mathds{D}_f = \mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie die Nullstelle von $f$ sowie den Schnittpunkt von $G_f$ mit der $y$-Achse.
+  \item Untersuchen Sie das Verhalten von $f$ für $x\longrightarrow\pm\infty$ und geben Sie die Gleichung der waagrechten Asymptote an.
+  \item Zeigen Sie, dass $f'(x) = -x\cdot e^{-x}$ gilt, und bestimmen Sie Art und Lage des Extrempunkts von $G_f$.
+  \item Bestimmen Sie die Koordinaten des Wendepunkts von $G_f$.
+  \item Zeigen Sie, dass $F$ mit $F(x) = -(x+2)\cdot e^{-x}$ eine Stammfunktion von $f$ ist.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Logarithmusfunktion}
+Gegeben ist die Funktion $f$ mit $f(x) = \ln{(x^2+1)}$ und $\mathds{D}_f = \mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Begründen Sie, dass $\mathds{D}_f = \mathds{R}$ der maximale Definitionsbereich ist und dass $G_f$ achsensymmetrisch zur $y$-Achse ist.
+  \item Bestimmen Sie Art und Lage des Extrempunkts von $G_f$.
+  \item Zeigen Sie, dass $f''(x) = \dfrac{2\cdot(1-x^2)}{(x^2+1)^2}$ gilt, und bestimmen Sie die Wendepunkte von $G_f$.
+  \item Bestimmen Sie die Gleichung der Wendetangente im Wendepunkt mit positiver $x$-Koordinate.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Anwendungen der Differentialrechnung}
+
+\begin{uebung}*{Modellierung von Funktionen}
+\begin{enumerate}[label=\alph*)]
+  \item Der Graph einer ganzrationalen Funktion dritten Grades ist punktsymmetrisch zum Ursprung und besitzt den Tiefpunkt $T(1|-2)$. Bestimmen Sie einen Funktionsterm.
+  \item Eine Parabel hat den Scheitelpunkt $S(2|-2)$ und schneidet die $y$-Achse im Punkt $(0|2)$. Bestimmen Sie den zugehörigen Funktionsterm in Scheitelpunktform und in allgemeiner Form.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Extremwertproblem}
+Gegeben ist die Funktion $f$ mit $f(x) = 9-x^2$ und $\mathds{D}_f=\mathds{R}$. Einem Parabelsegment, das von $G_f$ und der $x$-Achse eingeschlossen wird, soll ein Rechteck einbeschrieben werden. Zwei Eckpunkte des Rechtecks liegen auf der $x$-Achse, die beiden anderen Eckpunkte $P(u|f(u))$ und $Q(-u|f(u))$ mit $0<u<3$ auf $G_f$.
+\begin{enumerate}[label=\alph*)]
+  \item Zeigen Sie, dass sich der Flächeninhalt des Rechtecks durch $A(u) = 18u-2u^3$ beschreiben lässt.
+  \item Bestimmen Sie $u$ so, dass der Flächeninhalt maximal wird, und geben Sie den maximalen Flächeninhalt an.
+  \item Begründen Sie, dass an den Rändern des Definitionsbereichs von $A$ kein größerer Flächeninhalt auftreten kann.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Bestimmtes Integral, Integralfunktion und Integrationsregeln}
+
+\begin{uebung}*{Bestimmte Integrale}
+Berechnen Sie die folgenden Integrale.
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\integral[limits-mode=limits,limits={0, 2}]{(3x^2-2x)}$
+  \item $\integral[limits-mode=limits,limits={1, 4}]{\dfrac{1}{\sqrt{x}}}$
+  \item $\integral[limits-mode=limits,limits={0, \pi}]{\sin{(x)}}$
+  \item $\integral[limits-mode=limits,limits={0, \ln{(2)}}]{e^{2x}}$
+  \item $\integral[limits-mode=limits,limits={1, e}]{\dfrac{1}{x}}$
+  \item $\integral[limits-mode=limits,limits={0, 1}]{2x\cdot e^{x^2}}$
+  \item $\integral[limits-mode=limits,limits={0, 1}]{\dfrac{2x}{x^2+1}}$
+  \item $\integral[limits-mode=limits,limits={1, 2}]{\ln{(x)}}$
+\end{enumerate}
+\end{multicols}
+\end{uebung}
+
+\begin{uebung}*{Integralfunktion und Flächenbilanz}
+Gegeben ist die Integralfunktion $I_1$ mit $I_1(x) = \integral[limits-mode=limits,limits={1, x}, variable={t}]{(2t-4)}$ und $x\in\mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie einen integralfreien Term von $I_1$ sowie die Nullstellen von $I_1$.
+  \item Begründen Sie ohne Rechnung mithilfe des Hauptsatzes der Differential- und Integralrechnung, dass $I_1$ an der Stelle $x=2$ einen Tiefpunkt besitzt.
+  \item Berechnen Sie $\integral[limits-mode=limits,limits={0, \frac{\pi}{2}}]{\cos{(2x)}}$ und deuten Sie das Ergebnis als Flächenbilanz.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Flächenberechnungen, uneigentliches Integral und Rotationskörper}
+
+\begin{uebung}*{Flächeninhalte}
+\begin{enumerate}[label=\alph*)]
+  \item Gegeben ist die Funktion $f$ mit $f(x) = x^3-4x$ und $\mathds{D}_f = \mathds{R}$. Berechnen Sie den Inhalt der Fläche, die $G_f$ mit der $x$-Achse einschließt, und erläutern Sie, warum $\integral[limits-mode=limits,limits={-2, 2}]{f(x)}$ nicht diesen Flächeninhalt angibt.
+  \item Gegeben sind die Funktionen $p$ mit $p(x) = x^2$ und $q$ mit $q(x) = 2x+3$, jeweils mit $\mathds{D} = \mathds{R}$. Berechnen Sie den Inhalt der Fläche, die von den Graphen $G_p$ und $G_q$ eingeschlossen wird.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Uneigentliches Integral und Rotationskörper}
+Gegeben ist die Funktion $f$ mit $f(x) = \dfrac{1}{x}$ und $\mathds{D}_f = [1;\infty[$.
+\begin{enumerate}[label=\alph*)]
+  \item Zeigen Sie, dass für den Inhalt $A(z)$ der Fläche zwischen $G_f$ und der $x$-Achse über dem Intervall $[1;z]$ mit $z>1$ gilt: $A(z) = \ln{(z)}$. Untersuchen Sie, ob die ins Unendliche reichende Fläche einen endlichen Inhalt besitzt.
+  \item Die Fläche zwischen $G_f$ und der $x$-Achse über dem Intervall $[1;z]$ rotiert um die $x$-Achse. Bestimmen Sie das Volumen $V(z)$ des entstehenden Rotationskörpers sowie $\lim\limits_{z\longrightarrow\infty} V(z)$.
+  \item Beurteilen Sie die Ergebnisse aus a) und b) im Vergleich.
+  \item Die Fläche zwischen dem Graphen der Funktion $w$ mit $w(x) = \sqrt{x}$ und der $x$-Achse über dem Intervall $[0;4]$ rotiert um die $x$-Achse. Berechnen Sie das Volumen des entstehenden Rotationskörpers.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Das Integral als Gesamtänderung einer Größe}
+
+\begin{uebung}{Zufluss in ein Becken}
+In ein Becken, das zu Beginn der Beobachtung $10\ \text{m}^3$ Wasser enthält, fließt Wasser. Die Zuflussrate wird für $0\leq t\leq 8$ durch die Funktion $r$ mit $r(t) = -\dfrac{1}{2}t^2+4t$ beschrieben ($t$ in Stunden seit Beobachtungsbeginn, $r(t)$ in $\frac{\text{m}^3}{\text{h}}$). Es fließt kein Wasser ab.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie den Zeitpunkt, zu dem die Zuflussrate maximal ist, und geben Sie die maximale Zuflussrate an.
+  \item Interpretieren Sie den Term $\integral[limits-mode=limits,limits={2, 4}, variable={t}]{r(t)}$ im Sachzusammenhang und berechnen Sie seinen Wert.
+  \item Bestimmen Sie einen Term für die Funktion $V$, die das Wasservolumen im Becken in Abhängigkeit von der Zeit $t$ angibt, und berechnen Sie das Wasservolumen nach $8$ Stunden.
+  \item Begründen Sie, dass das Wasservolumen im Becken im gesamten Beobachtungszeitraum zunimmt, die Zunahme aber ab $t=4$ immer langsamer erfolgt.
+\end{enumerate}
+\end{uebung}

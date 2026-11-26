@@ -191,6 +191,32 @@ colframe=gray!85!black,fonttitle=\bfseries,
 \newtcbtheorem[number within=section]{bem}
   {Bemerkung}{enhanced jigsaw,breakable,colback=red!2,colframe=red!35!black,fonttitle=\bfseries,title after break={Bemerkung (Fortsetzung)}}{theorem}
 
+% --- Übungsaufgaben (Übungskapitel) ---
+% Nummerierung Ü <Kapitel>.<Aufgabe>, z. B. Ü 2.4 = Kapitel 2, Aufgabe 4.
+% \begin{uebung}{Thema} ... \end{uebung}   -> Aufgabe mit Hilfsmitteln
+% \begin{uebung}*{Thema} ... \end{uebung}  -> Aufgabe ohne Hilfsmittel
+\newcounter{uebung}[chapter]
+\renewcommand{\theuebung}{\arabic{chapter}.\arabic{uebung}}
+\newtcolorbox{uebungbox}[2]{enhanced jigsaw,breakable,colback=yellow!4,colframe=orange!60!black,
+  fonttitle=\bfseries,
+  title={\faPencil*\ Ü~\theuebung\ \textendash\ #1\hfill #2},
+  title after break={\faPencil*\ Ü~\theuebung\ (Fortsetzung)}}
+\NewDocumentEnvironment{uebung}{s m}
+  {\refstepcounter{uebung}%
+   \IfBooleanTF{#1}
+     {\begin{uebungbox}{#2}{\normalfont\small\faBan\ ohne Hilfsmittel}}
+     {\begin{uebungbox}{#2}{}}}
+  {\end{uebungbox}}
+% Kopf eines Übungskapitels (unnummeriert, damit die Kapitelnummern der Inhaltskapitel erhalten bleiben)
+\newcommand{\Uebungskapitel}[1]{%
+  \cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{#1}%
+  \chapter*{#1}%
+  \setlength{\columnseprule}{0pt}%
+  \begin{hinweisbox}
+  Die Aufgaben sind mit \textbf{Ü~\(k.n\)} nummeriert (\(k\): Kapitel, \(n\): Aufgabe) und beziehen sich nur auf den Stoff dieses und der vorangehenden Kapitel. Aufgaben mit \faBan\ \textbf{ohne Hilfsmittel} sind ohne Taschenrechner und Formelsammlung zu bearbeiten, alle anderen mit den zugelassenen Hilfsmitteln. Die Aufgaben steigern sich innerhalb eines Abschnitts von Grundlagen bis zum Abiturniveau.
+  \end{hinweisbox}}
+\newcommand{\Uebungsabschnitt}[1]{\section*{#1}\phantomsection\addcontentsline{toc}{section}{#1}}
+
 % --- Hintergrundbild für Anhang ---
 \RequirePackage{eso-pic}
 \newcommand\BackgroundPic{%

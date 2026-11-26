@@ -1,0 +1,145 @@
+% =====================================================================
+% Übungskapitel zu Kapitel 3 (Stochastik) – steht direkt hinter Stochastik.tex
+% Nummerierung: Ü 3.n ; Lösungen folgen in einem späteren Schritt.
+% =====================================================================
+\Uebungskapitel{Übungen zur Stochastik}
+
+\Uebungsabschnitt{Wahrscheinlichkeitsbegriffe und bedingte Wahrscheinlichkeit}
+
+\begin{uebung}*{Ereignisse und Axiome}
+Ein Laplace-Würfel wird einmal geworfen. Betrachtet werden die Ereignisse $A$: \glqq Die Augenzahl ist gerade.\grqq{} und $B$: \glqq Die Augenzahl ist größer als 4.\grqq
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie den Ergebnisraum $\Omega$ sowie die Ereignisse $A$, $B$, $\bar{A}$, $A\cap B$ und $A\cup B$ in Mengenschreibweise an.
+  \item Berechnen Sie $P(A\cap B)$ und $P(A\cup B)$.
+  \item Entscheiden Sie, ob die Ereignisse $A$ und $B$ unvereinbar sind, und begründen Sie Ihre Entscheidung.
+  \item Begründen Sie mithilfe der Grundaxiome der Stochastik, dass für jedes Ereignis $E$ gilt: $P(\bar{E}) = 1-P(E)$.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Bedingte Wahrscheinlichkeit}
+Eine Krankheit tritt bei $2\,\%$ der Bevölkerung auf. Ein Schnelltest zeigt bei einer erkrankten Person mit einer Wahrscheinlichkeit von $95\,\%$ ein positives Ergebnis. Bei einer nicht erkrankten Person zeigt er mit einer Wahrscheinlichkeit von $10\,\%$ fälschlicherweise ebenfalls ein positives Ergebnis. Eine zufällig ausgewählte Person wird getestet.\\
+Betrachtet werden die Ereignisse $K$: \glqq Die Person ist erkrankt.\grqq{} und $T$: \glqq Der Test ist positiv.\grqq
+\begin{enumerate}[label=\alph*)]
+  \item Stellen Sie den Sachverhalt in einem vollständig beschrifteten Baumdiagramm dar.
+  \item Berechnen Sie die Wahrscheinlichkeit dafür, dass der Test positiv ausfällt.
+  \item Berechnen Sie $P_T(K)$ und interpretieren Sie das Ergebnis im Sachzusammenhang.
+  \item Beurteilen Sie anhand Ihres Ergebnisses aus c) die Aussagekraft eines positiven Testergebnisses.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Zufallsgrößen, Erwartungswert und Varianz}
+
+\begin{uebung}*{Glücksrad}
+Ein Glücksrad besteht aus drei Sektoren. Der Zeiger bleibt mit der Wahrscheinlichkeit $\frac{1}{2}$ im Sektor \glqq 0\,€\grqq, mit der Wahrscheinlichkeit $\frac{1}{3}$ im Sektor \glqq 1\,€\grqq{} und mit der Wahrscheinlichkeit $\frac{1}{6}$ im Sektor \glqq 4\,€\grqq{} stehen. Ausgezahlt wird der Betrag im jeweiligen Sektor. Der Einsatz für ein Spiel beträgt $1$\,€. Die Zufallsgröße $X$ beschreibt den Gewinn des Spielers (Auszahlung minus Einsatz) in Euro.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie die Wahrscheinlichkeitsverteilung von $X$ in einer Tabelle an.
+  \item Zeigen Sie, dass das Spiel fair ist.
+  \item Berechnen Sie die Varianz und die Standardabweichung von $X$.
+  \item Geben Sie den Wert $F(0) = P(X\leq 0)$ der kumulativen Verteilungsfunktion von $X$ an.
+  \item Der Betreiber möchte im Mittel $0{,}25$\,€ pro Spiel einnehmen. Dazu soll nur der Betrag im Sektor \glqq 4\,€\grqq{} geändert werden. Bestimmen Sie den neuen Betrag.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Kombinatorik und hypergeometrische Verteilung}
+
+\begin{uebung}*{Kombinatorik}
+Geben Sie jeweils einen Term für die Anzahl der Möglichkeiten an und berechnen Sie diese, falls möglich, ohne Taschenrechner.
+\begin{enumerate}[label=\alph*)]
+  \item Ein Zahlenschloss hat vier Ringe mit den Ziffern $0$ bis $9$.
+  \item Ein vierstelliger Code wird aus den Ziffern $0$ bis $9$ gebildet, wobei keine Ziffer mehrfach vorkommen darf.
+  \item Fünf verschiedene Bücher werden nebeneinander in ein Regal gestellt.
+  \item Aus fünf Personen wird ein Zweierteam ausgewählt.
+  \item Beim Lotto \glqq 6 aus 49\grqq{} werden sechs von 49 Kugeln ohne Zurücklegen und ohne Beachtung der Reihenfolge gezogen. (Nur Term angeben.)
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Hypergeometrische Verteilung}
+In einer Lieferung von $20$ Glühbirnen sind $4$ defekt. Es werden $5$ Glühbirnen auf einmal (ohne Zurücklegen) entnommen. Die Zufallsgröße $X$ gibt die Anzahl der defekten Glühbirnen in der Stichprobe an.
+\begin{enumerate}[label=\alph*)]
+  \item Begründen Sie, dass $X$ hypergeometrisch verteilt ist.
+  \item Berechnen Sie die Wahrscheinlichkeit dafür, dass genau eine defekte Glühbirne entnommen wird.
+  \item Berechnen Sie die Wahrscheinlichkeit dafür, dass mindestens eine defekte Glühbirne entnommen wird.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Bernoulli-Kette und Binomialverteilung}
+
+\begin{uebung}{Multiple-Choice-Test}
+Ein Test besteht aus $10$ Fragen mit jeweils vier Antwortmöglichkeiten, von denen genau eine richtig ist. Eine Person kreuzt bei jeder Frage zufällig genau eine Antwort an. Die Zufallsgröße $X$ gibt die Anzahl der richtig beantworteten Fragen an.
+\begin{enumerate}[label=\alph*)]
+  \item Begründen Sie, dass $X$ als binomialverteilt angesehen werden kann, und geben Sie die Parameter an.
+  \item Berechnen Sie die Wahrscheinlichkeiten folgender Ereignisse:\\
+  $A$: \glqq Genau drei Antworten sind richtig.\grqq\\
+  $B$: \glqq Höchstens zwei Antworten sind richtig.\grqq\\
+  $C$: \glqq Der Test ist bestanden, d.\,h. mindestens fünf Antworten sind richtig.\grqq\\
+  $D$: \glqq Mindestens zwei, aber höchstens vier Antworten sind richtig.\grqq
+  \item Berechnen Sie den Erwartungswert und die Standardabweichung von $X$ und geben Sie die Anzahl richtiger Antworten mit der größten Wahrscheinlichkeit an.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{3-m-Aufgaben}
+\begin{enumerate}[label=\alph*)]
+  \item Ein Bauteil ist mit einer Wahrscheinlichkeit von $5\,\%$ defekt. Bestimmen Sie, wie viele Bauteile man mindestens prüfen muss, damit sich darunter mit einer Wahrscheinlichkeit von mindestens $95\,\%$ mindestens ein defektes Bauteil befindet.
+  \item Bestimmen Sie, wie groß die Wahrscheinlichkeit $p$ für einen Treffer mindestens sein muss, damit bei $20$ Versuchen mit einer Wahrscheinlichkeit von mindestens $90\,\%$ mindestens ein Treffer erzielt wird.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{\texorpdfstring{\(\sigma\)}{Sigma}-Umgebung}
+Die Zufallsgröße $X$ ist nach $B(100;0{,}3)$ verteilt.
+\begin{enumerate}[label=\alph*)]
+  \item Berechnen Sie den Erwartungswert $\mu$ und die Standardabweichung $\sigma$ von $X$.
+  \item Bestimmen Sie die $2\sigma$-Umgebung von $\mu$ und geben Sie alle ganzzahligen Werte von $X$ an, die in ihr liegen.
+  \item Berechnen Sie die Wahrscheinlichkeit dafür, dass $X$ einen Wert aus dieser Umgebung annimmt.
+  \item Bei einer Durchführung des Zufallsexperiments werden $45$ Treffer erzielt. Beurteilen Sie dieses Ergebnis.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Hypothesentest}
+
+\begin{uebung}{Fehler beim Testen}
+Ein Hersteller behauptet, dass höchstens $10\,\%$ seiner Bauteile defekt sind. Ein Abnehmer möchte diese Behauptung überprüfen und testet die Nullhypothese $H_0$: \glqq Der Anteil defekter Bauteile beträgt höchstens $10\,\%$.\grqq{} gegen die Gegenhypothese $H_1$: \glqq Der Anteil defekter Bauteile beträgt mehr als $10\,\%$.\grqq{} Dazu werden $50$ zufällig ausgewählte Bauteile geprüft. Die Testgröße $X$ ist die Anzahl der defekten Bauteile in der Stichprobe. Der Abnehmer legt zunächst folgende Entscheidungsregel fest: Sind mindestens $9$ Bauteile defekt, wird $H_0$ abgelehnt.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie den kritischen Bereich $K$ und den Annahmebereich $\bar{K}$ an.
+  \item Beschreiben Sie den Fehler erster Art und den Fehler zweiter Art im Sachzusammenhang.
+  \item Berechnen Sie die Wahrscheinlichkeit für den Fehler erster Art, wenn der Anteil defekter Bauteile genau $10\,\%$ beträgt.
+  \item Tatsächlich sind $20\,\%$ der Bauteile defekt. Berechnen Sie für diesen Fall die Wahrscheinlichkeit für den Fehler zweiter Art.
+  \item Der Abnehmer möchte, dass die Wahrscheinlichkeit für den Fehler erster Art (bei einem Anteil von genau $10\,\%$) höchstens $5\,\%$ beträgt. Bestimmen Sie den kleinsten Wert von $k$, für den der kritische Bereich $K = \{k; k+1; \ldots; 50\}$ diese Bedingung erfüllt.
+  \item Beschreiben Sie, wie sich die Änderung der Entscheidungsregel aus e) auf die Wahrscheinlichkeit für den Fehler zweiter Art auswirkt, und nennen Sie eine Möglichkeit, beide Fehlerwahrscheinlichkeiten zu verringern.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Stetige Zufallsgrößen und Normalverteilung}
+
+\begin{uebung}*{Dichtefunktion}
+Gegeben ist die Funktion $f$ mit
+$$f(x)= \begin{cases}
+              k\cdot x\cdot(4-x) & \text{für}\hspace{0.5cm} 0\leq x\leq 4\\
+              0 & \text{sonst}
+         \end{cases}\qquad k\in\mathds{R}^+.$$
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie $k$ so, dass $f$ eine Dichtefunktion ist.
+  \item Die stetige Zufallsgröße $X$ besitzt die Dichtefunktion $f$. Berechnen Sie $P(1\leq X\leq 3)$.
+  \item Begründen Sie ohne Rechnung mithilfe einer Symmetrieüberlegung, dass $E(X)=2$ gilt.
+  \item Berechnen Sie die Varianz von $X$.
+  \item Geben Sie $P(X=2)$ an und begründen Sie Ihre Angabe.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Gauß'sche Glockenkurve}
+\begin{enumerate}[label=\alph*)]
+  \item Gegeben ist die Funktion $\varphi_{0;1}$ mit \[\varphi_{0;1}(x) = \dfrac{1}{\sqrt{2\pi}}\cdot e^{-\frac{x^2}{2}}.\] Zeigen Sie ohne Taschenrechner, dass ihr Graph an den Stellen $x=-1$ und $x=1$ Wendepunkte besitzt.
+  \item Der Hochpunkt des Graphen einer Gauß'schen Glockenfunktion $\varphi_{\mu;\sigma}$ ist $H(10|0{,}2)$. Bestimmen Sie $\mu$ und $\sigma$ (auf eine Nachkommastelle gerundet) und geben Sie die Wendestellen des Graphen an.
+  \item Beschreiben Sie, wie sich der Graph von $\varphi_{\mu;\sigma}$ verändert, wenn $\sigma$ bei gleichem $\mu$ verdoppelt wird.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Normalverteilung und \texorpdfstring{\(\sigma\)}{Sigma}-Regeln}
+Die Füllmenge von Saftflaschen (in ml) wird durch eine $N_{500;4}$-verteilte Zufallsgröße $X$ beschrieben.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie mithilfe der $\sigma$-Regeln näherungsweise die Wahrscheinlichkeit dafür, dass eine zufällig ausgewählte Flasche weniger als $492$\,ml enthält.
+  \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Füllmenge zwischen $495$\,ml und $505$\,ml liegt.
+  \item Bestimmen Sie ein zu $\mu$ symmetrisches Intervall, in dem die Füllmenge mit einer Wahrscheinlichkeit von etwa $95\,\%$ liegt.
+  \item Es werden $20$ Flaschen zufällig ausgewählt. Berechnen Sie die Wahrscheinlichkeit dafür, dass mindestens eine davon weniger als $492$\,ml enthält. Verwenden Sie dazu den exakten Wert aus der Normalverteilung.
+  \item Beurteilen Sie, ob die Modellierung der Füllmenge durch eine Normalverteilung sinnvoll ist.
+\end{enumerate}
+\end{uebung}

@@ -1,0 +1,137 @@
+% =====================================================================
+% Übungskapitel zu Kapitel 2 (Analytische Geometrie) – steht direkt hinter AnalytischeGeometrie.tex
+% Nummerierung: Ü 2.n ; Lösungen folgen in einem späteren Schritt.
+% =====================================================================
+\Uebungskapitel{Übungen zur Analytischen Geometrie}
+
+\Uebungsabschnitt{Vektoren und Vektorraum}
+
+\begin{uebung}*{Vektorketten im Spat}
+Die Vektoren $\vv{a}=\vv{AB}$, $\vv{b}=\vv{AD}$ und $\vv{c}=\vv{AE}$ spannen einen Spat $ABCDEFGH$ auf. Die Grundfläche ist das Parallelogramm $ABCD$, die Deckfläche das Parallelogramm $EFGH$, wobei $E$ über $A$, $F$ über $B$, $G$ über $C$ und $H$ über $D$ liegt.
+\begin{enumerate}[label=\alph*)]
+  \item Stellen Sie die Vektoren $\vv{AG}$, $\vv{BH}$ und $\vv{CE}$ mithilfe der Vektoren $\vv{a}$, $\vv{b}$ und $\vv{c}$ dar.
+  \item Der Punkt $M$ ist der Mittelpunkt der Strecke $\overline{FH}$. Stellen Sie den Vektor $\vv{AM}$ mithilfe der Vektoren $\vv{a}$, $\vv{b}$ und $\vv{c}$ dar.
+  \item Zeigen Sie mithilfe von Vektorketten, dass sich die Raumdiagonalen $\overline{AG}$ und $\overline{BH}$ gegenseitig halbieren.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Orts- und Verbindungsvektoren}
+Gegeben sind die Punkte $A(2|0|1)$, $B(4|2|0)$ und $C(2|4|1)$.
+\begin{enumerate}[label=\alph*)]
+  \item Berechnen Sie die Koordinaten der Vektoren $\vv{AB}$, $\vv{BC}$ und $\vv{AC}$ sowie deren Längen.
+  \item Begründen Sie, dass das Dreieck $ABC$ gleichschenklig ist, und geben Sie die Basis an.
+  \item Bestimmen Sie die Koordinaten des Schwerpunkts $S$ des Dreiecks $ABC$.
+  \item Bestimmen Sie die Koordinaten des Punktes $D$ so, dass das Viereck $ABCD$ ein Parallelogramm ist. Begründen Sie, dass dieses Parallelogramm eine Raute ist.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Skalar-, Vektor- und Spatprodukt}
+
+\begin{uebung}{Skalarprodukt und Winkel}
+\begin{enumerate}[label=\alph*)]
+  \item Berechnen Sie für das Dreieck $ABC$ aus Ü~2.2 die Größe des Innenwinkels $\beta$ bei $B$.
+  \item Untersuchen Sie ohne Taschenrechner, ob das Viereck $ABCD$ aus Ü~2.2 ein Quadrat ist.
+  \item Bestimmen Sie ohne Taschenrechner $t\in\mathds{R}$ so, dass die Vektoren $\begin{pmatrix} 1\\ t\\ 2\end{pmatrix}$ und $\begin{pmatrix} 3\\ -1\\ t\end{pmatrix}$ orthogonal zueinander sind.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Vektorprodukt und Spatprodukt}
+Gegeben sind die Punkte $O(0|0|0)$, $A(1|0|0)$, $B(0|2|0)$ und $C(0|0|3)$.
+\begin{enumerate}[label=\alph*)]
+  \item Berechnen Sie $\vv{AB}\times\vv{AC}$ und zeigen Sie, dass der Ergebnisvektor sowohl zu $\vv{AB}$ als auch zu $\vv{AC}$ orthogonal ist.
+  \item Berechnen Sie den Flächeninhalt des Dreiecks $ABC$.
+  \item Berechnen Sie mithilfe des Spatprodukts das Volumen der dreiseitigen Pyramide $OABC$.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Lineare Abhängigkeit und Unabhängigkeit}
+
+\begin{uebung}*{Lineare Abhängigkeit}
+\begin{enumerate}[label=\alph*)]
+  \item Zeigen Sie, dass die Vektoren $\begin{pmatrix} 1\\ 2\\ 3\end{pmatrix}$, $\begin{pmatrix} 2\\ 3\\ 1\end{pmatrix}$ und $\begin{pmatrix} 3\\ 5\\ 4\end{pmatrix}$ linear abhängig sind.
+  \item Bestimmen Sie $a\in\mathds{R}$ so, dass die Vektoren $\begin{pmatrix} 1\\ 0\\ a\end{pmatrix}$, $\begin{pmatrix} 0\\ 1\\ 2\end{pmatrix}$ und $\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix}$ linear abhängig sind.
+  \item Erläutern Sie die geometrische Bedeutung der linearen Abhängigkeit dreier Vektoren im Raum.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Geraden im Raum}
+
+\begin{uebung}{Spurpunkte, Lagebeziehung und Schnittwinkel von Geraden}
+Gegeben sind die Geraden
+\[g: \vv{X} = \begin{pmatrix} 1\\ 2\\ 3\end{pmatrix} + \lambda\cdot\begin{pmatrix} 1\\ -1\\ 2\end{pmatrix},\quad
+h_1: \vv{X} = \mu\cdot\begin{pmatrix} -2\\ 2\\ -4\end{pmatrix},\]
+\[h_2: \vv{X} = \begin{pmatrix} 2\\ 3\\ 7\end{pmatrix} + \mu\cdot\begin{pmatrix} 0\\ 1\\ 1\end{pmatrix},\quad
+h_3: \vv{X} = \begin{pmatrix} 0\\ 1\\ 0\end{pmatrix} + \mu\cdot\begin{pmatrix} 1\\ 1\\ 0\end{pmatrix}\]
+mit $\lambda,\mu\in\mathds{R}$.
+\begin{enumerate}[label=\alph*)]
+  \item Bestimmen Sie ohne Taschenrechner die Spurpunkte der Geraden $g$ mit den drei Koordinatenebenen.
+  \item Untersuchen Sie ohne Taschenrechner die gegenseitige Lage der Geraden $g$ und $h_1$, $g$ und $h_2$ sowie $g$ und $h_3$. Bestimmen Sie gegebenenfalls die Koordinaten des Schnittpunkts.
+  \item Berechnen Sie die Größe des Schnittwinkels der Geraden $g$ und $h_2$.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Ebenen im Raum}
+
+\begin{uebung}*{Darstellungsformen von Ebenen}
+Die Punkte $A(2|0|0)$, $B(0|4|0)$ und $C(0|0|4)$ legen die Ebene $E$ fest.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie eine Gleichung der Ebene $E$ in Parameterform an.
+  \item Bestimmen Sie einen Normalenvektor von $E$ und zeigen Sie, dass $E: 2x_1+x_2+x_3-4=0$ eine Gleichung von $E$ in Koordinatenform ist.
+  \item Prüfen Sie, ob der Punkt $P(1|1|1)$ in der Ebene $E$ liegt.
+  \item Gegeben ist die Ebene $F: x_1-2x_2+2x_3-6=0$. Bestimmen Sie eine Gleichung von $F$ in Parameterform.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Lagebeziehungen und Winkel}
+Gegeben sind die Ebenen $E: 2x_1+x_2+x_3-4=0$ und $F: x_1-2x_2+2x_3-6=0$ sowie die Geraden
+\[g: \vv{X} = \begin{pmatrix} 1\\ 1\\ 4\end{pmatrix} + \lambda\cdot\begin{pmatrix} 1\\ -1\\ -1\end{pmatrix}\quad\text{und}\quad
+k: \vv{X} = \begin{pmatrix} 0\\ 0\\ 1\end{pmatrix} + \lambda\cdot\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix}\quad(\lambda\in\mathds{R}).\]
+\begin{enumerate}[label=\alph*)]
+  \item Zeigen Sie ohne Taschenrechner, dass die Gerade $g$ echt parallel zur Ebene $E$ verläuft.
+  \item Bestimmen Sie ohne Taschenrechner die Koordinaten des Schnittpunkts $S$ der Geraden $k$ mit der Ebene $E$ und berechnen Sie die Größe des Schnittwinkels zwischen $k$ und $E$.
+  \item Begründen Sie, dass sich die Ebenen $E$ und $F$ schneiden, und bestimmen Sie eine Gleichung der Schnittgeraden.
+  \item Berechnen Sie die Größe des Schnittwinkels der Ebenen $E$ und $F$.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Abstände im Raum}
+
+\begin{uebung}*{Abstände}
+\begin{enumerate}[label=\alph*)]
+  \item Berechnen Sie den Abstand des Punktes $P(3|4|5)$ von der Ebene $E: x_1+2x_2+2x_3-6=0$.
+  \item Gegeben ist die Gerade \[g: \vv{X} = \begin{pmatrix} 1\\ 2\\ 3\end{pmatrix} + \lambda\cdot\begin{pmatrix} 1\\ -1\\ 2\end{pmatrix}\quad(\lambda\in\mathds{R}).\] Bestimmen Sie den Abstand des Punktes $Q(3|0|4)$ von der Geraden $g$ sowie die Koordinaten des zugehörigen Lotfußpunkts.
+  \item Gegeben ist zusätzlich die Gerade \[h: \vv{X} = \begin{pmatrix} 0\\ 1\\ 0\end{pmatrix} + \mu\cdot\begin{pmatrix} 1\\ 1\\ 0\end{pmatrix}\quad(\mu\in\mathds{R}).\] Berechnen Sie den Abstand der windschiefen Geraden $g$ und $h$.
+\end{enumerate}
+\end{uebung}
+
+\Uebungsabschnitt{Anwendungen}
+
+\begin{uebung}*{Kugel und Ebene}
+Gegeben sind die Kugel $K: (x_1-2)^2+(x_2-1)^2+(x_3+1)^2 = 25$ und die Ebene $E: x_1+2x_2+2x_3+7=0$.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie den Mittelpunkt $M$ und den Radius $R$ der Kugel an. Prüfen Sie, ob der Punkt $P(5|5|-1)$ auf der Kugel liegt und ob der Punkt $Q(4|3|0)$ innerhalb oder außerhalb der Kugel liegt.
+  \item Zeigen Sie, dass die Ebene $E$ die Kugel $K$ in einem Kreis schneidet.
+  \item Bestimmen Sie den Mittelpunkt und den Radius des Schnittkreises.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}*{Spiegelung eines Punktes an einer Ebene}
+Gegeben sind die Ebene $E: x_1+2x_2+2x_3-6=0$ und der Punkt $P(3|3|3)$.
+\begin{enumerate}[label=\alph*)]
+  \item Geben Sie eine Gleichung der Lotgeraden $\ell$ zu $E$ durch $P$ an.
+  \item Bestimmen Sie die Koordinaten des Lotfußpunkts $F$ und den Abstand des Punktes $P$ von der Ebene $E$.
+  \item Bestimmen Sie die Koordinaten des Bildpunkts $P'$ bei der Spiegelung von $P$ an der Ebene $E$.
+\end{enumerate}
+\end{uebung}
+
+\begin{uebung}{Pyramide (Abiturniveau)}
+Gegeben sind die Punkte $A(0|0|0)$, $B(4|0|0)$, $C(4|4|0)$, $D(0|4|0)$ und $S(2|2|6)$. Sie sind die Eckpunkte einer Pyramide $ABCDS$ mit der Spitze $S$.
+\begin{enumerate}[label=\alph*)]
+  \item Zeigen Sie, dass die Grundfläche $ABCD$ ein Quadrat ist, und berechnen Sie das Volumen der Pyramide.
+  \item Bestimmen Sie eine Gleichung der Ebene $L$, in der die Seitenfläche $BCS$ liegt, in Koordinatenform.\\
+  {\small (zur Kontrolle: $L: 3x_1+x_3-12=0$)}
+  \item Berechnen Sie die Größe des Winkels, den die Seitenfläche $BCS$ mit der Grundfläche einschließt.
+  \item Berechnen Sie den Abstand des Punktes $A$ von der Ebene $L$.
+  \item Der Punkt $N$ ist der Mittelpunkt der Kante $\overline{BC}$. Berechnen Sie die Länge der Strecke $\overline{NS}$ und damit den Flächeninhalt des Dreiecks $BCS$. Bestätigen Sie Ihr Ergebnis mithilfe des Vektorprodukts.
+\end{enumerate}
+\end{uebung}
