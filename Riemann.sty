@@ -1,10 +1,8 @@
-\usepackage{pgfplots}
+\RequirePackage{pgfplots}
 \usepgfplotslibrary{groupplots}
-\pgfplotsset{compat=1.18}
-\pagestyle{empty}
 
 % Zahlformat separat (richtiger Pfad)
-\pgfplotsset{/pgf/number format/.cd, fixed, precision=4}
+\pgfplotsset{/pgf/number format/.cd, fixed, precision=3, use comma}
 % keine weißen Kästchen um Ticks/Labels
 \pgfplotsset{/pgfplots/.cd,
   tick label style={fill=none, draw=none},

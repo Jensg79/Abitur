@@ -25,8 +25,9 @@
 \RequirePackage{Riemann}
 \RequirePackage{bestIntegral}
 \RequirePackage{amsmath,amssymb,amsfonts,amsthm,mathrsfs}
+\RequirePackage{icomma} % Dezimalkomma im Mathemodus ohne Zusatzabstand
 \RequirePackage{geometry}
-\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=20mm}
+\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=20mm,headheight=14pt,marginparwidth=15mm}
 
 \RequirePackage{graphicx}
 \RequirePackage{array,multirow, booktabs}
@@ -47,8 +48,8 @@
   colorlinks=true,
   linkcolor=blue,
   urlcolor=red,
-  pdftitle={Vorbereitung auf das Mathematikabitur in Bayern}
-  pdfcopyright={© 2026 J. Gundelwein}
+  pdftitle={Vorbereitung auf das Mathematikabitur in Bayern},
+  pdfauthor={J. Gundelwein}
 }
 
 \RequirePackage{csquotes}
@@ -155,7 +156,7 @@
   colframe=orange!70!black, colback=orange!5,
   title=\textbf{Hinweis},
   fonttitle=\bfseries, rounded corners,
-  title after break={Hinweis (Fortsetzung)}
+  title after break={Hinweis (Fortsetzung)},
   boxrule=0.6mm, drop shadow=gray!20, #1}
 
 \newtcbtheorem[no counter]{rechnung}
