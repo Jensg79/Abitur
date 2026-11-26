@@ -208,13 +208,17 @@ colframe=gray!85!black,fonttitle=\bfseries,
      {\begin{uebungbox}{#2}{}}}
   {\end{uebungbox}}
 % Kopf eines Übungskapitels (unnummeriert, damit die Kapitelnummern der Inhaltskapitel erhalten bleiben)
+\newlength{\UebungSpaltenlinie}
 \newcommand{\Uebungskapitel}[1]{%
-  \cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{#1}%
   \chapter*{#1}%
+  \phantomsection\addcontentsline{toc}{chapter}{#1}%
+  \setlength{\UebungSpaltenlinie}{\columnseprule}% bisherigen Wert sichern
   \setlength{\columnseprule}{0pt}%
   \begin{hinweisbox}
   Die Aufgaben sind mit \textbf{Ü~\(k.n\)} nummeriert (\(k\): Kapitel, \(n\): Aufgabe) und beziehen sich nur auf den Stoff dieses und der vorangehenden Kapitel. Aufgaben mit \faBan\ \textbf{ohne Hilfsmittel} sind ohne Taschenrechner und Formelsammlung zu bearbeiten, alle anderen mit den zugelassenen Hilfsmitteln. Die Aufgaben steigern sich innerhalb eines Abschnitts von Grundlagen bis zum Abiturniveau.
   \end{hinweisbox}}
+% Ende eines Übungskapitels: stellt die vorherige Spaltentrennlinie wieder her
+\newcommand{\UebungskapitelEnde}{\setlength{\columnseprule}{\UebungSpaltenlinie}}
 \newcommand{\Uebungsabschnitt}[1]{\section*{#1}\phantomsection\addcontentsline{toc}{section}{#1}}
 
 % --- Hintergrundbild für Anhang ---
