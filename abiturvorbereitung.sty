@@ -202,10 +202,13 @@ colframe=gray!85!black,fonttitle=\bfseries,
   title={\faPencil*\ Ü~\theuebung\ \textendash\ #1\hfill #2},
   title after break={\faPencil*\ Ü~\theuebung\ (Fortsetzung)}}
 \NewDocumentEnvironment{uebung}{s m}
-  {\refstepcounter{uebung}\label{ue:\theuebung}%
+  {\refstepcounter{uebung}%
    \IfBooleanTF{#1}
      {\begin{uebungbox}{#2}{\normalfont\small\faBan\ ohne Hilfsmittel}}
-     {\begin{uebungbox}{#2}{}}}
+     {\begin{uebungbox}{#2}{}}%
+   % Label erst innerhalb der Box setzen: rutscht die Box auf die nächste Seite,
+   % stimmen Seitenzahl und Linkziel für den Verweis im Lösungsteil trotzdem.
+   \phantomsection\label{ue:\theuebung}\ignorespaces}
   {\end{uebungbox}}
 % Kopf eines Übungskapitels (unnummeriert, damit die Kapitelnummern der Inhaltskapitel erhalten bleiben)
 \newlength{\UebungSpaltenlinie}
