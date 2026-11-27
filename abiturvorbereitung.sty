@@ -205,7 +205,10 @@ colframe=gray!85!black,fonttitle=\bfseries,
   {\refstepcounter{uebung}%
    \IfBooleanTF{#1}
      {\begin{uebungbox}{#2}{\normalfont\small\faBan\ ohne Hilfsmittel}}
-     {\begin{uebungbox}{#2}{}}}
+     {\begin{uebungbox}{#2}{}}%
+   % Label erst innerhalb der Box setzen: rutscht die Box auf die nächste Seite,
+   % stimmen Seitenzahl und Linkziel für den Verweis im Lösungsteil trotzdem.
+   \phantomsection\label{ue:\theuebung}\ignorespaces}
   {\end{uebungbox}}
 % Kopf eines Übungskapitels (unnummeriert, damit die Kapitelnummern der Inhaltskapitel erhalten bleiben)
 \newlength{\UebungSpaltenlinie}
@@ -220,6 +223,22 @@ colframe=gray!85!black,fonttitle=\bfseries,
 % Ende eines Übungskapitels: stellt die vorherige Spaltentrennlinie wieder her
 \newcommand{\UebungskapitelEnde}{\setlength{\columnseprule}{\UebungSpaltenlinie}}
 \newcommand{\Uebungsabschnitt}[1]{\section*{#1}\phantomsection\addcontentsline{toc}{section}{#1}}
+
+% --- Lösungsteil (am Ende des Buches) ---
+% \begin{loesung}{<Nr.>}{<Thema>} ... \end{loesung}  -> Lösung zu Ü <Nr.>, verweist auf die Seite der Aufgabe
+% Die Aufgabe setzt dafür automatisch das Label ue:<Nr.> (siehe Umgebung uebung).
+\NewDocumentEnvironment{loesung}{m m}
+  {\begin{lsg}{Ü~#1 \textendash\ #2\hfill{\normalfont\small\hyperref[ue:#1]{\faPencil*\ Aufgabe S.~\pageref*{ue:#1}}}}{}}
+  {\end{lsg}}
+\newcommand{\Loesungskapitel}[1]{%
+  \chapter*{#1}%
+  \phantomsection\addcontentsline{toc}{chapter}{#1}%
+  \setlength{\UebungSpaltenlinie}{\columnseprule}%
+  \setlength{\columnseprule}{0pt}%
+  \begin{hinweisbox}
+  Die Lösungen tragen dieselbe Nummer \textbf{Ü~\(k.n\)} wie die zugehörige Aufgabe; über den Verweis rechts in der Titelzeile gelangen Sie zur Aufgabenstellung. Zu jedem Schritt ist kurz angegeben, welcher Satz bzw. welches Verfahren verwendet wird. Gerundete Werte sind mit \(\approx\) gekennzeichnet; gerechnet wird stets mit den ungerundeten Werten.
+  \end{hinweisbox}}
+\newcommand{\LoesungskapitelEnde}{\setlength{\columnseprule}{\UebungSpaltenlinie}}
 
 % --- Hintergrundbild für Anhang ---
 \RequirePackage{eso-pic}

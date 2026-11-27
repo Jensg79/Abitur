@@ -1,0 +1,534 @@
+% =====================================================================
+% Lösungsteil zu Kapitel 1 (Analysis) – Lösungen zu Ü 1.1 bis Ü 1.23
+% Steht am Ende des Buches hinter dem Anhang.
+% Alle Ergebnisse wurden mit SymPy nachgerechnet.
+% =====================================================================
+\Loesungskapitel{Lösungen zur Analysis}
+
+\Uebungsabschnitt{Lokales und globales Differenzieren}
+
+\begin{loesung}{1.1}{Änderungsrate und h-Methode}
+\begin{enumerate}[label=\alph*)]
+  \item \textit{Verfahren:} Die mittlere Änderungsrate ist der Differenzenquotient (Steigung der Sekante).
+  \[f(1) = 1-2+3 = 2,\qquad f(4) = 16-8+3 = 11\]
+  \[m_S = \dfrac{f(4)-f(1)}{4-1} = \dfrac{11-2}{3} = 3\]
+  Die mittlere Änderungsrate von $f$ in $[1;4]$ beträgt $3$.
+  \item \textit{Verfahren:} h-Methode, d.\,h. Grenzwert des Differenzenquotienten $f'(x_0)=\lim\limits_{h\longrightarrow 0}\dfrac{f(x_0+h)-f(x_0)}{h}$.
+  \begin{align*}
+    f(2+h) &= (2+h)^2-2(2+h)+3 = 4+4h+h^2-4-2h+3 = h^2+2h+3\\
+    f(2) &= 3\\
+    \dfrac{f(2+h)-f(2)}{h} &= \dfrac{h^2+2h}{h} = h+2 \quad (h\neq 0)\\
+    f'(2) &= \lim\limits_{h\longrightarrow 0}(h+2) = 2
+  \end{align*}
+  \item \textit{Begründung:} Parallele Geraden haben dieselbe Steigung. Gesucht ist also $x_0$ mit $f'(x_0)=m_S=3$.\\
+  Mit der Potenz-, Faktor- und Summenregel gilt $f'(x) = 2x-2$.
+  \[2x_0-2 = 3 \quad\Longleftrightarrow\quad x_0 = \dfrac{5}{2}\]
+  Die Stelle $x_0=\frac{5}{2}$ liegt im Intervall $[1;4]$. Die Tangente in $\left(\frac{5}{2}\big|f(\frac{5}{2})\right)$ verläuft parallel zur Sekante.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.2}{Stetigkeit und Differenzierbarkeit}
+\begin{enumerate}[label=\alph*)]
+  \item \textit{Verfahren:} h-Methode mit links- und rechtsseitigem Grenzwert, denn der Betrag wird für $h<0$ und $h>0$ unterschiedlich aufgelöst. Es ist $f(3)=1$ und $f(3+h) = |h|+1$.
+  \begin{align*}
+    h<0:&\quad \dfrac{f(3+h)-f(3)}{h} = \dfrac{|h|}{h} = \dfrac{-h}{h} = -1 \;\longrightarrow\; -1\\
+    h>0:&\quad \dfrac{f(3+h)-f(3)}{h} = \dfrac{|h|}{h} = \dfrac{h}{h} = 1 \;\longrightarrow\; 1
+  \end{align*}
+  Der linksseitige Grenzwert $-1$ und der rechtsseitige Grenzwert $1$ stimmen nicht überein. Der Grenzwert des Differenzenquotienten existiert also nicht, und $f$ ist an der Stelle $x_0=3$ \textbf{nicht differenzierbar}.\\
+  \textit{Bedeutung:} $G_f$ hat im Punkt $(3|1)$ einen \glqq Knick\grqq{}. Von links kommend hat der Graph die Steigung $-1$, nach rechts die Steigung $1$. Dort lässt sich keine eindeutige Tangente anlegen.
+  \item \textit{Begründung:} $f$ ist an $x_0$ stetig, wenn der Grenzwert von $f(x)$ für $x\longrightarrow x_0$ existiert und gleich $f(x_0)$ ist.\\
+  Für $x\longrightarrow 3$ (von links wie von rechts) gilt $|x-3|\longrightarrow 0$, also $f(x) = |x-3|+1\longrightarrow 1 = f(3)$. Damit ist $f$ an der Stelle $3$ stetig. Der Graph lässt sich dort \glqq ohne Absetzen\grqq{} zeichnen.
+  \item \textit{Stetigkeit:} Links- und rechtsseitiger Grenzwert müssen mit $g(2)$ übereinstimmen.
+  \[\lim\limits_{x\longrightarrow 2^-} x^2 = 4 = g(2),\qquad \lim\limits_{x\longrightarrow 2^+}(ax+b) = 2a+b \quad\Longrightarrow\quad 2a+b = 4 \quad\text{(I)}\]
+  \textit{Differenzierbarkeit:} Die Steigungen beider Teilfunktionen müssen an der Stelle $2$ übereinstimmen.
+  \[(x^2)' = 2x \;\Rightarrow\; 2\cdot 2 = 4,\qquad (ax+b)' = a \quad\Longrightarrow\quad a = 4 \quad\text{(II)}\]
+  (II) in (I): $8+b=4$, also $b=-4$. Für $a=4$ und $b=-4$ ist $g$ an der Stelle $2$ stetig und differenzierbar. Die Gerade $y=4x-4$ ist dann genau die Tangente an die Parabel im Punkt $(2|4)$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.3}{Lineare Transformation}
+\textit{Grundlage:} Merkekasten \glqq Allgemeine Darstellung der Linearen Transformationen\grqq.
+\begin{enumerate}[label=\alph*)]
+  \item Ausgehend von $y=x^2$ entsteht $G_g$ durch
+  \begin{enumerate}[label=\arabic*.]
+    \item Verschiebung um $1$ in negative $x$-Richtung (nach links), denn $x$ wird durch $x-(-1)=x+1$ ersetzt,
+    \item Streckung in Richtung der $y$-Achse mit dem Faktor $2$,
+    \item Spiegelung an der $x$-Achse (Vorzeichen $-$ vor dem Faktor $2$),
+    \item Verschiebung um $3$ in Richtung der $y$-Achse nach oben.
+  \end{enumerate}
+  Der Graph ist eine nach unten geöffnete, gestreckte Parabel mit dem Scheitel $S(-1|3)$.
+  \item Spiegelung an der $y$-Achse: $x$ wird durch $-x$ ersetzt, $f(-x) = \sqrt{-x}$.\\
+  Verschiebung um $2$ nach oben: $+2$ zum Funktionsterm.
+  \[k(x) = \sqrt{-x}+2\]
+  Der Radikand darf nicht negativ sein: $-x\geq 0 \Longleftrightarrow x\leq 0$. Also ist $\mathds{D}_k = ]-\infty;0]$.
+  \item Nach dem Merkekasten entsteht der Graph von $x\mapsto h(a\cdot x)$ mit $a>0$ aus $G_h$ durch Stauchung bzw. Streckung in Richtung der $x$-Achse mit dem Faktor $\frac{1}{a}$. Aus $\frac{1}{a}=\frac{1}{2}$ folgt $a=2$.
+  \[\tilde{h}(x) = \sin{(2x)}\]
+  Periode: $p = \dfrac{2\pi}{2} = \pi$. Die Periode halbiert sich von $2\pi$ auf $\pi$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.4}{Newton-Verfahren}
+\begin{enumerate}[label=\alph*)]
+  \item \textit{Existenz:} $f$ ist als ganzrationale Funktion stetig. Es gilt
+  \[f(0) = -1 < 0 \qquad\text{und}\qquad f(1) = 1+1-1 = 1 > 0.\]
+  Weil $f$ stetig ist und das Vorzeichen zwischen $0$ und $1$ wechselt, muss $G_f$ die $x$-Achse in $]0;1[$ schneiden.\\
+  \textit{Eindeutigkeit:} $f'(x) = 3x^2+1 > 0$ für alle $x\in\mathds{R}$. Nach dem Satz \glqq Bedingung für die Monotonie\grqq{} ist $f$ in ganz $\mathds{R}$ streng monoton wachsend und kann deshalb höchstens eine Nullstelle haben.\\
+  Zusammen: $f$ hat genau eine Nullstelle, und diese liegt in $[0;1]$.
+  \item \textit{Verfahren:} Newton-Iteration $x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)}$ mit $f'(x)=3x^2+1$.
+  \begin{align*}
+    x_1 &= 1 - \dfrac{f(1)}{f'(1)} = 1-\dfrac{1}{4} = 0{,}75 = 0{,}7500\\
+    x_2 &= 0{,}75 - \dfrac{f(0{,}75)}{f'(0{,}75)} = 0{,}75 - \dfrac{0{,}171875}{2{,}6875} = \dfrac{59}{86} \approx 0{,}6860
+  \end{align*}
+  (Zum Vergleich: Die Nullstelle ist $x_N\approx 0{,}6823$.)
+  \item $g'(x) = 3x^2-3$, also $g'(1) = 0$. Die Tangente an $G_g$ im Startpunkt $(1|-2)$ verläuft waagrecht und schneidet die $x$-Achse nicht. Im Newton-Verfahren müsste man durch $g'(1)=0$ teilen. Der Wert $x_1$ ist also nicht definiert und das Verfahren bricht ab.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Kurvendiskussion}
+
+\begin{loesung}{1.5}{Tangente und Normale}
+Ableitung (Potenz-, Faktor- und Summenregel): $f'(x) = 3x^2-6x$.
+\begin{enumerate}[label=\alph*)]
+  \item $f(1) = 1-3+4 = 2$, also $P(1|2)$. Steigung: $f'(1) = 3-6 = -3$.\\
+  \textit{Verfahren:} Tangentengleichung $y = f'(x_0)\cdot(x-x_0)+f(x_0)$.
+  \[t:\ y = -3\cdot(x-1)+2 = -3x+5\]
+  \item \textit{Definition der Normalen:} $m_{\text{Normale}} = -\dfrac{1}{m_{\text{Tangente}}} = -\dfrac{1}{-3} = \dfrac{1}{3}$.
+  \[n:\ y = \dfrac{1}{3}(x-1)+2 = \dfrac{1}{3}x+\dfrac{5}{3}\]
+  \item Parallele Geraden haben gleiche Steigung. Gesucht sind die Stellen mit $f'(x)=9$.
+  \begin{align*}
+    3x^2-6x &= 9 \quad\Big|\,:3\\
+    x^2-2x-3 &= 0\\
+    (x-3)(x+1) &= 0 \quad\Longrightarrow\quad x_1 = -1,\ x_2 = 3
+  \end{align*}
+  $f(-1) = -1-3+4 = 0$ und $f(3) = 27-27+4 = 4$. Die gesuchten Punkte sind $(-1|0)$ und $(3|4)$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.6}{Monotonie, Extrema und Krümmung}
+\begin{enumerate}[label=\alph*)]
+  \item Ausklammern und binomische Formel:
+  \[f(x) = x\cdot(x^2-6x+9) = x\cdot(x-3)^2\]
+  Nach dem Satz vom Nullprodukt sind die Nullstellen $x_1=0$ (einfach, $G_f$ schneidet die $x$-Achse) und $x_2=3$ (doppelt, $G_f$ berührt die $x$-Achse).
+  \item $f'(x) = 3x^2-12x+9 = 3\cdot(x^2-4x+3) = 3\cdot(x-1)(x-3)$, Nullstellen von $f'$: $1$ und $3$.
+  \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$ & $x<1$ & $x=1$ & $1<x<3$ & $x=3$ & $x>3$\\
+    \hline\hline
+    $3\cdot(x-1)$ & $-$ & $0$ & $+$ & $+$ & $+$\\
+    \hline
+    $(x-3)$ & $-$ & $-$ & $-$ & $0$ & $+$\\
+    \hline
+    $f'(x)$ & $+$ & $0$ & $-$ & $0$ & $+$\\
+    \hline
+    $G_f$ & smw & HoP & smf & TiP & smw\\
+    \hline
+  \end{tabular}\end{center}
+  Nach dem Satz \glqq Bedingung für die Monotonie\grqq{} ist $G_f$ in $]-\infty;1]$ und in $[3;\infty[$ streng monoton wachsend, in $[1;3]$ streng monoton fallend. Vorzeichenwechsel von $f'$ von $+$ nach $-$ bei $x=1$ ergibt einen Hochpunkt, von $-$ nach $+$ bei $x=3$ einen Tiefpunkt.
+  \[f(1) = 1-6+9 = 4 \;\Longrightarrow\; HoP(1|4),\qquad f(3) = 0 \;\Longrightarrow\; TiP(3|0)\]
+  \item $f''(x) = 6x-12 = 6\cdot(x-2)$. Nach dem Kriterium der Krümmung gilt:
+  \begin{itemize}
+    \item $x<2$: $f''(x)<0$, $G_f$ ist rechtsgekrümmt.
+    \item $x>2$: $f''(x)>0$, $G_f$ ist linksgekrümmt.
+  \end{itemize}
+  Bei $x=2$ wechselt $f''$ das Vorzeichen, dort liegt ein Wendepunkt. Mit $f(2) = 8-24+18 = 2$ folgt $WP(2|2)$.
+  \item $f'(2) = 12-24+9 = -3$. Tangentengleichung:
+  \[w:\ y = -3\cdot(x-2)+2 = -3x+8\]
+  \item Zusätzliche Werte für die Skizze: $f(-0{,}5) = -6{,}125$ und $f(4{,}5) = 10{,}125$.
+  \begin{center}
+  \begin{tikzpicture}
+  \begin{axis}[ticklabel style={fill=none}, every tick label/.append style={fill=none},
+      axis lines=middle, xmin=-1, xmax=5, ymin=-7, ymax=11,
+      x=1.2cm, y=0.3cm, xtick={-1,0,...,5}, ytick={-6,-4,...,10},
+      xlabel=$x$, ylabel=$y$, grid=major, grid style={gray!30}]
+    \addplot[thick, samples=200, domain=-0.5:4.5]{x^3-6*x^2+9*x};
+    \addplot[dashed, red, domain=0.5:3.5]{-3*x+8};
+    \addplot[only marks, mark=*] coordinates {(1,4) (3,0) (2,2) (0,0)};
+    \node[above] at (axis cs:1,4) {\small $HoP$};
+    \node[below right] at (axis cs:3,0) {\small $TiP$};
+    \node[right] at (axis cs:2,2.4) {\small $WP$};
+    \node[right] at (axis cs:4.1,9) {$G_f$};
+    \node[red, right] at (axis cs:3.3,-3) {\small $w$};
+  \end{axis}
+  \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.7}{Ausführliche Kurvendiskussion}
+\textit{Vorgehen:} Schritte der ausführlichen Kurvendiskussion (Merkekasten).
+\begin{enumerate}[label=\alph*)]
+  \item $f$ ist ganzrational, also ist $\mathds{D}_{\text{max}} = \mathds{R}$.\\
+  \textit{Symmetrie:} $f(-x) = \frac{1}{4}x^4+x^3$. Das ist weder $f(x)$ noch $-f(x)$, weil der Term gerade ($x^4$) und ungerade ($x^3$) Exponenten enthält. Zum Beispiel ist $f(1)=-\frac{3}{4}$, aber $f(-1)=\frac{5}{4}$. $G_f$ ist weder achsensymmetrisch zur $y$-Achse noch punktsymmetrisch zum Ursprung.
+  \item \textit{Randverhalten:} Für $|x|\longrightarrow\infty$ bestimmt der Summand mit dem höchsten Exponenten, $\frac{1}{4}x^4$, das Verhalten:
+  \[\lim\limits_{x\longrightarrow -\infty} f(x) = +\infty,\qquad \lim\limits_{x\longrightarrow +\infty} f(x) = +\infty\]
+  \textit{Achsenpunkte:} $f(0) = 0$, also $S_y(0|0)$. Nullstellen:
+  \[\dfrac{1}{4}x^4-x^3 = \dfrac{1}{4}x^3\cdot(x-4) = 0 \quad\Longrightarrow\quad x_1 = 0 \text{ (dreifach)},\ x_2 = 4\]
+  Gemeinsame Punkte mit den Achsen: $O(0|0)$ und $N(4|0)$.
+  \item $f'(x) = x^3-3x^2 = x^2\cdot(x-3)$. Notwendige Bedingung $f'(x)=0$: $x=0$ (doppelt) oder $x=3$.\\
+  Weil $x^2\geq 0$ ist, hat $f'(x)$ für $x\neq 0$ dasselbe Vorzeichen wie $(x-3)$:
+  \begin{center}\begin{tabular}{||c|c|c|c|c|c||}
+    \hline
+    $x$ & $x<0$ & $x=0$ & $0<x<3$ & $x=3$ & $x>3$\\
+    \hline\hline
+    $f'(x)$ & $-$ & $0$ & $-$ & $0$ & $+$\\
+    \hline
+    $G_f$ & smf & Terrassenpunkt & smf & TiP & smw\\
+    \hline
+  \end{tabular}\end{center}
+  \begin{itemize}
+    \item $x=0$: $f'(0)=0$, aber kein Vorzeichenwechsel von $f'$ (doppelte Nullstelle). Nach dem Kriterium für einen Terrassenpunkt liegt im Ursprung $O(0|0)$ ein \textbf{Terrassenpunkt}.
+    \item $x=3$: Vorzeichenwechsel von $-$ nach $+$, also Tiefpunkt. $f(3) = \frac{81}{4}-27 = -\frac{27}{4}$, also $TiP\left(3\big|-\frac{27}{4}\right)$.
+  \end{itemize}
+  \item $f''(x) = 3x^2-6x = 3x\cdot(x-2)$, Nullstellen $x=0$ und $x=2$. Beide sind einfach, $f''$ wechselt dort also das Vorzeichen ($f''>0$ für $x<0$, $f''<0$ für $0<x<2$, $f''>0$ für $x>2$).\\
+  Damit gibt es zwei Wendepunkte: $W_1(0|0)$, der zugleich der Terrassenpunkt ist, und $W_2(2|-4)$ wegen $f(2) = 4-8 = -4$.
+  \item $f$ ist stetig, besitzt nur den einen Tiefpunkt und strebt an beiden Rändern gegen $+\infty$. Der Tiefpunkt ist daher der absolut tiefste Punkt, und alle Werte ab $-\frac{27}{4}$ werden angenommen:
+  \[W_f = \left[-\dfrac{27}{4};\infty\right[\]
+  \begin{center}
+  \begin{tikzpicture}
+  \begin{axis}[ticklabel style={fill=none}, every tick label/.append style={fill=none},
+      axis lines=middle, xmin=-2, xmax=5, ymin=-8, ymax=8,
+      x=1cm, y=0.3cm, xtick={-2,-1,...,5}, ytick={-8,-6,...,8},
+      xlabel=$x$, ylabel=$y$, grid=major, grid style={gray!30}]
+    \addplot[thick, samples=200, domain=-1.6:4.7]{0.25*x^4-x^3};
+    \addplot[only marks, mark=*] coordinates {(0,0) (3,-6.75) (2,-4) (4,0)};
+    \node[above left] at (axis cs:0,0) {\small $O$};
+    \node[below] at (axis cs:3,-6.75) {\small $TiP$};
+    \node[left] at (axis cs:2,-4) {\small $W_2$};
+    \node[right] at (axis cs:4,0.6) {\small $N$};
+    \node[right] at (axis cs:-1.5,6) {$G_f$};
+  \end{axis}
+  \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.8}{Graph der Ableitungsfunktion}
+\textit{Grundidee:} Das Vorzeichen von $f'$ (Lage von $G_{f'}$ oberhalb oder unterhalb der $x$-Achse) gibt die Monotonie von $f$ an. Die Steigung von $G_{f'}$ (also $f''$) gibt die Krümmung von $G_f$ an.
+\begin{enumerate}[label=\alph*)]
+  \item $f'$ hat die Nullstellen $-1$ und $3$, und an beiden wechselt das Vorzeichen:
+  \begin{itemize}
+    \item $x=-1$: $G_{f'}$ verläuft links von $-1$ oberhalb, rechts davon unterhalb der $x$-Achse. VZW von $+$ nach $-$, also hat $f$ bei $x=-1$ ein \textbf{Maximum} (Hochpunkt).
+    \item $x=3$: VZW von $-$ nach $+$, also hat $f$ bei $x=3$ ein \textbf{Minimum} (Tiefpunkt).
+  \end{itemize}
+  \item Eine Wendestelle von $f$ ist eine Extremstelle von $f'$. Die Parabel $G_{f'}$ hat ihren Scheitel (Tiefpunkt) wegen der Symmetrie in der Mitte zwischen den Nullstellen, also bei $x=\frac{-1+3}{2}=1$. Links davon fällt $G_{f'}$ ($f''<0$, $G_f$ rechtsgekrümmt), rechts davon steigt $G_{f'}$ ($f''>0$, $G_f$ linksgekrümmt). Die Wendestelle von $f$ ist $x=1$.
+  \item Im Intervall $]-1;3[$ verläuft $G_{f'}$ unterhalb der $x$-Achse, d.\,h. $f'(x)<0$. Nach dem Satz \glqq Bedingung für die Monotonie\grqq{} ist $f$ in $[-1;3]$ streng monoton fallend. Wegen $0<3$ folgt $f(3)<f(0)$. Die Aussage ist \textbf{wahr}.
+  \item Die Skizze muss enthalten: Hochpunkt bei $x=-1$, Wendepunkt bei $x=1$, Tiefpunkt bei $x=3$, Verlauf durch den Ursprung. Die Steigung im Ursprung ist $f'(0)=-1{,}5$, die Steigung im Wendepunkt $f'(1)=-2$. Für die eingezeichnete Kurve wurde der Term $f(x) = \frac{1}{6}x^3-\frac{1}{2}x^2-\frac{3}{2}x$ verwendet. Er erfüllt $f'(x)=0{,}5(x+1)(x-3)$ und $f(0)=0$. Damit liegen die besonderen Punkte bei $HoP\left(-1\big|\frac{5}{6}\right)$, $WP\left(1\big|-\frac{11}{6}\right)$ und $TiP\left(3\big|-\frac{9}{2}\right)$.
+  \begin{center}
+  \begin{tikzpicture}
+  \begin{axis}[ticklabel style={fill=none}, every tick label/.append style={fill=none},
+      axis lines=middle, xmin=-3, xmax=6, ymin=-5.5, ymax=3,
+      x=0.9cm, y=0.6cm, xtick={-3,-2,...,6}, ytick={-5,-4,...,2},
+      xlabel=$x$, ylabel=$y$, grid=major, grid style={gray!30}]
+    \addplot[thick, samples=200, domain=-2.8:5.6]{x^3/6-x^2/2-1.5*x};
+    \addplot[only marks, mark=*] coordinates {(-1,0.8333) (1,-1.8333) (3,-4.5)};
+    \node[above] at (axis cs:-1,0.83) {\small $HoP$};
+    \node[right] at (axis cs:1.1,-1.6) {\small $WP$};
+    \node[below] at (axis cs:3,-4.5) {\small $TiP$};
+    \node[left] at (axis cs:5.4,1.5) {$G_f$};
+  \end{axis}
+  \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Stammfunktion}
+
+\begin{loesung}{1.9}{Stammfunktionen ganzrationaler Funktionen}
+\textit{Grundlage:} Satz \glqq Stammfunktion der Potenzfunktion\grqq{}, $x^n \mapsto \frac{1}{n+1}x^{n+1}$, sowie die Faktor- und Summenregel für Stammfunktionen.
+\begin{enumerate}[label=\alph*)]
+  \item \[F(x) = x^3-2x^2+x,\qquad G(x) = \dfrac{1}{12}x^6-\dfrac{1}{2}x^2,\qquad H(x) = \dfrac{a^2}{4}x^4+2a\cdot x\]
+  Bei $h$ ist $a$ ein konstanter Parameter. $a^2$ wird wie ein Faktor behandelt, $2a$ wie eine Konstante (Stammfunktion $2a\cdot x$).\\
+  \textit{Probe:} $F'(x) = 3x^2-4x+1 = f(x)$, analog für $G$ und $H$.
+  \item Alle Stammfunktionen von $f$ haben die Form $F(x) = 2x^3-2x+c$ mit $c\in\mathds{R}$. Die Bedingung, dass der Graph durch $P(1|3)$ verläuft, ergibt:
+  \[F(1) = 2-2+c = 3 \quad\Longrightarrow\quad c = 3,\qquad F(x) = 2x^3-2x+3\]
+  \item Nach der Summenregel und weil die Ableitung einer Konstanten null ist, gilt
+  \[G'(x) = F'(x)+0 = f(x).\]
+  Also ist $G$ ebenfalls eine Stammfunktion von $f$. Der Graph von $G$ entsteht aus dem Graphen von $F$ durch Verschiebung um $c$ in Richtung der $y$-Achse. An jeder Stelle $x$ haben beide Graphen dieselbe Steigung, sie verlaufen also \glqq parallel\grqq{} in $y$-Richtung.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Funktionenscharen}
+
+\begin{loesung}{1.10}{Funktionenschar und Ortskurve}
+Ableitungen: $f_k'(x) = 3x^2-k$, $f_k''(x) = 6x$, $f_k'''(x) = 6$.
+\begin{enumerate}[label=\alph*)]
+  \item $f_k(x) = x\cdot(x^2-k) = 0 \Longleftrightarrow x=0$ oder $x^2=k$ (Satz vom Nullprodukt).
+  \begin{itemize}
+    \item $k>0$: $x^2=k$ hat die Lösungen $\pm\sqrt{k}$. Es gibt \textbf{drei} Nullstellen: $-\sqrt{k}$, $0$ und $\sqrt{k}$.
+    \item $k=0$: $f_0(x) = x^3$ hat nur die (dreifache) Nullstelle $0$, also \textbf{eine} Nullstelle.
+    \item $k<0$: $x^2=k$ hat keine Lösung, also \textbf{eine} Nullstelle ($x=0$).
+  \end{itemize}
+  \item $f_k''(0) = 0$ und $f_k'''(0) = 6\neq 0$ (gleichwertig: $f_k''(x)=6x$ wechselt bei $0$ das Vorzeichen). Wegen $f_k(0)=0$ ist der Ursprung für jedes $k$ Wendepunkt. Steigung der Wendetangente: $m = f_k'(0) = -k$.
+  \item $f_k'(x) = 0 \Longleftrightarrow x^2 = \dfrac{k}{3} \Longleftrightarrow x = \pm\sqrt{\dfrac{k}{3}}$ (für $k>0$ reell).
+  \begin{itemize}
+    \item $f_k''\left(-\sqrt{\frac{k}{3}}\right) = -6\sqrt{\frac{k}{3}} < 0$, also Hochpunkt bei $x_H = -\sqrt{\frac{k}{3}}$.
+    \item $f_k''\left(\sqrt{\frac{k}{3}}\right) = 6\sqrt{\frac{k}{3}} > 0$, also Tiefpunkt bei $x_T = \sqrt{\frac{k}{3}}$.
+  \end{itemize}
+  \item \textit{Verfahren:} Merkekasten \glqq Bestimmung der Ortskurve besonderer Punkte\grqq{}, d.\,h. $x$-Koordinate nach $k$ auflösen und in die $y$-Koordinate einsetzen.\\
+  Für den Hochpunkt gilt $x = -\sqrt{\frac{k}{3}}$ mit $x<0$. Quadrieren liefert $x^2 = \frac{k}{3}$, also $k = 3x^2$. Einsetzen in $y = f_k(x)$:
+  \[y = x^3 - 3x^2\cdot x = -2x^3\]
+  Ortskurve der Hochpunkte: $y = -2x^3$ mit $x<0$ (wegen $k>0$).
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Untersuchung von speziellen Funktionen}
+
+\begin{loesung}{1.11}{Gebrochen-rationale Funktion}
+\begin{enumerate}[label=\alph*)]
+  \item Der Nenner wird null für $x=2$, also ist $\mathds{D}_{\text{max}} = \mathds{R}\setminus\{2\}$.\\
+  Nullstellen: Zähler gleich null und Nenner ungleich null.
+  \[x^2-4x+3 = (x-1)(x-3) = 0 \quad\Longrightarrow\quad x_1 = 1,\ x_2 = 3\]
+  Beide liegen in $\mathds{D}_f$. Die Nullstellen sind $1$ und $3$.
+  \item Rechte Seite auf den Hauptnenner bringen:
+  \[x-2-\dfrac{1}{x-2} = \dfrac{(x-2)^2-1}{x-2} = \dfrac{x^2-4x+4-1}{x-2} = \dfrac{x^2-4x+3}{x-2} = f(x)\]
+  \item \textit{Definitionslücke:} Der Zähler hat bei $x=2$ den Wert $4-8+3=-1\neq 0$, also liegt ein Pol vor. Mit der Darstellung aus b):
+  \[x\longrightarrow 2^-:\ x-2\longrightarrow 0^-,\ -\dfrac{1}{x-2}\longrightarrow +\infty \;\Rightarrow\; f(x)\longrightarrow+\infty\]
+  \[x\longrightarrow 2^+:\ x-2\longrightarrow 0^+,\ -\dfrac{1}{x-2}\longrightarrow -\infty \;\Rightarrow\; f(x)\longrightarrow-\infty\]
+  Es liegt ein Pol mit Vorzeichenwechsel vor, und $x=2$ ist senkrechte Asymptote.\\
+  \textit{Verhalten für $x\longrightarrow\pm\infty$:} $\dfrac{1}{x-2}\longrightarrow 0$, also
+  \[\lim\limits_{x\longrightarrow\pm\infty}\big(f(x)-(x-2)\big) = \lim\limits_{x\longrightarrow\pm\infty}\left(-\dfrac{1}{x-2}\right) = 0.\]
+  Nach dem Merkekasten \glqq Schräge Asymptoten\grqq{} ist $y=x-2$ schräge Asymptote, und es gilt $f(x)\longrightarrow\pm\infty$ für $x\longrightarrow\pm\infty$.\\
+  Asymptoten: $x=2$ und $y=x-2$.
+  \item Mit der Darstellung aus b) und $\left(-(x-2)^{-1}\right)' = (x-2)^{-2}$ (Kettenregel bzw. Potenzregel):
+  \[f'(x) = 1+\dfrac{1}{(x-2)^2}\]
+  Für alle $x\in\mathds{D}_f$ ist $(x-2)^2>0$, also $f'(x)>1>0$. Nach dem Satz \glqq Bedingung für die Monotonie\grqq{} ist $G_f$ in $]-\infty;2[$ und in $]2;\infty[$ jeweils streng monoton wachsend. (Auf ganz $\mathds{D}_f$ gilt das nicht, z.\,B. ist $f(1{,}9)=9{,}9 > f(2{,}1)=-9{,}9$.)
+  \item $f''(x) = -\dfrac{2}{(x-2)^3}$.
+  \begin{itemize}
+    \item $x<2$: $(x-2)^3<0$, also $f''(x)>0$, linksgekrümmt.
+    \item $x>2$: $(x-2)^3>0$, also $f''(x)<0$, rechtsgekrümmt.
+  \end{itemize}
+  Das Krümmungsverhalten wechselt zwar an der Stelle $2$. Ein Wendepunkt ist aber ein Punkt des Graphen, und wegen $2\notin\mathds{D}_f$ gibt es dort keinen Punkt von $G_f$. Außerdem ist $f''(x)\neq 0$ für alle $x\in\mathds{D}_f$. Also hat $G_f$ keinen Wendepunkt.
+  \item Skizze mit den Nullstellen aus a) und den Asymptoten aus c):
+  \begin{center}
+  \begin{tikzpicture}
+  \begin{axis}[ticklabel style={fill=none}, every tick label/.append style={fill=none},
+      axis lines=middle, xmin=-3, xmax=7, ymin=-6, ymax=6,
+      x=0.8cm, y=0.5cm, xtick={-3,-2,...,7}, ytick={-6,-4,...,6},
+      xlabel=$x$, ylabel=$y$, grid=major, grid style={gray!30}, restrict y to domain=-7:7]
+    \addplot[thick, samples=200, domain=-3:1.83]{x-2-1/(x-2)};
+    \addplot[thick, samples=200, domain=2.17:7]{x-2-1/(x-2)};
+    \addplot[dashed, red, domain=-3:7]{x-2};
+    \draw[dashed, red] (axis cs:2,-6) -- (axis cs:2,6);
+    \addplot[only marks, mark=*] coordinates {(1,0) (3,0)};
+    \node[red, below right] at (axis cs:4.2,2.2) {\small $y=x-2$};
+    \node[red, right] at (axis cs:2,5.3) {\small $x=2$};
+    \node[left] at (axis cs:1.6,4.5) {$G_f$};
+  \end{axis}
+  \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.12}{Definitionslücken}
+\begin{enumerate}[label=\alph*)]
+  \item Nenner: $x^2+x = x\cdot(x+1) = 0$ für $x=0$ und $x=-1$. Das sind die Definitionslücken, $\mathds{D}_g = \mathds{R}\setminus\{-1;0\}$.\\
+  Zähler faktorisieren (3.~binomische Formel) und kürzen (für $x\neq -1$):
+  \[g(x) = \dfrac{(x-1)(x+1)}{x\cdot(x+1)} = \dfrac{x-1}{x}\]
+  \begin{itemize}
+    \item $x=-1$: Der Faktor $(x+1)$ lässt sich kürzen. Die Definitionslücke ist \textbf{hebbar}, denn $\lim\limits_{x\longrightarrow -1} g(x) = \dfrac{-2}{-1} = 2$. Der Graph hat dort ein \glqq Loch\grqq{} im Punkt $(-1|2)$.
+    \item $x=0$: Der gekürzte Zähler ist $0-1=-1\neq 0$, also liegt ein \textbf{Pol} vor.
+    \[x\longrightarrow 0^-:\ \dfrac{x-1}{x}\longrightarrow\dfrac{-1}{0^-} = +\infty,\qquad x\longrightarrow 0^+:\ \dfrac{x-1}{x}\longrightarrow\dfrac{-1}{0^+} = -\infty\]
+    Es ist ein Pol \textbf{mit} Vorzeichenwechsel, und $x=0$ ist senkrechte Asymptote.
+  \end{itemize}
+  \item Zählergrad gleich Nennergrad ($2$). Für $x\longrightarrow\pm\infty$ strebt $g(x)$ gegen den Quotienten der Koeffizienten der höchsten Potenzen, $\frac{1}{1}=1$. Mit der Summenform sieht man das direkt: $g(x) = 1-\dfrac{1}{x}\longrightarrow 1$.\\
+  Die waagrechte Asymptote ist $y=1$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.13}{Umkehrfunktion und Wurzelfunktionen}
+\begin{enumerate}[label=\alph*)]
+  \item \textit{Umkehrbarkeit:} $f'(x) = 2(x-1) > 0$ für $x>1$. $f$ ist also in $\mathds{D}_f = [1;\infty[$ streng monoton wachsend und nach dem Kriterium für die Umkehrbarkeit umkehrbar. Anschaulich ist $G_f$ der rechte Ast einer Parabel mit Scheitel $(1|2)$. Wertemenge: $W_f = [2;\infty[$.\\
+  \textit{Term der Umkehrfunktion:} Nach $x$ auflösen, danach $x$ und $y$ vertauschen.
+  \begin{align*}
+    y &= (x-1)^2+2 \quad\big|\,-2\\
+    y-2 &= (x-1)^2 \quad\big|\,\sqrt{\phantom{x}}\ \text{(positive Wurzel, da $x-1\geq 0$)}\\
+    x &= 1+\sqrt{y-2}
+  \end{align*}
+  \[f^{-1}(x) = 1+\sqrt{x-2},\qquad \mathds{D}_{f^{-1}} = W_f = [2;\infty[,\qquad W_{f^{-1}} = \mathds{D}_f = [1;\infty[\]
+  \item Aus $y=\sqrt{9-(x-2)^2}$ folgt $y\geq 0$ und durch Quadrieren $(x-2)^2+y^2 = 9 = 3^2$. Das ist die Gleichung eines Kreises mit Mittelpunkt $M(2|0)$ und Radius $r=3$ (Merkekasten \glqq Halbkreise mit beliebigem Mittelpunkt\grqq). Wegen $y\geq 0$ ist $G_g$ der obere Halbkreis.\\
+  Definitionsbereich: $9-(x-2)^2\geq 0 \Longleftrightarrow |x-2|\leq 3 \Longleftrightarrow -1\leq x\leq 5$, also $\mathds{D}_{\text{max}} = [-1;5]$.
+  \item $h(2) = \sqrt{9} = 3$, also $Q(2|3)$.\\
+  Kettenregel (äußere Funktion Wurzel, innere Funktion $4x+1$):
+  \[h'(x) = \dfrac{1}{2\sqrt{4x+1}}\cdot 4 = \dfrac{2}{\sqrt{4x+1}},\qquad h'(2) = \dfrac{2}{3}\]
+  \[t:\ y = \dfrac{2}{3}(x-2)+3 = \dfrac{2}{3}x+\dfrac{5}{3}\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.14}{Trigonometrische Funktion}
+\begin{enumerate}[label=\alph*)]
+  \item Vergleich mit $a\cdot\cos{(b\cdot x)}+d$: $a=2$, $b=2$, $d=1$.
+  \begin{itemize}
+    \item Amplitude: $|a| = 2$
+    \item Periode: $p = \dfrac{2\pi}{b} = \pi$
+    \item Wertemenge: Aus $-1\leq\cos{(2x)}\leq 1$ folgt $-2+1\leq f(x)\leq 2+1$. Weil $\mathds{D}_f=[0;\pi]$ genau eine Periode umfasst, werden alle diese Werte angenommen: $W_f = [-1;3]$.
+  \end{itemize}
+  \item \[2\cos{(2x)}+1 = 0 \quad\Longleftrightarrow\quad \cos{(2x)} = -\dfrac{1}{2}\]
+  Mit $z=2x$ und $z\in[0;2\pi]$ (da $x\in[0;\pi]$) liefern die Eigenschaften der Kosinuskurve $z = \frac{2\pi}{3}$ oder $z = \frac{4\pi}{3}$. Die Nullstellen sind $x_1 = \dfrac{\pi}{3}$ und $x_2 = \dfrac{2\pi}{3}$.
+  \item Kettenregel: $f'(x) = 2\cdot(-\sin{(2x)})\cdot 2 = -4\sin{(2x)}$.\\
+  $f'(x) = 0 \Longleftrightarrow \sin{(2x)}=0$, mit $2x\in[0;2\pi]$ also $2x\in\{0;\pi;2\pi\}$ bzw. $x\in\{0;\frac{\pi}{2};\pi\}$.
+  \begin{itemize}
+    \item Im Inneren: In $]0;\frac{\pi}{2}[$ ist $\sin{(2x)}>0$, also $f'(x)<0$ (smf). In $]\frac{\pi}{2};\pi[$ ist $\sin{(2x)}<0$, also $f'(x)>0$ (smw). VZW von $-$ nach $+$, also $TiP\left(\frac{\pi}{2}\big|-1\right)$ wegen $f(\frac{\pi}{2}) = 2\cos{(\pi)}+1 = -1$.
+    \item Ränder: $f(0) = 2+1 = 3$ und $f(\pi) = 2\cos{(2\pi)}+1 = 3$. Weil $f$ nach $x=0$ fällt und vor $x=\pi$ steigt, sind beide Randpunkte Hochpunkte (Randmaxima): $HoP_1(0|3)$ und $HoP_2(\pi|3)$.
+  \end{itemize}
+  \item $f\left(\frac{\pi}{4}\right) = 2\cos{\left(\frac{\pi}{2}\right)}+1 = 1$ und $f'\left(\frac{\pi}{4}\right) = -4\sin{\left(\frac{\pi}{2}\right)} = -4$.
+  \[t:\ y = -4\left(x-\dfrac{\pi}{4}\right)+1 = -4x+\pi+1\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.15}{Exponentialfunktion}
+\begin{enumerate}[label=\alph*)]
+  \item Wegen $e^{-x}>0$ für alle $x$ gilt nach dem Satz vom Nullprodukt: $f(x)=0\Longleftrightarrow x+1=0\Longleftrightarrow x=-1$.\\
+  $f(0) = 1\cdot e^0 = 1$, also schneidet $G_f$ die $y$-Achse in $S_y(0|1)$.
+  \item \textit{Grenzwertverhalten der $e$-Funktion:} Die Exponentialfunktion \glqq setzt sich gegen jede Potenz durch\grqq.
+  \[x\longrightarrow+\infty:\quad f(x) = \dfrac{x+1}{e^x}\longrightarrow 0,\]
+  denn $e^x$ wächst schneller als $x+1$.
+  \[x\longrightarrow-\infty:\quad x+1\longrightarrow-\infty,\ e^{-x}\longrightarrow+\infty\;\Longrightarrow\; f(x)\longrightarrow-\infty\]
+  Waagrechte Asymptote (für $x\longrightarrow+\infty$): $y=0$.
+  \item Produkt- und Kettenregel mit $(e^{-x})' = -e^{-x}$:
+  \[f'(x) = 1\cdot e^{-x}+(x+1)\cdot(-e^{-x}) = e^{-x}\cdot(1-x-1) = -x\cdot e^{-x}\]
+  $f'(x)=0\Longleftrightarrow x=0$. Weil $e^{-x}>0$ ist, hat $f'(x)$ das Vorzeichen von $-x$: positiv für $x<0$, negativ für $x>0$. VZW von $+$ nach $-$, also $HoP(0|1)$.
+  \item Produktregel auf $f'(x) = -x\cdot e^{-x}$:
+  \[f''(x) = -1\cdot e^{-x}+(-x)\cdot(-e^{-x}) = e^{-x}\cdot(x-1)\]
+  $f''(x)=0\Longleftrightarrow x=1$. Dort wechselt $f''$ das Vorzeichen (Vorzeichen von $x-1$). Mit $f(1) = 2e^{-1}$ folgt $WP\left(1\big|\frac{2}{e}\right)\approx WP(1|0{,}74)$.
+  \item \textit{Nachweis:} $F$ ist Stammfunktion von $f$, wenn $F'=f$ gilt. Produkt- und Kettenregel:
+  \begin{align*}
+    F'(x) &= -\left[1\cdot e^{-x}+(x+2)\cdot(-e^{-x})\right] = -e^{-x}\cdot(1-x-2)\\
+          &= -e^{-x}\cdot(-x-1) = (x+1)\cdot e^{-x} = f(x)
+  \end{align*}
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.16}{Logarithmusfunktion}
+\begin{enumerate}[label=\alph*)]
+  \item $\ln$ ist nur für positive Argumente definiert. Wegen $x^2\geq 0$ gilt $x^2+1\geq 1>0$ für alle $x\in\mathds{R}$, also $\mathds{D}_{\text{max}} = \mathds{R}$.\\
+  $f(-x) = \ln{((-x)^2+1)} = \ln{(x^2+1)} = f(x)$, also ist $G_f$ achsensymmetrisch zur $y$-Achse.
+  \item Ableitung spezieller $\ln$-Funktionen, $\left(\ln{(g(x))}\right)' = \dfrac{g'(x)}{g(x)}$:
+  \[f'(x) = \dfrac{2x}{x^2+1}\]
+  $f'(x)=0\Longleftrightarrow x=0$. Der Nenner ist positiv, $f'$ hat also das Vorzeichen von $x$. VZW von $-$ nach $+$, also $TiP(0|0)$ wegen $f(0)=\ln{(1)}=0$.
+  \item Quotientenregel:
+  \[f''(x) = \dfrac{2\cdot(x^2+1)-2x\cdot 2x}{(x^2+1)^2} = \dfrac{2-2x^2}{(x^2+1)^2} = \dfrac{2\cdot(1-x^2)}{(x^2+1)^2}\]
+  $f''(x)=0\Longleftrightarrow 1-x^2=0\Longleftrightarrow x=\pm 1$. Der Nenner ist positiv und $1-x^2$ wechselt bei $\pm 1$ das Vorzeichen. Damit gibt es die Wendepunkte $W_1(-1|\ln{(2)})$ und $W_2(1|\ln{(2)})$, denn $f(\pm 1) = \ln{(2)}$.
+  \item $f'(1) = \dfrac{2}{2} = 1$.
+  \[w:\ y = 1\cdot(x-1)+\ln{(2)} = x-1+\ln{(2)}\approx x-0{,}31\]
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Anwendungen der Differentialrechnung}
+
+\begin{loesung}{1.17}{Modellierung von Funktionen}
+\begin{enumerate}[label=\alph*)]
+  \item Punktsymmetrie zum Ursprung bedeutet nur ungerade Exponenten. Ansatz: $f(x) = ax^3+cx$, $f'(x) = 3ax^2+c$.\\
+  Bedingungen aus dem Tiefpunkt $T(1|-2)$:
+  \begin{align*}
+    f(1) = -2:&\quad a+c = -2 \quad\text{(I)}\\
+    f'(1) = 0:&\quad 3a+c = 0 \quad\text{(II)}
+  \end{align*}
+  (II)$-$(I): $2a = 2$, also $a=1$ und $c=-3$. Ergebnis: $f(x) = x^3-3x$.\\
+  \textit{Probe:} $f''(x)=6x$, $f''(1)=6>0$. Bei $x=1$ liegt tatsächlich ein Tiefpunkt.
+  \item Scheitelpunktform mit $S(2|-2)$: $p(x) = a\cdot(x-2)^2-2$.\\
+  Punktprobe mit $(0|2)$: $a\cdot 4-2 = 2$, also $a=1$.
+  \[p(x) = (x-2)^2-2 = x^2-4x+2\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.18}{Extremwertproblem}
+\textit{Vorgehen:} Satz \glqq Extremwertaufgaben\grqq, d.\,h. Zielfunktion aufstellen, Definitionsbereich angeben, Extremum mit der Ableitung bestimmen, Randwerte prüfen.
+\begin{enumerate}[label=\alph*)]
+  \item Das Rechteck reicht von $-u$ bis $u$, die Breite ist also $2u$. Die Höhe ist $f(u)=9-u^2$.
+  \[A(u) = 2u\cdot(9-u^2) = 18u-2u^3,\qquad 0<u<3\]
+  \item \[A'(u) = 18-6u^2 = 0 \quad\Longleftrightarrow\quad u^2 = 3 \quad\Longleftrightarrow\quad u = \sqrt{3}\quad(\text{da } u>0)\]
+  $A''(u) = -12u$, $A''(\sqrt{3}) = -12\sqrt{3} < 0$, also lokales Maximum.
+  \[A(\sqrt{3}) = 18\sqrt{3}-2\cdot 3\sqrt{3} = 12\sqrt{3}\approx 20{,}78\ \text{FE}\]
+  Für $u=\sqrt{3}$ ist der Flächeninhalt maximal, das Rechteck hat dann die Maße $2\sqrt{3}\times 6$.
+  \item An den Rändern gilt $\lim\limits_{u\longrightarrow 0^+}A(u) = 0$ und $\lim\limits_{u\longrightarrow 3^-}A(u) = 54-54 = 0$. Anschaulich entartet das Rechteck zu einer Strecke. Zudem ist $A'(u)>0$ in $]0;\sqrt{3}[$ und $A'(u)<0$ in $]\sqrt{3};3[$. Das lokale Maximum ist daher das absolute Maximum, und an den Rändern ist der Flächeninhalt kleiner.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Bestimmtes Integral, Integralfunktion und Integrationsregeln}
+
+\begin{loesung}{1.19}{Bestimmte Integrale}
+\textit{Verfahren:} Satz \glqq Berechnung von Integralen\grqq{} (Hauptsatz), $\integral[limits-mode=limits,limits={a, b}]{f(x)} = \left[F(x)\right]_a^b = F(b)-F(a)$ mit einer Stammfunktion $F$ von $f$.
+\begin{enumerate}[label=\alph*)]
+  \item $\left[x^3-x^2\right]_0^2 = (8-4)-0 = 4$
+  \item $\dfrac{1}{\sqrt{x}} = x^{-\frac{1}{2}}$ hat die Stammfunktion $2x^{\frac{1}{2}} = 2\sqrt{x}$ (Potenzregel).\\
+  $\left[2\sqrt{x}\right]_1^4 = 2\cdot 2-2\cdot 1 = 2$
+  \item $\left[-\cos{(x)}\right]_0^{\pi} = -\cos{(\pi)}+\cos{(0)} = 1+1 = 2$
+  \item Regel $\integral{f(ax+b)} = \frac{1}{a}F(ax+b)+c$ (Spezielle Integrationsregeln).\\
+  $\left[\dfrac{1}{2}e^{2x}\right]_0^{\ln{(2)}} = \dfrac{1}{2}e^{2\ln{(2)}}-\dfrac{1}{2}e^0 = \dfrac{1}{2}\cdot 4-\dfrac{1}{2} = \dfrac{3}{2}$, denn $e^{2\ln{(2)}} = \left(e^{\ln{(2)}}\right)^2 = 2^2 = 4$.
+  \item $\left[\ln{(x)}\right]_1^e = \ln{(e)}-\ln{(1)} = 1-0 = 1$
+  \item Form $f'(x)\cdot e^{f(x)}$ mit $f(x)=x^2$ (Spezielle Integrationsregeln).\\
+  $\left[e^{x^2}\right]_0^1 = e^1-e^0 = e-1\approx 1{,}72$
+  \item Form $\dfrac{f'(x)}{f(x)}$ mit $f(x)=x^2+1>0$ (Spezielle Integrationsregeln).\\
+  $\left[\ln{(x^2+1)}\right]_0^1 = \ln{(2)}-\ln{(1)} = \ln{(2)}\approx 0{,}69$
+  \item Stammfunktion des Logarithmus (partielle Integration, siehe Merksatz): $F(x) = x\cdot\ln{(x)}-x$.\\
+  $\left[x\ln{(x)}-x\right]_1^2 = (2\ln{(2)}-2)-(1\cdot 0-1) = 2\ln{(2)}-1\approx 0{,}39$
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.20}{Integralfunktion und Flächenbilanz}
+\begin{enumerate}[label=\alph*)]
+  \item Hauptsatz mit der Stammfunktion $t^2-4t$:
+  \[I_1(x) = \left[t^2-4t\right]_1^x = x^2-4x-(1-4) = x^2-4x+3\]
+  $x^2-4x+3 = (x-1)(x-3) = 0$, also sind die Nullstellen $x_1=1$ und $x_2=3$. Die Nullstelle $x_1=1$ ist die untere Integrationsgrenze; jede Integralfunktion hat dort eine Nullstelle.
+  \item Nach dem Hauptsatz ist $I_1'(x) = 2x-4$, die Ableitung ist also der Integrand an der oberen Grenze. Der Integrand $2t-4$ ist für $t<2$ negativ und für $t>2$ positiv. $I_1'$ hat also bei $x=2$ eine Nullstelle mit VZW von $-$ nach $+$, und $I_1$ hat dort einen Tiefpunkt. (Kontrolle: $I_1(2) = 4-8+3 = -1$.)
+  \item Regel $\integral{f(ax+b)} = \frac{1}{a}F(ax+b)+c$:
+  \[\integral[limits-mode=limits,limits={0, \frac{\pi}{2}}]{\cos{(2x)}} = \left[\dfrac{1}{2}\sin{(2x)}\right]_0^{\frac{\pi}{2}} = \dfrac{1}{2}\sin{(\pi)}-\dfrac{1}{2}\sin{(0)} = 0\]
+  \textit{Deutung als Flächenbilanz:} In $\left[0;\frac{\pi}{4}\right[$ ist $\cos{(2x)}>0$, in $\left]\frac{\pi}{4};\frac{\pi}{2}\right]$ ist $\cos{(2x)}<0$. Die Fläche oberhalb der $x$-Achse hat den Inhalt $\left[\frac{1}{2}\sin{(2x)}\right]_0^{\frac{\pi}{4}} = \frac{1}{2}$ und zählt positiv. Die gleich große Fläche unterhalb der $x$-Achse zählt negativ. Beide heben sich in der Bilanz auf; der gesamte Flächeninhalt ist dagegen $1$.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Flächenberechnungen, uneigentliches Integral und Rotationskörper}
+
+\begin{loesung}{1.21}{Flächeninhalte}
+\begin{enumerate}[label=\alph*)]
+  \item Nullstellen: $x^3-4x = x(x-2)(x+2) = 0$, also $x\in\{-2;0;2\}$. \textit{Verfahren:} Bei Flächenberechnungen wird an den Nullstellen aufgeteilt (Definition Flächeninhalt). Stammfunktion: $F(x) = \frac{1}{4}x^4-2x^2$.
+  \begin{align*}
+    \integral[limits-mode=limits,limits={-2, 0}]{(x^3-4x)} &= F(0)-F(-2) = 0-(4-8) = 4\\
+    \integral[limits-mode=limits,limits={0, 2}]{(x^3-4x)} &= F(2)-F(0) = (4-8)-0 = -4
+  \end{align*}
+  \[A = |4|+|-4| = 8\ \text{FE}\]
+  $\integral[limits-mode=limits,limits={-2, 2}]{f(x)} = 4+(-4) = 0$ ist eine Flächenbilanz. Das Flächenstück unterhalb der $x$-Achse (in $[0;2]$) geht negativ ein und hebt das gleich große Stück oberhalb (in $[-2;0]$) auf, denn $G_f$ ist punktsymmetrisch zum Ursprung.
+  \item Schnittstellen: $x^2 = 2x+3 \Longleftrightarrow x^2-2x-3 = 0 \Longleftrightarrow (x-3)(x+1) = 0$, also $x_1=-1$ und $x_2=3$.\\
+  In $]-1;3[$ verläuft $G_q$ oberhalb von $G_p$ (z.\,B. $q(0)=3>0=p(0)$). Merkekasten \glqq Fläche zwischen Kurven\grqq:
+  \begin{align*}
+    A &= \integral[limits-mode=limits,limits={-1, 3}]{\big(q(x)-p(x)\big)} = \integral[limits-mode=limits,limits={-1, 3}]{(2x+3-x^2)} = \left[x^2+3x-\dfrac{1}{3}x^3\right]_{-1}^{3}\\
+    &= (9+9-9)-\left(1-3+\dfrac{1}{3}\right) = 9+\dfrac{5}{3} = \dfrac{32}{3}\approx 10{,}67\ \text{FE}
+  \end{align*}
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.22}{Uneigentliches Integral und Rotationskörper}
+\begin{enumerate}[label=\alph*)]
+  \item Für $x\geq 1$ ist $f(x)>0$, das Integral gibt also direkt den Flächeninhalt an:
+  \[A(z) = \integral[limits-mode=limits,limits={1, z}]{\dfrac{1}{x}} = \left[\ln{(x)}\right]_1^z = \ln{(z)}-0 = \ln{(z)}\]
+  Nach dem Grenzwertverhalten der $\ln$-Funktion gilt $\lim\limits_{z\longrightarrow\infty}\ln{(z)} = \infty$. Das uneigentliche Integral existiert nicht, und die ins Unendliche reichende Fläche hat \textbf{keinen endlichen} Inhalt.
+  \item Definition \glqq Volumen von Rotationskörpern\grqq{}, $V = \pi\integral[limits-mode=limits,limits={a, b}]{\big(f(x)\big)^2}$:
+  \[V(z) = \pi\integral[limits-mode=limits,limits={1, z}]{\dfrac{1}{x^2}} = \pi\left[-\dfrac{1}{x}\right]_1^z = \pi\left(1-\dfrac{1}{z}\right)\]
+  \[\lim\limits_{z\longrightarrow\infty}V(z) = \pi\cdot(1-0) = \pi\approx 3{,}14\ \text{VE}\]
+  \item Die unendlich ausgedehnte Fläche hat einen unendlich großen Inhalt. Der durch ihre Rotation entstehende Körper hat dagegen ein endliches Volumen ($\pi$). Das ist kein Widerspruch: Beim Volumen wird $f(x)^2 = \frac{1}{x^2}$ integriert, und dieser Term strebt so schnell gegen $0$, dass das uneigentliche Integral existiert. Bei $\frac{1}{x}$ ist das nicht der Fall.
+  \item \[V = \pi\integral[limits-mode=limits,limits={0, 4}]{\left(\sqrt{x}\right)^2} = \pi\integral[limits-mode=limits,limits={0, 4}]{x} = \pi\left[\dfrac{1}{2}x^2\right]_0^4 = 8\pi\approx 25{,}13\ \text{VE}\]
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Das Integral als Gesamtänderung einer Größe}
+
+\begin{loesung}{1.23}{Zufluss in ein Becken}
+\begin{enumerate}[label=\alph*)]
+  \item $r'(t) = -t+4 = 0 \Longleftrightarrow t=4$, $r''(t) = -1<0$, also Maximum. An den Rändern ist $r(0)=0$ und $r(8)=-32+32=0$.\\
+  $r(4) = -8+16 = 8$. Die Zuflussrate ist $4$ Stunden nach Beobachtungsbeginn mit $8\,\frac{\text{m}^3}{\text{h}}$ maximal.
+  \item \textit{Deutung:} Nach der Definition \glqq Von der Änderungsrate zum Bestand\grqq{} gibt das Integral über die Zuflussrate die Gesamtänderung an. Der Term beschreibt das Wasservolumen (in $\text{m}^3$), das zwischen $2$ und $4$ Stunden nach Beobachtungsbeginn in das Becken fließt.
+  \begin{align*}
+    \integral[limits-mode=limits,limits={2, 4}, variable={t}]{\left(-\dfrac{1}{2}t^2+4t\right)} &= \left[-\dfrac{1}{6}t^3+2t^2\right]_2^4 = \left(-\dfrac{64}{6}+32\right)-\left(-\dfrac{8}{6}+8\right)\\
+    &= \dfrac{64}{3}-\dfrac{20}{3} = \dfrac{44}{3}\approx 14{,}67
+  \end{align*}
+  In diesem Zeitraum fließen etwa $14{,}67\ \text{m}^3$ Wasser zu.
+  \item Bestand $=$ Anfangsbestand $+$ Gesamtänderung:
+  \[V(t) = 10+\integral[limits-mode=limits,limits={0, t}, variable={s}]{r(s)} = 10+\left[-\dfrac{1}{6}s^3+2s^2\right]_0^t = -\dfrac{1}{6}t^3+2t^2+10\]
+  \[V(8) = -\dfrac{512}{6}+128+10 = \dfrac{158}{3}\approx 52{,}67\]
+  Nach $8$ Stunden sind etwa $52{,}67\ \text{m}^3$ Wasser im Becken.
+  \item Es gilt $V'(t) = r(t) = \frac{1}{2}t\cdot(8-t)$. Für $0<t<8$ sind beide Faktoren positiv, also $V'(t)>0$. Nach dem Satz \glqq Bedingung für die Monotonie\grqq{} nimmt das Volumen im gesamten Zeitraum streng monoton zu.\\
+  Für $4<t<8$ ist $r'(t) = 4-t<0$, die Zuflussrate nimmt also ab. Weil die Zuflussrate die momentane Änderungsrate des Volumens ist, steigt das Volumen ab $t=4$ immer langsamer ($V''(t) = r'(t)<0$, der Graph von $V$ ist dort rechtsgekrümmt).
+\end{enumerate}
+\end{loesung}
+
+\LoesungskapitelEnde

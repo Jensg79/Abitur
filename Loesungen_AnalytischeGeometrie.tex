@@ -1,0 +1,234 @@
+% =====================================================================
+% Lösungsteil zu Kapitel 2 (Analytische Geometrie) – Lösungen zu Ü 2.1 bis Ü 2.12
+% Steht am Ende des Buches hinter dem Anhang.
+% Alle Ergebnisse wurden mit SymPy nachgerechnet.
+% =====================================================================
+\Loesungskapitel{Lösungen zur Analytischen Geometrie}
+
+\Uebungsabschnitt{Vektoren und Vektorraum}
+
+\begin{loesung}{2.1}{Vektorketten im Spat}
+\textit{Grundlage:} Im Spat sind gegenüberliegende Kanten parallel und gleich lang. Es gilt also $\vv{BC}=\vv{AD}=\vv{EH}=\vv{FG}=\vv{b}$, $\vv{DC}=\vv{EF}=\vv{HG}=\vv{a}$ und $\vv{BF}=\vv{CG}=\vv{DH}=\vv{c}$. Ein Verbindungsvektor wird als Vektorkette entlang der Kanten geschrieben.
+\begin{enumerate}[label=\alph*)]
+  \item
+  \begin{align*}
+    \vv{AG} &= \vv{AB}+\vv{BC}+\vv{CG} = \vv{a}+\vv{b}+\vv{c}\\
+    \vv{BH} &= \vv{BA}+\vv{AD}+\vv{DH} = -\vv{a}+\vv{b}+\vv{c}\\
+    \vv{CE} &= \vv{CD}+\vv{DA}+\vv{AE} = -\vv{a}-\vv{b}+\vv{c}
+  \end{align*}
+  \item $M$ halbiert $\overline{FH}$, also $\vv{FM} = \frac{1}{2}\vv{FH}$ mit $\vv{FH} = \vv{FE}+\vv{EH} = -\vv{a}+\vv{b}$.
+  \[\vv{AM} = \vv{AB}+\vv{BF}+\vv{FM} = \vv{a}+\vv{c}+\dfrac{1}{2}(-\vv{a}+\vv{b}) = \dfrac{1}{2}\vv{a}+\dfrac{1}{2}\vv{b}+\vv{c}\]
+  \item \textit{Idee:} Es reicht zu zeigen, dass die Mittelpunkte $M_1$ von $\overline{AG}$ und $M_2$ von $\overline{BH}$ zusammenfallen.
+  \begin{align*}
+    \vv{AM_1} &= \dfrac{1}{2}\vv{AG} = \dfrac{1}{2}(\vv{a}+\vv{b}+\vv{c})\\
+    \vv{AM_2} &= \vv{AB}+\dfrac{1}{2}\vv{BH} = \vv{a}+\dfrac{1}{2}(-\vv{a}+\vv{b}+\vv{c}) = \dfrac{1}{2}(\vv{a}+\vv{b}+\vv{c})
+  \end{align*}
+  Wegen $\vv{AM_1}=\vv{AM_2}$ gilt $M_1=M_2$. Der Mittelpunkt beider Raumdiagonalen ist derselbe Punkt, die Diagonalen schneiden sich dort und halbieren sich gegenseitig.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.2}{Orts- und Verbindungsvektoren}
+\begin{enumerate}[label=\alph*)]
+  \item Verbindungsvektor \glqq Spitze minus Fuß\grqq, Länge $|\vv{v}| = \sqrt{v_1^2+v_2^2+v_3^2}$:
+  \begin{align*}
+    \vv{AB} &= \begin{pmatrix} 2\\ 2\\ -1\end{pmatrix}, & |\vv{AB}| &= \sqrt{4+4+1} = 3\\
+    \vv{BC} &= \begin{pmatrix} -2\\ 2\\ 1\end{pmatrix}, & |\vv{BC}| &= \sqrt{4+4+1} = 3\\
+    \vv{AC} &= \begin{pmatrix} 0\\ 4\\ 0\end{pmatrix}, & |\vv{AC}| &= 4
+  \end{align*}
+  \item Wegen $|\vv{AB}| = |\vv{BC}| = 3$ sind zwei Seiten gleich lang, das Dreieck ist gleichschenklig. Die Schenkel sind $\overline{AB}$ und $\overline{BC}$, die Basis ist $\overline{AC}$ mit der Länge $4$. Die Spitze ist $B$.
+  \item Schwerpunkt des Dreiecks (Merkekasten): $\vv{S} = \frac{1}{3}(\vv{A}+\vv{B}+\vv{C})$.
+  \[\vv{S} = \dfrac{1}{3}\begin{pmatrix} 2+4+2\\ 0+2+4\\ 1+0+1\end{pmatrix} = \begin{pmatrix} \frac{8}{3}\\ 2\\ \frac{2}{3}\end{pmatrix},\qquad S\left(\tfrac{8}{3}\big|2\big|\tfrac{2}{3}\right)\]
+  \item Im Parallelogramm $ABCD$ gilt $\vv{AD} = \vv{BC}$.
+  \[\vv{D} = \vv{A}+\vv{BC} = \begin{pmatrix} 2\\ 0\\ 1\end{pmatrix}+\begin{pmatrix} -2\\ 2\\ 1\end{pmatrix} = \begin{pmatrix} 0\\ 2\\ 2\end{pmatrix},\qquad D(0|2|2)\]
+  Im Parallelogramm sind gegenüberliegende Seiten gleich lang. Aus $|\vv{AB}| = |\vv{BC}| = 3$ folgt, dass alle vier Seiten die Länge $3$ haben. Damit ist $ABCD$ eine Raute.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Skalar-, Vektor- und Spatprodukt}
+
+\begin{loesung}{2.3}{Skalarprodukt und Winkel}
+\begin{enumerate}[label=\alph*)]
+  \item Der Winkel $\beta$ wird von den Vektoren $\vv{BA}$ und $\vv{BC}$ eingeschlossen (beide gehen von $B$ aus). Winkel zwischen Vektoren: $\cos{\beta} = \dfrac{\vv{BA}\circ\vv{BC}}{|\vv{BA}|\cdot|\vv{BC}|}$.
+  \[\vv{BA} = \begin{pmatrix} -2\\ -2\\ 1\end{pmatrix},\quad \vv{BC} = \begin{pmatrix} -2\\ 2\\ 1\end{pmatrix},\quad \vv{BA}\circ\vv{BC} = 4-4+1 = 1\]
+  \[\cos{\beta} = \dfrac{1}{3\cdot 3} = \dfrac{1}{9}\quad\Longrightarrow\quad\beta\approx 83{,}62^{\circ}\]
+  \item Nach Ü~2.2\,d) ist $ABCD$ eine Raute. Eine Raute ist genau dann ein Quadrat, wenn sie einen rechten Winkel hat. Orthogonalitätskriterium: $\vv{u}\perp\vv{v}\Longleftrightarrow\vv{u}\circ\vv{v}=0$.
+  \[\vv{AB}\circ\vv{BC} = 2\cdot(-2)+2\cdot 2+(-1)\cdot 1 = -1\neq 0\]
+  Bei $B$ liegt kein rechter Winkel vor, $ABCD$ ist also \textbf{kein} Quadrat. (Das passt zu a): $\beta\approx 83{,}62^{\circ}$.)
+  \item Orthogonalitätskriterium:
+  \[\begin{pmatrix} 1\\ t\\ 2\end{pmatrix}\circ\begin{pmatrix} 3\\ -1\\ t\end{pmatrix} = 3-t+2t = 3+t = 0\quad\Longleftrightarrow\quad t = -3\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.4}{Vektorprodukt und Spatprodukt}
+\begin{enumerate}[label=\alph*)]
+  \item $\vv{AB} = \begin{pmatrix} -1\\ 2\\ 0\end{pmatrix}$, $\vv{AC} = \begin{pmatrix} -1\\ 0\\ 3\end{pmatrix}$. Berechnung des Vektorprodukts:
+  \[\vv{n} = \vv{AB}\times\vv{AC} = \begin{pmatrix} 2\cdot 3-0\cdot 0\\ 0\cdot(-1)-(-1)\cdot 3\\ (-1)\cdot 0-2\cdot(-1)\end{pmatrix} = \begin{pmatrix} 6\\ 3\\ 2\end{pmatrix}\]
+  \textit{Nachweis der Orthogonalität} mit dem Skalarprodukt:
+  \[\vv{n}\circ\vv{AB} = -6+6+0 = 0,\qquad \vv{n}\circ\vv{AC} = -6+0+6 = 0\]
+  \item Der Betrag des Vektorprodukts ist der Flächeninhalt des aufgespannten Parallelogramms, das Dreieck hat die Hälfte davon.
+  \[|\vv{n}| = \sqrt{36+9+4} = 7,\qquad A_{ABC} = \dfrac{1}{2}\cdot 7 = 3{,}5\ \text{FE}\]
+  \item Die Pyramide $OABC$ wird von $\vv{OA}$, $\vv{OB}$ und $\vv{OC}$ aufgespannt. Definition Spatprodukt: $V_{\text{Pyramide}} = \frac{1}{6}\left|(\vv{a}\times\vv{b})\circ\vv{c}\right|$.
+  \[\vv{OA}\times\vv{OB} = \begin{pmatrix} 1\\ 0\\ 0\end{pmatrix}\times\begin{pmatrix} 0\\ 2\\ 0\end{pmatrix} = \begin{pmatrix} 0\\ 0\\ 2\end{pmatrix},\qquad \begin{pmatrix} 0\\ 0\\ 2\end{pmatrix}\circ\begin{pmatrix} 0\\ 0\\ 3\end{pmatrix} = 6\]
+  \[V = \dfrac{1}{6}\cdot|6| = 1\ \text{VE}\]
+  \textit{Kontrolle:} Grundfläche $OAB$ mit $\frac{1}{2}\cdot 1\cdot 2 = 1$, Höhe $3$, also $V = \frac{1}{3}\cdot 1\cdot 3 = 1$.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Lineare Abhängigkeit und Unabhängigkeit}
+
+\begin{loesung}{2.5}{Lineare Abhängigkeit}
+\textit{Grundlage:} Drei Vektoren sind linear abhängig, wenn sich einer als Linearkombination der anderen darstellen lässt.
+\begin{enumerate}[label=\alph*)]
+  \item \[\begin{pmatrix} 1\\ 2\\ 3\end{pmatrix}+\begin{pmatrix} 2\\ 3\\ 1\end{pmatrix} = \begin{pmatrix} 3\\ 5\\ 4\end{pmatrix}\]
+  Der dritte Vektor ist die Summe der beiden ersten, die drei Vektoren sind also linear abhängig.
+  \item Die Vektoren $\begin{pmatrix} 0\\ 1\\ 2\end{pmatrix}$ und $\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix}$ sind nicht parallel (die erste Koordinate ist $0$ bzw. $1$, die zweite jeweils $1$). Die drei Vektoren sind also genau dann linear abhängig, wenn sich der erste Vektor aus diesen beiden kombinieren lässt:
+  \[r\cdot\begin{pmatrix} 0\\ 1\\ 2\end{pmatrix}+s\cdot\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix} = \begin{pmatrix} 1\\ 0\\ a\end{pmatrix}\qquad\begin{aligned} \text{I: }& s = 1\\ \text{II: }& r+s = 0\\ \text{III: }& 2r+s = a\end{aligned}\]
+  Aus I und II folgt $s=1$, $r=-1$. In III: $a = -2+1 = -1$. Für $a=-1$ sind die Vektoren linear abhängig.
+  \item Drei linear abhängige Vektoren liegen, als Pfeile von einem gemeinsamen Punkt aus abgetragen, in einer gemeinsamen Ebene (sie sind komplanar). Sie spannen dann keinen Spat auf, und ihr Spatprodukt ist $0$. Drei linear unabhängige Vektoren spannen dagegen den ganzen Raum auf.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Geraden im Raum}
+
+\begin{loesung}{2.6}{Spurpunkte, Lagebeziehung und Schnittwinkel von Geraden}
+Ortsvektor eines allgemeinen Punktes von $g$: $\vv{X} = \begin{pmatrix} 1+\lambda\\ 2-\lambda\\ 3+2\lambda\end{pmatrix}$.
+\begin{enumerate}[label=\alph*)]
+  \item \textit{Verfahren:} Merkekasten \glqq Berechnung der Spurpunkte\grqq, d.\,h. jeweils eine Koordinate null setzen.
+  \begin{itemize}
+    \item $x_1x_2$-Ebene ($x_3=0$): $3+2\lambda = 0$, also $\lambda = -\frac{3}{2}$ und $S_{12}\left(-\frac{1}{2}\big|\frac{7}{2}\big|0\right)$.
+    \item $x_1x_3$-Ebene ($x_2=0$): $2-\lambda = 0$, also $\lambda = 2$ und $S_{13}(3|0|7)$.
+    \item $x_2x_3$-Ebene ($x_1=0$): $1+\lambda = 0$, also $\lambda = -1$ und $S_{23}(0|3|1)$.
+  \end{itemize}
+  \item \textit{Vorgehen:} Zuerst die Richtungsvektoren auf Parallelität prüfen, dann ein Gleichungssystem lösen.
+  \begin{itemize}
+    \item \textbf{$g$ und $h_1$:} $\begin{pmatrix} -2\\ 2\\ -4\end{pmatrix} = -2\cdot\begin{pmatrix} 1\\ -1\\ 2\end{pmatrix}$, die Richtungsvektoren sind also parallel. Liegt der Aufpunkt $O(0|0|0)$ von $h_1$ auf $g$? Aus $1+\lambda = 0$ folgt $\lambda = -1$, dann ist aber $x_2 = 2-(-1) = 3\neq 0$. $O$ liegt nicht auf $g$, die Geraden sind \textbf{echt parallel}.
+    \item \textbf{$g$ und $h_2$:} Die Richtungsvektoren sind nicht parallel (erste Koordinate $1$ bzw. $0$). Gleichsetzen:
+    \[\begin{aligned} \text{I: }& 1+\lambda = 2\\ \text{II: }& 2-\lambda = 3+\mu\\ \text{III: }& 3+2\lambda = 7+\mu\end{aligned}\qquad\Longrightarrow\qquad \lambda = 1,\ \mu = -2\]
+    Probe in III: $3+2 = 5 = 7-2$, wahr. Die Geraden \textbf{schneiden sich} in $S(2|1|5)$ ($\lambda=1$ in $g$ eingesetzt).
+    \item \textbf{$g$ und $h_3$:} Die Richtungsvektoren sind nicht parallel ($x_3$-Koordinate $2$ bzw. $0$, aber nicht beide null). Gleichsetzen:
+    \[\begin{aligned} \text{I: }& 1+\lambda = \mu\\ \text{II: }& 2-\lambda = 1+\mu\\ \text{III: }& 3+2\lambda = 0\end{aligned}\]
+    Aus III: $\lambda = -\frac{3}{2}$, aus I: $\mu = -\frac{1}{2}$. Probe in II: $2+\frac{3}{2} = \frac{7}{2}$, aber $1-\frac{1}{2} = \frac{1}{2}$, Widerspruch. Es gibt keinen Schnittpunkt, und die Geraden sind nicht parallel. Sie sind also \textbf{windschief}.
+  \end{itemize}
+  \item Schnittwinkel von Geraden (nicht stumpfer Winkel, daher Betrag im Zähler):
+  \[\cos{\varphi} = \dfrac{\left|\begin{pmatrix} 1\\ -1\\ 2\end{pmatrix}\circ\begin{pmatrix} 0\\ 1\\ 1\end{pmatrix}\right|}{\sqrt{6}\cdot\sqrt{2}} = \dfrac{|0-1+2|}{\sqrt{12}} = \dfrac{1}{\sqrt{12}}\quad\Longrightarrow\quad\varphi\approx 73{,}22^{\circ}\]
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Ebenen im Raum}
+
+\begin{loesung}{2.7}{Darstellungsformen von Ebenen}
+\begin{enumerate}[label=\alph*)]
+  \item Aufpunkt $A$, Spannvektoren $\vv{AB}$ und $\vv{AC}$ (nicht parallel):
+  \[E:\ \vv{X} = \begin{pmatrix} 2\\ 0\\ 0\end{pmatrix}+\lambda\cdot\begin{pmatrix} -2\\ 4\\ 0\end{pmatrix}+\mu\cdot\begin{pmatrix} -2\\ 0\\ 4\end{pmatrix},\qquad\lambda,\mu\in\mathds{R}\]
+  \item Ein Normalenvektor steht senkrecht auf beiden Spannvektoren, er ergibt sich also aus dem Vektorprodukt:
+  \[\vv{AB}\times\vv{AC} = \begin{pmatrix} 4\cdot 4-0\cdot 0\\ 0\cdot(-2)-(-2)\cdot 4\\ (-2)\cdot 0-4\cdot(-2)\end{pmatrix} = \begin{pmatrix} 16\\ 8\\ 8\end{pmatrix} = 8\cdot\begin{pmatrix} 2\\ 1\\ 1\end{pmatrix},\qquad \vv{n} = \begin{pmatrix} 2\\ 1\\ 1\end{pmatrix}\]
+  Koordinatenform: $2x_1+x_2+x_3-c = 0$. Punktprobe mit $A$: $4-c=0$, also $c=4$ und $E: 2x_1+x_2+x_3-4=0$.\\
+  \textit{Kontrolle mit $B$ und $C$:} $0+4+0-4 = 0$ und $0+0+4-4 = 0$.
+  \item $2\cdot 1+1+1-4 = 0$, die Gleichung ist erfüllt, also $P\in E$.
+  \item \textit{Vorgehen:} Drei Punkte von $F$ suchen, die nicht auf einer Geraden liegen, oder einen Aufpunkt und zwei nicht parallele Vektoren, die senkrecht zu $\vv{n}_F = \begin{pmatrix} 1\\ -2\\ 2\end{pmatrix}$ sind.
+  \begin{itemize}
+    \item Aufpunkt: $x_2=x_3=0$ liefert $x_1=6$, also $Q(6|0|0)$.
+    \item $\vv{u} = \begin{pmatrix} 2\\ 1\\ 0\end{pmatrix}$: $\vv{n}_F\circ\vv{u} = 2-2+0 = 0$, und $\vv{v} = \begin{pmatrix} 0\\ 1\\ 1\end{pmatrix}$: $\vv{n}_F\circ\vv{v} = 0-2+2 = 0$. Die Vektoren $\vv{u}$ und $\vv{v}$ sind nicht parallel.
+  \end{itemize}
+  \[F:\ \vv{X} = \begin{pmatrix} 6\\ 0\\ 0\end{pmatrix}+\lambda\cdot\begin{pmatrix} 2\\ 1\\ 0\end{pmatrix}+\mu\cdot\begin{pmatrix} 0\\ 1\\ 1\end{pmatrix},\qquad\lambda,\mu\in\mathds{R}\]
+  (Andere Aufpunkte und Spannvektoren sind ebenfalls richtig.)
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.8}{Lagebeziehungen und Winkel}
+Normalenvektoren: $\vv{n}_E = \begin{pmatrix} 2\\ 1\\ 1\end{pmatrix}$, $\vv{n}_F = \begin{pmatrix} 1\\ -2\\ 2\end{pmatrix}$.
+\begin{enumerate}[label=\alph*)]
+  \item \textit{Kriterium:} $g$ ist parallel zu $E$, wenn der Richtungsvektor von $g$ senkrecht auf $\vv{n}_E$ steht. $g$ ist echt parallel, wenn zusätzlich der Aufpunkt nicht in $E$ liegt.
+  \[\vv{n}_E\circ\begin{pmatrix} 1\\ -1\\ -1\end{pmatrix} = 2-1-1 = 0\]
+  Punktprobe mit dem Aufpunkt $(1|1|4)$: $2+1+4-4 = 3\neq 0$. Der Aufpunkt liegt nicht in $E$, $g$ verläuft also echt parallel zu $E$.
+  \item Allgemeinen Punkt von $k$, $(\lambda|\lambda|1+\lambda)$, in $E$ einsetzen:
+  \[2\lambda+\lambda+(1+\lambda)-4 = 0\quad\Longleftrightarrow\quad 4\lambda = 3\quad\Longleftrightarrow\quad\lambda = \dfrac{3}{4}\]
+  \[S\left(\tfrac{3}{4}\big|\tfrac{3}{4}\big|\tfrac{7}{4}\right)\]
+  Schnittwinkel Gerade--Ebene: $\sin{\varphi} = \dfrac{|\vv{u}\circ\vv{n}_E|}{|\vv{u}|\cdot|\vv{n}_E|}$, denn der Winkel zum Normalenvektor ergänzt $\varphi$ zu $90^{\circ}$.
+  \[\sin{\varphi} = \dfrac{|2+1+1|}{\sqrt{3}\cdot\sqrt{6}} = \dfrac{4}{\sqrt{18}}\quad\Longrightarrow\quad\varphi\approx 70{,}53^{\circ}\]
+  \item $\vv{n}_E$ und $\vv{n}_F$ sind nicht parallel ($2:1 \neq 1:(-2)$). Die Ebenen sind also nicht parallel und schneiden sich in einer Geraden.\\
+  \textit{Richtungsvektor} der Schnittgeraden: senkrecht zu beiden Normalenvektoren.
+  \[\vv{n}_E\times\vv{n}_F = \begin{pmatrix} 1\cdot 2-1\cdot(-2)\\ 1\cdot 1-2\cdot 2\\ 2\cdot(-2)-1\cdot 1\end{pmatrix} = \begin{pmatrix} 4\\ -3\\ -5\end{pmatrix}\]
+  \textit{Gemeinsamer Punkt:} $x_3=1$ setzen.
+  \[\begin{aligned} E:\ & 2x_1+x_2 = 3\\ F:\ & x_1-2x_2 = 4\end{aligned}\qquad\Longrightarrow\qquad 2\cdot\text{I}+\text{II}:\ 5x_1 = 10,\ x_1 = 2,\ x_2 = -1\]
+  Kontrolle: $(2|-1|1)$ erfüllt $E$ ($4-1+1-4=0$) und $F$ ($2+2+2-6=0$).
+  \[s:\ \vv{X} = \begin{pmatrix} 2\\ -1\\ 1\end{pmatrix}+t\cdot\begin{pmatrix} 4\\ -3\\ -5\end{pmatrix},\qquad t\in\mathds{R}\]
+  (Alternativ: Eine Ebenengleichung nach einer Variablen auflösen und in die andere einsetzen.)
+  \item Schnittwinkel von Ebenen gleich Winkel der Normalenvektoren (nicht stumpf):
+  \[\cos{\varphi} = \dfrac{|\vv{n}_E\circ\vv{n}_F|}{|\vv{n}_E|\cdot|\vv{n}_F|} = \dfrac{|2-2+2|}{\sqrt{6}\cdot 3} = \dfrac{2}{3\sqrt{6}}\quad\Longrightarrow\quad\varphi\approx 74{,}21^{\circ}\]
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abstände im Raum}
+
+\begin{loesung}{2.9}{Abstände}
+\begin{enumerate}[label=\alph*)]
+  \item Hesse'sche Normalenform mit $|\vv{n}| = \sqrt{1+4+4} = 3$:
+  \[d(P;E) = \dfrac{|3+2\cdot 4+2\cdot 5-6|}{3} = \dfrac{15}{3} = 5\]
+  \item \textit{Verfahren:} Der Lotfußpunkt $F$ liegt auf $g$, und $\vv{QF}$ steht senkrecht auf dem Richtungsvektor $\vv{u}$ von $g$.
+  \[\vv{QF} = \begin{pmatrix} 1+\lambda-3\\ 2-\lambda-0\\ 3+2\lambda-4\end{pmatrix} = \begin{pmatrix} \lambda-2\\ 2-\lambda\\ 2\lambda-1\end{pmatrix}\]
+  \[\vv{QF}\circ\begin{pmatrix} 1\\ -1\\ 2\end{pmatrix} = (\lambda-2)-(2-\lambda)+2(2\lambda-1) = 6\lambda-6 = 0\quad\Longrightarrow\quad\lambda = 1\]
+  Lotfußpunkt $F(2|1|5)$, $\vv{QF} = \begin{pmatrix} -1\\ 1\\ 1\end{pmatrix}$, also $d(Q;g) = |\vv{QF}| = \sqrt{3}\approx 1{,}73$.
+  \item Merkekasten \glqq Abstand windschiefer Geraden\grqq{}: $d(g;h) = \left|(\vv{A}-\vv{B})\circ\vv{n_0}\right|$, wobei $\vv{n_0}$ ein Einheitsvektor senkrecht zu beiden Richtungsvektoren ist. (Dass $g$ und $h$ windschief sind, wurde in Ü~2.6\,b) gezeigt, denn $h=h_3$.)
+  \[\vv{n} = \begin{pmatrix} 1\\ -1\\ 2\end{pmatrix}\times\begin{pmatrix} 1\\ 1\\ 0\end{pmatrix} = \begin{pmatrix} -1\cdot 0-2\cdot 1\\ 2\cdot 1-1\cdot 0\\ 1\cdot 1-(-1)\cdot 1\end{pmatrix} = \begin{pmatrix} -2\\ 2\\ 2\end{pmatrix},\qquad |\vv{n}| = \sqrt{12} = 2\sqrt{3}\]
+  \[\vv{A}-\vv{B} = \begin{pmatrix} 1\\ 2\\ 3\end{pmatrix}-\begin{pmatrix} 0\\ 1\\ 0\end{pmatrix} = \begin{pmatrix} 1\\ 1\\ 3\end{pmatrix},\qquad d(g;h) = \dfrac{|-2+2+6|}{2\sqrt{3}} = \dfrac{6}{2\sqrt{3}} = \sqrt{3}\approx 1{,}73\]
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Anwendungen}
+
+\begin{loesung}{2.10}{Kugel und Ebene}
+\begin{enumerate}[label=\alph*)]
+  \item Aus der Kugelgleichung $(x_1-m_1)^2+(x_2-m_2)^2+(x_3-m_3)^2 = R^2$ liest man ab: $M(2|1|-1)$, $R = \sqrt{25} = 5$.
+  \begin{itemize}
+    \item $P$: $(5-2)^2+(5-1)^2+(-1+1)^2 = 9+16+0 = 25 = R^2$, also liegt $P$ \textbf{auf} der Kugel.
+    \item $Q$: $(4-2)^2+(3-1)^2+(0+1)^2 = 4+4+1 = 9 < 25$, also $|\vv{MQ}| = 3 < 5$, und $Q$ liegt \textbf{innerhalb} der Kugel.
+  \end{itemize}
+  \item Abstand Mittelpunkt--Ebene (Hesse'sche Normalenform, $|\vv{n}|=3$):
+  \[d(M;E) = \dfrac{|2+2\cdot 1+2\cdot(-1)+7|}{3} = \dfrac{9}{3} = 3\]
+  Wegen $d = 3 < R = 5$ schneidet $E$ die Kugel in einem Kreis.
+  \item \textit{Mittelpunkt:} Lotfußpunkt von $M$ auf $E$. Die Lotgerade durch $M$ hat den Richtungsvektor $\vv{n}$, ihr allgemeiner Punkt ist $(2+\lambda|1+2\lambda|-1+2\lambda)$. Einsetzen in $E$:
+  \[(2+\lambda)+2(1+2\lambda)+2(-1+2\lambda)+7 = 9+9\lambda = 0\quad\Longrightarrow\quad\lambda = -1\]
+  Mittelpunkt des Schnittkreises: $M'(1|-1|-3)$.\\
+  \textit{Radius} nach dem Satz des Pythagoras (Kugelradius, Abstand und Kreisradius bilden ein rechtwinkliges Dreieck):
+  \[r = \sqrt{R^2-d^2} = \sqrt{25-9} = 4\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.11}{Spiegelung eines Punktes an einer Ebene}
+\begin{enumerate}[label=\alph*)]
+  \item Die Lotgerade verläuft durch $P$ in Richtung des Normalenvektors von $E$:
+  \[\ell:\ \vv{X} = \begin{pmatrix} 3\\ 3\\ 3\end{pmatrix}+\lambda\cdot\begin{pmatrix} 1\\ 2\\ 2\end{pmatrix},\qquad\lambda\in\mathds{R}\]
+  \item Schnitt von $\ell$ mit $E$:
+  \[(3+\lambda)+2(3+2\lambda)+2(3+2\lambda)-6 = 9+9\lambda = 0\quad\Longrightarrow\quad\lambda = -1\]
+  Lotfußpunkt $F(2|1|1)$. Abstand: $d(P;E) = |\vv{PF}| = \left|-1\cdot\begin{pmatrix} 1\\ 2\\ 2\end{pmatrix}\right| = 3$.\\
+  (Kontrolle mit der Hesse'schen Normalenform: $\frac{|3+6+6-6|}{3} = 3$.)
+  \item $F$ ist der Mittelpunkt von $\overline{PP'}$, also $\vv{P'} = \vv{P}+2\cdot\vv{PF}$. Das entspricht $\lambda = 2\cdot(-1) = -2$ in $\ell$:
+  \[\vv{P'} = \begin{pmatrix} 3\\ 3\\ 3\end{pmatrix}-2\cdot\begin{pmatrix} 1\\ 2\\ 2\end{pmatrix} = \begin{pmatrix} 1\\ -1\\ -1\end{pmatrix},\qquad P'(1|-1|-1)\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.12}{Pyramide (Abiturniveau)}
+\begin{enumerate}[label=\alph*)]
+  \item $\vv{AB} = \begin{pmatrix} 4\\ 0\\ 0\end{pmatrix} = \vv{DC}$, also ist $ABCD$ ein Parallelogramm.\\
+  $|\vv{AB}| = |\vv{AD}| = 4$ und $\vv{AB}\circ\vv{AD} = \begin{pmatrix} 4\\ 0\\ 0\end{pmatrix}\circ\begin{pmatrix} 0\\ 4\\ 0\end{pmatrix} = 0$. Ein Parallelogramm mit gleich langen Nachbarseiten und rechtem Winkel ist ein Quadrat.\\
+  Die Grundfläche liegt in der $x_1x_2$-Ebene, die Höhe ist also die $x_3$-Koordinate von $S$: $h=6$.
+  \[V = \dfrac{1}{3}\cdot G\cdot h = \dfrac{1}{3}\cdot 16\cdot 6 = 32\ \text{VE}\]
+  \item Spannvektoren $\vv{BC} = \begin{pmatrix} 0\\ 4\\ 0\end{pmatrix}$ und $\vv{BS} = \begin{pmatrix} -2\\ 2\\ 6\end{pmatrix}$.
+  \[\vv{BC}\times\vv{BS} = \begin{pmatrix} 4\cdot 6-0\cdot 2\\ 0\cdot(-2)-0\cdot 6\\ 0\cdot 2-4\cdot(-2)\end{pmatrix} = \begin{pmatrix} 24\\ 0\\ 8\end{pmatrix} = 8\cdot\begin{pmatrix} 3\\ 0\\ 1\end{pmatrix}\]
+  Ansatz $3x_1+x_3-c=0$, Punktprobe mit $B(4|0|0)$: $c=12$, also $L: 3x_1+x_3-12=0$.\\
+  Kontrolle: $C$: $12+0-12=0$, $S$: $6+6-12=0$.
+  \item Die Grundfläche liegt in der $x_1x_2$-Ebene mit Normalenvektor $\vv{e}_3 = \begin{pmatrix} 0\\ 0\\ 1\end{pmatrix}$. Schnittwinkel von Ebenen:
+  \[\cos{\varphi} = \dfrac{\left|\begin{pmatrix} 3\\ 0\\ 1\end{pmatrix}\circ\begin{pmatrix} 0\\ 0\\ 1\end{pmatrix}\right|}{\sqrt{10}\cdot 1} = \dfrac{1}{\sqrt{10}}\quad\Longrightarrow\quad\varphi\approx 71{,}57^{\circ}\]
+  \item Hesse'sche Normalenform mit $|\vv{n}_L| = \sqrt{10}$:
+  \[d(A;L) = \dfrac{|0+0-12|}{\sqrt{10}} = \dfrac{12}{\sqrt{10}} = \dfrac{6\sqrt{10}}{5}\approx 3{,}79\]
+  \item Mittelpunkt: $\vv{N} = \frac{1}{2}(\vv{B}+\vv{C})$, also $N(4|2|0)$.
+  \[\vv{NS} = \begin{pmatrix} -2\\ 0\\ 6\end{pmatrix},\qquad |\vv{NS}| = \sqrt{4+36} = \sqrt{40} = 2\sqrt{10}\approx 6{,}32\]
+  Wegen $\vv{NS}\circ\vv{BC} = 0$ steht $\overline{NS}$ senkrecht auf $\overline{BC}$, ist also die Höhe des Dreiecks $BCS$ zur Grundseite $\overline{BC}$.
+  \[A_{BCS} = \dfrac{1}{2}\cdot|\vv{BC}|\cdot|\vv{NS}| = \dfrac{1}{2}\cdot 4\cdot 2\sqrt{10} = 4\sqrt{10}\approx 12{,}65\ \text{FE}\]
+  \textit{Bestätigung mit dem Vektorprodukt} (aus b)):
+  \[A_{BCS} = \dfrac{1}{2}\left|\vv{BC}\times\vv{BS}\right| = \dfrac{1}{2}\sqrt{24^2+0^2+8^2} = \dfrac{1}{2}\sqrt{640} = \dfrac{1}{2}\cdot 8\sqrt{10} = 4\sqrt{10}\]
+\end{enumerate}
+\end{loesung}
+
+\LoesungskapitelEnde
