@@ -1,5 +1,5 @@
 % =====================================================================
-% Lösungsteil zu Kapitel 2 (Analytische Geometrie) – Lösungen zu Ü 2.1 bis Ü 2.12
+% Lösungsteil zu Kapitel 2 (Analytische Geometrie) – Lösungen zu Ü 2.1 bis Ü 2.22
 % Steht am Ende des Buches hinter dem Anhang.
 % Alle Ergebnisse wurden mit SymPy nachgerechnet.
 % =====================================================================
@@ -228,6 +228,140 @@ Normalenvektoren: $\vv{n}_E = \begin{pmatrix} 2\\ 1\\ 1\end{pmatrix}$, $\vv{n}_F
   \[A_{BCS} = \dfrac{1}{2}\cdot|\vv{BC}|\cdot|\vv{NS}| = \dfrac{1}{2}\cdot 4\cdot 2\sqrt{10} = 4\sqrt{10}\approx 12{,}65\ \text{FE}\]
   \textit{Bestätigung mit dem Vektorprodukt} (aus b)):
   \[A_{BCS} = \dfrac{1}{2}\left|\vv{BC}\times\vv{BS}\right| = \dfrac{1}{2}\sqrt{24^2+0^2+8^2} = \dfrac{1}{2}\sqrt{640} = \dfrac{1}{2}\cdot 8\sqrt{10} = 4\sqrt{10}\]
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abiturniveau \textendash\ Teil A (ohne Hilfsmittel)}
+
+\begin{loesung}{2.13}{Ebene und Abstand}
+\begin{enumerate}[label=\alph*)]
+  \item Je zwei Koordinaten null setzen (Spurpunkte mit den Achsen):
+  \[x_1\text{-Achse: } 2x_1 = 6\Rightarrow S_1(3|0|0),\quad x_2\text{-Achse: } -x_2 = 6\Rightarrow S_2(0|-6|0),\quad x_3\text{-Achse: } 2x_3 = 6\Rightarrow S_3(0|0|3)\]
+  \item Hesse'sche Normalenform mit $|\vv{n}| = \sqrt{4+1+4} = 3$:
+  \[d(O;E) = \dfrac{|0-0+0-6|}{3} = 2\]
+  \item Parallele Ebenen haben denselben Normalenvektor: $E_c: 2x_1-x_2+2x_3-c = 0$. Der Abstand zweier paralleler Ebenen ist der Abstand eines Punktes der einen Ebene von der anderen, z.\,B. von $S_1(3|0|0)\in E$:
+  \[\dfrac{|6-c|}{3} = 2\quad\Longleftrightarrow\quad|6-c| = 6\quad\Longleftrightarrow\quad c = 0\ \text{oder}\ c = 12\]
+  Gesuchte Ebenen: $2x_1-x_2+2x_3 = 0$ (durch den Ursprung, passend zu b)) und $2x_1-x_2+2x_3-12 = 0$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.14}{Gerade und Kugel}
+\begin{enumerate}[label=\alph*)]
+  \item Der Aufpunkt von $g$ ist $M$ (Parameterwert $\lambda=0$), also verläuft $g$ durch $M$.\\
+  Der Richtungsvektor hat die Länge $\sqrt{4+1+4} = 3 = r$. Die Schnittpunkte haben daher von $M$ den Abstand $r$, wenn $|\lambda|\cdot 3 = 3$, also $\lambda = \pm 1$:
+  \[\lambda = 1:\ P(3|3|1),\qquad\lambda = -1:\ Q(-1|1|-3)\]
+  \item Die Tangentialebene steht senkrecht auf dem Berührradius $\vv{MP} = \begin{pmatrix} 2\\ 1\\ 2\end{pmatrix}$, dieser ist also Normalenvektor. Ansatz $2x_1+x_2+2x_3-c = 0$, Punktprobe mit $P$: $c = 6+3+2 = 11$.
+  \[T: 2x_1+x_2+2x_3-11 = 0\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.15}{Gerade und Ebene mit Parameter}
+\begin{enumerate}[label=\alph*)]
+  \item Normalenvektor $\vv{n} = \begin{pmatrix} 1\\ 2\\ -2\end{pmatrix}$, Richtungsvektor $\vv{u} = \begin{pmatrix} 2\\ -1\\ 0\end{pmatrix}$:
+  \[\vv{n}\circ\vv{u} = 2-2+0 = 0\]
+  Der Richtungsvektor ist orthogonal zum Normalenvektor, also verläuft jede Gerade $g_a$ parallel zu $E$ (oder liegt in $E$).
+  \item Eine parallele Gerade liegt genau dann in $E$, wenn ihr Aufpunkt $(0|0|a)$ in $E$ liegt (Punktprobe):
+  \[0+0-2a-4 = 0\quad\Longleftrightarrow\quad a = -2\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.16}{Rechtwinkliges Dreieck}
+\begin{enumerate}[label=\alph*)]
+  \item \[\vv{AB} = \begin{pmatrix} 2\\ 2\\ -1\end{pmatrix},\quad\vv{AC} = \begin{pmatrix} 2\\ -1\\ 2\end{pmatrix},\quad\vv{AB}\circ\vv{AC} = 4-2-2 = 0\]
+  Also ist der Winkel bei $A$ ein rechter. Längen: $|\vv{AB}| = \sqrt{4+4+1} = 3$ und $|\vv{AC}| = \sqrt{4+1+4} = 3$, also gleichschenklig.
+  \item Rechtwinkliges Dreieck: $A = \dfrac{1}{2}\cdot|\vv{AB}|\cdot|\vv{AC}| = \dfrac{1}{2}\cdot 3\cdot 3 = 4{,}5$.
+  \item Nach a) bilden $\vv{AB}$ und $\vv{AC}$ gleich lange, orthogonale Seiten. Im Quadrat $ABDC$ gilt $\vv{BD} = \vv{AC}$:
+  \[\vv{D} = \vv{B}+\vv{AC} = \begin{pmatrix} 3\\ 2\\ 1\end{pmatrix}+\begin{pmatrix} 2\\ -1\\ 2\end{pmatrix} = \begin{pmatrix} 5\\ 1\\ 3\end{pmatrix}\quad\Longrightarrow\quad D(5|1|3)\]
+  Kontrolle: $\vv{C}+\vv{AB} = (3+2|-1+2|4-1) = (5|1|3)$. \checkmark
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abiturniveau \textendash\ Teil B (mit Hilfsmitteln)}
+
+\begin{loesung}{2.17}{Dachfläche mit Antenne}
+\begin{enumerate}[label=\alph*)]
+  \item $\vv{PQ} = \begin{pmatrix} 10\\ 0\\ 0\end{pmatrix}$, $\vv{PR} = \begin{pmatrix} 0\\ 8\\ 6\end{pmatrix}$. Normalenvektor über das Vektorprodukt:
+  \[\vv{PQ}\times\vv{PR} = \begin{pmatrix} 0\cdot 6-0\cdot 8\\ 0\cdot 0-10\cdot 6\\ 10\cdot 8-0\cdot 0\end{pmatrix} = \begin{pmatrix} 0\\ -60\\ 80\end{pmatrix} = 20\cdot\begin{pmatrix} 0\\ -3\\ 4\end{pmatrix}\]
+  Ansatz $-3x_2+4x_3-c = 0$, Punktprobe mit $P$: $c = 12$. Also $D: -3x_2+4x_3-12 = 0$.
+  \item Winkel zwischen $D$ und dem Boden ($x_1x_2$-Ebene, Normalenvektor $\vv{e}_3$):
+  \[\cos{\varphi} = \dfrac{|4|}{\sqrt{9+16}\cdot 1} = \dfrac{4}{5}\quad\Longrightarrow\quad\varphi\approx 36{,}87^{\circ}\]
+  \item $F$: $-12+24-12 = 0$, also $F\in D$. Die Spitze ist $S(5|4|8)$. Hesse'sche Normalenform ($|\vv{n}| = 5$):
+  \[d(S;D) = \dfrac{|-12+32-12|}{5} = \dfrac{8}{5} = 1{,}6\ (\text{m})\]
+  Der Abstand ist kleiner als die Antennenlänge, weil die Antenne nicht senkrecht auf der schrägen Dachfläche steht.
+  \item Lichtstrahl durch $S$: $\vv{X} = \begin{pmatrix} 5\\ 4\\ 8\end{pmatrix}+\lambda\cdot\begin{pmatrix} 1\\ 0\\ -2\end{pmatrix}$. Einsetzen in $D$:
+  \[-3\cdot 4+4\cdot(8-2\lambda)-12 = 8-8\lambda = 0\quad\Longrightarrow\quad\lambda = 1\]
+  Schattenpunkt $S'(6|4|6)$. Der Schatten der Antenne ist die Strecke $\overline{FS'}$ mit $\vv{FS'} = \begin{pmatrix} 1\\ 0\\ 0\end{pmatrix}$, also $1\,\text{m}$ lang.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.18}{Flugbahnen}
+\begin{enumerate}[label=\alph*)]
+  \item Pro Minute legen die Flugzeuge die Länge des Richtungsvektors zurück:
+  \[\left|\begin{pmatrix} 4\\ 3\\ 0\end{pmatrix}\right| = \left|\begin{pmatrix} -4\\ 3\\ 0\end{pmatrix}\right| = 5\ \tfrac{\text{km}}{\text{min}} = 300\ \tfrac{\text{km}}{\text{h}}\]
+  \item Die Richtungsvektoren sind nicht parallel ($4:(-4)\neq 3:3$). Gleichsetzen der Bahngeraden (Parameter $r$, $s$):
+  \[\text{I: } 4r = 24-4s,\qquad\text{II: } 3r = 3s,\qquad\text{III: } 8 = 7\]
+  Gleichung III ist ein Widerspruch, es gibt keinen Schnittpunkt. Die Bahnen sind weder parallel noch schneiden sie sich, sie sind also windschief.
+  \item Abstand windschiefer Geraden:
+  \[\vv{n} = \begin{pmatrix} 4\\ 3\\ 0\end{pmatrix}\times\begin{pmatrix} -4\\ 3\\ 0\end{pmatrix} = \begin{pmatrix} 0\\ 0\\ 24\end{pmatrix},\quad\vv{n_0} = \begin{pmatrix} 0\\ 0\\ 1\end{pmatrix},\quad d = \left|\left(\begin{pmatrix} 0\\ 0\\ 8\end{pmatrix}-\begin{pmatrix} 24\\ 0\\ 7\end{pmatrix}\right)\circ\vv{n_0}\right| = 1\]
+  Die Bahnen haben den Abstand $1\,\text{km}$ (beide verlaufen waagrecht, in $8\,\text{km}$ bzw. $7\,\text{km}$ Höhe).
+  \item Verbindungsvektor der Positionen zum gleichen Zeitpunkt:
+  \[\vv{X_1}(t)-\vv{X_2}(t) = \begin{pmatrix} 8t-24\\ 0\\ 1\end{pmatrix},\qquad d(t) = \sqrt{(8t-24)^2+1}\]
+  $d(t)$ ist minimal, wenn $(8t-24)^2$ minimal ist, also für $t=3$, mit $d(3) = 1$. Nach $3$ Minuten befinden sich beide Flugzeuge über demselben Punkt $(12|9)$ und kommen sich bis auf $1\,\text{km}$ nahe. Der kleinste Abstand der Flugzeuge stimmt hier mit dem Abstand der Bahnen überein, weil sie die Stellen des kürzesten Abstands gleichzeitig erreichen. (Im Allgemeinen ist der kleinste Abstand der Flugzeuge größer als der Abstand der Bahnen.)
+  \item Winkel zwischen den Richtungsvektoren (nicht stumpf):
+  \[\cos{\varphi} = \dfrac{|-16+9+0|}{5\cdot 5} = \dfrac{7}{25}\quad\Longrightarrow\quad\varphi\approx 73{,}74^{\circ}\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.19}{Schnitt durch einen Würfel}
+\begin{enumerate}[label=\alph*)]
+  \item $B$, $D$, $E$ liegen auf den Koordinatenachsen, jeweils im Abstand $6$ vom Ursprung (Achsenabschnittsform). Ansatz $x_1+x_2+x_3-c=0$; Probe mit $B$: $c=6$, mit $D$ und $E$ ebenfalls erfüllt.
+  \[L: x_1+x_2+x_3-6 = 0\]
+  \item Hesse'sche Normalenform mit $|\vv{n}| = \sqrt{3}$:
+  \[d(A;L) = \dfrac{|-6|}{\sqrt{3}} = 2\sqrt{3}\approx 3{,}46,\qquad d(G;L) = \dfrac{|18-6|}{\sqrt{3}} = 4\sqrt{3}\approx 6{,}93\]
+  \item $\vv{AG} = \begin{pmatrix} 6\\ 6\\ 6\end{pmatrix} = 6\cdot\vv{n}$ ist ein Vielfaches des Normalenvektors, also steht $\overline{AG}$ senkrecht auf $L$.\\
+  Schnittpunkt: $\vv{X} = \lambda\cdot\begin{pmatrix} 6\\ 6\\ 6\end{pmatrix}$ in $L$: $18\lambda = 6$, $\lambda = \frac{1}{3}$, also $T(2|2|2)$. $L$ teilt $\overline{AG}$ im Verhältnis $1:2$ (von $A$ aus). Das passt zu b): $2\sqrt{3}:4\sqrt{3} = 1:2$.
+  \item Die Pyramide $ABDE$ wird von $\vv{AB}$, $\vv{AD}$, $\vv{AE}$ aufgespannt (paarweise senkrecht, je Länge $6$):
+  \[V_{\text{Pyramide}} = \dfrac{1}{6}\left|(\vv{AB}\times\vv{AD})\circ\vv{AE}\right| = \dfrac{1}{6}\cdot 6^3 = 36,\qquad V_{\text{Würfel}} = 216\]
+  Anteil: $\frac{36}{216} = \frac{1}{6}$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.20}{Kugel auf einer schiefen Ebene}
+\begin{enumerate}[label=\alph*)]
+  \item Hesse'sche Normalenform ($|\vv{n}| = 3$):
+  \[d(M;E) = \dfrac{|8-1+8-6|}{3} = \dfrac{9}{3} = 3 = r\]
+  Der Abstand des Mittelpunkts von $E$ ist gleich dem Radius, also berührt $E$ die Kugel.\\
+  Berührpunkt: Lotfußpunkt von $M$. Die Lotgerade $\vv{X} = \vv{M}+\lambda\vv{n}$ eingesetzt in $E$:
+  \[2(4+2\lambda)-(1-\lambda)+2(4+2\lambda)-6 = 9+9\lambda = 0\quad\Longrightarrow\quad\lambda = -1,\qquad B(2|2|2)\]
+  \item Der zweite Berührpunkt liegt auf der Lotgeraden auf der anderen Seite von $M$: $\lambda = +1$, also $B'(6|0|6)$. Ebene mit gleichem Normalenvektor durch $B'$:
+  \[2x_1-x_2+2x_3-c = 0,\quad c = 12-0+12 = 24,\qquad E': 2x_1-x_2+2x_3-24 = 0\]
+  \item Der höchste Punkt liegt senkrecht über $M$ im Abstand $r$: $\vv{M}+3\cdot\vv{e}_3$, also $(4|1|7)$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.21}{Zelt}
+\begin{enumerate}[label=\alph*)]
+  \item $W_1$: $\vv{AD} = \begin{pmatrix} 0\\ 6\\ 0\end{pmatrix}$, $\vv{AF} = \begin{pmatrix} 2\\ 0\\ 2\end{pmatrix}$, Vektorprodukt $\vv{AD}\times\vv{AF} = \begin{pmatrix} 12\\ 0\\ -12\end{pmatrix}$, also $\vv{n_1} = \begin{pmatrix} 1\\ 0\\ -1\end{pmatrix}$. Mit $A$: $W_1: x_1-x_3 = 0$.\\
+  $W_2$: $\vv{BC} = \begin{pmatrix} 0\\ 6\\ 0\end{pmatrix}$, $\vv{BF} = \begin{pmatrix} -2\\ 0\\ 2\end{pmatrix}$, $\vv{BC}\times\vv{BF} = \begin{pmatrix} 12\\ 0\\ 12\end{pmatrix}$, also $\vv{n_2} = \begin{pmatrix} 1\\ 0\\ 1\end{pmatrix}$. Mit $B$: $W_2: x_1+x_3-4 = 0$.\\
+  Probe: $F(2|0|2)$ erfüllt $2-2=0$ und $2+2-4=0$. \checkmark
+  \item Schnittwinkel zweier Ebenen über die Normalenvektoren: $\vv{n_1}\circ\vv{n_2} = 1+0-1 = 0$, also $\cos{\varphi} = 0$ und $\varphi = 90^\circ$. Die Seitenwände stehen senkrecht aufeinander.
+  \item Das Zelt ist ein liegendes Prisma mit dem Dreieck $ABF$ als Grundfläche (Grundseite $4$, Höhe $2$) und der Länge $6$:
+  \[V = \dfrac{1}{2}\cdot 4\cdot 2\cdot 6 = 24\]
+  Das Zelt hat ein Volumen von $24\,\text{m}^3$.
+  \item Die Stange liegt auf der Geraden $x_1 = 1$, $x_2 = 3$; wegen $x_1 = 1<2$ trifft sie die Wand $W_1$. Einsetzen: $1-x_3 = 0\Longleftrightarrow x_3 = 1$. Die Stange berührt die Wand in $1\,\text{m}$ Höhe im Punkt $(1|3|1)$.
+  \item Hessesche Normalform von $W_1$: $\dfrac{x_1-x_3}{\sqrt{2}} = 0$.
+  \[d(L,W_1) = \dfrac{|2-1|}{\sqrt{2}} = \dfrac{\sqrt{2}}{2}\approx 0{,}71\]
+  Die Lampe ist etwa $0{,}71\,\text{m}$ von der Seitenwand entfernt.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{2.22}{Reflektierter Laserstrahl}
+\begin{enumerate}[label=\alph*)]
+  \item Strahl $s: \vv{X} = \begin{pmatrix} 0\\ 0\\ 6\end{pmatrix}+\lambda\cdot\begin{pmatrix} 1\\ 1\\ -2\end{pmatrix}$. Boden: $x_3 = 0\Longleftrightarrow 6-2\lambda = 0\Longleftrightarrow\lambda = 3$. Also $R(3|3|0)$.
+  \item Bei der Reflexion an der $x_1x_2$-Ebene bleiben die zur Ebene parallelen Komponenten erhalten, die Komponente in Normalenrichtung ($x_3$) wechselt das Vorzeichen: aus $\begin{pmatrix} 1\\ 1\\ -2\end{pmatrix}$ wird $\begin{pmatrix} 1\\ 1\\ 2\end{pmatrix}$.\\
+  Reflektierter Strahl $r: \vv{X} = \begin{pmatrix} 3\\ 3\\ 0\end{pmatrix}+\mu\cdot\begin{pmatrix} 1\\ 1\\ 2\end{pmatrix}$. Wand: $3+\mu = 6\Longleftrightarrow\mu = 3$, also $W(6|6|6)$.
+  \item Winkel zwischen Gerade und Ebene mit $\vv{n} = \begin{pmatrix} 0\\ 0\\ 1\end{pmatrix}$:
+  \[\sin{\alpha} = \dfrac{|\vv{u}\circ\vv{n}|}{|\vv{u}|\cdot|\vv{n}|} = \dfrac{2}{\sqrt{6}}\quad\Longrightarrow\quad\alpha\approx 54{,}7^\circ\]
 \end{enumerate}
 \end{loesung}
 
