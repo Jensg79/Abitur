@@ -1,5 +1,5 @@
 % =====================================================================
-% Lösungsteil zu Kapitel 1 (Analysis) – Lösungen zu Ü 1.1 bis Ü 1.23
+% Lösungsteil zu Kapitel 1 (Analysis) – Lösungen zu Ü 1.1 bis Ü 1.38
 % Steht am Ende des Buches hinter dem Anhang.
 % Alle Ergebnisse wurden mit SymPy nachgerechnet.
 % =====================================================================
@@ -528,6 +528,237 @@ Ableitungen: $f_k'(x) = 3x^2-k$, $f_k''(x) = 6x$, $f_k'''(x) = 6$.
   Nach $8$ Stunden sind etwa $52{,}67\ \text{m}^3$ Wasser im Becken.
   \item Es gilt $V'(t) = r(t) = \frac{1}{2}t\cdot(8-t)$. Für $0<t<8$ sind beide Faktoren positiv, also $V'(t)>0$. Nach dem Satz \glqq Bedingung für die Monotonie\grqq{} nimmt das Volumen im gesamten Zeitraum streng monoton zu.\\
   Für $4<t<8$ ist $r'(t) = 4-t<0$, die Zuflussrate nimmt also ab. Weil die Zuflussrate die momentane Änderungsrate des Volumens ist, steigt das Volumen ab $t=4$ immer langsamer ($V''(t) = r'(t)<0$, der Graph von $V$ ist dort rechtsgekrümmt).
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abiturniveau \textendash\ Teil A (ohne Hilfsmittel)}
+
+\begin{loesung}{1.24}{Funktion mit Logarithmus}
+\begin{enumerate}[label=\alph*)]
+  \item Satz vom Nullprodukt: $x\cdot\ln{(x)} = 0 \Longleftrightarrow x=0$ oder $\ln{(x)}=0$. Wegen $x=0\notin\mathds{D}_f$ bleibt $\ln{(x)}=0\Longleftrightarrow x=1$. Die Nullstelle ist $x=1$.
+  \item Produktregel mit $(\ln{(x)})' = \frac{1}{x}$:
+  \[f'(x) = 1\cdot\ln{(x)}+x\cdot\dfrac{1}{x} = \ln{(x)}+1\]
+  $f'(x)=0\Longleftrightarrow\ln{(x)}=-1\Longleftrightarrow x=e^{-1}=\frac{1}{e}$.\\
+  $f''(x) = \frac{1}{x}>0$ für alle $x>0$, also $f''(\frac{1}{e})>0$ und damit ein Tiefpunkt. Mit $f(\frac{1}{e}) = \frac{1}{e}\cdot(-1) = -\frac{1}{e}$ folgt $TiP\left(\frac{1}{e}\big|-\frac{1}{e}\right)$.
+  \item $F$ ist Stammfunktion von $f$, wenn $F'=f$ gilt. Produktregel beim ersten Summanden:
+  \[F'(x) = x\cdot\ln{(x)}+\dfrac{1}{2}x^2\cdot\dfrac{1}{x}-\dfrac{1}{2}x = x\cdot\ln{(x)}+\dfrac{1}{2}x-\dfrac{1}{2}x = x\cdot\ln{(x)} = f(x)\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.25}{Funktionsterme mit vorgegebenen Eigenschaften}
+Es gibt jeweils viele richtige Lösungen; angegeben ist je ein Beispiel mit Begründung.
+\begin{enumerate}[label=\alph*)]
+  \item $f(x) = 1+\dfrac{1}{x-2} = \dfrac{x-1}{x-2}$. Der Nenner wird bei $x=2$ null, der Zähler dort nicht ($2-1=1\neq 0$), also Pol und senkrechte Asymptote $x=2$. Für $x\longrightarrow\pm\infty$ strebt $\frac{1}{x-2}$ gegen $0$, also waagrechte Asymptote $y=1$ (Summenform, Merkekasten \glqq Schräge Asymptoten\grqq).
+  \item $g(x) = \sqrt{3-x}$. Der Radikand muss nicht negativ sein: $3-x\geq 0\Longleftrightarrow x\leq 3$, also $\mathds{D}_{\text{max}} = ]-\infty;3]$.
+  \item $h(x) = 2+\sin{\left(\dfrac{\pi}{2}x\right)}$. Periode $p = \dfrac{2\pi}{\frac{\pi}{2}} = 4$. Wegen $-1\leq\sin\leq 1$ liegen die Werte zwischen $2-1=1$ und $2+1=3$, alle werden angenommen: $W_h = [1;3]$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.26}{Integrale}
+\begin{enumerate}[label=\alph*)]
+  \item Regel $\integral{f(ax+b)} = \frac{1}{a}F(ax+b)+c$ mit $a=\frac{1}{2}$:
+  \[\integral[limits-mode=limits,limits={0, 2}]{e^{\frac{1}{2}x}} = \left[2e^{\frac{1}{2}x}\right]_0^2 = 2e-2\approx 3{,}44\]
+  \item \[\integral[limits-mode=limits,limits={0, b}]{(2x-2)} = \left[x^2-2x\right]_0^b = b^2-2b = b\cdot(b-2) = 0\]
+  Wegen $b>0$ folgt $b=2$.
+  \item Der Integrand $2x-2$ ist in $[0;1[$ negativ und in $]1;2]$ positiv. Die Fläche unterhalb der $x$-Achse ($\integral[limits-mode=limits,limits={0, 1}]{(2x-2)} = -1$) und die gleich große Fläche oberhalb ($+1$) heben sich in der Flächenbilanz auf. Geometrisch: zwei kongruente Dreiecke mit Spitze in $(1|0)$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.27}{Exponentialfunktion mit Substitution}
+\begin{enumerate}[label=\alph*)]
+  \item Mit $z=e^x>0$ gilt $e^{2x} = (e^x)^2 = z^2$:
+  \[z^2-4z+3 = (z-1)(z-3) = 0\quad\Longrightarrow\quad z=1\ \text{oder}\ z=3\]
+  Rücksubstitution: $e^x=1\Longleftrightarrow x=0$ und $e^x=3\Longleftrightarrow x=\ln{(3)}$. Die Nullstellen sind $0$ und $\ln{(3)}$.
+  \item Kettenregel: $g'(x) = 2e^{2x}-4e^x = 2e^x\cdot(e^x-2)$.\\
+  Wegen $2e^x>0$ gilt $g'(x)=0\Longleftrightarrow e^x=2\Longleftrightarrow x=\ln{(2)}$. Für $x<\ln{(2)}$ ist $e^x-2<0$, also $g'(x)<0$; für $x>\ln{(2)}$ ist $g'(x)>0$. VZW von $-$ nach $+$: Tiefpunkt.
+  \[g(\ln{(2)}) = 2^2-4\cdot 2+3 = -1\quad\Longrightarrow\quad TiP(\ln{(2)}|-1)\]
+  \item Für $x\longrightarrow-\infty$ gilt $e^x\longrightarrow 0$ und $e^{2x}\longrightarrow 0$, also $g(x)\longrightarrow 0-0+3 = 3$. Waagrechte Asymptote: $y=3$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.28}{Tangenten von einem äußeren Punkt}
+\begin{enumerate}[label=\alph*)]
+  \item Tangentengleichung $y = f'(a)\cdot(x-a)+f(a)$ mit $f'(x)=2x$:
+  \[y = 2a\cdot(x-a)+a^2 = 2a\cdot x-2a^2+a^2 = 2a\cdot x-a^2\]
+  \item $P(1|-3)$ liegt auf der Tangente, also Punktprobe mit $x=1$, $y=-3$:
+  \[-3 = 2a\cdot 1-a^2\quad\Longleftrightarrow\quad a^2-2a-3 = 0\quad\Longleftrightarrow\quad (a-3)(a+1) = 0\]
+  Also $a=3$ oder $a=-1$. Einsetzen in a):
+  \[a=3:\ y = 6x-9,\qquad a=-1:\ y = -2x-1\]
+  Probe: $6\cdot 1-9 = -3$ und $-2\cdot 1-1 = -3$. \checkmark
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.29}{Fläche zwischen Graph und Umkehrgraph}
+\begin{enumerate}[label=\alph*)]
+  \item $\sqrt{x} = \frac{1}{2}x$. Quadrieren (beide Seiten $\geq 0$ für $x\geq 0$): $x = \frac{1}{4}x^2\Longleftrightarrow x\cdot(\frac{1}{4}x-1) = 0$, also $x=0$ oder $x=4$. Probe: $\sqrt{4} = 2 = \frac{1}{2}\cdot 4$. \checkmark
+  \item Für $0<x<4$ gilt $w(x)>\ell(x)$ (z.\,B. $w(1)=1>\frac{1}{2}=\ell(1)$):
+  \[A = \integral[limits-mode=limits,limits={0, 4}]{\left(\sqrt{x}-\dfrac{1}{2}x\right)} = \left[\dfrac{2}{3}x^{\frac{3}{2}}-\dfrac{1}{4}x^2\right]_0^4 = \dfrac{2}{3}\cdot 8-4 = \dfrac{4}{3}\]
+  \item Die Spiegelung an $y=x$ ist eine Kongruenzabbildung; sie erhält Flächeninhalte. Die eingeschlossene Fläche ist das Spiegelbild der Fläche aus b) und hat daher ebenfalls den Inhalt $\frac{4}{3}$. (Kontrolle: $\integral[limits-mode=limits,limits={0, 2}]{(2x-x^2)} = 4-\frac{8}{3} = \frac{4}{3}$.)
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abiturniveau \textendash\ Teil B (mit Hilfsmitteln)}
+
+\begin{loesung}{1.30}{Medikament im Blut}
+Produkt- und Kettenregel:
+\[c'(t) = 10e^{-0{,}5t}+10t\cdot(-0{,}5)e^{-0{,}5t} = 5\cdot(2-t)\cdot e^{-0{,}5t},\qquad c''(t) = 2{,}5\cdot(t-4)\cdot e^{-0{,}5t}\]
+\begin{enumerate}[label=\alph*)]
+  \item $c'(t)=0\Longleftrightarrow t=2$ (da $e^{-0{,}5t}>0$). Für $t<2$ ist $c'(t)>0$, für $t>2$ ist $c'(t)<0$: Maximum.
+  \[c(2) = 20e^{-1}\approx 7{,}36\]
+  Zwei Stunden nach der Einnahme ist die Konzentration mit etwa $7{,}36\,\frac{\text{mg}}{\text{l}}$ maximal.
+  \item Gesucht ist das Minimum von $c'$, also eine Wendestelle von $c$: $c''(t)=0\Longleftrightarrow t=4$. Dort wechselt $c''$ von $-$ nach $+$, $c'$ hat also ein Minimum. (Für $t\longrightarrow\infty$ gilt $c'(t)\longrightarrow 0$, am Rand $t=0$ ist $c'(0)=10>0$.)
+  \[c'(4) = -10e^{-2}\approx-1{,}35\]
+  Vier Stunden nach der Einnahme nimmt die Konzentration mit etwa $1{,}35\,\frac{\text{mg}}{\text{l}}$ pro Stunde am stärksten ab.
+  \item Die Gleichung $10t\cdot e^{-0{,}5t} = 4$ ist nicht elementar lösbar; mit dem Rechner (Schnittpunkte von $G_c$ mit $y=4$): $t_1\approx 0{,}52$ und $t_2\approx 5{,}09$. Dazwischen ist $c(t)\geq 4$ (z.\,B. $c(2)\approx 7{,}36$). Das Medikament wirkt etwa $5{,}09-0{,}52\approx 4{,}57$ Stunden lang.
+  \item Produktregel:
+  \[C'(t) = -20e^{-0{,}5t}-(20t+40)\cdot(-0{,}5)e^{-0{,}5t} = e^{-0{,}5t}\cdot(-20+10t+20) = 10t\cdot e^{-0{,}5t} = c(t)\]
+  Mittlere Konzentration (Mittelwert einer Funktion über $[0;6]$):
+  \[\bar{c} = \dfrac{1}{6}\integral[limits-mode=limits,limits={0, 6}, variable={t}]{c(t)} = \dfrac{1}{6}\big(C(6)-C(0)\big) = \dfrac{1}{6}\left(-160e^{-3}+40\right)\approx 5{,}34\]
+  In den ersten $6$ Stunden beträgt die mittlere Konzentration etwa $5{,}34\,\frac{\text{mg}}{\text{l}}$.
+  \item Grenzwertverhalten der $e$-Funktion: $e^{-0{,}5t}$ strebt schneller gegen $0$, als $10t$ wächst, also $\lim\limits_{t\longrightarrow\infty}c(t) = 0$. Das Medikament wird langfristig vollständig abgebaut.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.31}{Funktionenschar mit Exponentialfunktion}
+Produkt- und Kettenregel:
+\[f_a'(x) = e^{-ax}+x\cdot(-a)e^{-ax} = (1-ax)\cdot e^{-ax},\qquad f_a''(x) = -ae^{-ax}+(1-ax)(-a)e^{-ax} = a\cdot(ax-2)\cdot e^{-ax}\]
+\begin{enumerate}[label=\alph*)]
+  \item Wegen $e^{-ax}>0$ ist $x=0$ die einzige Nullstelle.\\
+  $x\longrightarrow+\infty$: $e^{-ax} = \frac{1}{e^{ax}}$ strebt schneller gegen $0$, als $x$ wächst ($a>0$), also $f_a(x)\longrightarrow 0$.\\
+  $x\longrightarrow-\infty$: $x\longrightarrow-\infty$ und $e^{-ax}\longrightarrow+\infty$, also $f_a(x)\longrightarrow-\infty$.
+  \item $f_a'(x)=0\Longleftrightarrow 1-ax=0\Longleftrightarrow x=\frac{1}{a}$. Weil $a>0$ ist, ist $1-ax$ für $x<\frac{1}{a}$ positiv und für $x>\frac{1}{a}$ negativ: VZW von $+$ nach $-$, also Hochpunkt.
+  \[f_a\left(\tfrac{1}{a}\right) = \dfrac{1}{a}\cdot e^{-1}\quad\Longrightarrow\quad HoP\left(\tfrac{1}{a}\Big|\tfrac{1}{ae}\right)\]
+  \item Für den Hochpunkt gilt $x=\frac{1}{a}$ und $y=\frac{1}{a}\cdot\frac{1}{e} = \frac{1}{e}\cdot x$. Alle Hochpunkte liegen also auf der Ursprungsgeraden $y=\frac{1}{e}x$ (Ortskurve, für $x>0$).
+  \item $f_a''(x)=0\Longleftrightarrow ax-2=0\Longleftrightarrow x=\frac{2}{a}$. Da $ax-2$ dort das Vorzeichen wechselt (und $a\cdot e^{-ax}>0$), ist $x=\frac{2}{a}$ Wendestelle.
+  \item \[F_a'(x) = -\dfrac{1}{a}e^{-ax}-\left(\dfrac{x}{a}+\dfrac{1}{a^2}\right)\cdot(-a)e^{-ax} = e^{-ax}\cdot\left(-\dfrac{1}{a}+x+\dfrac{1}{a}\right) = x\cdot e^{-ax} = f_a(x)\]
+  Für $x\geq 0$ ist $f_a(x)\geq 0$. Uneigentliches Integral:
+  \[\integral[limits-mode=limits,limits={0, z}]{f_a(x)} = F_a(z)-F_a(0) = -\left(\dfrac{z}{a}+\dfrac{1}{a^2}\right)e^{-az}+\dfrac{1}{a^2}\;\xrightarrow{z\to\infty}\;0+\dfrac{1}{a^2} = \dfrac{1}{a^2},\]
+  denn $z\cdot e^{-az}\longrightarrow 0$ und $e^{-az}\longrightarrow 0$. Aus $\frac{1}{a^2} = 4$ folgt $a^2 = \frac{1}{4}$, wegen $a>0$ also $a = \frac{1}{2}$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.32}{Skateboard-Rampe}
+\begin{enumerate}[label=\alph*)]
+  \item Ansatz $f(x) = ax^3+bx^2+cx+d$, $f'(x) = 3ax^2+2bx+c$. Bedingungen:
+  \begin{align*}
+    f(0) = 0:&\quad d = 0 & f'(0) = 0:&\quad c = 0\\
+    f(4) = 2:&\quad 64a+16b = 2\ \text{(I)} & f'(4) = 0:&\quad 48a+8b = 0\ \text{(II)}
+  \end{align*}
+  Aus (II): $b = -6a$. In (I): $64a-96a = 2$, also $a = -\frac{1}{16}$ und $b = \frac{3}{8}$.
+  \[f(x) = -\dfrac{1}{16}x^3+\dfrac{3}{8}x^2\]
+  \item Die Steigung $f'(x) = -\frac{3}{16}x^2+\frac{3}{4}x$ ist maximal, wo $f''(x) = -\frac{3}{8}x+\frac{3}{4} = 0$ ist, also bei $x=2$ ($f''$ wechselt dort von $+$ nach $-$; an den Rändern ist $f'(0)=f'(4)=0$).
+  \[f'(2) = -\dfrac{3}{4}+\dfrac{3}{2} = \dfrac{3}{4},\qquad \tan{\alpha} = \dfrac{3}{4}\;\Longrightarrow\;\alpha\approx 36{,}87^{\circ}\]
+  Die Rampe ist $2\,\text{m}$ vom Anfang entfernt (Wendepunkt $(2|1)$) am steilsten, mit einem Steigungswinkel von etwa $36{,}9^{\circ}$.
+  \item Querschnittsfläche (es ist $f(x)\geq 0$ auf $[0;4]$):
+  \[A = \integral[limits-mode=limits,limits={0, 4}]{\left(-\dfrac{1}{16}x^3+\dfrac{3}{8}x^2\right)} = \left[-\dfrac{1}{64}x^4+\dfrac{1}{8}x^3\right]_0^4 = -4+8 = 4\ (\text{m}^2)\]
+  Betonvolumen: $V = A\cdot 3\,\text{m} = 12\,\text{m}^3$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.33}{Tagestemperatur}
+\begin{enumerate}[label=\alph*)]
+  \item Wegen $-1\leq\cos\leq 1$ gilt $12\leq T(t)\leq 24$.
+  \begin{itemize}
+    \item Minimum $12\,^{\circ}$C für $\cos{(\ldots)}=1$: $\frac{\pi}{12}(t-3) = 0$, also $t=3$ (3:00 Uhr).
+    \item Maximum $24\,^{\circ}$C für $\cos{(\ldots)}=-1$: $\frac{\pi}{12}(t-3) = \pi$, also $t=15$ (15:00 Uhr).
+  \end{itemize}
+  (Weitere Lösungen liegen außerhalb von $[0;24]$.)
+  \item \[T(t)\geq 21\;\Longleftrightarrow\;-6\cos{\left(\tfrac{\pi}{12}(t-3)\right)}\geq 3\;\Longleftrightarrow\;\cos{\left(\tfrac{\pi}{12}(t-3)\right)}\leq-\dfrac{1}{2}\]
+  Mit $z = \frac{\pi}{12}(t-3)\in\left[-\frac{\pi}{4};\frac{7\pi}{4}\right]$ gilt das für $\frac{2\pi}{3}\leq z\leq\frac{4\pi}{3}$, also $8\leq t-3\leq 16$ bzw. $11\leq t\leq 19$. Die Temperatur beträgt von 11 bis 19 Uhr, also $8$ Stunden lang, mindestens $21\,^{\circ}$C.
+  \item Kettenregel: $T'(t) = 6\cdot\dfrac{\pi}{12}\sin{\left(\tfrac{\pi}{12}(t-3)\right)} = \dfrac{\pi}{2}\sin{\left(\tfrac{\pi}{12}(t-3)\right)}$.\\
+  $T'$ ist maximal, wenn $\sin{(\ldots)} = 1$, also $\frac{\pi}{12}(t-3) = \frac{\pi}{2}$ bzw. $t=9$. Um 9 Uhr steigt die Temperatur am stärksten, mit $\frac{\pi}{2}\approx 1{,}57\,\frac{^{\circ}\text{C}}{\text{h}}$.
+  \item \[\bar{T} = \dfrac{1}{24}\integral[limits-mode=limits,limits={0, 24}, variable={t}]{T(t)} = \dfrac{1}{24}\left[18t-\dfrac{72}{\pi}\sin{\left(\tfrac{\pi}{12}(t-3)\right)}\right]_0^{24} = \dfrac{1}{24}\left(432-\dfrac{72}{\pi}\left(\sin{\left(\tfrac{7\pi}{4}\right)}-\sin{\left(-\tfrac{\pi}{4}\right)}\right)\right) = 18\]
+  (Es ist $\sin{(\frac{7\pi}{4})} = \sin{(-\frac{\pi}{4})} = -\frac{\sqrt{2}}{2}$.) Die mittlere Temperatur beträgt $18\,^{\circ}$C. \textit{Deutung:} $24$ Stunden sind genau eine Periode $p = \frac{2\pi}{\pi/12} = 24$; über eine volle Periode heben sich die Flächen des Kosinusanteils auf, es bleibt die Mittellinie $T=18$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.34}{Gebrochen-rationale Funktion und Fläche}
+\begin{enumerate}[label=\alph*)]
+  \item $x^2+4\geq 4>0$, der Nenner wird also nie null: $\mathds{D}_f = \mathds{R}$.\\
+  $f(-x) = \frac{-8x}{x^2+4} = -f(x)$: $G_f$ ist punktsymmetrisch zum Ursprung.\\
+  Zählergrad $1$ < Nennergrad $2$, also $f(x)\longrightarrow 0$ für $x\longrightarrow\pm\infty$: waagrechte Asymptote $y=0$.
+  \item Quotientenregel:
+  \[f'(x) = \dfrac{8(x^2+4)-8x\cdot 2x}{(x^2+4)^2} = \dfrac{8\cdot(4-x^2)}{(x^2+4)^2}\]
+  $f'(x)=0\Longleftrightarrow x=\pm 2$. Der Nenner ist positiv, $4-x^2$ ist für $|x|<2$ positiv und für $|x|>2$ negativ.
+  \begin{itemize}
+    \item $x=2$: VZW von $+$ nach $-$, $f(2) = \frac{16}{8} = 2$: $HoP(2|2)$.
+    \item $x=-2$: VZW von $-$ nach $+$, $f(-2) = -2$: $TiP(-2|-2)$ (auch aus der Punktsymmetrie).
+  \end{itemize}
+  \item $f''(x)=0\Longleftrightarrow x=0$ oder $x^2=12$, also $x\in\{-2\sqrt{3};0;2\sqrt{3}\}$. Alle sind einfache Nullstellen des Zählers, der Nenner ist positiv; $f''$ wechselt dort das Vorzeichen. Wendepunkte:
+  \[W_1(-2\sqrt{3}|-\sqrt{3}),\quad W_2(0|0),\quad W_3(2\sqrt{3}|\sqrt{3}),\quad\text{denn}\ f(2\sqrt{3}) = \dfrac{16\sqrt{3}}{16} = \sqrt{3}.\]
+  \item Für $x>0$ ist $f(x)>0$, und $G_f$ geht durch den Ursprung. Die Fläche reicht also von $0$ bis $u$. Regel $\integral{\frac{g'(x)}{g(x)}} = \ln{|g(x)|}+c$ mit $g(x) = x^2+4$, $g'(x) = 2x$:
+  \[A(u) = \integral[limits-mode=limits,limits={0, u}]{\dfrac{8x}{x^2+4}} = 4\integral[limits-mode=limits,limits={0, u}]{\dfrac{2x}{x^2+4}} = 4\left[\ln{(x^2+4)}\right]_0^u = 4\ln{(u^2+4)}-4\ln{(4)} = 4\ln{\left(\dfrac{u^2+4}{4}\right)}\]
+  $A(u) = 4\ln{(5)}\Longleftrightarrow\frac{u^2+4}{4} = 5\Longleftrightarrow u^2 = 16$, wegen $u>0$ also $u = 4$.
+  \item
+  \begin{center}
+  \begin{tikzpicture}
+  \begin{axis}[ticklabel style={fill=none}, every tick label/.append style={fill=none},
+      axis lines=middle, xmin=-6.5, xmax=6.5, ymin=-2.6, ymax=2.6,
+      x=0.8cm, y=1cm, xtick={-6,-4,...,6}, ytick={-2,-1,...,2},
+      xlabel=$x$, ylabel=$y$, grid=major, grid style={gray!30}]
+    \addplot[thick, samples=200, domain=-6:6]{8*x/(x^2+4)};
+    \addplot[only marks, mark=*] coordinates {(2,2) (-2,-2) (0,0) (3.4641,1.7321) (-3.4641,-1.7321)};
+    \node[above] at (axis cs:2,2) {\small $HoP$};
+    \node[below] at (axis cs:-2,-2) {\small $TiP$};
+    \node[above right] at (axis cs:4.5,1.6) {$G_f$};
+  \end{axis}
+  \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.35}{Sektglas}
+\begin{enumerate}[label=\alph*)]
+  \item Volumen von Rotationskörpern:
+  \[V(h) = \pi\integral[limits-mode=limits,limits={0, h}]{\left(\sqrt{2x}\right)^2} = \pi\integral[limits-mode=limits,limits={0, h}]{2x} = \pi\left[x^2\right]_0^h = \pi h^2\]
+  Volles Glas: $V(8) = 64\pi\approx 201\,\text{cm}^3$, also etwa $201\,\text{ml}$.
+  \item $\pi h^2 = 32\pi\Longleftrightarrow h^2 = 32$, wegen $h>0$ also $h = 4\sqrt{2}\approx 5{,}66\,\text{cm}$. Das ist deutlich mehr als die halbe Glashöhe ($4\,\text{cm}$): Das Glas ist unten schmal und oben breit, sodass die untere Hälfte der Höhe nur $V(4) = 16\pi$, also ein Viertel des Volumens, fasst.
+  \item Füllzeit: $\dfrac{64\pi\,\text{ml}}{20\,\frac{\text{ml}}{\text{s}}}\approx 10{,}05\,\text{s}$.\\
+  Pro Sekunde kommen stets $20\,\text{ml}$ hinzu. Die Änderung des Volumens pro Zentimeter Füllhöhe ist $V'(h) = 2\pi h$ und wächst mit $h$ (der Querschnitt wird größer). Dieselben $20\,\text{ml}$ heben den Spiegel deshalb bei kleiner Füllhöhe stärker an als bei großer.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.36}{Logistisches Wachstum}
+\begin{enumerate}[label=\alph*)]
+  \item $B(0) = \dfrac{1000}{1+9} = 100$. Für $t\longrightarrow\infty$ gilt $e^{-0{,}5t}\longrightarrow 0$, also $B(t)\longrightarrow\dfrac{1000}{1} = 1000$.\\
+  Anfangsbestand $100\,000$ Bakterien, Sättigungsgrenze $1\,000\,000$ Bakterien.
+  \item \[\dfrac{1000}{1+9e^{-0{,}5t}} = 500\ \Longleftrightarrow\ 1+9e^{-0{,}5t} = 2\ \Longleftrightarrow\ e^{-0{,}5t} = \dfrac{1}{9}\ \Longleftrightarrow\ t = 2\ln{(9)}\approx 4{,}39\]
+  Nach etwa $4{,}39$ Stunden ist die Hälfte der Sättigungsgrenze erreicht.
+  \item Kettenregel ($B(t) = 1000\cdot(1+9e^{-0{,}5t})^{-1}$):
+  \[B'(t) = -1000\cdot(1+9e^{-0{,}5t})^{-2}\cdot(-4{,}5e^{-0{,}5t}) = \dfrac{4500e^{-0{,}5t}}{(1+9e^{-0{,}5t})^2}\]
+  Rechte Seite: Mit $1-\dfrac{B(t)}{1000} = 1-\dfrac{1}{1+9e^{-0{,}5t}} = \dfrac{9e^{-0{,}5t}}{1+9e^{-0{,}5t}}$ folgt
+  \[0{,}5\cdot\dfrac{1000}{1+9e^{-0{,}5t}}\cdot\dfrac{9e^{-0{,}5t}}{1+9e^{-0{,}5t}} = \dfrac{4500e^{-0{,}5t}}{(1+9e^{-0{,}5t})^2} = B'(t)\]
+  \item Nach c) hängt die Wachstumsrate nur vom Bestand ab: $B' = 0{,}5\cdot B\cdot\left(1-\frac{B}{1000}\right)$. Als Funktion von $B$ ist das eine nach unten geöffnete Parabel mit den Nullstellen $B=0$ und $B=1000$; ihr Scheitel liegt in der Mitte bei $B=500$. Die maximale Wachstumsrate ist
+  \[0{,}5\cdot 500\cdot\left(1-\dfrac{500}{1000}\right) = 125\]
+  also $125\,000$ Bakterien pro Stunde, erreicht nach b) zur Zeit $t = 2\ln{(9)}\approx 4{,}39$ (Wendestelle von $G_B$).
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.37}{Schachtel mit maximalem Volumen}
+\begin{enumerate}[label=\alph*)]
+  \item Grundfläche $(30-2x)\cdot(16-2x)$, Höhe $x$:
+  \[V(x) = x\cdot(30-2x)\cdot(16-2x) = 4x^3-92x^2+480x\]
+  Alle Maße müssen positiv sein: $x>0$ und $16-2x>0\Longleftrightarrow x<8$. Also $\mathds{D}_V = ]0;8[$.
+  \item $V'(x) = 12x^2-184x+480 = 4\cdot(3x^2-46x+120) = 0$. Mitternachtsformel:
+  \[x_{1,2} = \dfrac{46\pm\sqrt{2116-1440}}{6} = \dfrac{46\pm 26}{6}\quad\Longrightarrow\quad x_1 = \dfrac{10}{3},\ x_2 = 12\notin\mathds{D}_V\]
+  $V''(x) = 24x-184$, $V''(\frac{10}{3}) = 80-184 = -104<0$: Maximum. Da $V$ an den Rändern von $\mathds{D}_V$ gegen $0$ strebt, ist es das absolute Maximum.
+  \[V\left(\dfrac{10}{3}\right) = \dfrac{10}{3}\cdot\dfrac{70}{3}\cdot\dfrac{28}{3} = \dfrac{19600}{27}\approx 725{,}9\]
+  Bei $x = \frac{10}{3}\,\text{cm}\approx 3{,}33\,\text{cm}$ ist das Volumen mit etwa $726\,\text{cm}^3$ maximal.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{1.38}{Tunnelquerschnitt}
+\begin{enumerate}[label=\alph*)]
+  \item $p(\pm 4) = 4-4 = 0$ und $k(\pm 4) = 4\cos{\left(\pm\frac{\pi}{2}\right)} = 0$: beide Modelle sind am Boden $8\,\text{m}$ breit.\\
+  $p$ ist eine nach unten geöffnete Parabel mit Scheitel $(0|4)$; $k$ hat wegen $\cos\leq 1$ den Maximalwert $k(0) = 4$. Beide sind maximal $4\,\text{m}$ hoch.
+  \item \[A_p = \integral[limits-mode=limits,limits={-4, 4}]{\left(4-\dfrac{1}{4}x^2\right)} = \left[4x-\dfrac{1}{12}x^3\right]_{-4}^4 = 2\cdot\left(16-\dfrac{16}{3}\right) = \dfrac{64}{3}\approx 21{,}33\]
+  \[A_k = \integral[limits-mode=limits,limits={-4, 4}]{4\cos{\left(\dfrac{\pi}{8}x\right)}} = \left[\dfrac{32}{\pi}\sin{\left(\dfrac{\pi}{8}x\right)}\right]_{-4}^4 = \dfrac{64}{\pi}\approx 20{,}37\]
+  Die Querschnittsflächen betragen etwa $21{,}33\,\text{m}^2$ bzw. $20{,}37\,\text{m}^2$.
+  \item Das Fahrzeug reicht von $x=-1{,}25$ bis $x=1{,}25$. Beide Funktionen sind achsensymmetrisch und fallen für $x>0$ streng monoton, die kritische Stelle ist also die Fahrzeugkante $x = 1{,}25$:
+  \[p(1{,}25)\approx 3{,}61>3,\qquad k(1{,}25)\approx 3{,}53>3\]
+  Das Fahrzeug passt in beiden Modellen durch den Tunnel.
+  \item $p(x) = 3\Longleftrightarrow x^2 = 4\Longleftrightarrow x = \pm 2$: Breite $4\,\text{m}$.\\
+  $k(x) = 3\Longleftrightarrow\cos{\left(\frac{\pi}{8}x\right)} = 0{,}75\Longleftrightarrow x = \pm\frac{8}{\pi}\arccos{(0{,}75)}\approx\pm 1{,}84$: Breite etwa $3{,}68\,\text{m}$.
 \end{enumerate}
 \end{loesung}
 

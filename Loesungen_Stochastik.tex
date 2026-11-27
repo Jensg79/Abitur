@@ -1,5 +1,5 @@
 % =====================================================================
-% Lösungsteil zu Kapitel 3 (Stochastik) – Lösungen zu Ü 3.1 bis Ü 3.12
+% Lösungsteil zu Kapitel 3 (Stochastik) – Lösungen zu Ü 3.1 bis Ü 3.22
 % Steht am Ende des Buches hinter dem Anhang.
 % Alle Ergebnisse wurden mit SymPy/SciPy nachgerechnet.
 % =====================================================================
@@ -244,6 +244,162 @@ $\mu = 500$, $\sigma = 4$.
   \[P(Y\geq 1) = 1-(1-p)^{20}\approx 1-0{,}97725^{20}\approx 0{,}3689\]
   \item \textit{Für das Modell spricht:} Die Füllmenge ist eine stetige Größe. Sie streut durch viele kleine, voneinander unabhängige Einflüsse (Maschine, Druck, Temperatur) symmetrisch um den Sollwert. Abweichungen in beide Richtungen sind gleich wahrscheinlich, große Abweichungen selten.\\
   \textit{Einschränkungen:} Die Normalverteilung ordnet auch unmöglichen Werten (z.\,B. negativen Füllmengen oder Mengen über dem Flascheninhalt) eine positive Wahrscheinlichkeit zu. Diese ist bei $\sigma=4$\,ml aber verschwindend klein. Ob die Werte in der Realität tatsächlich symmetrisch streuen, müsste man an Messdaten prüfen (z.\,B. könnten unterfüllte Flaschen aussortiert werden). Insgesamt ist die Modellierung sinnvoll.
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abiturniveau \textendash\ Teil A (ohne Hilfsmittel)}
+
+\begin{loesung}{3.13}{Unabhängigkeit}
+\begin{enumerate}[label=\alph*)]
+  \item Aus $P(I)=0{,}4$, $P(V)=0{,}5$ und $P(I\cap V)=0{,}2$ ergeben sich die übrigen Felder als Differenzen:
+  \begin{center}\begin{tabular}{|c|c|c|c|}
+    \hline
+     & $V$ & $\bar{V}$ & \\
+    \hline
+    $I$ & $0{,}2$ & $0{,}2$ & $0{,}4$\\
+    \hline
+    $\bar{I}$ & $0{,}3$ & $0{,}3$ & $0{,}6$\\
+    \hline
+     & $0{,}5$ & $0{,}5$ & $1$\\
+    \hline
+  \end{tabular}\end{center}
+  \item Additionssatz: $P(I\cup V) = P(I)+P(V)-P(I\cap V) = 0{,}4+0{,}5-0{,}2 = 0{,}7$.\\
+  (Oder über das Gegenereignis: $1-P(\bar{I}\cap\bar{V}) = 1-0{,}3 = 0{,}7$.)
+  \item Kriterium für stochastische Unabhängigkeit: $P(I\cap V) = P(I)\cdot P(V)$.
+  \[P(I)\cdot P(V) = 0{,}4\cdot 0{,}5 = 0{,}2 = P(I\cap V)\]
+  $I$ und $V$ sind stochastisch unabhängig: Der Anteil der Instrumentalisten ist unter Vereinssportlern genauso groß wie insgesamt, $P_V(I) = \frac{0{,}2}{0{,}5} = 0{,}4 = P(I)$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.14}{Münze und Urne}
+\begin{enumerate}[label=\alph*)]
+  \item Die Anzahl $X$ der Würfe mit Kopf ist nach $B(4;\frac{1}{2})$ verteilt. Bernoulli-Formel:
+  \[P(X=2) = \dbinom{4}{2}\cdot\left(\dfrac{1}{2}\right)^2\cdot\left(\dfrac{1}{2}\right)^2 = \dfrac{6}{16} = \dfrac{3}{8}\]
+  Gegenereignis \glqq kein Kopf\grqq: $P(X\geq 1) = 1-\left(\frac{1}{2}\right)^4 = \frac{15}{16}$.
+  \item 1.~Pfadregel (ohne Zurücklegen ändern sich die Anteile):
+  \[P(rr) = \dfrac{3}{5}\cdot\dfrac{2}{4} = \dfrac{3}{10},\qquad P(bb) = \dfrac{2}{5}\cdot\dfrac{1}{4} = \dfrac{1}{10}\]
+  2.~Pfadregel: $P(\text{gleiche Farbe}) = \frac{3}{10}+\frac{1}{10} = \frac{2}{5}$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.15}{Parameter einer Binomialverteilung}
+\begin{enumerate}[label=\alph*)]
+  \item Aus $E(X) = n\cdot p = 12$ und $\text{Var}(X) = n\cdot p\cdot(1-p) = 3$ folgt durch Division
+  \[1-p = \dfrac{3}{12} = \dfrac{1}{4}\quad\Longrightarrow\quad p = \dfrac{3}{4},\qquad n = \dfrac{12}{p} = 16\]
+  \item $\sigma = \sqrt{\text{Var}(X)} = \sqrt{3}\approx 1{,}73$.\\
+  $P(X=16) = \binom{16}{16}\cdot 0{,}75^{16}\cdot 0{,}25^0 = 0{,}75^{16}$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.16}{Brillenträger}
+\begin{enumerate}[label=\alph*)]
+  \item $P(B\cap M) = P(B)\cdot P_B(M) = 0{,}3\cdot 0{,}4 = 0{,}12$; die übrigen Felder ergeben sich über die Zeilen- und Spaltensummen:
+  \begin{center}
+  \begin{tabular}{c|c|c|c}
+            & $M$      & $\overline{M}$ & \\ \hline
+  $B$       & $0{,}12$ & $0{,}18$ & $0{,}3$ \\ \hline
+  $\overline{B}$ & $0{,}38$ & $0{,}32$ & $0{,}7$ \\ \hline
+            & $0{,}5$  & $0{,}5$  & $1$
+  \end{tabular}
+  \end{center}
+  \item Bedingte Wahrscheinlichkeit: $P_M(B) = \dfrac{P(B\cap M)}{P(M)} = \dfrac{0{,}12}{0{,}5} = 0{,}24$.
+  \item $P(B)\cdot P(M) = 0{,}3\cdot 0{,}5 = 0{,}15\neq 0{,}12 = P(B\cap M)$. Die Ereignisse sind stochastisch abhängig. (Gleichwertig: $P_M(B) = 0{,}24\neq 0{,}3 = P(B)$.)
+\end{enumerate}
+\end{loesung}
+
+\Uebungsabschnitt{Abiturniveau \textendash\ Teil B (mit Hilfsmitteln)}
+
+\begin{loesung}{3.17}{Besucherbefragung}
+Baumdiagramm mit erster Stufe $\ddot{O}$/$\bar{\ddot{O}}$ und zweiter Stufe $J$/$\bar{J}$.
+\begin{enumerate}[label=\alph*)]
+  \item Pfadregeln: $P(J) = 0{,}6\cdot 0{,}25+0{,}4\cdot 0{,}1 = 0{,}15+0{,}04 = 0{,}19$.
+  \item Bedingte Wahrscheinlichkeit:
+  \[P_J(\ddot{O}) = \dfrac{P(\ddot{O}\cap J)}{P(J)} = \dfrac{0{,}15}{0{,}19}\approx 0{,}789\]
+  \item Bei zufälliger Auswahl aus sehr vielen Besuchern ist $X$ näherungsweise nach $B(20;0{,}19)$ verteilt.
+  \begin{align*}
+    P(X=4) &= \dbinom{20}{4}\cdot 0{,}19^4\cdot 0{,}81^{16}\approx 0{,}2168\\
+    P(X\leq 2) &= P^{20}_{0{,}19}(X\leq 2)\approx 0{,}2386\\
+    P(X>5) &= 1-P^{20}_{0{,}19}(X\leq 5)\approx 0{,}1643\\
+    E(X) &= n\cdot p = 20\cdot 0{,}19 = 3{,}8
+  \end{align*}
+  \item Gegenereignis \glqq keiner jünger als 18\grqq:
+  \[1-0{,}81^n\geq 0{,}99\;\Longleftrightarrow\;0{,}81^n\leq 0{,}01\;\Longleftrightarrow\;n\geq\dfrac{\ln{(0{,}01)}}{\ln{(0{,}81)}}\approx 21{,}9\]
+  (Division durch $\ln{(0{,}81)}<0$ dreht das Ungleichheitszeichen.) Man muss mindestens $22$ Besucher auswählen. Kontrolle: $1-0{,}81^{21}\approx 0{,}9880<0{,}99$, $1-0{,}81^{22}\approx 0{,}9903$.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.18}{Heilungsrate eines Medikaments}
+Testgröße $X$: Anzahl der Patienten unter $100$, bei denen das Medikament wirkt; $X$ ist nach $B(100;p)$ verteilt.
+\begin{enumerate}[label=\alph*)]
+  \item $H_1: p<0{,}8$. Gegen $H_0$ und für $H_1$ sprechen \emph{wenige} Patienten mit Wirkung, also liegt der Ablehnungsbereich am unteren Rand: $K = \{0;1;\ldots;k\}$ (linksseitiger Test).
+  \item Gesucht ist das größte $k$ mit $P^{100}_{0{,}8}(X\leq k)\leq 0{,}05$ (der Fehler erster Art ist am größten für $p=0{,}8$):
+  \begin{center}\begin{tabular}{|c|c|}
+    \hline
+    $k$ & $P^{100}_{0{,}8}(X\leq k)$\\
+    \hline
+    $72$ & $0{,}0342\leq 0{,}05$\\
+    \hline
+    $73$ & $0{,}0558>0{,}05$\\
+    \hline
+  \end{tabular}\end{center}
+  Also $K = \{0;\ldots;72\}$. \textit{Entscheidungsregel:} Wirkt das Medikament bei höchstens $72$ der $100$ Patienten, wird die Angabe des Herstellers abgelehnt, sonst nicht.
+  \item \textit{Fehler zweiter Art:} Die Krankenkasse lehnt die Angabe des Herstellers nicht ab (mindestens $73$ Patienten mit Wirkung), obwohl das Medikament tatsächlich bei weniger als $80\,\%$ der Patienten wirkt.
+  \[\beta = P^{100}_{0{,}7}(X\geq 73) = 1-P^{100}_{0{,}7}(X\leq 72)\approx 0{,}2244\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.19}{Körpergröße}
+$\mu = 178$, $\sigma = 7$; Werte mit der Normalverteilungsfunktion $\Phi_{178;7}$ des Rechners.
+\begin{enumerate}[label=\alph*)]
+  \item $P(X>190) = 1-\Phi_{178;7}(190)\approx 0{,}0432$, also etwa $4{,}3\,\%$.
+  \item $P(170\leq X\leq 185) = \Phi_{178;7}(185)-\Phi_{178;7}(170)\approx 0{,}7148$, also etwa $71{,}5\,\%$.
+  \item Gesucht ist $h$ mit $P(X\leq h) = 0{,}99$. Mit der inversen Normalverteilung des Rechners: $h\approx 194{,}3$. (Kontrolle mit der Standardnormalverteilung: $h = \mu+2{,}326\sigma\approx 178+16{,}3$.) Die Tür muss mindestens etwa $1{,}95\,\text{m}$ hoch sein.
+  \item Die Anzahl $Y$ der Männer über $190\,\text{cm}$ ist nach $B(10;p)$ mit $p\approx 0{,}0432$ verteilt (unabhängige Auswahl):
+  \[P(Y\geq 1) = 1-(1-p)^{10}\approx 1-0{,}9568^{10}\approx 0{,}357\]
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.20}{Faires Urnenspiel}
+\begin{enumerate}[label=\alph*)]
+  \item Pfadregeln (siehe Ü~3.14\,b)): $P(rr) = \frac{3}{10}$, $P(bb) = \frac{1}{10}$, $P(\text{verschieden}) = 1-\frac{3}{10}-\frac{1}{10} = \frac{6}{10}$.
+  \begin{center}\begin{tabular}{|c|c|c|c|}
+    \hline
+    $x_i$ (in €) & $2-1 = 1$ & $0-1 = -1$ & $a-1$\\
+    \hline
+    $P(X=x_i)$ & $\frac{3}{10}$ & $\frac{6}{10}$ & $\frac{1}{10}$\\
+    \hline
+  \end{tabular}\end{center}
+  \item Fair heißt $E(X) = 0$:
+  \[1\cdot\dfrac{3}{10}+(-1)\cdot\dfrac{6}{10}+(a-1)\cdot\dfrac{1}{10} = \dfrac{a-4}{10} = 0\quad\Longleftrightarrow\quad a = 4\]
+  \item Mit $a=4$ und $\mu = 0$:
+  \[Var(X) = 1^2\cdot\dfrac{3}{10}+(-1)^2\cdot\dfrac{6}{10}+3^2\cdot\dfrac{1}{10} = \dfrac{18}{10} = 1{,}8,\qquad\sigma = \sqrt{1{,}8}\approx 1{,}34\ \text{€}\]
+  \item Mit $a=3$: $E(X) = \frac{3-4}{10} = -0{,}1$. Der Spieler verliert im Mittel $0{,}10$\,€ pro Spiel, der Betreiber nimmt also im Mittel $0{,}10$\,€ ein. Bei $500$ Spielen erwartet er $500\cdot 0{,}10\,\text{€} = 50$\,€.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.21}{Überbuchung}
+$X$: Anzahl der erscheinenden Fluggäste. Da jeder Gast unabhängig mit gleicher Wahrscheinlichkeit erscheint, ist $X$ binomialverteilt mit $p = 0{,}95$.
+\begin{enumerate}[label=\alph*)]
+  \item $n = 125$: $E(X) = 125\cdot 0{,}95 = 118{,}75$.\\
+  Nicht alle erhalten einen Platz, wenn mehr als $120$ Gäste erscheinen:
+  \[P^{125}_{0{,}95}(X\geq 121) = 1-P^{125}_{0{,}95}(X\leq 120)\approx 0{,}2459\]
+  \item Gesucht ist das größte $n$ mit $P^{n}_{0{,}95}(X\geq 121)\leq 0{,}05$. Mit dem Rechner (Tabellieren in $n$):
+  \[n = 122:\ P\approx 0{,}0142\leq 0{,}05,\qquad n = 123:\ P\approx 0{,}0514>0{,}05\]
+  Die Wahrscheinlichkeit wächst mit $n$. Es dürfen höchstens $122$ Tickets verkauft werden.
+\end{enumerate}
+\end{loesung}
+
+\begin{loesung}{3.22}{Wartezeit an der Haltestelle}
+\begin{enumerate}[label=\alph*)]
+  \item $f$ ist auf $[0;4]$ linear und fallend mit $f(0) = \frac{1}{2}$ und $f(4) = 0$, also $f(x)\geq 0$ für alle $x$. Normierung:
+  \[\integral[limits-mode=limits,limits={0, 4}]{\left(\dfrac{1}{2}-\dfrac{1}{8}x\right)} = \left[\dfrac{1}{2}x-\dfrac{1}{16}x^2\right]_0^4 = 2-1 = 1\]
+  Damit ist $f$ eine Dichtefunktion.
+  \item \[P(X\leq 1) = \left[\dfrac{1}{2}x-\dfrac{1}{16}x^2\right]_0^1 = \dfrac{1}{2}-\dfrac{1}{16} = \dfrac{7}{16} = 0{,}4375\]
+  \item Erwartungswert einer stetigen Zufallsgröße:
+  \[E(X) = \integral[limits-mode=limits,limits={0, 4}]{x\cdot\left(\dfrac{1}{2}-\dfrac{1}{8}x\right)} = \left[\dfrac{1}{4}x^2-\dfrac{1}{24}x^3\right]_0^4 = 4-\dfrac{8}{3} = \dfrac{4}{3}\]
+  Die mittlere Wartezeit beträgt $\frac{4}{3}\,\text{min} = 1\,\text{min}\ 20\,\text{s}$.
+  \item \[P(X\leq m) = \dfrac{1}{2}m-\dfrac{1}{16}m^2 = \dfrac{1}{2}\quad\Longleftrightarrow\quad m^2-8m+8 = 0\quad\Longleftrightarrow\quad m = 4\pm 2\sqrt{2}\]
+  Nur $m = 4-2\sqrt{2}\approx 1{,}17$ liegt in $[0;4]$. In der Hälfte aller Fälle wartet man höchstens etwa $1{,}17$ Minuten.
 \end{enumerate}
 \end{loesung}
 
